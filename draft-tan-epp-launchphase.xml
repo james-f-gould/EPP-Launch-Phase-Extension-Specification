@@ -1604,15 +1604,18 @@ UZWc1Z2SjdWUFJqS2VZM0RLcUwrTGhRPT08L2RzaWc6U2lnbmF0dXJlVmFsdWU
     <resData>
       <domain:creData
          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-       <domain:name>example.tld</domain:name>
-       <domain:crDate>2010-08-10T15:38:26.623854Z</domain:crDate>
-       <domain:exDate>2012-08-10T15:38:26.623854Z</domain:exDate>
+        <domain:name>example.tld</domain:name>
+        <domain:crDate>2010-08-10T15:38:26.623854Z</domain:crDate>
+        <domain:exDate>2012-08-10T15:38:26.623854Z</domain:exDate>
       </domain:creData>
     </resData>
     <extension>
-      <launch:creData xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
+      <launch:creData 
+       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>sunrise</launch:phase>
-        <launch:applicationID>2393-9323-E08C-03B1</launch:applicationID>
+        <launch:applicationID>
+          2393-9323-E08C-03B1
+        </launch:applicationID>
       </launch:creData>
     </extension>
     <trID>
