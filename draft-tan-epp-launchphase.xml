@@ -513,7 +513,7 @@
         <t>The contact information contained within the <xref target="mark">Mark</xref> cannot 
         be defined via a contact identifier as defined in the <xref target="RFC5733">EPP contact mapping</xref> since 
         it is contact information defined outside of the server.  Some of the contact elements defined in 
-        <xref target="RFC5733">EPP contact mapping</xref> are replicated in this extension.</t>  
+        <xref target="RFC5733">EPP contact mapping</xref> are replicated for the mark contact so there is no dependency to the <xref target="RFC5733">EPP contact mapping</xref> XML schema from the Mark XML schema.</t>  
 
         <t>The child elements of a contact using either the &lt;mark:owner&gt; or 
         &lt;mark:contact&gt; elements include:
@@ -533,6 +533,8 @@
 
                   <t hangText="&lt;mark:sp&gt;">The contact's state or province.</t>
 
+                  <t hangText="&lt;mark:pc&gt;">The contact's postal code.</t>
+                  
                   <t hangText="&lt;mark:cc&gt;">The contact's country code.</t>
                 </list></t>
 
@@ -584,7 +586,7 @@
             can be compared with a revocation list by the server.</t>
 
            <t hangText="&lt;smd:exDate&gt;:">OPTIONAL date and time that the 
-            &lt;smd:signedMark&gt; expires.  The server MUST NOT accept 
+            &lt;smd:signedMark&gt; expiry.  The server MUST NOT accept 
             a &lt;smd:signedMark&gt; that has expired.  No &lt;smd:exDate&gt; 
             element indicates that there is no expiry.</t>            
 
@@ -1611,10 +1613,9 @@ UZWc1Z2SjdWUFJqS2VZM0RLcUwrTGhRPT08L2RzaWc6U2lnbmF0dXJlVmFsdWU
     </resData>
     <extension>
       <launch:creData 
-       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
+        xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>sunrise</launch:phase>
-        <launch:applicationID>
-          2393-9323-E08C-03B1
+        <launch:applicationID>2393-9323-E08C-03B1
         </launch:applicationID>
       </launch:creData>
     </extension>
@@ -2555,6 +2556,9 @@ END]]></artwork>
       <t><list style="numbers">
         <t>Removed reference to &lt;smd:zone&gt; in the &lt;smd:signedMark&gt; example.</t>
         <t>Incorporated feedback from Bernhard Reutner-Fischer on the provreg mail list.</t>
+        <t>Added missing launch XML prefix to applicationIDType reference in the idContainerType of the Launch Schema.</t>
+        <t>Added missing description of the &lt;mark:pc&gt; element in the &lt;mark:addr&gt; element.</t>
+        <t>Updated note on replication of the EPP contact mapping elements in the Mark Contact section.</t>
       </list></t>
     </section>
    </section>
