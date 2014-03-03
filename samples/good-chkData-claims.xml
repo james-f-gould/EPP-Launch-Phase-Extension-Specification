@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
-     epp-1.0.xsd">
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <response>
     <result code="1000">
      <msg>Command completed successfully</msg>
     </result>
 	 <extension>
      <launch:chkData
-      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
-      xsi:schemaLocation="urn:ietf:params:xml:ns:launch-1.0
-      launch-1.0.xsd">
+      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
       <launch:phase>claims</launch:phase>
       <launch:cd>
         <launch:name exists="0">example1.tld</launch:name>

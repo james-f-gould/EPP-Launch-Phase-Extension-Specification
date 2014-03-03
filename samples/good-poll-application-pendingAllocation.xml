@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
-     epp-1.0.xsd">
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <response>
     <result code="1301">
       <msg>Command completed successfully; ack to dequeue</msg>
@@ -13,9 +10,7 @@
     </msgQ>
     <resData>
       <domain:infData
-       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
-       domain-1.0.xsd">
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>example.tld</domain:name>
         <domain:roid>EXAMPLE1-REP</domain:roid>
         <domain:clID>ClientX</domain:clID>
@@ -23,9 +18,7 @@
     </resData>
     <extension>
       <launch:infData
-       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:launch-1.0
-       launch-1.0.xsd">
+       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>sunrise</launch:phase>
           <launch:applicationID>abc123</launch:applicationID>
           <launch:status s="pendingAllocation"/>

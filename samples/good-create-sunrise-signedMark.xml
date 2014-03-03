@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
-     epp-1.0.xsd">
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <command>
     <create>
       <domain:create
-       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
-       domain-1.0.xsd">
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>exampleone.tld</domain:name>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
@@ -21,12 +16,9 @@
     <extension>
       <launch:create
        xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:launch-1.0
-       launch-1.0.xsd"
        type="application">
         <launch:phase>sunrise</launch:phase>
   <smd:signedMark xmlns:smd="urn:ietf:params:xml:ns:signedMark-1.0"
-  xsi:schemaLocation="urn:ietf:params:xml:ns:signedMark-1.0 signedMark-1.0"
   id="signedMark">
    <smd:id>1-2</smd:id>
    <smd:issuerInfo issuerID="2">
@@ -38,9 +30,7 @@
    <smd:notBefore>2009-08-16T09:00:00.0Z</smd:notBefore>
    <smd:notAfter>2010-08-16T09:00:00.0Z</smd:notAfter>
    <jmark:mark xmlns:jmark="urn:ietf:params:xml:ns:jimMark-1.0"
-   	xmlns:mark="urn:ietf:params:xml:ns:mark-1.0"
-    xsi:schemaLocation="urn:ietf:params:xml:ns:jimMark-1.0 jimMark-1.0.xsd 
-            urn:ietf:params:xml:ns:mark-1.0 mark-1.0.xsd" 
+   	xmlns:mark="urn:ietf:params:xml:ns:mark-1.0" 
             jim="gould">
     <mark:trademark>
      <mark:id>1234-2</mark:id>

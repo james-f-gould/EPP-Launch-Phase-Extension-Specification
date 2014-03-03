@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
-     epp-1.0.xsd">
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <command>
     <create>
       <domain:create
-       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
-       domain-1.0.xsd">
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>exampleone.tld</domain:name>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
@@ -20,14 +15,10 @@
     </create>
     <extension>
       <launch:create
-       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:launch-1.0
-       launch-1.0.xsd">
+       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>sunrise</launch:phase>
    <smd:encodedSignedMark
-      xmlns:smd="urn:ietf:params:xml:ns:signedMark-1.0"
-      xsi:schemaLocation="urn:ietf:params:xml:ns:signedMark-1.0
-         signedMark-1.0.xsd">
+      xmlns:smd="urn:ietf:params:xml:ns:signedMark-1.0">
    PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHNtZDpzaWdu
    ZWRNYXJrIHhtbG5zOnNtZD0idXJuOmlldGY6cGFyYW1zOnhtbDpuczpzaWduZWRN
    YXJrLTEuMCIgaWQ9InNpZ25lZE1hcmsiPgogIDxzbWQ6aWQ+MS0yPC9zbWQ6aWQ+

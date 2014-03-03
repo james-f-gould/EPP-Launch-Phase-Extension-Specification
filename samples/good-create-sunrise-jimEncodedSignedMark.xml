@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
-     epp-1.0.xsd">
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <command>
     <create>
       <domain:create
-       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
-       domain-1.0.xsd">
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>exampleone.tld</domain:name>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
@@ -20,14 +15,11 @@
     </create>
     <extension>
       <launch:create
-       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
-       xsi:schemaLocation="urn:ietf:params:xml:ns:launch-1.0
-       launch-1.0.xsd">
+       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>sunrise</launch:phase>
         <jimSM:encodedSignedMark 
          xmlns:jimSM="urn:ietf:params:xml:ns:jimSignedMark-1.0"
-         xsi:schemaLocation="urn:ietf:params:xml:ns:jimSignedMark-1.0
-         jimSignedMark-1.0.xsd" jim="gould">
+         jim="gould">
 D94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c21kOnNpZ25lZE1hcmsgeG1s
 bnM6c21kPSJ1cm46aWV0ZjpwYXJhbXM6eG1sOm5zOnNpZ25lZE1hcmstMS4wIiBpZD0ic2lnbmVk
 TWFyayI-PHNtZDpzZXJpYWw-MTIzNDU2PC9zbWQ6c2VyaWFsPjxzbWQ6ZXhEYXRlPjIwMTItMTEt
