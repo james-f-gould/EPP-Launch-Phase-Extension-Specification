@@ -1,10 +1,10 @@
-xmldsig-core-schema.xsd
+../xsd/xmldsig-core-schema.xsd
 eppcom-1.0.xsd
 epp-1.0.xsd
 host-1.0.xsd
 domain-1.0.xsd
-mark-1.0.xsd
+../xsd/mark-1.0.xsd
 jimMark-1.0.xsd
-signedMark-1.0.xsd
+../xsd/signedMark-1.0.xsd
 jimSignedMark-1.0.xsd
-launch-1.0.xsd
+../xsd/launch-1.0.xsd
