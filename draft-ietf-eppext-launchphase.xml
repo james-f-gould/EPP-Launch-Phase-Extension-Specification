@@ -38,7 +38,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-00" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-01" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -126,7 +126,7 @@
       </address>
     </author>
 
-    <date day="21" month="January" year="2014"/>
+    <date day="10" month="March" year="2014"/>
 
     <!-- Meta-data Declarations -->
 
@@ -339,8 +339,7 @@
         of the status when the status value is "custom".  The server SHOULD 
         NOT use the "custom" status value.</t>
 
-        <t>Certain status values MAY be combined. For example, an application or registration 
-        may be both "invalid" and "rejected". Additionally, certain statuses MAY be
+        <t>Status values MAY be
         skipped. For example, an application or registration MAY immediately start at the
         "allocated" status or an application or registration MAY skip the "pendingAllocation" status. 
         If the launch phase does
@@ -2218,6 +2217,13 @@ END]]></artwork>
           <t>Changed to eppext working group draft by changing draft-tan-epp-launchphase to 
           draft-ietf-eppext-launchphase and by changing references of draft-lozano-tmch-smd 
           to draft-ietf-eppext-tmch-smd.</t>
+      </list></t>
+    </section>
+    <section title="Change WG 00 to WG 01" anchor="change-wg00-to-wg01">
+      <t><list style="numbers">
+          <t>Removed text associated with support for the combining of status values 
+          based on feedback from Patrick Mevzek on the provreg mailing list, discussion on  
+          the eppext mailing list, and discussion at the eppext IETF meeting on March 6, 2014.</t>
       </list></t>
     </section>
    </section>
