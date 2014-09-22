@@ -151,8 +151,8 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    refers to a registration made during a launch phase when the server
    uses a "first-come, first-served" model.  Even in a "first-come,
    first-served" model, additional steps and information might be
-   required, such as trademark information.  In addition, the TMCH
-   Functional Specification [1] defines a registry interface for the
+   required, such as trademark information.  In addition, the
+   [I-D.draft-ietf-eppext-tmch-smd] defines a registry interface for the
    Trademark Claims or "claims" launch phase that includes support for
    presenting a Trademark Claims Notice to the Registrant.  This
    document proposes an extension to the domain name mapping in order to
@@ -194,14 +194,14 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
    "signedMark-1.0" is used as an abbreviation for
    "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in
-   [draft-ietf-eppext-tmch-smd].  The XML namespace prefix "smd" is
+   [I-D.draft-ietf-eppext-tmch-smd].  The XML namespace prefix "smd" is
    used, but implementations MUST NOT depend on it and instead employ a
    proper namespace-aware XML parser and serializer to interpret and
    output the XML documents.
 
    "mark-1.0" is used as an abbreviation for
    "urn:ietf:params:xml:ns:mark-1.0" that is defined in
-   [draft-ietf-eppext-tmch-smd].  The XML namespace prefix "mark" is
+   [I-D.draft-ietf-eppext-tmch-smd].  The XML namespace prefix "mark" is
    used, but implementations MUST NOT depend on it and instead employ a
    proper namespace-aware XML parser and serializer to interpret and
    output the XML documents.
@@ -252,8 +252,8 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
    The Validator Identifier MAY be related to one or more issuer
    identifiers of the <mark:id> element and the <smd:id> element defined
-   in [draft-ietf-eppext-tmch-smd].  Both the Validator Identifier and
-   the Issuer Identifier used MUST be unique.  The list of validator
+   in [I-D.draft-ietf-eppext-tmch-smd].  Both the Validator Identifier
+   and the Issuer Identifier used MUST be unique.  The list of validator
    identifiers and the relationship to issuer identifiers is out of
    scope for this document.
 
@@ -289,7 +289,7 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
       to register domain names with steps taken to address a large
       volume of initial registrations.
    claims  The Trademark Claims phase, as defined in the TMCH Functional
-      Specification [2], in which a Claims Notice must be displayed to a
+      Specification [1], in which a Claims Notice must be displayed to a
       prospective registrant of a domain name that matches trademarks.
    open  A post-launch phase that is also referred to as "steady state".
       Servers MAY require additional trademark protection during this
@@ -304,7 +304,7 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    include "landrush" and "open".
 
    Launch phases MAY overlap to support the "claims" launch phase,
-   defined in the TMCH Functional Specification [3], and to support a
+   defined in the TMCH Functional Specification [2], and to support a
    traditional "landrush" launch phase.  The overlap of the "claims" and
    "landrush" launch phases SHOULD be handled by setting "claims" as the
    <launch:phase> value and setting "landrush" as the sub-phase with the
@@ -679,10 +679,10 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    A <mark:mark> element describes an applicant's prior right to a given
    domain name that is used with the "mark", "mark with code", and the
    "signed mark" validation models.  The <mark:mark> element is defined
-   in [draft-ietf-eppext-tmch-smd].  A new mark format can be supported
-   by creating a new XML schema for the mark that has an element that
-   substitutes for the <mark:abstractMark> element from
-   [draft-ietf-eppext-tmch-smd].
+   in [I-D.draft-ietf-eppext-tmch-smd].  A new mark format can be
+   supported by creating a new XML schema for the mark that has an
+   element that substitutes for the <mark:abstractMark> element from
+   [I-D.draft-ietf-eppext-tmch-smd].
 
 2.6.3.  Digital Signature
 
@@ -695,20 +695,21 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
    The <smd:signedMark> element contains the digitally signed mark
    information.  The <smd:signedMark> element is defined in
-   [draft-ietf-eppext-tmch-smd].  A new signed mark format can be
+   [I-D.draft-ietf-eppext-tmch-smd].  A new signed mark format can be
    supported by creating a new XML schema for the signed mark that has
    an element that substitutes for the <smd:abstractSignedMark> element
-   from [draft-ietf-eppext-tmch-smd].
+   from [I-D.draft-ietf-eppext-tmch-smd].
 
 2.6.3.2.  <smd:encodedSignedMark> element
 
    The <smd:encodedSignedMark> element contains an encoded form of the
    digitally signed <smd:signedMark> (Section 2.6.3.1) element.  The
    <smd:encodedSignedMark> element is defined in
-   [draft-ietf-eppext-tmch-smd].  A new encoded signed mark format can
-   be supported by creating a new XML schema for the encoded signed mark
-   that has an element that substitutes for the <smd:encodedSignedMark>
-   element from [draft-ietf-eppext-tmch-smd].
+   [I-D.draft-ietf-eppext-tmch-smd].  A new encoded signed mark format
+   can be supported by creating a new XML schema for the encoded signed
+   mark that has an element that substitutes for the
+   <smd:encodedSignedMark> element from
+   [I-D.draft-ietf-eppext-tmch-smd].
 
 3.  EPP Command Mapping
 
@@ -720,8 +721,7 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    This mapping is designed to be flexible, requiring only a minimum set
    of required elements.
 
-   While it is meant to serve several use cases, it does not prescribe
-   any interpretation by the client or server.  Such processing is
+
 
 
 
@@ -730,6 +730,8 @@ Gould, et al.            Expires March 26, 2015                [Page 13]
 Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
 
+   While it is meant to serve several use cases, it does not prescribe
+   any interpretation by the client or server.  Such processing is
    typically highly policy-dependent and therefore specific to
    implementations.
 
@@ -775,8 +777,6 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
    The <domain:name> elements in the EPP <check> command of EPP domain
    name mapping [RFC5731] define the domain names to check for matching
-   trademarks.  The <launch:check> element contains the following child
-   elements:
 
 
 
@@ -785,6 +785,9 @@ Gould, et al.            Expires March 26, 2015                [Page 14]
 
 Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
+
+   trademarks.  The <launch:check> element contains the following child
+   elements:
 
    <launch:phase>  The launch phase that SHOULD be "claims".
 
@@ -831,9 +834,6 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
            matching trademark does exist for the claims launch phase.  A
            value of "0" (or "false") means that a matching trademark
            does not exist.
-       <launch:claimKey>  Zero or more OPTIONAL claim keys that MAY be
-           passed to a third-party trademark validator such as the
-           Trademark Clearinghouse (TMCH) for querying the information
 
 
 
@@ -842,6 +842,9 @@ Gould, et al.            Expires March 26, 2015                [Page 15]
 Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
 
+       <launch:claimKey>  Zero or more OPTIONAL claim keys that MAY be
+           passed to a third-party trademark validator such as the
+           Trademark Clearinghouse (TMCH) for querying the information
            needed to generate a Trademark Claims Notice.  The
            <launch:claimKey> is used as the key for the query in place
            of the domain name to securely query the service without
@@ -852,9 +855,6 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
            being the ICANN TMCH.  The "validatorID" attribute MAY
            reference a non-trademark claims clearinghouse identifer to
            support other forms of claims notices.
-
-
-
 
 
 
@@ -2806,6 +2806,10 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
 9.1.  Normative References
 
+   [I-D.draft-ietf-eppext-tmch-smd]
+              Lozano, G., "Mark and Signed Mark Objects Mapping",
+              January 27 2014.
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
 
@@ -2818,17 +2822,11 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731, August 2009.
 
-   [draft-ietf-eppext-tmch-smd]
-              Lozano, G., "Mark and Signed Mark Objects Mapping",
-              January 2014.
-
 9.2.  URIs
 
-   [1] http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd
+   [1] http://tools.ietf.org/html/draft-lozano-tmch-func-spec
 
    [2] http://tools.ietf.org/html/draft-lozano-tmch-func-spec
-
-   [3] http://tools.ietf.org/html/draft-lozano-tmch-func-spec
 
 Authors' Addresses
 
@@ -2840,22 +2838,6 @@ Authors' Addresses
 
    Email: jgould@verisign.com
    URI:   http://www.verisigninc.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould, et al.            Expires March 26, 2015                [Page 51]
-
-Internet-Draft        Launch Phase Mapping for EPP        September 2014
 
 
    Wil Tan
@@ -2870,6 +2852,12 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    URI:   http://www.cloudregistry.net
 
 
+
+Gould, et al.            Expires March 26, 2015                [Page 51]
+
+Internet-Draft        Launch Phase Mapping for EPP        September 2014
+
+
    Gavin Brown
    CentralNic Ltd
    35-39 Mooregate
@@ -2879,6 +2867,18 @@ Internet-Draft        Launch Phase Mapping for EPP        September 2014
    Phone: +44 20 33 88 0600
    Email: gavin.brown@centralnic.com
    URI:   https://www.centralnic.com
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
