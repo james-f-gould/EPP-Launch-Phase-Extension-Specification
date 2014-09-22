@@ -38,7 +38,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-01" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-02" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -126,7 +126,7 @@
       </address>
     </author>
 
-    <date day="17" month="March" year="2014"/>
+    <date day="22" month="September" year="2014"/>
 
     <!-- Meta-data Declarations -->
 
@@ -242,6 +242,8 @@
         and the &lt;smd:id&gt; element defined in <xref target="draft-ietf-eppext-tmch-smd"/>.  Both the Validator Identifier and the 
         Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to 
         issuer identifiers is out of scope for this document.</t>
+        <t>The Validator Identifier MAY define a non-Trademark Validator that supports 
+        a form of claims.</t>
       </section>
       
       <section anchor="phases" title="Launch Phases">
@@ -748,7 +750,7 @@ C:</epp>]]></artwork>
             trademark does exist for the claims launch phase.  
             A value of "0" (or "false") means that 
             a matching trademark does not exist.</t>
-            <t hangText="&lt;launch:claimKey&gt;">An OPTIONAL claim key 
+            <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
             trademark validator such as the Trademark Clearinghouse (TMCH) 
             for querying the information needed to generate a 
@@ -757,15 +759,18 @@ C:</epp>]]></artwork>
             to securely query the service without using a well-known 
             value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
             whose value indicates which Trademark Validator to query for the Claims Notice information, with 
-            the default being the ICANN TMCH.</t>  
+            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support 
+            other forms of claims notices.</t>  
               </list></t>
 
             </list></t>
 
           <figure>
             <preamble>Example Claims Check response when no matching trademarks
-             are found for the domain name example1.tld and matching 
-             trademarks are found for the domain name example2.tld for the 
+             are found for the domain name example1.tld, matching 
+             trademarks are found for the domain name example2.tld in 
+             the "tmch", matching trademarks are found for domain name 
+             example3.tld in the "tmch" and "custom-tmch", for the 
              "claims" launch phase:</preamble>
 
             <artwork><![CDATA[
@@ -775,7 +780,7 @@ S:  <response>
 S:    <result code="1000">
 S:     <msg>Command completed successfully</msg>
 S:    </result>
-S:   <extension>
+S:	 <extension>
 S:     <launch:chkData
 S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:      <launch:phase>claims</launch:phase>
@@ -788,8 +793,17 @@ S:        <launch:claimKey validatorID="tmch">
 S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
 S:        </launch:claimKey>
 S:      </launch:cd>
+S:      <launch:cd>
+S:        <launch:name exists="1">example3.tld</launch:name>
+S:        <launch:claimKey validatorID="tmch">
+S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+S:        </launch:claimKey>
+S:        <launch:claimKey validatorID="custom-tmch">
+S:        20140423200/1/2/3/rJ1Nr2vDsAzasdff7EasdfgjX4R000000002
+S:        </launch:claimKey>
+S:      </launch:cd>
 S:     </launch:chkData>
-S:    </extension>
+S:	  </extension>
 S:    <trID>
 S:     <clTRID>ABC-12345</clTRID>
 S:     <svTRID>54321-XYZ</svTRID>
@@ -1319,8 +1333,9 @@ C:</epp>]]></artwork>
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">MUST contain the value of
               "claims" to indicate the claims launch phase.</t>
-              <t hangText="&lt;launch:notice&gt;">
-              <list hangIndent="4" style="hanging">
+              <t hangText="&lt;launch:notice&gt;">One or more &lt;launch:notice&gt; elements
+              that contain the following child elements:</t>
+              <t><list hangIndent="4" style="hanging">
             <t hangText="&lt;launch:noticeID&gt;">Unique notice identifier 
           for the Claims Notice. The &lt;launch:noticeID&gt; 
           element has an OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> whose value indicates 
@@ -1335,7 +1350,8 @@ C:</epp>]]></artwork>
           <figure>
             <preamble>The following is an example &lt;create&gt; domain command
             using the &lt;launch:create&gt; extension with the 
-            &lt;launch:notice&gt; information for the "claims"  
+            &lt;launch:notice&gt; information for the "tmch" and 
+            the "custom-tmch" validators, for the "claims"  
             launch phase:</preamble>
 
             <artwork><![CDATA[
@@ -1360,11 +1376,18 @@ C:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 C:        <launch:phase>claims</launch:phase>
 C:        <launch:notice>
 C:          <launch:noticeID validatorID="tmch">
-C:            49FD46E6C4B45C55D4AC
-C:          </launch:noticeID>
-C:          <launch:notAfter>2012-06-19T10:00:10.0Z
+C:          370d0b7c9223372036854775807</launch:noticeID>
+C:          <launch:notAfter>2014-06-19T10:00:00.0Z
 C:          </launch:notAfter>
-C:          <launch:acceptedDate>2012-06-19T09:01:30.0Z
+C:          <launch:acceptedDate>2014-06-19T09:00:00.0Z
+C:          </launch:acceptedDate>
+C:        </launch:notice>
+C:        <launch:notice>
+C:          <launch:noticeID validatorID="custom-tmch">
+C:          470d0b7c9223654313275808</launch:noticeID>
+C:          <launch:notAfter>2014-06-19T10:00:00.0Z
+C:          </launch:notAfter>
+C:          <launch:acceptedDate>2014-06-19T09:00:30.0Z
 C:          </launch:acceptedDate>
 C:        </launch:notice>
 C:      </launch:create>
@@ -1798,8 +1821,10 @@ Import common element types.
   -->
   <complexType name="idContainerType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
-      <element name="applicationID" type="launch:applicationIDType"/>
+      <element name="phase" 
+      type="launch:phaseType"/>
+      <element name="applicationID" 
+      type="launch:applicationIDType"/>
     </sequence>
   </complexType>
   
@@ -1851,7 +1876,7 @@ Import common element types.
     <simpleContent>
       <extension base="launch:codeValue">
         <attribute name="validatorID" 
-          type="launch:validatorIDType" use="optional"/>
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
@@ -1869,7 +1894,7 @@ Import common element types.
     <simpleContent>
       <extension base="launch:noticeIDValue">
         <attribute name="validatorID" 
-          type="launch:validatorIDType" use="optional"/>
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
@@ -1940,8 +1965,9 @@ Import common element types.
         <element ref="smd:encodedSignedMark" 
          maxOccurs="unbounded"/>
       </choice>
-      <element name="notice" minOccurs="0"
-       type="launch:createNoticeType"/> 
+      <element name="notice" 
+       type="launch:createNoticeType"
+       minOccurs="0" maxOccurs="unbounded"/> 
     </sequence>
     <attribute name="type" type="launch:objectType"/>
   </complexType>
@@ -2029,7 +2055,7 @@ Import common element types.
     <sequence>
       <element name="name" type="launch:cdNameType"/>
       <element name="claimKey" type="launch:claimKeyType"
-       minOccurs="0"/>
+       minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </complexType>
 
@@ -2045,8 +2071,8 @@ Import common element types.
   <complexType name="claimKeyType">
     <simpleContent>
       <extension base="token">
-        <attribute name="validatorID"
-         type="launch:validatorIDType" use="optional"/>
+        <attribute name="validatorID" 
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
@@ -2226,6 +2252,14 @@ END]]></artwork>
           the eppext mailing list, and discussion at the eppext IETF meeting on March 6, 2014.</t>
       </list></t>
     </section>
+    <section title="Change WG 01 to WG 02" anchor="change-wg01-to-wg02">
+      <t><list style="numbers">
+          <t>Changed the &lt;launch:claim&gt; element to be zero or more elements and 
+          the &lt;launch:notice&gt; element to be one or more elements in 
+          the Claims Create Form.  These changes were needed to be able to support 
+          more than one concurrent claims services.</t>
+      </list></t>
+    </section>
    </section>
     
 
@@ -2291,6 +2325,7 @@ END]]></artwork>
         <front>
           <title abbrev='Mark and Signed Mark Objects Mapping'>Mark and Signed Mark Objects Mapping</title>
           <author fullname="Gustavo Lozano" initials="G.L." surname="Lozano"/>
+          <date day="27" month="January" year="2014"/>
         </front>
         <format type='HTML' target='http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd' />
       </reference>    

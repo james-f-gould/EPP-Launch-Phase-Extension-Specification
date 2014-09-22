@@ -42,8 +42,10 @@ Import common element types.
   -->
   <complexType name="idContainerType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
-      <element name="applicationID" type="launch:applicationIDType"/>
+      <element name="phase" 
+      type="launch:phaseType"/>
+      <element name="applicationID" 
+      type="launch:applicationIDType"/>
     </sequence>
   </complexType>
   
@@ -94,7 +96,8 @@ Import common element types.
   <complexType name="codeType">
     <simpleContent>
       <extension base="launch:codeValue">
-        <attribute name="validatorID" type="launch:validatorIDType" use="optional"/>
+        <attribute name="validatorID" 
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
@@ -111,7 +114,8 @@ Import common element types.
   <complexType name="noticeIDType">
     <simpleContent>
       <extension base="launch:noticeIDValue">
-        <attribute name="validatorID" type="launch:validatorIDType" use="optional"/>
+        <attribute name="validatorID" 
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
@@ -182,8 +186,9 @@ Import common element types.
         <element ref="smd:encodedSignedMark" 
          maxOccurs="unbounded"/>
       </choice>
-      <element name="notice" minOccurs="0"
-       type="launch:createNoticeType"/> 
+      <element name="notice" 
+       type="launch:createNoticeType"
+       minOccurs="0" maxOccurs="unbounded"/> 
     </sequence>
     <attribute name="type" type="launch:objectType"/>
   </complexType>
@@ -271,7 +276,7 @@ Import common element types.
     <sequence>
       <element name="name" type="launch:cdNameType"/>
       <element name="claimKey" type="launch:claimKeyType"
-       minOccurs="0"/>
+       minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </complexType>
 
@@ -287,7 +292,8 @@ Import common element types.
   <complexType name="claimKeyType">
     <simpleContent>
       <extension base="token">
-        <attribute name="validatorID" type="launch:validatorIDType" use="optional"/>
+        <attribute name="validatorID" 
+        type="launch:validatorIDType" use="optional"/>
       </extension>
     </simpleContent>
   </complexType>

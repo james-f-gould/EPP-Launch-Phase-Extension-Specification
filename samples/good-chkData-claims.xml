@@ -17,6 +17,15 @@
         2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
         </launch:claimKey>
       </launch:cd>
+      <launch:cd>
+        <launch:name exists="1">example3.tld</launch:name>
+        <launch:claimKey validatorID="tmch">
+        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+        </launch:claimKey>
+        <launch:claimKey validatorID="custom-tmch">
+        20140423200/1/2/3/rJ1Nr2vDsAzasdff7EasdfgjX4R000000002
+        </launch:claimKey>
+      </launch:cd>
      </launch:chkData>
 	  </extension>
     <trID>

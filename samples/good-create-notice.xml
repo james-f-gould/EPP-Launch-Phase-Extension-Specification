@@ -18,9 +18,20 @@
        xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
         <launch:phase>claims</launch:phase>
         <launch:notice>
-          <launch:noticeID validatorID="tmch">370d0b7c9223372036854775807</launch:noticeID>
-          <launch:notAfter>2012-06-19T10:00:00.0Z</launch:notAfter>
-          <launch:acceptedDate>2012-06-19T09:00:00.0Z</launch:acceptedDate>
+          <launch:noticeID validatorID="tmch">
+          370d0b7c9223372036854775807</launch:noticeID>
+          <launch:notAfter>2014-06-19T10:00:00.0Z
+          </launch:notAfter>
+          <launch:acceptedDate>2014-06-19T09:00:00.0Z
+          </launch:acceptedDate>
+        </launch:notice>
+        <launch:notice>
+          <launch:noticeID validatorID="custom-tmch">
+          470d0b7c9223654313275808</launch:noticeID>
+          <launch:notAfter>2014-06-19T10:00:00.0Z
+          </launch:notAfter>
+          <launch:acceptedDate>2014-06-19T09:00:30.0Z
+          </launch:acceptedDate>
         </launch:notice>
       </launch:create>
     </extension>
