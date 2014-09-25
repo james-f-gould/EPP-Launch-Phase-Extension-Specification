@@ -8,6 +8,9 @@
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
 <!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
+<!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
+   'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
+
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -126,7 +129,7 @@
       </address>
     </author>
 
-    <date day="22" month="September" year="2014"/>
+    <date day="25" month="September" year="2014"/>
 
     <!-- Meta-data Declarations -->
 
@@ -166,7 +169,7 @@
       Registration refers to a registration made during a launch phase when the
       server uses a "first-come, first-served" model.  Even in a "first-come,
       first-served" model, additional steps and information might be required, such as trademark information. In addition, 
-      the <xref target="I-D.draft-ietf-eppext-tmch-smd"/> 
+      the <xref target="I-D.ietf-eppext-tmch-smd"/> 
       defines a registry interface for the Trademark Claims or "claims" launch phase that
       includes support for presenting a Trademark Claims Notice to the
       Registrant. This document proposes an extension to the domain name
@@ -195,13 +198,13 @@
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
         <t>"signedMark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>. 
+        "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>. 
         The XML namespace prefix "smd"
         is used, but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
         <t>"mark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:mark-1.0" that is defined in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>. 
+        "urn:ietf:params:xml:ns:mark-1.0" that is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>. 
         The XML namespace prefix "mark"
         is used, but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
@@ -239,7 +242,7 @@
         is not used or multiple Trademark Validators are used, the Validator Identifier MUST be 
         defined using the "validatorID" attribute.</t>
         <t>The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element 
-        and the &lt;smd:id&gt; element defined in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.  Both the Validator Identifier and the 
+        and the &lt;smd:id&gt; element defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  Both the Validator Identifier and the 
         Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to 
         issuer identifiers is out of scope for this document.</t>
         <t>The Validator Identifier MAY define a non-Trademark Validator that supports 
@@ -605,10 +608,10 @@ S:</epp>]]></artwork>
         <t>A &lt;mark:mark&gt; element describes an applicant's prior right
         to a given domain name that is used with the "mark", "mark with code", and 
         the "signed mark" validation models.  The &lt;mark:mark&gt; element is defined 
-        in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.  
+        in <xref target="I-D.ietf-eppext-tmch-smd"/>.  
         A new mark format can be supported by creating a new 
         XML schema for the mark that has an element that substitutes 
-        for the &lt;mark:abstractMark&gt; element from <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.</t>
+        for the &lt;mark:abstractMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.</t>
       </section>
             
       <section anchor="digitalsignature" title="Digital Signature">
@@ -618,20 +621,20 @@ S:</epp>]]></artwork>
         </t>
      <section anchor="signedMark" title="&lt;smd:signedMark&gt; element">
         <t>The &lt;smd:signedMark&gt; element contains the digitally signed mark information.  The &lt;smd:signedMark&gt; 
-        element is defined in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.  A new 
+        element is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  A new 
         signed mark format can be supported by creating a new XML schema 
         for the signed mark that has an element that substitutes for 
-        the &lt;smd:abstractSignedMark&gt; element from <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.  
+        the &lt;smd:abstractSignedMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.  
         </t>
         </section>
 
      <section anchor="encodedSignedMark" title="&lt;smd:encodedSignedMark&gt; element">
         <t>The &lt;smd:encodedSignedMark&gt; element contains an encoded form of 
         the digitally signed <xref target="signedMark">&lt;smd:signedMark&gt;</xref> element.  The 
-        &lt;smd:encodedSignedMark&gt; element is defined in <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.  
+        &lt;smd:encodedSignedMark&gt; element is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  
         A new encoded signed mark format can be supported by creating a new XML schema 
         for the encoded signed mark that has an element that substitutes for the 
-        &lt;smd:encodedSignedMark&gt; element from <xref target="I-D.draft-ietf-eppext-tmch-smd"/>.
+        &lt;smd:encodedSignedMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.
         </t>
         </section>
         
@@ -2320,19 +2323,12 @@ END]]></artwork>
      filing system or remote ones accessed by http (http://domain/dir/... ).-->
 
     <references title="Normative References">  
-      <reference anchor="I-D.draft-ietf-eppext-tmch-smd">
-        <front>
-          <title abbrev='Mark and Signed Mark Objects Mapping'>Mark and Signed Mark Objects Mapping</title>
-          <author fullname="Gustavo Lozano" initials="G.L." surname="Lozano"/>
-          <date day="27" month="January 27" year="2014"/>
-        </front>
-        <format type='HTML' target='http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd' />
-      </reference> 
       
       &RFC2119;
       &RFC5730;
       &RFC5731;
       &RFC3688;
+      &I-D.ietf-eppext-tmch-smd;
     </references>
   </back>
 
