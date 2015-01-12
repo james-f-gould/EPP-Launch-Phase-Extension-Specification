@@ -406,26 +406,31 @@
 <link href="#rfc.section.3.7" rel="Chapter" title="3.7 EPP &lt;transfer&gt; Command"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Formal Syntax"/>
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Launch Schema"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Acknowledgements"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Change History"/>
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Change from 00 to 01"/>
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Change from 01 to 02"/>
-<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Change from 02 to 03"/>
-<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Change from 03 to 04"/>
-<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Change from 04 to 05"/>
-<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Change from 05 to 06"/>
-<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Change from 06 to 07"/>
-<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Change from 07 to 08"/>
-<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Change from 08 to 09"/>
-<link href="#rfc.section.6.10" rel="Chapter" title="6.10 Change from 09 to 10"/>
-<link href="#rfc.section.6.11" rel="Chapter" title="6.11 Change from 10 to 11"/>
-<link href="#rfc.section.6.12" rel="Chapter" title="6.12 Change from 11 to 12"/>
-<link href="#rfc.section.6.13" rel="Chapter" title="6.13 Change from 12 to WG 00"/>
-<link href="#rfc.section.6.14" rel="Chapter" title="6.14 Change WG 00 to WG 01"/>
-<link href="#rfc.section.6.15" rel="Chapter" title="6.15 Change WG 01 to WG 02"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Implementation Status"/>
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Verisign EPP SDK"/>
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Verisign Consolidated Top Level Domain (CTLD) SRS"/>
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Verisign .COM / .NET SRS"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
 <link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
+<link href="#rfc.appendix.A" rel="Chapter" title="A Change History"/>
+<link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
+<link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02"/>
+<link href="#rfc.appendix.A.3" rel="Chapter" title="A.3 Change from 02 to 03"/>
+<link href="#rfc.appendix.A.4" rel="Chapter" title="A.4 Change from 03 to 04"/>
+<link href="#rfc.appendix.A.5" rel="Chapter" title="A.5 Change from 04 to 05"/>
+<link href="#rfc.appendix.A.6" rel="Chapter" title="A.6 Change from 05 to 06"/>
+<link href="#rfc.appendix.A.7" rel="Chapter" title="A.7 Change from 06 to 07"/>
+<link href="#rfc.appendix.A.8" rel="Chapter" title="A.8 Change from 07 to 08"/>
+<link href="#rfc.appendix.A.9" rel="Chapter" title="A.9 Change from 08 to 09"/>
+<link href="#rfc.appendix.A.10" rel="Chapter" title="A.10 Change from 09 to 10"/>
+<link href="#rfc.appendix.A.11" rel="Chapter" title="A.11 Change from 10 to 11"/>
+<link href="#rfc.appendix.A.12" rel="Chapter" title="A.12 Change from 11 to 12"/>
+<link href="#rfc.appendix.A.13" rel="Chapter" title="A.13 Change from 12 to WG 00"/>
+<link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change WG 00 to WG 01"/>
+<link href="#rfc.appendix.A.15" rel="Chapter" title="A.15 Change WG 01 to WG 02"/>
+<link href="#rfc.appendix.A.16" rel="Chapter" title="A.16 Change WG 02 to WG 03"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -433,8 +438,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2014-9-25" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-03" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-1-12" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -458,7 +463,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: March 29, 2015</td>
+  <td class="left">Expires: July 16, 2015</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -471,7 +476,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">September 25, 2014</td>
+  <td class="right">January 12, 2015</td>
 </tr>
 
     	
@@ -479,7 +484,7 @@
   </table>
 
   <p class="title">Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-eppext-launchphase-02</span></p>
+  <span class="filename">draft-ietf-eppext-launchphase-03</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -491,11 +496,11 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on March 29, 2015.</p>
+<p>This Internet-Draft will expire on July 16, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
-<p>Copyright (c) 2014 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2015 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -535,26 +540,31 @@
 <li>3.7.   <a href="#rfc.section.3.7">EPP &lt;transfer&gt; Command</a></li>
 <li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
 <li>4.1.   <a href="#rfc.section.4.1">Launch Schema</a></li>
-<li>5.   <a href="#rfc.section.5">Acknowledgements</a></li>
-<li>6.   <a href="#rfc.section.6">Change History</a></li>
-<li>6.1.   <a href="#rfc.section.6.1">Change from 00 to 01</a></li>
-<li>6.2.   <a href="#rfc.section.6.2">Change from 01 to 02</a></li>
-<li>6.3.   <a href="#rfc.section.6.3">Change from 02 to 03</a></li>
-<li>6.4.   <a href="#rfc.section.6.4">Change from 03 to 04</a></li>
-<li>6.5.   <a href="#rfc.section.6.5">Change from 04 to 05</a></li>
-<li>6.6.   <a href="#rfc.section.6.6">Change from 05 to 06</a></li>
-<li>6.7.   <a href="#rfc.section.6.7">Change from 06 to 07</a></li>
-<li>6.8.   <a href="#rfc.section.6.8">Change from 07 to 08</a></li>
-<li>6.9.   <a href="#rfc.section.6.9">Change from 08 to 09</a></li>
-<li>6.10.   <a href="#rfc.section.6.10">Change from 09 to 10</a></li>
-<li>6.11.   <a href="#rfc.section.6.11">Change from 10 to 11</a></li>
-<li>6.12.   <a href="#rfc.section.6.12">Change from 11 to 12</a></li>
-<li>6.13.   <a href="#rfc.section.6.13">Change from 12 to WG 00</a></li>
-<li>6.14.   <a href="#rfc.section.6.14">Change WG 00 to WG 01</a></li>
-<li>6.15.   <a href="#rfc.section.6.15">Change WG 01 to WG 02</a></li>
-<li>7.   <a href="#rfc.section.7">IANA Considerations</a></li>
-<li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
+<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
+<li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
+<li>6.2.   <a href="#rfc.section.6.2">Verisign Consolidated Top Level Domain (CTLD) SRS</a></li>
+<li>6.3.   <a href="#rfc.section.6.3">Verisign .COM / .NET SRS</a></li>
+<li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
+<li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
+<li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
+<li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+<li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
+<li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
+<li>A.4.   <a href="#rfc.appendix.A.4">Change from 03 to 04</a></li>
+<li>A.5.   <a href="#rfc.appendix.A.5">Change from 04 to 05</a></li>
+<li>A.6.   <a href="#rfc.appendix.A.6">Change from 05 to 06</a></li>
+<li>A.7.   <a href="#rfc.appendix.A.7">Change from 06 to 07</a></li>
+<li>A.8.   <a href="#rfc.appendix.A.8">Change from 07 to 08</a></li>
+<li>A.9.   <a href="#rfc.appendix.A.9">Change from 08 to 09</a></li>
+<li>A.10.   <a href="#rfc.appendix.A.10">Change from 09 to 10</a></li>
+<li>A.11.   <a href="#rfc.appendix.A.11">Change from 10 to 11</a></li>
+<li>A.12.   <a href="#rfc.appendix.A.12">Change from 11 to 12</a></li>
+<li>A.13.   <a href="#rfc.appendix.A.13">Change from 12 to WG 00</a></li>
+<li>A.14.   <a href="#rfc.appendix.A.14">Change WG 00 to WG 01</a></li>
+<li>A.15.   <a href="#rfc.appendix.A.15">Change WG 01 to WG 02</a></li>
+<li>A.16.   <a href="#rfc.appendix.A.16">Change WG 02 to WG 03</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -824,8 +834,8 @@ S:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#checkCommand" id="checkCommand">EPP &lt;check&gt; Command</a></h1>
 <p id="rfc.section.3.1.p.1">There are two forms of the extension to the EPP &lt;check&gt; command: the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> and the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>.  The &lt;launch:check&gt; element "type" attribute defines the form, with the value of "claims" for the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> and with the value of "avail" for the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>.  The default value of the "type" attribute is "claims".  The forms supported by the server is determined by server policy.  The server MUST return an EPP error result code of 2307 if it receives a check form that is not supported.</p>
 <h1 id="rfc.section.3.1.1"><a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#claimsCheckForm" id="claimsCheckForm">Claims Check Form</a></h1>
-<p id="rfc.section.3.1.1.p.1">The Claims Check Form defines a new command called the Claims Check Command that is used to determine whether or not there are any matching trademarks, in the specified launch phase, for each domain name passed in the command.  The availability check information defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> MUST NOT be returned for the Claims Check Command.  This form is the default form and MAY be explicitly identified by setting the &lt;launch:check&gt; "type" attribute to "claims".</p>
-<p id="rfc.section.3.1.1.p.2">Instead of returning whether the domain name is available, the Claims Check Command will return whether or not at least one matching trademark exists for the domain name.  If there is at least one matching trademark that exists for the domain name, a &lt;launch:claimKey&gt; element is returned.  The client MAY then use the value of the &lt;launch:claimKey&gt; element to obtain information needed to generate the Trademark Claims Notice from Trademark Validator based on the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite>.  The unique notice identifier of the Trademark Claims Notice MUST be passed in the &lt;launch:noticeID&gt; element of the extension to the <a href="#createCommand">Create Command</a> <cite title="NONE">[createCommand]</cite>.</p>
+<p id="rfc.section.3.1.1.p.1">The Claims Check Form defines a new command called the Claims Check Command that is used to determine whether or not there are any matching trademarks, in the specified launch phase, for each domain name passed in the command, that requires the use of the "Claims Create Form" on a Domain Create Command.  The availability check information defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> MUST NOT be returned for the Claims Check Command.  This form is the default form and MAY be explicitly identified by setting the &lt;launch:check&gt; "type" attribute to "claims".</p>
+<p id="rfc.section.3.1.1.p.2">Instead of returning whether the domain name is available, the Claims Check Command will return whether or not at least one matching trademark exists for the domain name, that requires the use of the "Claims Create Form" on a Domain Create Command.  If there is at least one matching trademark that exists for the domain name, a &lt;launch:claimKey&gt; element is returned.  The client MAY then use the value of the &lt;launch:claimKey&gt; element to obtain information needed to generate the Trademark Claims Notice from Trademark Validator based on the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite>.  The unique notice identifier of the Trademark Claims Notice MUST be passed in the &lt;launch:noticeID&gt; element of the extension to the <a href="#createCommand">Create Command</a> <cite title="NONE">[createCommand]</cite>.</p>
 <p id="rfc.section.3.1.1.p.3">The &lt;domain:name&gt; elements in the EPP &lt;check&gt; command of <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> define the domain names to check for matching trademarks.  The &lt;launch:check&gt; element contains the following child elements:</p>
 <p/>
 
@@ -867,7 +877,7 @@ C:&lt;/epp&gt;</pre>
   <dd style="margin-left: 4">
     <dl>
       <dt>&lt;launch:name&gt;</dt>
-      <dd style="margin-left: 4">Contains the fully qualified name of the queried domain name.  This element MUST contain an "exists" attribute whose value indicates if a matching trademark exists for the domain name.  A value of "1" (or "true") means that a matching trademark does exist for the claims launch phase.  A value of "0" (or "false") means that a matching trademark does not exist.</dd>
+      <dd style="margin-left: 4">Contains the fully qualified name of the queried domain name.  This element MUST contain an "exists" attribute whose value indicates if a matching trademark exists for the domain name that requires the use of the "Claims Create Form" on a Domain Create Command.  A value of "1" (or "true") means that a matching trademark does exist and that the "Claims Create Form" is required on a Domain Create Command.  A value of "0" (or "false") means that a matching trademark does not exist or that the "Claims Create Form" is NOT required on a Domain Create Command.</dd>
       <dt>&lt;launch:claimKey&gt;</dt>
       <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party trademark validator such as the Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
     </dl>
@@ -1259,18 +1269,18 @@ C:&lt;/epp&gt;</pre>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">MUST contain the value of "claims" to indicate the claims launch phase.</dd>
+  <dd style="margin-left: 4">SHOULD contain the value of "claims" to indicate the claims launch phase.  A value other than "claims" MAY be used to pass the claims notice for domain names outside the claims phase.</dd>
   <dt>&lt;launch:notice&gt;</dt>
   <dd style="margin-left: 4">One or more &lt;launch:notice&gt; elements that contain the following child elements:</dd>
   <dt></dt>
   <dd style="margin-left: 4">
     <dl>
       <dt>&lt;launch:noticeID&gt;</dt>
-      <dd style="margin-left: 4">Unique notice identifier for the Claims Notice. The &lt;launch:noticeID&gt; element has an OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator is the source of the Claims Notice, with the default being the ICANN TMCH.</dd>
+      <dd style="margin-left: 4">Unique notice identifier for the Claims Notice. The &lt;launch:noticeID&gt; element has an OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator is the source of the claims notice, with the default being the ICANN TMCH.</dd>
       <dt>&lt;launch:notAfter&gt;</dt>
       <dd style="margin-left: 4">Expiry of the claims notice.</dd>
       <dt>&lt;launch:acceptedDate&gt;</dt>
-      <dd style="margin-left: 4">Contains the date and time that the Claims Notice was accepted.</dd>
+      <dd style="margin-left: 4">Contains the date and time that the claims notice was accepted.</dd>
     </dl>
   </dd>
 </dl>
@@ -1854,144 +1864,9 @@ Import common element types.
     
 &lt;/schema&gt;
 END</pre>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.5.p.1">The authors wish to acknowledge the efforts of the leading participants of the Community TMCH Model that led to many of the changes to this document, which include Chris Wright, Jeff Neuman, Jeff Eckhaus, and Will Shorter.</p>
-<p id="rfc.section.5.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> Change History</h1>
-<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#change-00-to-01" id="change-00-to-01">Change from 00 to 01</a></h1>
-<p/>
-
-<ol>
-  <li>Changed to use camel case for the XML elements.</li>
-  <li>Replaced "cancelled" status to "rejected" status.</li>
-  <li>Added the child elements of the &lt;claim&gt; element.</li>
-  <li>Removed the XML schema and replaced with "[TBD]".</li>
-</ol>
-<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#change-01-to-02" id="change-01-to-02">Change from 01 to 02</a></h1>
-<p/>
-
-<ol>
-  <li>Added support for both the ICANN and ARI/Neustar TMCH models.</li>
-  <li>Changed the namespace URI and prefix to use "launch" instead of "launchphase".</li>
-  <li>Added definition of multiple claim validation models.</li>
-  <li>Added the &lt;launch:signedClaim&gt; and &lt;launch:signedNotice&gt; elements.</li>
-  <li>Added support for Claims Info Command</li>
-</ol>
-<h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> <a href="#change-02-to-03" id="change-02-to-03">Change from 02 to 03</a></h1>
-<p/>
-
-<ol>
-  <li>Removed XSI namespace per Keith Gaughan's suggestion on the provreg list.</li>
-  <li>Added extensibility to the launch:status element and added the pendingAuction status per Trung Tran's feedback on the provreg list.</li>
-  <li>Added support for the Claims Check Command, updated the location and contents of the signedNotice, and replaced most references of Claim to Mark based on the work being done on the ARI/Neustar launch model.</li>
-</ol>
-<h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> <a href="#change-03-to-04" id="change-03-to-04">Change from 03 to 04</a></h1>
-<p/>
-
-<ol>
-  <li>Removed references to the ICANN model.</li>
-  <li>Removed support for the Claims Info Command.</li>
-  <li>Removed use of the signedClaim.</li>
-  <li>Revised the method for referring to the signedClaim from the XML Signature using the IDREF URI.</li>
-  <li>Split the launch-1.0.xsd into three XML schemas including launch-1.0.xsd, signeMark-1.0.xsd, and mark-1.0.xsd.</li>
-  <li>Split the "claims" launch phase to the "claims1" and "claims2" launch phases.</li>
-  <li>Added support for the encodedSignedMark with base64 encoded signedMark.</li>
-  <li>Changed the elements in the createNoticeType to include the noticeID, timestamp, and the source elements.</li>
-  <li>Added the class and effectiveDate elements to mark.</li>
-</ol>
-<h1 id="rfc.section.6.5"><a href="#rfc.section.6.5">6.5.</a> <a href="#change-04-to-05" id="change-04-to-05">Change from 04 to 05</a></h1>
-<p/>
-
-<ol>
-  <li>Removed reference to &lt;smd:zone&gt; in the &lt;smd:signedMark&gt; example.</li>
-  <li>Incorporated feedback from Bernhard Reutner-Fischer on the provreg mail list.</li>
-  <li>Added missing launch XML prefix to applicationIDType reference in the idContainerType of the Launch Schema.</li>
-  <li>Added missing description of the &lt;mark:pc&gt; element in the &lt;mark:addr&gt; element.</li>
-  <li>Updated note on replication of the EPP contact mapping elements in the Mark Contact section.</li>
-</ol>
-<h1 id="rfc.section.6.6"><a href="#rfc.section.6.6">6.6.</a> <a href="#change-05-to-06" id="change-05-to-06">Change from 05 to 06</a></h1>
-<p/>
-
-<ol>
-  <li>Removed the definition of the mark-1.0 and signedMark-1.0 and replaced with reference to draft-lozano-smd, that contains the definition for the mark, signed marked, and encoded signed mark.</li>
-  <li>Split the &lt;launch:timestamp&gt; into &lt;launch:generatedDate&gt; and &lt;launch:acceptedDate&gt; based on feedback from Trung Tran.</li>
-  <li>Added the "includeMark" optional attribute to the &lt;launch:info&gt; element to enable the client to request whether or not to include the mark in the info response.</li>
-  <li>Fixed state diagram to remove redundant transition from "invalid" to "rejected"; thanks Klaus Malorny.</li>
-</ol>
-<h1 id="rfc.section.6.7"><a href="#rfc.section.6.7">6.7.</a> <a href="#change-06-to-07" id="change-06-to-07">Change from 06 to 07</a></h1>
-<p/>
-
-<ol>
-  <li>Proof-read grammar and spelling.</li>
-  <li>Changed "pendingAuction" status to "pendingAllocation", changed "pending" to "pendingValidation" status, per proposal from Trung Tran and seconded by Rubens Kuhl.</li>
-  <li>Added text related to the use of RFC 5731 pendingCreate to the Application Identifier section.</li>
-  <li>Added the Poll Messaging section to define the use of poll messaging for intermediate state transitions and pending action poll messaging for final state transitions.</li>
-</ol>
-<h1 id="rfc.section.6.8"><a href="#rfc.section.6.8">6.8.</a> <a href="#change-07-to-08" id="change-07-to-08">Change from 07 to 08</a></h1>
-<p/>
-
-<ol>
-  <li>Added support for use of the launch statuses and poll messaging for Launch Registrations based on feedback from Sharon Wodjenski and Trung Tran.</li>
-  <li>Incorporated changes based on updates or clarifications in draft-lozano-tmch-func-spec-01, which include: <ol><li>Removed the unused &lt;launch:generatedDate&gt; element.</li><li>Removed the &lt;launch:source&gt; element.</li><li>Added the &lt;launch:notAfter&gt; element based on the required &lt;tmNotice:notAfter&gt; element.</li></ol><p> </p></li>
-</ol>
-<h1 id="rfc.section.6.9"><a href="#rfc.section.6.9">6.9.</a> <a href="#change-08-to-09" id="change-08-to-09">Change from 08 to 09</a></h1>
-<p/>
-
-<ol>
-  <li>Made &lt;choice&gt; element optional in &lt;launch:create&gt; to allow passing just the &lt;launch:phase&gt; in &lt;launch:create&gt; per request from Ben Levac.</li>
-  <li>Added optional "type" attribute in &lt;launch:create&gt; to enable the client to explicitly define the desired type of object (application or registration) to create to all forms of the create extension.</li>
-  <li>Added text that the server SHOULD validate the &lt;launch:phase&gt; element in the Launch Phases section.</li>
-  <li>Add the "General Create Form" to the create command extension to support the request from Ben Levac.</li>
-  <li>Updated the text for the Poll Messaging section based on feedback from Klaus Malorny.</li>
-  <li>Replaced the "claims1" and "claims2" phases with the "claims" phase based on discussion on the provreg list.</li>
-  <li>Added support for a mixed create model (Sunrise Create Model and Claims Create Model), where a trademark (encoded signed mark, etc.) and notice can be passed, based on a request from James Mitchell.</li>
-  <li>Added text for the handling of the overlapping "claims" and "landrush" launch phases.</li>
-  <li>Added support for two check forms (claims check form and availability check form) based on a request from James Mitchell.  The availability check form was based on the text in draft-rbp-application-epp-mapping.</li>
-</ol>
-<h1 id="rfc.section.6.10"><a href="#rfc.section.6.10">6.10.</a> <a href="#change-09-to-10" id="change-09-to-10">Change from 09 to 10</a></h1>
-<p/>
-
-<ol>
-  <li>Changed noticeIDType from base64Binary to token to be compatible with draft-lozano-tmch-func-spec-05.</li>
-  <li>Changed codeType from base64Binary to token to be more generic.</li>
-  <li>Updated based on feedback from Alexander Mayrhofer, which include: <ol><li>Changed "extension to the domain name extension" to "extension to the domain name mapping".</li><li>Changed use of 2004 return code to 2306 return code when phase passed mismatches active phase and sub-phase.</li><li>Changed description of "allocated" and "rejected" statuses.</li><li>Moved sentence on a synchronous &lt;domain:create&gt; command without the use of an intermediate application, then an Application Identifier MAY not be needed to the Application Identifier section.</li><li>Restructured the Mark Validation Models section to include the "&lt;launch:codeMark&gt; element" sub-section, the "&lt;mark:mark&gt; element" sub-section, and the Digital Signature sub-section.</li><li>Changed "Registries may" to "Registries MAY".</li><li>Changed "extensed" to "extended" in "Availability Check Form" section.</li><li>Broke the mix of create forms in the "EPP &lt;create&gt; Command" section to a fourth "Mixed Create Form" with its own sub-section.</li><li>Removed "displayed or" from "displayed or accepted" in the &lt;launch:acceptedDate&gt; description.</li><li>Replaced "given domain name is supported" with "given domain name are supported" in the "Create Response" section.</li><li>Changed the reference of 2303 (object does not exist) in the "Security Considerations" section to 2201 (authorization error).</li><li>Added arrow from "invalid" status to "pendingValidation" status and "pendingAllocation" status to "rejected" status in the State Transition Diagram.</li></ol><p> </p></li>
-  <li>Added the "C:" and "S:" example prefixes and related text in the "Conventions Used in This Document" section.</li>
-</ol>
-<h1 id="rfc.section.6.11"><a href="#rfc.section.6.11">6.11.</a> <a href="#change-10-to-11" id="change-10-to-11">Change from 10 to 11</a></h1>
-<p/>
-
-<ol>
-  <li>Moved the claims check response &lt;launch:chkData&gt; element under the &lt;extension&gt; element instead of the &lt;resData&gt; element based on the request from Francisco Obispo.</li>
-</ol>
-<h1 id="rfc.section.6.12"><a href="#rfc.section.6.12">6.12.</a> <a href="#change-11-to-12" id="change-11-to-12">Change from 11 to 12</a></h1>
-<p/>
-
-<ol>
-  <li>Added support for multiple validator identifiers for claims notices and marks based on a request and text provided by Mike O'Connell.</li>
-  <li>Removed domain:exDate element from example in section 3.3.5 based on a request from Seth Goldman on the provreg list.</li>
-  <li>Added clarifying text for clients not passing the launch extension on update and delete commands to servers that do not support launch applications based on a request from Sharon Wodjenski on the provreg list.</li>
-</ol>
-<h1 id="rfc.section.6.13"><a href="#rfc.section.6.13">6.13.</a> <a href="#change-12-to-wg00" id="change-12-to-wg00">Change from 12 to WG 00</a></h1>
-<p/>
-
-<ol>
-  <li>Changed to eppext working group draft by changing draft-tan-epp-launchphase to draft-ietf-eppext-launchphase and by changing references of draft-lozano-tmch-smd to draft-ietf-eppext-tmch-smd.</li>
-</ol>
-<h1 id="rfc.section.6.14"><a href="#rfc.section.6.14">6.14.</a> <a href="#change-wg00-to-wg01" id="change-wg00-to-wg01">Change WG 00 to WG 01</a></h1>
-<p/>
-
-<ol>
-  <li>Removed text associated with support for the combining of status values based on feedback from Patrick Mevzek on the provreg mailing list, discussion on the eppext mailing list, and discussion at the eppext IETF meeting on March 6, 2014.</li>
-</ol>
-<h1 id="rfc.section.6.15"><a href="#rfc.section.6.15">6.15.</a> <a href="#change-wg01-to-wg02" id="change-wg01-to-wg02">Change WG 01 to WG 02</a></h1>
-<p/>
-
-<ol>
-  <li>Changed the &lt;launch:claim&gt; element to be zero or more elements and the &lt;launch:notice&gt; element to be one or more elements in the Claims Create Form.  These changes were needed to be able to support more than one concurrent claims services.</li>
-</ol>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<p id="rfc.section.7.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  One URI assignment has been registered by the IANA.  </p>
-<p id="rfc.section.7.p.2">Registration request for the Launch namespace:</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
+<p id="rfc.section.5.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  One URI assignment has been registered by the IANA.  </p>
+<p id="rfc.section.5.p.2">Registration request for the Launch namespace:</p>
 <p/>
 
 <ul class="empty">
@@ -2001,10 +1876,42 @@ END</pre>
 </ul>
 
 <p> </p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
-<p id="rfc.section.8.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite>, the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
-<p id="rfc.section.8.p.2">Updates to, and deletion of an application object must be restricted to clients authorized to perform the said operation on the object.</p>
-<p id="rfc.section.8.p.3">As information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Implementation" id="Implementation">Implementation Status</a></h1>
+<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite> before publication.</p>
+<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
+<p id="rfc.section.6.p.3">According to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
+<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> Verisign EPP SDK</h1>
+<p id="rfc.section.6.1.p.1">Organization: Verisign Inc.</p>
+<p id="rfc.section.6.1.p.2">Name: Verisign EPP SDK</p>
+<p id="rfc.section.6.1.p.3">Description: The Verisign EPP SDK includes both a full client implementation and a full server stub implementation of draft-ietf-eppext-launchphase.</p>
+<p id="rfc.section.6.1.p.4">Level of maturity: Production</p>
+<p id="rfc.section.6.1.p.5">Coverage: All aspects of the protocol are implemented.</p>
+<p id="rfc.section.6.1.p.6">Licensing: GNU Lesser General Public License</p>
+<p id="rfc.section.6.1.p.7">Contact: jgould@verisign.com</p>
+<p id="rfc.section.6.1.p.8">URL: http://www.verisigninc.com/en_US/channel-resources/domain-registry-products/epp-sdks</p>
+<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> Verisign Consolidated Top Level Domain (CTLD) SRS</h1>
+<p id="rfc.section.6.2.p.1">Organization: Verisign Inc.</p>
+<p id="rfc.section.6.2.p.2">Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)</p>
+<p id="rfc.section.6.2.p.3">Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS) implements the server-side of draft-ietf-eppext-launchphase for a variety of Top Level Domains (TLD's).</p>
+<p id="rfc.section.6.2.p.4">Level of maturity: Production</p>
+<p id="rfc.section.6.2.p.5">Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations and Launch Applications.  For Launch Applications the Poll Messaging, the EPP &lt;info&gt; Command, the EPP &lt;update&gt; Command, and the EPP &lt;delete&gt; Command is covered.</p>
+<p id="rfc.section.6.2.p.6">Licensing: Proprietary</p>
+<p id="rfc.section.6.2.p.7">Contact: jgould@verisign.com</p>
+<h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> Verisign .COM / .NET SRS</h1>
+<p id="rfc.section.6.3.p.1">Organization: Verisign Inc.</p>
+<p id="rfc.section.6.3.p.2">Name: Verisign .COM / .NET Shared Registry System (SRS)</p>
+<p id="rfc.section.6.3.p.3">Description: The Verisign Shared Registry System (SRS) for .COM, .NET and other IDN TLD's implements the server-side of draft-ietf-eppext-launchphase.</p>
+<p id="rfc.section.6.3.p.4">Level of maturity: Operational Test Environment (OTE)</p>
+<p id="rfc.section.6.3.p.5">Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations.</p>
+<p id="rfc.section.6.3.p.6">Licensing: Proprietary</p>
+<p id="rfc.section.6.3.p.7">Contact: jgould@verisign.com</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
+<p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite>, the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
+<p id="rfc.section.7.p.2">Updates to, and deletion of an application object must be restricted to clients authorized to perform the said operation on the object.</p>
+<p id="rfc.section.7.p.3">As information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.8.p.1">The authors wish to acknowledge the efforts of the leading participants of the Community TMCH Model that led to many of the changes to this document, which include Chris Wright, Jeff Neuman, Jeff Eckhaus, and Will Shorter.</p>
+<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>
@@ -2038,8 +1945,154 @@ END</pre>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, August 2009.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC6982">[RFC6982]</b>
+      </td>
+      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, July 2013.</td>
+    </tr>
   </tbody>
 </table>
+<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> Change History</h1>
+<h1 id="rfc.appendix.A.1"><a href="#rfc.appendix.A.1">A.1.</a> <a href="#change-00-to-01" id="change-00-to-01">Change from 00 to 01</a></h1>
+<p/>
+
+<ol>
+  <li>Changed to use camel case for the XML elements.</li>
+  <li>Replaced "cancelled" status to "rejected" status.</li>
+  <li>Added the child elements of the &lt;claim&gt; element.</li>
+  <li>Removed the XML schema and replaced with "[TBD]".</li>
+</ol>
+<h1 id="rfc.appendix.A.2"><a href="#rfc.appendix.A.2">A.2.</a> <a href="#change-01-to-02" id="change-01-to-02">Change from 01 to 02</a></h1>
+<p/>
+
+<ol>
+  <li>Added support for both the ICANN and ARI/Neustar TMCH models.</li>
+  <li>Changed the namespace URI and prefix to use "launch" instead of "launchphase".</li>
+  <li>Added definition of multiple claim validation models.</li>
+  <li>Added the &lt;launch:signedClaim&gt; and &lt;launch:signedNotice&gt; elements.</li>
+  <li>Added support for Claims Info Command</li>
+</ol>
+<h1 id="rfc.appendix.A.3"><a href="#rfc.appendix.A.3">A.3.</a> <a href="#change-02-to-03" id="change-02-to-03">Change from 02 to 03</a></h1>
+<p/>
+
+<ol>
+  <li>Removed XSI namespace per Keith Gaughan's suggestion on the provreg list.</li>
+  <li>Added extensibility to the launch:status element and added the pendingAuction status per Trung Tran's feedback on the provreg list.</li>
+  <li>Added support for the Claims Check Command, updated the location and contents of the signedNotice, and replaced most references of Claim to Mark based on the work being done on the ARI/Neustar launch model.</li>
+</ol>
+<h1 id="rfc.appendix.A.4"><a href="#rfc.appendix.A.4">A.4.</a> <a href="#change-03-to-04" id="change-03-to-04">Change from 03 to 04</a></h1>
+<p/>
+
+<ol>
+  <li>Removed references to the ICANN model.</li>
+  <li>Removed support for the Claims Info Command.</li>
+  <li>Removed use of the signedClaim.</li>
+  <li>Revised the method for referring to the signedClaim from the XML Signature using the IDREF URI.</li>
+  <li>Split the launch-1.0.xsd into three XML schemas including launch-1.0.xsd, signeMark-1.0.xsd, and mark-1.0.xsd.</li>
+  <li>Split the "claims" launch phase to the "claims1" and "claims2" launch phases.</li>
+  <li>Added support for the encodedSignedMark with base64 encoded signedMark.</li>
+  <li>Changed the elements in the createNoticeType to include the noticeID, timestamp, and the source elements.</li>
+  <li>Added the class and effectiveDate elements to mark.</li>
+</ol>
+<h1 id="rfc.appendix.A.5"><a href="#rfc.appendix.A.5">A.5.</a> <a href="#change-04-to-05" id="change-04-to-05">Change from 04 to 05</a></h1>
+<p/>
+
+<ol>
+  <li>Removed reference to &lt;smd:zone&gt; in the &lt;smd:signedMark&gt; example.</li>
+  <li>Incorporated feedback from Bernhard Reutner-Fischer on the provreg mail list.</li>
+  <li>Added missing launch XML prefix to applicationIDType reference in the idContainerType of the Launch Schema.</li>
+  <li>Added missing description of the &lt;mark:pc&gt; element in the &lt;mark:addr&gt; element.</li>
+  <li>Updated note on replication of the EPP contact mapping elements in the Mark Contact section.</li>
+</ol>
+<h1 id="rfc.appendix.A.6"><a href="#rfc.appendix.A.6">A.6.</a> <a href="#change-05-to-06" id="change-05-to-06">Change from 05 to 06</a></h1>
+<p/>
+
+<ol>
+  <li>Removed the definition of the mark-1.0 and signedMark-1.0 and replaced with reference to draft-lozano-smd, that contains the definition for the mark, signed marked, and encoded signed mark.</li>
+  <li>Split the &lt;launch:timestamp&gt; into &lt;launch:generatedDate&gt; and &lt;launch:acceptedDate&gt; based on feedback from Trung Tran.</li>
+  <li>Added the "includeMark" optional attribute to the &lt;launch:info&gt; element to enable the client to request whether or not to include the mark in the info response.</li>
+  <li>Fixed state diagram to remove redundant transition from "invalid" to "rejected"; thanks Klaus Malorny.</li>
+</ol>
+<h1 id="rfc.appendix.A.7"><a href="#rfc.appendix.A.7">A.7.</a> <a href="#change-06-to-07" id="change-06-to-07">Change from 06 to 07</a></h1>
+<p/>
+
+<ol>
+  <li>Proof-read grammar and spelling.</li>
+  <li>Changed "pendingAuction" status to "pendingAllocation", changed "pending" to "pendingValidation" status, per proposal from Trung Tran and seconded by Rubens Kuhl.</li>
+  <li>Added text related to the use of RFC 5731 pendingCreate to the Application Identifier section.</li>
+  <li>Added the Poll Messaging section to define the use of poll messaging for intermediate state transitions and pending action poll messaging for final state transitions.</li>
+</ol>
+<h1 id="rfc.appendix.A.8"><a href="#rfc.appendix.A.8">A.8.</a> <a href="#change-07-to-08" id="change-07-to-08">Change from 07 to 08</a></h1>
+<p/>
+
+<ol>
+  <li>Added support for use of the launch statuses and poll messaging for Launch Registrations based on feedback from Sharon Wodjenski and Trung Tran.</li>
+  <li>Incorporated changes based on updates or clarifications in draft-lozano-tmch-func-spec-01, which include: <ol><li>Removed the unused &lt;launch:generatedDate&gt; element.</li><li>Removed the &lt;launch:source&gt; element.</li><li>Added the &lt;launch:notAfter&gt; element based on the required &lt;tmNotice:notAfter&gt; element.</li></ol><p> </p></li>
+</ol>
+<h1 id="rfc.appendix.A.9"><a href="#rfc.appendix.A.9">A.9.</a> <a href="#change-08-to-09" id="change-08-to-09">Change from 08 to 09</a></h1>
+<p/>
+
+<ol>
+  <li>Made &lt;choice&gt; element optional in &lt;launch:create&gt; to allow passing just the &lt;launch:phase&gt; in &lt;launch:create&gt; per request from Ben Levac.</li>
+  <li>Added optional "type" attribute in &lt;launch:create&gt; to enable the client to explicitly define the desired type of object (application or registration) to create to all forms of the create extension.</li>
+  <li>Added text that the server SHOULD validate the &lt;launch:phase&gt; element in the Launch Phases section.</li>
+  <li>Add the "General Create Form" to the create command extension to support the request from Ben Levac.</li>
+  <li>Updated the text for the Poll Messaging section based on feedback from Klaus Malorny.</li>
+  <li>Replaced the "claims1" and "claims2" phases with the "claims" phase based on discussion on the provreg list.</li>
+  <li>Added support for a mixed create model (Sunrise Create Model and Claims Create Model), where a trademark (encoded signed mark, etc.) and notice can be passed, based on a request from James Mitchell.</li>
+  <li>Added text for the handling of the overlapping "claims" and "landrush" launch phases.</li>
+  <li>Added support for two check forms (claims check form and availability check form) based on a request from James Mitchell.  The availability check form was based on the text in draft-rbp-application-epp-mapping.</li>
+</ol>
+<h1 id="rfc.appendix.A.10"><a href="#rfc.appendix.A.10">A.10.</a> <a href="#change-09-to-10" id="change-09-to-10">Change from 09 to 10</a></h1>
+<p/>
+
+<ol>
+  <li>Changed noticeIDType from base64Binary to token to be compatible with draft-lozano-tmch-func-spec-05.</li>
+  <li>Changed codeType from base64Binary to token to be more generic.</li>
+  <li>Updated based on feedback from Alexander Mayrhofer, which include: <ol><li>Changed "extension to the domain name extension" to "extension to the domain name mapping".</li><li>Changed use of 2004 return code to 2306 return code when phase passed mismatches active phase and sub-phase.</li><li>Changed description of "allocated" and "rejected" statuses.</li><li>Moved sentence on a synchronous &lt;domain:create&gt; command without the use of an intermediate application, then an Application Identifier MAY not be needed to the Application Identifier section.</li><li>Restructured the Mark Validation Models section to include the "&lt;launch:codeMark&gt; element" sub-section, the "&lt;mark:mark&gt; element" sub-section, and the Digital Signature sub-section.</li><li>Changed "Registries may" to "Registries MAY".</li><li>Changed "extensed" to "extended" in "Availability Check Form" section.</li><li>Broke the mix of create forms in the "EPP &lt;create&gt; Command" section to a fourth "Mixed Create Form" with its own sub-section.</li><li>Removed "displayed or" from "displayed or accepted" in the &lt;launch:acceptedDate&gt; description.</li><li>Replaced "given domain name is supported" with "given domain name are supported" in the "Create Response" section.</li><li>Changed the reference of 2303 (object does not exist) in the "Security Considerations" section to 2201 (authorization error).</li><li>Added arrow from "invalid" status to "pendingValidation" status and "pendingAllocation" status to "rejected" status in the State Transition Diagram.</li></ol><p> </p></li>
+  <li>Added the "C:" and "S:" example prefixes and related text in the "Conventions Used in This Document" section.</li>
+</ol>
+<h1 id="rfc.appendix.A.11"><a href="#rfc.appendix.A.11">A.11.</a> <a href="#change-10-to-11" id="change-10-to-11">Change from 10 to 11</a></h1>
+<p/>
+
+<ol>
+  <li>Moved the claims check response &lt;launch:chkData&gt; element under the &lt;extension&gt; element instead of the &lt;resData&gt; element based on the request from Francisco Obispo.</li>
+</ol>
+<h1 id="rfc.appendix.A.12"><a href="#rfc.appendix.A.12">A.12.</a> <a href="#change-11-to-12" id="change-11-to-12">Change from 11 to 12</a></h1>
+<p/>
+
+<ol>
+  <li>Added support for multiple validator identifiers for claims notices and marks based on a request and text provided by Mike O'Connell.</li>
+  <li>Removed domain:exDate element from example in section 3.3.5 based on a request from Seth Goldman on the provreg list.</li>
+  <li>Added clarifying text for clients not passing the launch extension on update and delete commands to servers that do not support launch applications based on a request from Sharon Wodjenski on the provreg list.</li>
+</ol>
+<h1 id="rfc.appendix.A.13"><a href="#rfc.appendix.A.13">A.13.</a> <a href="#change-12-to-wg00" id="change-12-to-wg00">Change from 12 to WG 00</a></h1>
+<p/>
+
+<ol>
+  <li>Changed to eppext working group draft by changing draft-tan-epp-launchphase to draft-ietf-eppext-launchphase and by changing references of draft-lozano-tmch-smd to draft-ietf-eppext-tmch-smd.</li>
+</ol>
+<h1 id="rfc.appendix.A.14"><a href="#rfc.appendix.A.14">A.14.</a> <a href="#change-wg00-to-wg01" id="change-wg00-to-wg01">Change WG 00 to WG 01</a></h1>
+<p/>
+
+<ol>
+  <li>Removed text associated with support for the combining of status values based on feedback from Patrick Mevzek on the provreg mailing list, discussion on the eppext mailing list, and discussion at the eppext IETF meeting on March 6, 2014.</li>
+</ol>
+<h1 id="rfc.appendix.A.15"><a href="#rfc.appendix.A.15">A.15.</a> <a href="#change-wg01-to-wg02" id="change-wg01-to-wg02">Change WG 01 to WG 02</a></h1>
+<p/>
+
+<ol>
+  <li>Changed the &lt;launch:claim&gt; element to be zero or more elements and the &lt;launch:notice&gt; element to be one or more elements in the Claims Create Form.  These changes were needed to be able to support more than one concurrent claims services.</li>
+</ol>
+<h1 id="rfc.appendix.A.16"><a href="#rfc.appendix.A.16">A.16.</a> <a href="#change-wg02-to-wg03" id="change-wg02-to-wg03">Change WG 02 to WG 03</a></h1>
+<p/>
+
+<ol>
+  <li>Added the "Implementation Status" section based on an action item from the eppext IETF-91 meeting.</li>
+  <li>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</li>
+  <li>Updated the text for the Claims Check Form and the Claims Create Form to support checking for the need of the claims notice and passing the claims notice outside of the "claims" phase.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>

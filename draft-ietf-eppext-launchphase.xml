@@ -4,9 +4,10 @@
      There has to be one entity for each item to be referenced. 
      An alternate method (rfc include) is described in the references. -->
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
-<!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
+<!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
    'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
@@ -41,7 +42,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-02" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-03" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -129,7 +130,7 @@
       </address>
     </author>
 
-    <date day="25" month="September" year="2014"/>
+    <date day="12" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -677,14 +678,16 @@ S:</epp>]]></artwork>
         The Claims Check Form defines 
         a new command called the Claims Check Command 
         that is used to determine whether or not there are any matching 
-        trademarks, in the specified launch phase, for each domain name passed in the command.  
-        The availability check information defined in the <xref target="RFC5731">EPP domain name
+        trademarks, in the specified launch phase, for each domain name passed in the command, 
+        that requires the use of the "Claims Create Form" on a Domain Create Command.  The 
+        availability check information defined in the <xref target="RFC5731">EPP domain name
       mapping</xref> MUST NOT be returned for the Claims Check Command.  This form is the default form and MAY be 
         explicitly identified by setting the &lt;launch:check&gt; "type" attribute to "claims".</t>  
         <t>Instead of 
         returning whether the domain name is available, the Claims Check Command will return whether 
-        or not at least one matching trademark exists for the domain name.  
-        If there is at least one matching trademark that exists for the 
+        or not at least one matching trademark exists for the domain name, that requires the use of 
+        the "Claims Create Form" on a Domain Create Command.  If 
+        there is at least one matching trademark that exists for the 
         domain name, a &lt;launch:claimKey&gt; element is returned.  
         The client MAY then use the value of the &lt;launch:claimKey&gt; element
         to obtain information needed to generate the Trademark Claims Notice from 
@@ -749,10 +752,12 @@ C:</epp>]]></artwork>
             qualified name of the queried domain name.  This element 
             MUST contain an "exists" attribute whose value 
             indicates if a matching trademark exists for the domain 
-            name.  A value of "1" (or "true") means that a matching 
-            trademark does exist for the claims launch phase.  
-            A value of "0" (or "false") means that 
-            a matching trademark does not exist.</t>
+            name that requires the use of the "Claims Create Form" on a Domain Create Command.  
+            A value of "1" (or "true") means that a matching 
+            trademark does exist and that the "Claims Create Form" is required on a 
+            Domain Create Command.  A value of "0" (or "false") means that 
+            a matching trademark does not exist or that the "Claims Create Form" is NOT required on a 
+            Domain Create Command.</t>
             <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
             trademark validator such as the Trademark Clearinghouse (TMCH) 
@@ -1334,8 +1339,10 @@ C:</epp>]]></artwork>
         The &lt;launch:create&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">MUST contain the value of
-              "claims" to indicate the claims launch phase.</t>
+              <t hangText="&lt;launch:phase&gt;">SHOULD contain the value of
+              "claims" to indicate the claims launch phase.  A value other than 
+              "claims" MAY be used to pass the claims notice for domain names 
+              outside the claims phase.</t>
               <t hangText="&lt;launch:notice&gt;">One or more &lt;launch:notice&gt; elements
               that contain the following child elements:</t>
               <t><list hangIndent="4" style="hanging">
@@ -1343,10 +1350,10 @@ C:</epp>]]></artwork>
           for the Claims Notice. The &lt;launch:noticeID&gt; 
           element has an OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> whose value indicates 
           which Trademark 
-          Validator is the source of the Claims Notice, with the default being the ICANN TMCH.</t>
+          Validator is the source of the claims notice, with the default being the ICANN TMCH.</t>
                 <t hangText="&lt;launch:notAfter&gt;">Expiry of the claims notice.</t>
                 <t hangText="&lt;launch:acceptedDate&gt;">Contains the
-              date and time that the Claims Notice was accepted.</t>
+              date and time that the claims notice was accepted.</t>
               </list></t>
             </list></t>
 
@@ -2102,6 +2109,104 @@ END]]></artwork>
       </section>
     </section>
 
+
+    <section anchor="IANA" title="IANA Considerations">
+         <t>
+             This document uses URNs to describe XML namespaces and XML schemas
+             conforming to a registry mechanism described in <xref target="RFC3688"/>.
+             One URI assignment has been registered by the IANA.
+         </t>
+
+         <t>Registration request for the Launch namespace:</t>
+         <t>
+             <list>
+                 <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
+                 <t>Registrant Contact: See the &quot;Author&apos;s Address&quot; section of this document.</t>
+                 <t>XML: None.  Namespace URIs do not represent an XML specification.</t>
+             </list>
+         </t> 
+ 
+    </section>
+
+    <section anchor="Implementation" title="Implementation Status">
+      <t>Note to RFC Editor: Please remove this section and the reference to
+         <xref target="RFC6982">RFC 6982</xref> before publication.</t>
+      <t>This section records the status of known implementations of the
+      protocol defined by this specification at the time of posting of
+      this Internet-Draft, and is based on a proposal described in <xref target="RFC6982">RFC
+      6982</xref>.  The description of implementations in this section is
+      intended to assist the IETF in its decision processes in
+      progressing drafts to RFCs.  Please note that the listing of any
+      individual implementation here does not imply endorsement by the
+      IETF.  Furthermore, no effort has been spent to verify the
+      information presented here that was supplied by IETF contributors.
+      This is not intended as, and must not be construed to be, a
+      catalog of available implementations or their features.  Readers
+      are advised to note that other implementations may exist.</t>
+      <t>According to <xref target="RFC6982">RFC 6982</xref>, "this will allow reviewers and working
+      groups to assign due consideration to documents that have the
+      benefit of running code, which may serve as evidence of valuable
+      experimentation and feedback that have made the implemented
+      protocols more mature.  It is up to the individual working groups
+      to use this information as they see fit".</t>
+      <section title="Verisign EPP SDK">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign EPP SDK</t>
+        <t>Description: The Verisign EPP SDK includes both a full client implementation 
+        and a full server stub implementation of draft-ietf-eppext-launchphase.</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: All aspects of the protocol are implemented.</t>
+        <t>Licensing: GNU Lesser General Public License</t>
+        <t>Contact: jgould@verisign.com</t>
+        <t>URL: http://www.verisigninc.com/en_US/channel-resources/domain-registry-products/epp-sdks</t>
+      </section>
+      <section title="Verisign Consolidated Top Level Domain (CTLD) SRS">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)</t>
+        <t>Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS) 
+         implements the server-side of draft-ietf-eppext-launchphase for a variety of Top Level Domains (TLD's).</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, 
+        the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations and Launch Applications.
+        For Launch Applications the Poll Messaging, the EPP &lt;info&gt; Command, the EPP &lt;update&gt; Command, and 
+        the EPP &lt;delete&gt; Command is covered.</t>
+        <t>Licensing: Proprietary</t>
+        <t>Contact: jgould@verisign.com</t>
+      </section>
+      <section title="Verisign .COM / .NET SRS">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign .COM / .NET Shared Registry System (SRS)</t>
+        <t>Description: The Verisign Shared Registry System (SRS) for .COM, .NET and other IDN TLD's  
+        implements the server-side of draft-ietf-eppext-launchphase.</t>  
+        <t>Level of maturity: Operational Test Environment (OTE)</t>
+        <t>Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, 
+        the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations.</t>
+        <t>Licensing: Proprietary</t>
+        <t>Contact: jgould@verisign.com</t>
+      </section>
+    </section>
+
+    <section anchor="Security" title="Security Considerations">
+      <t>The mapping extensions described in this document do not provide any
+      security services beyond those described by <xref
+      target="RFC5730">EPP</xref>, the <xref target="RFC5731">EPP domain name
+      mapping</xref>, and protocol layers used by EPP. The security
+      considerations described in these other specifications apply to this
+      specification as well.</t>
+
+      <t>Updates to, and deletion of an application object must be restricted
+      to clients authorized to perform the said operation on the object.</t>
+
+      <t>As information contained within an application, or even the mere fact
+      that an application exists may be confidential. Any attempt to operate
+      on an application object by an unauthorized client MUST be rejected with
+      an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered
+      output by clients other than the sponsoring client, in which case the
+      &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be
+      filtered to include only fields that are publicly accessible.</t>
+    </section>
+
+
     <section anchor="Acknowledgements" title="Acknowledgements">
       <t>The authors wish to acknowledge the efforts of the leading 
       participants of the Community TMCH Model that led to many of the 
@@ -2112,6 +2217,34 @@ END]]></artwork>
       Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran,  
       Ulrich Wisser and Sharon Wodjenski.</t>
     </section>
+        
+  </middle>
+
+  <!--  *****BACK MATTER ***** -->
+
+  <back>
+    <!-- References split into informative and normative -->
+
+    <!-- There are 2 ways to insert reference entries from the citation libraries:
+     1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
+     2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
+        (for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
+
+     Both are cited textually in the same manner: by using xref elements.
+     If you use the PI option, xml2rfc will, by default, try to find included files in the same
+     directory as the including file. You can also define the XML_LIBRARY environment variable
+     with a value containing a set of directories to search.  These can be either in the local
+     filing system or remote ones accessed by http (http://domain/dir/... ).-->
+
+    <references title="Normative References">  
+      
+      &RFC2119;
+      &RFC3688;
+      &RFC5730;
+      &RFC5731;
+      &RFC6982;
+      &I-D.ietf-eppext-tmch-smd;
+    </references>
     
    <section title="Change History">
     <section title="Change from 00 to 01" anchor="change-00-to-01">
@@ -2263,73 +2396,16 @@ END]]></artwork>
           more than one concurrent claims services.</t>
       </list></t>
     </section>
+    <section title="Change WG 02 to WG 03" anchor="change-wg02-to-wg03">
+      <t><list style="numbers">
+          <t>Added the "Implementation Status" section based on an action item from the eppext IETF-91 meeting.</t>
+          <t>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</t>    
+          <t>Updated the text for the Claims Check Form and the Claims Create Form to support checking for the 
+          need of the claims notice and passing the claims notice outside of the "claims" phase.</t>
+      </list></t>
+    </section>
    </section>
     
-
-    <section anchor="IANA" title="IANA Considerations">
-         <t>
-             This document uses URNs to describe XML namespaces and XML schemas
-             conforming to a registry mechanism described in <xref target="RFC3688"/>.
-             One URI assignment has been registered by the IANA.
-         </t>
-
-         <t>Registration request for the Launch namespace:</t>
-         <t>
-             <list>
-                 <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
-                 <t>Registrant Contact: See the &quot;Author&apos;s Address&quot; section of this document.</t>
-                 <t>XML: None.  Namespace URIs do not represent an XML specification.</t>
-             </list>
-         </t> 
- 
-    </section>
-
-    <section anchor="Security" title="Security Considerations">
-      <t>The mapping extensions described in this document do not provide any
-      security services beyond those described by <xref
-      target="RFC5730">EPP</xref>, the <xref target="RFC5731">EPP domain name
-      mapping</xref>, and protocol layers used by EPP. The security
-      considerations described in these other specifications apply to this
-      specification as well.</t>
-
-      <t>Updates to, and deletion of an application object must be restricted
-      to clients authorized to perform the said operation on the object.</t>
-
-      <t>As information contained within an application, or even the mere fact
-      that an application exists may be confidential. Any attempt to operate
-      on an application object by an unauthorized client MUST be rejected with
-      an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered
-      output by clients other than the sponsoring client, in which case the
-      &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be
-      filtered to include only fields that are publicly accessible.</t>
-    </section>
-
-  </middle>
-
-  <!--  *****BACK MATTER ***** -->
-
-  <back>
-    <!-- References split into informative and normative -->
-
-    <!-- There are 2 ways to insert reference entries from the citation libraries:
-     1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
-     2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
-        (for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
-
-     Both are cited textually in the same manner: by using xref elements.
-     If you use the PI option, xml2rfc will, by default, try to find included files in the same
-     directory as the including file. You can also define the XML_LIBRARY environment variable
-     with a value containing a set of directories to search.  These can be either in the local
-     filing system or remote ones accessed by http (http://domain/dir/... ).-->
-
-    <references title="Normative References">  
-      
-      &RFC2119;
-      &RFC5730;
-      &RFC5731;
-      &RFC3688;
-      &I-D.ietf-eppext-tmch-smd;
-    </references>
   </back>
 
   <!-- vim: set ts=2 sw=2 expandtab: -->
