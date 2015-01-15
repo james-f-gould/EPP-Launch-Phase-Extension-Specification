@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="12" month="January" year="2015"/>
+    <date day="15" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -2183,6 +2183,16 @@ END]]></artwork>
         the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations.</t>
         <t>Licensing: Proprietary</t>
         <t>Contact: jgould@verisign.com</t>
+      </section>
+      <section title="REngin v3.7">
+        <t>Organization: Domain Name Services (Pty) Ltd</t>
+        <t>Name: REngin v3.7</t>
+        <t>Description: Server side implementation only</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: All features from version 12 have been implemented</t>
+        <t>Licensing: Proprietary Licensing with Maintenance Contracts</t>
+        <t>Contact: info@dnservices.co.za</t>
+        <t>URL: https://www.registry.net.za and soon http://dnservices.co.za</t>
       </section>
     </section>
 
