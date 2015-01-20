@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="15" month="January" year="2015"/>
+    <date day="20" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -2193,6 +2193,16 @@ END]]></artwork>
         <t>Licensing: Proprietary Licensing with Maintenance Contracts</t>
         <t>Contact: info@dnservices.co.za</t>
         <t>URL: https://www.registry.net.za and soon http://dnservices.co.za</t>
+      </section>
+      <section title="RegistryEngine EPP Service">
+        <t>Organization: CentralNic</t>
+        <t>Name: RegistryEngine EPP Service</t>
+        <t>Description: Generic high-volume EPP service for gTLDs, ccTLDs and SLDs</t>  
+        <t>Level of maturity: Deployed in CentralNic's production environment as well as two other gTLD registry systems, and two ccTLD registry systems.</t>
+        <t>Coverage: Majority of elements including TMCH sunrise, landrush and TM claims as well as sunrise applications validated using codes.</t>
+        <t>Licensing: Proprietary In-House software</t>
+        <t>Contact: epp@centralnic.com</t>
+        <t>URL: https://www.centralnic.com</t>
       </section>
     </section>
 

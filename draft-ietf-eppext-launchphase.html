@@ -412,6 +412,7 @@
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Verisign Consolidated Top Level Domain (CTLD) SRS"/>
 <link href="#rfc.section.6.3" rel="Chapter" title="6.3 Verisign .COM / .NET SRS"/>
 <link href="#rfc.section.6.4" rel="Chapter" title="6.4 REngin v3.7"/>
+<link href="#rfc.section.6.5" rel="Chapter" title="6.5 RegistryEngine EPP Service"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
 <link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
@@ -440,7 +441,7 @@
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-1-15" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-1-20" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -464,7 +465,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: July 19, 2015</td>
+  <td class="left">Expires: July 24, 2015</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -477,7 +478,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 15, 2015</td>
+  <td class="right">January 20, 2015</td>
 </tr>
 
     	
@@ -497,7 +498,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 19, 2015.</p>
+<p>This Internet-Draft will expire on July 24, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -547,6 +548,7 @@
 <li>6.2.   <a href="#rfc.section.6.2">Verisign Consolidated Top Level Domain (CTLD) SRS</a></li>
 <li>6.3.   <a href="#rfc.section.6.3">Verisign .COM / .NET SRS</a></li>
 <li>6.4.   <a href="#rfc.section.6.4">REngin v3.7</a></li>
+<li>6.5.   <a href="#rfc.section.6.5">RegistryEngine EPP Service</a></li>
 <li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
@@ -1916,6 +1918,15 @@ END</pre>
 <p id="rfc.section.6.4.p.6">Licensing: Proprietary Licensing with Maintenance Contracts</p>
 <p id="rfc.section.6.4.p.7">Contact: info@dnservices.co.za</p>
 <p id="rfc.section.6.4.p.8">URL: https://www.registry.net.za and soon http://dnservices.co.za</p>
+<h1 id="rfc.section.6.5"><a href="#rfc.section.6.5">6.5.</a> RegistryEngine EPP Service</h1>
+<p id="rfc.section.6.5.p.1">Organization: CentralNic</p>
+<p id="rfc.section.6.5.p.2">Name: RegistryEngine EPP Service</p>
+<p id="rfc.section.6.5.p.3">Description: Generic high-volume EPP service for gTLDs, ccTLDs and SLDs</p>
+<p id="rfc.section.6.5.p.4">Level of maturity: Deployed in CentralNic's production environment as well as two other gTLD registry systems, and two ccTLD registry systems.</p>
+<p id="rfc.section.6.5.p.5">Coverage: Majority of elements including TMCH sunrise, landrush and TM claims as well as sunrise applications validated using codes.</p>
+<p id="rfc.section.6.5.p.6">Licensing: Proprietary In-House software</p>
+<p id="rfc.section.6.5.p.7">Contact: epp@centralnic.com</p>
+<p id="rfc.section.6.5.p.8">URL: https://www.centralnic.com</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite>, the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <p id="rfc.section.7.p.2">Updates to, and deletion of an application object must be restricted to clients authorized to perform the said operation on the object.</p>

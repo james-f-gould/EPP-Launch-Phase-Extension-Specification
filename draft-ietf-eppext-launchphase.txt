@@ -5,10 +5,10 @@
 Internet Engineering Task Force                                 J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                  W. Tan
-Expires: July 19, 2015                                    Cloud Registry
+Expires: July 24, 2015                                    Cloud Registry
                                                                 G. Brown
                                                           CentralNic Ltd
-                                                        January 15, 2015
+                                                        January 20, 2015
 
 
   Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 19, 2015.
+   This Internet-Draft will expire on July 24, 2015.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 1]
+Gould, et al.             Expires July 24, 2015                 [Page 1]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -101,35 +101,36 @@ Table of Contents
      6.2.  Verisign Consolidated Top Level Domain (CTLD) SRS . . . .  47
      6.3.  Verisign .COM / .NET SRS  . . . . . . . . . . . . . . . .  47
      6.4.  REngin v3.7 . . . . . . . . . . . . . . . . . . . . . . .  48
+     6.5.  RegistryEngine EPP Service  . . . . . . . . . . . . . . .  48
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  48
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  48
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  49
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  49
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  49
-     9.2.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  49
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 2]
+Gould, et al.             Expires July 24, 2015                 [Page 2]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
-   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  49
-     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  49
-     A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  49
+     9.2.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  50
+   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  50
+     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  50
+     A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  50
      A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  50
      A.4.  Change from 03 to 04  . . . . . . . . . . . . . . . . . .  50
-     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  50
+     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  51
      A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  51
      A.7.  Change from 06 to 07  . . . . . . . . . . . . . . . . . .  51
-     A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  51
-     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  51
+     A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  52
+     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  52
      A.10. Change from 09 to 10  . . . . . . . . . . . . . . . . . .  52
      A.11. Change from 10 to 11  . . . . . . . . . . . . . . . . . .  53
      A.12. Change from 11 to 12  . . . . . . . . . . . . . . . . . .  53
-     A.13. Change from 12 to WG 00 . . . . . . . . . . . . . . . . .  53
-     A.14. Change WG 00 to WG 01 . . . . . . . . . . . . . . . . . .  53
-     A.15. Change WG 01 to WG 02 . . . . . . . . . . . . . . . . . .  53
+     A.13. Change from 12 to WG 00 . . . . . . . . . . . . . . . . .  54
+     A.14. Change WG 00 to WG 01 . . . . . . . . . . . . . . . . . .  54
+     A.15. Change WG 01 to WG 02 . . . . . . . . . . . . . . . . . .  54
      A.16. Change WG 02 to WG 03 . . . . . . . . . . . . . . . . . .  54
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  54
 
@@ -161,15 +162,15 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    [I-D.ietf-eppext-tmch-smd] defines a registry interface for the
    Trademark Claims or "claims" launch phase that includes support for
    presenting a Trademark Claims Notice to the Registrant.  This
-   document proposes an extension to the domain name mapping in order to
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 3]
+Gould, et al.             Expires July 24, 2015                 [Page 3]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
+   document proposes an extension to the domain name mapping in order to
    provide a uniform interface for the management of Launch Applications
    and Launch Registrations in launch phases.
 
@@ -220,8 +221,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-
-Gould, et al.             Expires July 19, 2015                 [Page 4]
+Gould, et al.             Expires July 24, 2015                 [Page 4]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -277,7 +277,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 5]
+Gould, et al.             Expires July 24, 2015                 [Page 5]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -333,7 +333,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 6]
+Gould, et al.             Expires July 24, 2015                 [Page 6]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -389,7 +389,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 7]
+Gould, et al.             Expires July 24, 2015                 [Page 7]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -445,7 +445,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 8]
+Gould, et al.             Expires July 24, 2015                 [Page 8]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -501,7 +501,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                 [Page 9]
+Gould, et al.             Expires July 24, 2015                 [Page 9]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -557,7 +557,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 10]
+Gould, et al.             Expires July 24, 2015                [Page 10]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -613,7 +613,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 11]
+Gould, et al.             Expires July 24, 2015                [Page 11]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -669,7 +669,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 12]
+Gould, et al.             Expires July 24, 2015                [Page 12]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -725,7 +725,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 13]
+Gould, et al.             Expires July 24, 2015                [Page 13]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -781,7 +781,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 14]
+Gould, et al.             Expires July 24, 2015                [Page 14]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -837,7 +837,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 15]
+Gould, et al.             Expires July 24, 2015                [Page 15]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -893,7 +893,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 16]
+Gould, et al.             Expires July 24, 2015                [Page 16]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -949,7 +949,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 17]
+Gould, et al.             Expires July 24, 2015                [Page 17]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 18]
+Gould, et al.             Expires July 24, 2015                [Page 18]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 19]
+Gould, et al.             Expires July 24, 2015                [Page 19]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 20]
+Gould, et al.             Expires July 24, 2015                [Page 20]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 21]
+Gould, et al.             Expires July 24, 2015                [Page 21]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 22]
+Gould, et al.             Expires July 24, 2015                [Page 22]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 23]
+Gould, et al.             Expires July 24, 2015                [Page 23]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 24]
+Gould, et al.             Expires July 24, 2015                [Page 24]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 25]
+Gould, et al.             Expires July 24, 2015                [Page 25]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 26]
+Gould, et al.             Expires July 24, 2015                [Page 26]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 27]
+Gould, et al.             Expires July 24, 2015                [Page 27]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 28]
+Gould, et al.             Expires July 24, 2015                [Page 28]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 29]
+Gould, et al.             Expires July 24, 2015                [Page 29]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 30]
+Gould, et al.             Expires July 24, 2015                [Page 30]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1733,7 +1733,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 31]
+Gould, et al.             Expires July 24, 2015                [Page 31]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1789,7 +1789,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 32]
+Gould, et al.             Expires July 24, 2015                [Page 32]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1845,7 +1845,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 33]
+Gould, et al.             Expires July 24, 2015                [Page 33]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1901,7 +1901,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 34]
+Gould, et al.             Expires July 24, 2015                [Page 34]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1957,7 +1957,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 35]
+Gould, et al.             Expires July 24, 2015                [Page 35]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2013,7 +2013,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 36]
+Gould, et al.             Expires July 24, 2015                [Page 36]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2069,7 +2069,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 37]
+Gould, et al.             Expires July 24, 2015                [Page 37]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2125,7 +2125,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 38]
+Gould, et al.             Expires July 24, 2015                [Page 38]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2181,7 +2181,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 39]
+Gould, et al.             Expires July 24, 2015                [Page 39]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2237,7 +2237,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 40]
+Gould, et al.             Expires July 24, 2015                [Page 40]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2293,7 +2293,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 41]
+Gould, et al.             Expires July 24, 2015                [Page 41]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2349,7 +2349,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 42]
+Gould, et al.             Expires July 24, 2015                [Page 42]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2405,7 +2405,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 43]
+Gould, et al.             Expires July 24, 2015                [Page 43]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2461,7 +2461,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 44]
+Gould, et al.             Expires July 24, 2015                [Page 44]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2517,7 +2517,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 45]
+Gould, et al.             Expires July 24, 2015                [Page 45]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2573,7 +2573,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 46]
+Gould, et al.             Expires July 24, 2015                [Page 46]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2629,7 +2629,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 47]
+Gould, et al.             Expires July 24, 2015                [Page 47]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2652,6 +2652,28 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
    URL: https://www.registry.net.za and soon http://dnservices.co.za
 
+6.5.  RegistryEngine EPP Service
+
+   Organization: CentralNic
+
+   Name: RegistryEngine EPP Service
+
+   Description: Generic high-volume EPP service for gTLDs, ccTLDs and
+   SLDs
+
+   Level of maturity: Deployed in CentralNic's production environment as
+   well as two other gTLD registry systems, and two ccTLD registry
+   systems.
+
+   Coverage: Majority of elements including TMCH sunrise, landrush and
+   TM claims as well as sunrise applications validated using codes.
+
+   Licensing: Proprietary In-House software
+
+   Contact: epp@centralnic.com
+
+   URL: https://www.centralnic.com
+
 7.  Security Considerations
 
    The mapping extensions described in this document do not provide any
@@ -2659,6 +2681,14 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    domain name mapping [RFC5731], and protocol layers used by EPP.  The
    security considerations described in these other specifications apply
    to this specification as well.
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 48]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
    Updates to, and deletion of an application object must be restricted
    to clients authorized to perform the said operation on the object.
@@ -2682,14 +2712,6 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    Special suggestions that have been incorporated into this document
    were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan
    Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny,
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 48]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco
    Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich
    Wisser and Sharon Wodjenski.
@@ -2713,6 +2735,16 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731, August 2009.
+
+
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 49]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
    [RFC6982]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", RFC 6982, July
@@ -2738,14 +2770,6 @@ A.2.  Change from 01 to 02
    1.  Added support for both the ICANN and ARI/Neustar TMCH models.
    2.  Changed the namespace URI and prefix to use "launch" instead of
        "launchphase".
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 49]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    3.  Added definition of multiple claim validation models.
    4.  Added the <launch:signedClaim> and <launch:signedNotice>
        elements.
@@ -2770,6 +2794,14 @@ A.4.  Change from 03 to 04
    3.  Removed use of the signedClaim.
    4.  Revised the method for referring to the signedClaim from the XML
        Signature using the IDREF URI.
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 50]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
    5.  Split the launch-1.0.xsd into three XML schemas including launch-
        1.0.xsd, signeMark-1.0.xsd, and mark-1.0.xsd.
    6.  Split the "claims" launch phase to the "claims1" and "claims2"
@@ -2791,16 +2823,6 @@ A.5.  Change from 04 to 05
        <mark:addr> element.
    5.  Updated note on replication of the EPP contact mapping elements
        in the Mark Contact section.
-
-
-
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 50]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
 
 A.6.  Change from 05 to 06
 
@@ -2827,6 +2849,15 @@ A.7.  Change from 06 to 07
        messaging for intermediate state transitions and pending action
        poll messaging for final state transitions.
 
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 51]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
 A.8.  Change from 07 to 08
 
    1.  Added support for use of the launch statuses and poll messaging
@@ -2849,15 +2880,6 @@ A.9.  Change from 08 to 09
        client to explicitly define the desired type of object
        (application or registration) to create to all forms of the
        create extension.
-
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 51]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    3.  Added text that the server SHOULD validate the <launch:phase>
        element in the Launch Phases section.
    4.  Add the "General Create Form" to the create command extension to
@@ -2885,6 +2907,13 @@ A.10.  Change from 09 to 10
    3.  Updated based on feedback from Alexander Mayrhofer, which
        include:
 
+
+
+Gould, et al.             Expires July 24, 2015                [Page 52]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
        1.   Changed "extension to the domain name extension" to
             "extension to the domain name mapping".
        2.   Changed use of 2004 return code to 2306 return code when
@@ -2906,14 +2935,6 @@ A.10.  Change from 09 to 10
             section.
        9.   Removed "displayed or" from "displayed or accepted" in the
             <launch:acceptedDate> description.
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 52]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
        10.  Replaced "given domain name is supported" with "given domain
             name are supported" in the "Create Response" section.
        11.  Changed the reference of 2303 (object does not exist) in the
@@ -2940,6 +2961,15 @@ A.12.  Change from 11 to 12
        on a request from Seth Goldman on the provreg list.
    3.  Added clarifying text for clients not passing the launch
        extension on update and delete commands to servers that do not
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 53]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
        support launch applications based on a request from Sharon
        Wodjenski on the provreg list.
 
@@ -2961,15 +2991,6 @@ A.15.  Change WG 01 to WG 02
 
    1.  Changed the <launch:claim> element to be zero or more elements
        and the <launch:notice> element to be one or more elements in the
-
-
-
-
-Gould, et al.             Expires July 19, 2015                [Page 53]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
        Claims Create Form.  These changes were needed to be able to
        support more than one concurrent claims services.
 
@@ -2994,6 +3015,15 @@ Authors' Addresses
 
    Email: jgould@verisign.com
    URI:   http://www.verisigninc.com
+
+
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 54]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
    Wil Tan
@@ -3021,4 +3051,30 @@ Authors' Addresses
 
 
 
-Gould, et al.             Expires July 19, 2015                [Page 54]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gould, et al.             Expires July 24, 2015                [Page 55]
