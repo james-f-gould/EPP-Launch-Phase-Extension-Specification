@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="20" month="January" year="2015"/>
+    <date day="21" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -702,8 +702,9 @@ S:</epp>]]></artwork>
         The &lt;launch:check&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The launch phase that SHOULD be 
-              "claims".</t>
+              <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
+              launch phase of the server.  The server SHOULD validate the value against the 
+              active server launch phase.</t>
             </list></t>
           <figure>
             <preamble>Example Claims Check command using the &lt;check&gt;
@@ -741,8 +742,9 @@ C:</epp>]]></artwork>
           contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The launch phase that SHOULD be 
-              "claims".</t>
+              <t hangText="&lt;launch:phase&gt;">The phase 
+              that mirrors the &lt;launch:phase&gt; element included in the
+              &lt;launch:check&gt;.</t>
 
               <t hangText="&lt;launch:cd&gt;">One or more &lt;launch:cd&gt; 
               elements that contain the following child elements:</t>
@@ -1068,9 +1070,11 @@ S:</epp>]]></artwork>
             General Create Form</xref> MAY be used
             for the "claims" launch phase.</t>
 
-            <t hangText="open">The EPP &lt;create&gt; command with the "open"
-            launch phase is undefined but the form supported is up to server
-            policy.</t>
+            <t hangText="open">The EPP &lt;create&gt; command with the
+            "open" launch phase is undefined but the form supported is up to server
+            policy.  Use of the <xref target="claimsCreateForm">Claims Create Form</xref> MAY 
+            be used to pass the information associated with the presentation 
+            and acceptance of the Claims Notice if required for the domain name.</t>
 
             <t hangText="custom">The EPP &lt;create&gt; command with the
             "custom" launch phase is undefined but the form supported is up to server
@@ -1328,8 +1332,7 @@ C:</epp>]]></artwork>
         <section anchor="claimsCreateForm" title="Claims Create Form">
           <t>The Claims Create Form of the extension to the <xref
           target="RFC5731">EPP domain name mapping</xref> includes the
-          information related to the registrant's acceptance of the Claims Notice 
-          for the "claims" launch phase.</t>
+          information related to the registrant's acceptance of the Claims Notice.</t>
 
           <t>A &lt;launch:create&gt; element is sent along with the regular
           &lt;create&gt; domain command.  The &lt;launch:create&gt; element 
@@ -1339,10 +1342,9 @@ C:</epp>]]></artwork>
         The &lt;launch:create&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">SHOULD contain the value of
-              "claims" to indicate the claims launch phase.  A value other than 
-              "claims" MAY be used to pass the claims notice for domain names 
-              outside the claims phase.</t>
+              <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
+              launch phase of the server.  The server SHOULD validate the value against the 
+              active server launch phase.</t>
               <t hangText="&lt;launch:notice&gt;">One or more &lt;launch:notice&gt; elements
               that contain the following child elements:</t>
               <t><list hangIndent="4" style="hanging">
