@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="21" month="January" year="2015"/>
+    <date day="22" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -663,12 +663,14 @@ S:</epp>]]></artwork>
       operations.</t>
 
       <section anchor="checkCommand" title="EPP &lt;check&gt; Command">
-       <t>There are two forms of the extension to the EPP &lt;check&gt; command:  
-       the <xref target="claimsCheckForm">Claims Check Form</xref> 
-       and the <xref target="availCheckForm">Availability Check Form</xref>.  The 
+       <t>There are three forms of the extension to the EPP &lt;check&gt; command:  
+       the <xref target="claimsCheckForm">Claims Check Form</xref>,
+       the <xref target="availCheckForm">Availability Check Form</xref>, 
+       and the <xref target="trademarkCheckForm">Trademark Check Form</xref>.  The 
        &lt;launch:check&gt; element "type" attribute defines the form, 
-       with the value of "claims" for the <xref target="claimsCheckForm">Claims Check Form</xref> 
-       and with the value of "avail" for the <xref target="availCheckForm">Availability Check Form</xref>.  
+       with the value of "claims" for the <xref target="claimsCheckForm">Claims Check Form</xref>,  
+       with the value of "avail" for the <xref target="availCheckForm">Availability Check Form</xref>, 
+       and with the value of "trademark" for the <xref target="trademarkCheckForm">Trademark Check Form</xref>.  
        The default value of the "type" attribute is "claims".  The forms supported by the server is determined by server policy.  
        The server MUST return an EPP error result code of 2307 
        if it receives a check form that is not supported.</t>  
@@ -710,8 +712,8 @@ S:</epp>]]></artwork>
             <preamble>Example Claims Check command using the &lt;check&gt;
             domain command and the &lt;launch:check&gt; extension with 
             the "type" explicitly set to "claims", to  
-            determine if "example1.tld" and "example2.tld" have any 
-            matching trademarks during the "claims" launch phase:</preamble>
+            determine if "example1.tld", "example2.tld", and "example3.tld" require 
+            claims notices during the "claims" launch phase:</preamble>
 
             <artwork><![CDATA[
 C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -722,6 +724,7 @@ C:    <domain:check
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
 C:      <domain:name>example1.tld</domain:name>
 C:      <domain:name>example2.tld</domain:name>
+C:      <domain:name>example3.tld</domain:name>
 C:    </domain:check>
 C:   </check>
 C:   <extension>
@@ -776,10 +779,10 @@ C:</epp>]]></artwork>
             </list></t>
 
           <figure>
-            <preamble>Example Claims Check response when no matching trademarks
-             are found for the domain name example1.tld, matching 
-             trademarks are found for the domain name example2.tld in 
-             the "tmch", matching trademarks are found for domain name 
+            <preamble>Example Claims Check response when a claims notice is 
+             not required for the domain name example1.tld, a claims notice 
+             is required for the domain name example2.tld in 
+             the "tmch", and a claims notice is required for the domain name 
              example3.tld in the "tmch" and "custom-tmch", for the 
              "claims" launch phase:</preamble>
 
@@ -881,6 +884,143 @@ C:</epp>]]></artwork>
         
         </section>    
         
+       <section anchor="trademarkCheckForm" title="Trademark Check Form">
+        <t>
+        The Trademark Check Form defines 
+        a new command called the Trademark Check Command 
+        that is used to determine whether or not there are any matching 
+        trademarks for each domain name passed in the command, independent of the 
+        active launch phase of the server and whether the "Claims Create Form" is required on a Domain Create Command.  
+        The availability check information defined in the <xref target="RFC5731">EPP domain name
+      mapping</xref> MUST NOT be returned for the Claims Check Command.  This form MUST be 
+        identified by setting the &lt;launch:check&gt; "type" attribute to "trademark".</t>  
+        <t>Instead of 
+        returning whether the domain name is available, the Trademark Check Command will return whether 
+        or not at least one matching trademark exists for the domain name.  If 
+        there is at least one matching trademark that exists for the 
+        domain name, a &lt;launch:claimKey&gt; element is returned.  
+        The client MAY then use the value of the &lt;launch:claimKey&gt; element
+        to obtain Trademark Claims Notice information from 
+        Trademark Validator based on the <xref target="validatorID">Validator Identifier</xref>.</t>  
+        
+        <t>The &lt;domain:name&gt; elements in the EPP &lt;check&gt; 
+        command of <xref target="RFC5731">EPP domain name mapping</xref> define 
+        the domain names to check for matching trademarks.  
+        The &lt;launch:check&gt; element does not contain any child elements 
+        with the "Trademark Check Form":</t>
+
+          <figure>
+            <preamble>Example Trademark Check command using the &lt;check&gt;
+            domain command and the &lt;launch:check&gt; extension with 
+            the "type" set to "trademark", to  
+            determine if "example1.tld", "example2.tld", and "example3.tld" have any 
+            matching trademarks:</preamble>
+
+            <artwork><![CDATA[
+C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+C:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+C:  <command>
+C:   <check>
+C:    <domain:check
+C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+C:      <domain:name>example1.tld</domain:name>
+C:      <domain:name>example2.tld</domain:name>
+C:      <domain:name>example3.tld</domain:name>
+C:    </domain:check>
+C:   </check>
+C:   <extension>
+C:    <launch:check
+C:     xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
+C:     type="trademark"/>
+C:   </extension>
+C:   <clTRID>ABC-12345</clTRID>
+C:  </command>
+C:</epp>]]></artwork>
+          </figure>
+
+          <t>If the &lt;check&gt; command has been processed successfully, the EPP 
+          &lt;response&gt; MUST contain an &lt;extension&gt; &lt;launch:chkData&gt; element 
+          that identifies the launch namespace.  The &lt;launch:chkData&gt; element 
+          contains the following child elements:</t>
+
+          <t><list hangIndent="4" style="hanging">
+
+              <t hangText="&lt;launch:cd&gt;">One or more &lt;launch:cd&gt; 
+              elements that contain the following child elements:</t>
+              
+              <t><list hangIndent="4" style="hanging">
+            <t hangText="&lt;launch:name&gt;">Contains the fully 
+            qualified name of the queried domain name.  This element 
+            MUST contain an "exists" attribute whose value 
+            indicates if a matching trademark exists for the domain 
+            name.  
+            A value of "1" (or "true") means that a matching 
+            trademark does exist.  A value of "0" (or "false") means that 
+            a matching trademark does not exist.</t>
+            <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
+            that MAY be passed to a third-party 
+            trademark validator such as the Trademark Clearinghouse (TMCH) 
+            for querying the information needed to generate a 
+            Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used 
+            as the key for the query in place of the domain name 
+            to securely query the service without using a well-known 
+            value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
+            whose value indicates which Trademark Validator to query for the Claims Notice information, with 
+            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support 
+            other forms of claims notices.</t>  
+              </list></t>
+
+            </list></t>
+
+          <figure>
+            <preamble>Example Trademark Check response when no matching trademarks
+             are found for the domain name example1.tld, matching 
+             trademarks are found for the domain name example2.tld in 
+             the "tmch", matching trademarks are found for domain name 
+             example3.tld in the "tmch" and "custom-tmch", for the 
+             "claims" launch phase:</preamble>
+
+            <artwork><![CDATA[
+S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+S:  <response>
+S:    <result code="1000">
+S:     <msg>Command completed successfully</msg>
+S:    </result>
+S:	 <extension>
+S:     <launch:chkData
+S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
+S:      <launch:cd>
+S:        <launch:name exists="0">example1.tld</launch:name>
+S:      </launch:cd>
+S:      <launch:cd>
+S:        <launch:name exists="1">example2.tld</launch:name>
+S:        <launch:claimKey validatorID="tmch">
+S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+S:        </launch:claimKey>
+S:      </launch:cd>
+S:      <launch:cd>
+S:        <launch:name exists="1">example3.tld</launch:name>
+S:        <launch:claimKey validatorID="tmch">
+S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+S:        </launch:claimKey>
+S:        <launch:claimKey validatorID="custom-tmch">
+S:        20140423200/1/2/3/rJ1Nr2vDsAzasdff7EasdfgjX4R000000002
+S:        </launch:claimKey>
+S:      </launch:cd>
+S:     </launch:chkData>
+S:	  </extension>
+S:    <trID>
+S:     <clTRID>ABC-12345</clTRID>
+S:     <svTRID>54321-XYZ</svTRID>
+S:    </trID>
+S:  </response>
+S:</epp>]]></artwork>
+          </figure>
+      
+        </section>    
+
+
         
       </section>
 
@@ -1799,17 +1939,12 @@ BEGIN
   xmlns="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified">
   
-<!--
-Import common element types.
--->
-  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/> 
-  
-  <import namespace="urn:ietf:params:xml:ns:mark-1.0"
-          schemaLocation="mark-1.0.xsd"/> 
-
-  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"
-          schemaLocation="signedMark-1.0.xsd"/> 
+  <!--
+  Import common element types.
+  -->
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/> 
+  <import namespace="urn:ietf:params:xml:ns:mark-1.0"/> 
+  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/> 
   
   <annotation>
     <documentation> 
@@ -2012,7 +2147,8 @@ Import common element types.
   -->
   <complexType name="checkType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
+      <element name="phase" type="launch:phaseType"
+        minOccurs="0"/>
     </sequence>
     <attribute name="type" type="launch:checkFormType" 
     default="claims"/>
@@ -2027,6 +2163,7 @@ Import common element types.
       <restriction base="token">
         <enumeration value="claims"/>
         <enumeration value="avail"/>
+        <enumeration value="trademark"/>
     </restriction>
   </simpleType>
 
@@ -2057,7 +2194,8 @@ Import common element types.
    -->
   <complexType name="chkDataType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
+      <element name="phase" type="launch:phaseType"
+       minOccurs="0"/>
       <element name="cd" type="launch:cdType"
        maxOccurs="unbounded"/>
     </sequence>
@@ -2235,7 +2373,7 @@ END]]></artwork>
       changes to this document, which include Chris Wright, Jeff Neuman, 
       Jeff Eckhaus, and Will Shorter.</t>
       <t>Special suggestions that have been incorporated into this document 
-      were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano,
+      were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano,
       Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran,  
       Ulrich Wisser and Sharon Wodjenski.</t>
     </section>
@@ -2424,6 +2562,8 @@ END]]></artwork>
           <t>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</t>    
           <t>Updated the text for the Claims Check Form and the Claims Create Form to support checking for the 
           need of the claims notice and passing the claims notice outside of the "claims" phase.</t>
+          <t>Added the new Trademark Check Form to support determining whether or not a trademark exists that matches the domain name 
+          independent of whether a claims notice is required on create.  This was based on a request from Trung Tran and a discussion on the eppext mailing list.</t>
       </list></t>
     </section>
    </section>

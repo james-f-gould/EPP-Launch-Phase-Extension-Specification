@@ -5,10 +5,10 @@
 Internet Engineering Task Force                                 J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                  W. Tan
-Expires: July 25, 2015                                    Cloud Registry
+Expires: July 26, 2015                                    Cloud Registry
                                                                 G. Brown
                                                           CentralNic Ltd
-                                                        January 21, 2015
+                                                        January 22, 2015
 
 
   Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 25, 2015.
+   This Internet-Draft will expire on July 26, 2015.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 1]
+Gould, et al.             Expires July 26, 2015                 [Page 1]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -82,57 +82,58 @@ Table of Contents
      3.1.  EPP <check> Command . . . . . . . . . . . . . . . . . . .  14
        3.1.1.  Claims Check Form . . . . . . . . . . . . . . . . . .  14
        3.1.2.  Availability Check Form . . . . . . . . . . . . . . .  17
-     3.2.  EPP <info> Command  . . . . . . . . . . . . . . . . . . .  19
-     3.3.  EPP <create> Command  . . . . . . . . . . . . . . . . . .  22
-       3.3.1.  Sunrise Create Form . . . . . . . . . . . . . . . . .  22
-       3.3.2.  Claims Create Form  . . . . . . . . . . . . . . . . .  28
-       3.3.3.  General Create Form . . . . . . . . . . . . . . . . .  31
-       3.3.4.  Mixed Create Form . . . . . . . . . . . . . . . . . .  32
-       3.3.5.  Create Response . . . . . . . . . . . . . . . . . . .  34
-     3.4.  EPP <update> Command  . . . . . . . . . . . . . . . . . .  35
-     3.5.  EPP <delete> Command  . . . . . . . . . . . . . . . . . .  36
-     3.6.  EPP <renew> Command . . . . . . . . . . . . . . . . . . .  37
-     3.7.  EPP <transfer> Command  . . . . . . . . . . . . . . . . .  38
-   4.  Formal Syntax . . . . . . . . . . . . . . . . . . . . . . . .  38
-     4.1.  Launch Schema . . . . . . . . . . . . . . . . . . . . . .  38
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  45
-   6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  46
-     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  46
-     6.2.  Verisign Consolidated Top Level Domain (CTLD) SRS . . . .  47
-     6.3.  Verisign .COM / .NET SRS  . . . . . . . . . . . . . . . .  47
-     6.4.  REngin v3.7 . . . . . . . . . . . . . . . . . . . . . . .  48
-     6.5.  RegistryEngine EPP Service  . . . . . . . . . . . . . . .  48
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  48
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  49
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  49
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  49
+       3.1.3.  Trademark Check Form  . . . . . . . . . . . . . . . .  19
+     3.2.  EPP <info> Command  . . . . . . . . . . . . . . . . . . .  22
+     3.3.  EPP <create> Command  . . . . . . . . . . . . . . . . . .  25
+       3.3.1.  Sunrise Create Form . . . . . . . . . . . . . . . . .  25
+       3.3.2.  Claims Create Form  . . . . . . . . . . . . . . . . .  31
+       3.3.3.  General Create Form . . . . . . . . . . . . . . . . .  34
+       3.3.4.  Mixed Create Form . . . . . . . . . . . . . . . . . .  35
+       3.3.5.  Create Response . . . . . . . . . . . . . . . . . . .  37
+     3.4.  EPP <update> Command  . . . . . . . . . . . . . . . . . .  38
+     3.5.  EPP <delete> Command  . . . . . . . . . . . . . . . . . .  39
+     3.6.  EPP <renew> Command . . . . . . . . . . . . . . . . . . .  40
+     3.7.  EPP <transfer> Command  . . . . . . . . . . . . . . . . .  41
+   4.  Formal Syntax . . . . . . . . . . . . . . . . . . . . . . . .  41
+     4.1.  Launch Schema . . . . . . . . . . . . . . . . . . . . . .  41
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  48
+   6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  48
+     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  49
+     6.2.  Verisign Consolidated Top Level Domain (CTLD) SRS . . . .  49
+     6.3.  Verisign .COM / .NET SRS  . . . . . . . . . . . . . . . .  50
+     6.4.  REngin v3.7 . . . . . . . . . . . . . . . . . . . . . . .  50
+     6.5.  RegistryEngine EPP Service  . . . . . . . . . . . . . . .  51
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  51
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  52
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  52
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 2]
+Gould, et al.             Expires July 26, 2015                 [Page 2]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
-     9.2.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  50
-   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  50
-     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  50
-     A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  50
-     A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  50
-     A.4.  Change from 03 to 04  . . . . . . . . . . . . . . . . . .  50
-     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  51
-     A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  51
-     A.7.  Change from 06 to 07  . . . . . . . . . . . . . . . . . .  51
-     A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  52
-     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  52
-     A.10. Change from 09 to 10  . . . . . . . . . . . . . . . . . .  52
-     A.11. Change from 10 to 11  . . . . . . . . . . . . . . . . . .  53
-     A.12. Change from 11 to 12  . . . . . . . . . . . . . . . . . .  53
-     A.13. Change from 12 to WG 00 . . . . . . . . . . . . . . . . .  54
-     A.14. Change WG 00 to WG 01 . . . . . . . . . . . . . . . . . .  54
-     A.15. Change WG 01 to WG 02 . . . . . . . . . . . . . . . . . .  54
-     A.16. Change WG 02 to WG 03 . . . . . . . . . . . . . . . . . .  54
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  54
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  52
+     9.2.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  52
+   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  53
+     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  53
+     A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  53
+     A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  53
+     A.4.  Change from 03 to 04  . . . . . . . . . . . . . . . . . .  53
+     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  54
+     A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  54
+     A.7.  Change from 06 to 07  . . . . . . . . . . . . . . . . . .  54
+     A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  54
+     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  55
+     A.10. Change from 09 to 10  . . . . . . . . . . . . . . . . . .  55
+     A.11. Change from 10 to 11  . . . . . . . . . . . . . . . . . .  56
+     A.12. Change from 11 to 12  . . . . . . . . . . . . . . . . . .  56
+     A.13. Change from 12 to WG 00 . . . . . . . . . . . . . . . . .  56
+     A.14. Change WG 00 to WG 01 . . . . . . . . . . . . . . . . . .  57
+     A.15. Change WG 01 to WG 02 . . . . . . . . . . . . . . . . . .  57
+     A.16. Change WG 02 to WG 03 . . . . . . . . . . . . . . . . . .  57
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  57
 
 1.  Introduction
 
@@ -161,15 +162,15 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    required, such as trademark information.  In addition, the
    [I-D.ietf-eppext-tmch-smd] defines a registry interface for the
    Trademark Claims or "claims" launch phase that includes support for
-   presenting a Trademark Claims Notice to the Registrant.  This
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 3]
+Gould, et al.             Expires July 26, 2015                 [Page 3]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
+   presenting a Trademark Claims Notice to the Registrant.  This
    document proposes an extension to the domain name mapping in order to
    provide a uniform interface for the management of Launch Applications
    and Launch Registrations in launch phases.
@@ -220,8 +221,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-
-Gould, et al.             Expires July 25, 2015                 [Page 4]
+Gould, et al.             Expires July 26, 2015                 [Page 4]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -277,7 +277,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 5]
+Gould, et al.             Expires July 26, 2015                 [Page 5]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -333,7 +333,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 6]
+Gould, et al.             Expires July 26, 2015                 [Page 6]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -389,7 +389,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 7]
+Gould, et al.             Expires July 26, 2015                 [Page 7]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -445,7 +445,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 8]
+Gould, et al.             Expires July 26, 2015                 [Page 8]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -501,7 +501,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                 [Page 9]
+Gould, et al.             Expires July 26, 2015                 [Page 9]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -557,7 +557,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 10]
+Gould, et al.             Expires July 26, 2015                [Page 10]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -613,7 +613,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 11]
+Gould, et al.             Expires July 26, 2015                [Page 11]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -669,7 +669,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 12]
+Gould, et al.             Expires July 26, 2015                [Page 12]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -725,7 +725,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 13]
+Gould, et al.             Expires July 26, 2015                [Page 13]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -739,16 +739,17 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 3.1.  EPP <check> Command
 
-   There are two forms of the extension to the EPP <check> command: the
-   Claims Check Form (Section 3.1.1) and the Availability Check Form
-   (Section 3.1.2).  The <launch:check> element "type" attribute defines
-   the form, with the value of "claims" for the Claims Check Form
-   (Section 3.1.1) and with the value of "avail" for the Availability
-   Check Form (Section 3.1.2).  The default value of the "type"
-   attribute is "claims".  The forms supported by the server is
-   determined by server policy.  The server MUST return an EPP error
-   result code of 2307 if it receives a check form that is not
-   supported.
+   There are three forms of the extension to the EPP <check> command:
+   the Claims Check Form (Section 3.1.1), the Availability Check Form
+   (Section 3.1.2), and the Trademark Check Form (Section 3.1.3).  The
+   <launch:check> element "type" attribute defines the form, with the
+   value of "claims" for the Claims Check Form (Section 3.1.1), with the
+   value of "avail" for the Availability Check Form (Section 3.1.2), and
+   with the value of "trademark" for the Trademark Check Form
+   (Section 3.1.3).  The default value of the "type" attribute is
+   "claims".  The forms supported by the server is determined by server
+   policy.  The server MUST return an EPP error result code of 2307 if
+   it receives a check form that is not supported.
 
 3.1.1.  Claims Check Form
 
@@ -780,8 +781,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-
-Gould, et al.             Expires July 25, 2015                [Page 14]
+Gould, et al.             Expires July 26, 2015                [Page 14]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -795,8 +795,8 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
    Example Claims Check command using the <check> domain command and the
    <launch:check> extension with the "type" explicitly set to "claims",
-   to determine if "example1.tld" and "example2.tld" have any matching
-   trademarks during the "claims" launch phase:
+   to determine if "example1.tld", "example2.tld", and "example3.tld"
+   require claims notices during the "claims" launch phase:
 
    C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    C:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -806,6 +806,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    C:      <domain:name>example1.tld</domain:name>
    C:      <domain:name>example2.tld</domain:name>
+   C:      <domain:name>example3.tld</domain:name>
    C:    </domain:check>
    C:   </check>
    C:   <extension>
@@ -833,15 +834,15 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
        <launch:name>  Contains the fully qualified name of the queried
            domain name.  This element MUST contain an "exists" attribute
            whose value indicates if a matching trademark exists for the
-           domain name that requires the use of the "Claims Create Form"
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 15]
+Gould, et al.             Expires July 26, 2015                [Page 15]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
+           domain name that requires the use of the "Claims Create Form"
            on a Domain Create Command.  A value of "1" (or "true") means
            that a matching trademark does exist and that the "Claims
            Create Form" is required on a Domain Create Command.  A value
@@ -892,17 +893,16 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-
-Gould, et al.             Expires July 25, 2015                [Page 16]
+Gould, et al.             Expires July 26, 2015                [Page 16]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
-   Example Claims Check response when no matching trademarks are found
-   for the domain name example1.tld, matching trademarks are found for
-   the domain name example2.tld in the "tmch", matching trademarks are
-   found for domain name example3.tld in the "tmch" and "custom-tmch",
-   for the "claims" launch phase:
+   Example Claims Check response when a claims notice is not required
+   for the domain name example1.tld, a claims notice is required for the
+   domain name example2.tld in the "tmch", and a claims notice is
+   required for the domain name example3.tld in the "tmch" and "custom-
+   tmch", for the "claims" launch phase:
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -949,7 +949,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 17]
+Gould, et al.             Expires July 26, 2015                [Page 17]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1005,7 +1005,175 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 18]
+Gould, et al.             Expires July 26, 2015                [Page 18]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
+3.1.3.  Trademark Check Form
+
+   The Trademark Check Form defines a new command called the Trademark
+   Check Command that is used to determine whether or not there are any
+   matching trademarks for each domain name passed in the command,
+   independent of the active launch phase of the server and whether the
+   "Claims Create Form" is required on a Domain Create Command.  The
+   availability check information defined in the EPP domain name mapping
+   [RFC5731] MUST NOT be returned for the Claims Check Command.  This
+   form MUST be identified by setting the <launch:check> "type"
+   attribute to "trademark".
+
+   Instead of returning whether the domain name is available, the
+   Trademark Check Command will return whether or not at least one
+   matching trademark exists for the domain name.  If there is at least
+   one matching trademark that exists for the domain name, a
+   <launch:claimKey> element is returned.  The client MAY then use the
+   value of the <launch:claimKey> element to obtain Trademark Claims
+   Notice information from Trademark Validator based on the Validator
+   Identifier (Section 2.2).
+
+   The <domain:name> elements in the EPP <check> command of EPP domain
+   name mapping [RFC5731] define the domain names to check for matching
+   trademarks.  The <launch:check> element does not contain any child
+   elements with the "Trademark Check Form":
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 19]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
+   Example Trademark Check command using the <check> domain command and
+   the <launch:check> extension with the "type" set to "trademark", to
+   determine if "example1.tld", "example2.tld", and "example3.tld" have
+   any matching trademarks:
+
+   C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+   C:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   C:  <command>
+   C:   <check>
+   C:    <domain:check
+   C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+   C:      <domain:name>example1.tld</domain:name>
+   C:      <domain:name>example2.tld</domain:name>
+   C:      <domain:name>example3.tld</domain:name>
+   C:    </domain:check>
+   C:   </check>
+   C:   <extension>
+   C:    <launch:check
+   C:     xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
+   C:     type="trademark"/>
+   C:   </extension>
+   C:   <clTRID>ABC-12345</clTRID>
+   C:  </command>
+   C:</epp>
+
+   If the <check> command has been processed successfully, the EPP
+   <response> MUST contain an <extension> <launch:chkData> element that
+   identifies the launch namespace.  The <launch:chkData> element
+   contains the following child elements:
+
+   <launch:cd>  One or more <launch:cd> elements that contain the
+       following child elements:
+
+
+       <launch:name>  Contains the fully qualified name of the queried
+           domain name.  This element MUST contain an "exists" attribute
+           whose value indicates if a matching trademark exists for the
+           domain name.  A value of "1" (or "true") means that a
+           matching trademark does exist.  A value of "0" (or "false")
+           means that a matching trademark does not exist.
+       <launch:claimKey>  Zero or more OPTIONAL claim keys that MAY be
+           passed to a third-party trademark validator such as the
+           Trademark Clearinghouse (TMCH) for querying the information
+           needed to generate a Trademark Claims Notice.  The
+           <launch:claimKey> is used as the key for the query in place
+           of the domain name to securely query the service without
+           using a well-known value like a domain name.  The OPTIONAL
+           "validatorID" attribute is the Validator Identifier
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 20]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
+           (Section 2.2) whose value indicates which Trademark Validator
+           to query for the Claims Notice information, with the default
+           being the ICANN TMCH.  The "validatorID" attribute MAY
+           reference a non-trademark claims clearinghouse identifer to
+           support other forms of claims notices.
+
+   Example Trademark Check response when no matching trademarks are
+   found for the domain name example1.tld, matching trademarks are found
+   for the domain name example2.tld in the "tmch", matching trademarks
+   are found for domain name example3.tld in the "tmch" and "custom-
+   tmch", for the "claims" launch phase:
+
+   S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   S:  <response>
+   S:    <result code="1000">
+   S:     <msg>Command completed successfully</msg>
+   S:    </result>
+   S:   <extension>
+   S:     <launch:chkData
+   S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
+   S:      <launch:cd>
+   S:        <launch:name exists="0">example1.tld</launch:name>
+   S:      </launch:cd>
+   S:      <launch:cd>
+   S:        <launch:name exists="1">example2.tld</launch:name>
+   S:        <launch:claimKey validatorID="tmch">
+   S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+   S:        </launch:claimKey>
+   S:      </launch:cd>
+   S:      <launch:cd>
+   S:        <launch:name exists="1">example3.tld</launch:name>
+   S:        <launch:claimKey validatorID="tmch">
+   S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+   S:        </launch:claimKey>
+   S:        <launch:claimKey validatorID="custom-tmch">
+   S:        20140423200/1/2/3/rJ1Nr2vDsAzasdff7EasdfgjX4R000000002
+   S:        </launch:claimKey>
+   S:      </launch:cd>
+   S:     </launch:chkData>
+   S:    </extension>
+   S:    <trID>
+   S:     <clTRID>ABC-12345</clTRID>
+   S:     <svTRID>54321-XYZ</svTRID>
+   S:    </trID>
+   S:  </response>
+   S:</epp>
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 21]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1061,7 +1229,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 19]
+Gould, et al.             Expires July 26, 2015                [Page 22]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1117,7 +1285,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 20]
+Gould, et al.             Expires July 26, 2015                [Page 23]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1173,7 +1341,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 21]
+Gould, et al.             Expires July 26, 2015                [Page 24]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1229,7 +1397,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 22]
+Gould, et al.             Expires July 26, 2015                [Page 25]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1285,7 +1453,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 23]
+Gould, et al.             Expires July 26, 2015                [Page 26]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1341,7 +1509,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 24]
+Gould, et al.             Expires July 26, 2015                [Page 27]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1397,7 +1565,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 25]
+Gould, et al.             Expires July 26, 2015                [Page 28]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1453,7 +1621,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 26]
+Gould, et al.             Expires July 26, 2015                [Page 29]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1509,7 +1677,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 27]
+Gould, et al.             Expires July 26, 2015                [Page 30]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1565,7 +1733,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 28]
+Gould, et al.             Expires July 26, 2015                [Page 31]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1621,7 +1789,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 29]
+Gould, et al.             Expires July 26, 2015                [Page 32]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1677,7 +1845,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 30]
+Gould, et al.             Expires July 26, 2015                [Page 33]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1733,7 +1901,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 31]
+Gould, et al.             Expires July 26, 2015                [Page 34]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1789,7 +1957,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 32]
+Gould, et al.             Expires July 26, 2015                [Page 35]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1845,7 +2013,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 33]
+Gould, et al.             Expires July 26, 2015                [Page 36]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1901,7 +2069,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 34]
+Gould, et al.             Expires July 26, 2015                [Page 37]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -1957,7 +2125,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 35]
+Gould, et al.             Expires July 26, 2015                [Page 38]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2013,7 +2181,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 36]
+Gould, et al.             Expires July 26, 2015                [Page 39]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2069,7 +2237,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 37]
+Gould, et al.             Expires July 26, 2015                [Page 40]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2125,7 +2293,7 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 38]
+Gould, et al.             Expires July 26, 2015                [Page 41]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -2141,17 +2309,12 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
      xmlns="http://www.w3.org/2001/XMLSchema"
      elementFormDefault="qualified">
 
-   <!--
-   Import common element types.
-   -->
-     <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-             schemaLocation="eppcom-1.0.xsd"/>
-
-     <import namespace="urn:ietf:params:xml:ns:mark-1.0"
-             schemaLocation="mark-1.0.xsd"/>
-
-     <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"
-             schemaLocation="signedMark-1.0.xsd"/>
+     <!--
+     Import common element types.
+     -->
+     <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/>
+     <import namespace="urn:ietf:params:xml:ns:mark-1.0"/>
+     <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/>
 
      <annotation>
        <documentation>
@@ -2178,19 +2341,19 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
          <element name="phase"
          type="launch:phaseType"/>
          <element name="applicationID"
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 39]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
          type="launch:applicationIDType"/>
        </sequence>
      </complexType>
 
      <!--
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 42]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
      Definition for application identifier
      -->
      <simpleType name="applicationIDType">
@@ -2234,19 +2397,19 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
        </restriction>
      </simpleType>
 
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 40]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
      <complexType name="codeType">
        <simpleContent>
          <extension base="launch:codeValue">
            <attribute name="validatorID"
            type="launch:validatorIDType" use="optional"/>
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 43]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
          </extension>
        </simpleContent>
      </complexType>
@@ -2290,19 +2453,19 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
            <enumeration value="allocated"/>
            <enumeration value="rejected"/>
            <enumeration value="custom"/>
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 41]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
          </restriction>
        </simpleType>
 
      <!--
      Status type definition
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 44]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
      -->
      <complexType name="statusType">
        <simpleContent>
@@ -2346,19 +2509,19 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
          <element name="notice"
           type="launch:createNoticeType"
           minOccurs="0" maxOccurs="unbounded"/>
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 42]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
        </sequence>
        <attribute name="type" type="launch:objectType"/>
      </complexType>
 
      <!--
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 45]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
      Type of launch object
      -->
      <simpleType name="objectType">
@@ -2386,7 +2549,8 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
      -->
      <complexType name="checkType">
        <sequence>
-         <element name="phase" type="launch:phaseType"/>
+         <element name="phase" type="launch:phaseType"
+           minOccurs="0"/>
        </sequence>
        <attribute name="type" type="launch:checkFormType"
        default="claims"/>
@@ -2401,16 +2565,17 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
          <restriction base="token">
            <enumeration value="claims"/>
            <enumeration value="avail"/>
+           <enumeration value="trademark"/>
        </restriction>
+     </simpleType>
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 43]
+
+
+Gould, et al.             Expires July 26, 2015                [Page 46]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
-     </simpleType>
 
 
      <!--
@@ -2439,7 +2604,8 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
       -->
      <complexType name="chkDataType">
        <sequence>
-         <element name="phase" type="launch:phaseType"/>
+         <element name="phase" type="launch:phaseType"
+          minOccurs="0"/>
          <element name="cd" type="launch:cdType"
           maxOccurs="unbounded"/>
        </sequence>
@@ -2458,16 +2624,16 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
          <extension base="eppcom:labelType">
            <attribute name="exists" type="boolean"
             use="required"/>
+         </extension>
+       </simpleContent>
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 44]
+Gould, et al.             Expires July 26, 2015                [Page 47]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
-         </extension>
-       </simpleContent>
      </complexType>
 
      <complexType name="claimKeyType">
@@ -2511,21 +2677,18 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
       document.
       XML: None.  Namespace URIs do not represent an XML specification.
 
-
-
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 45]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
 6.  Implementation Status
 
    Note to RFC Editor: Please remove this section and the reference to
    RFC 6982 [RFC6982] before publication.
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 48]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
    This section records the status of known implementations of the
    protocol defined by this specification at the time of posting of this
@@ -2568,22 +2731,20 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    URL: http://www.verisigninc.com/en_US/channel-resources/domain-
    registry-products/epp-sdks
 
-
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 46]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
 6.2.  Verisign Consolidated Top Level Domain (CTLD) SRS
 
    Organization: Verisign Inc.
 
    Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry
    System (SRS)
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 49]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
    Description: The Verisign Consolidated Top Level Domain (CTLD) Shared
    Registry System (SRS) implements the server-side of draft-ietf-
@@ -2622,18 +2783,6 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
    Contact: jgould@verisign.com
 
-
-
-
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 47]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
 6.4.  REngin v3.7
 
    Organization: Domain Name Services (Pty) Ltd
@@ -2645,6 +2794,13 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    Level of maturity: Production
 
    Coverage: All features from version 12 have been implemented
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 50]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
    Licensing: Proprietary Licensing with Maintenance Contracts
 
@@ -2682,14 +2838,6 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    security considerations described in these other specifications apply
    to this specification as well.
 
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 48]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    Updates to, and deletion of an application object must be restricted
    to clients authorized to perform the said operation on the object.
 
@@ -2702,6 +2850,14 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    and <launch:infData> response SHOULD be filtered to include only
    fields that are publicly accessible.
 
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 51]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
 8.  Acknowledgements
 
    The authors wish to acknowledge the efforts of the leading
@@ -2710,11 +2866,11 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    Jeff Eckhaus, and Will Shorter.
 
    Special suggestions that have been incorporated into this document
-   were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan
-   Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny,
-   Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco
-   Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich
-   Wisser and Sharon Wodjenski.
+   were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Michael
+   Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus
+   Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell,
+   Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung
+   Tran, Ulrich Wisser and Sharon Wodjenski.
 
 9.  References
 
@@ -2736,16 +2892,6 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731, August 2009.
 
-
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 49]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    [RFC6982]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", RFC 6982, July
               2013.
@@ -2755,6 +2901,18 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    [1] http://tools.ietf.org/html/draft-lozano-tmch-func-spec
 
    [2] http://tools.ietf.org/html/draft-lozano-tmch-func-spec
+
+
+
+
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 52]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
 Appendix A.  Change History
 
@@ -2794,14 +2952,6 @@ A.4.  Change from 03 to 04
    3.  Removed use of the signedClaim.
    4.  Revised the method for referring to the signedClaim from the XML
        Signature using the IDREF URI.
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 50]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
    5.  Split the launch-1.0.xsd into three XML schemas including launch-
        1.0.xsd, signeMark-1.0.xsd, and mark-1.0.xsd.
    6.  Split the "claims" launch phase to the "claims1" and "claims2"
@@ -2811,6 +2961,14 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
    8.  Changed the elements in the createNoticeType to include the
        noticeID, timestamp, and the source elements.
    9.  Added the class and effectiveDate elements to mark.
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 53]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
 A.5.  Change from 04 to 05
 
@@ -2849,15 +3007,6 @@ A.7.  Change from 06 to 07
        messaging for intermediate state transitions and pending action
        poll messaging for final state transitions.
 
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 51]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
 A.8.  Change from 07 to 08
 
    1.  Added support for use of the launch statuses and poll messaging
@@ -2868,6 +3017,15 @@ A.8.  Change from 07 to 08
 
        1.  Removed the unused <launch:generatedDate> element.
        2.  Removed the <launch:source> element.
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 54]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
        3.  Added the <launch:notAfter> element based on the required
            <tmNotice:notAfter> element.
 
@@ -2907,13 +3065,6 @@ A.10.  Change from 09 to 10
    3.  Updated based on feedback from Alexander Mayrhofer, which
        include:
 
-
-
-Gould, et al.             Expires July 25, 2015                [Page 52]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
        1.   Changed "extension to the domain name extension" to
             "extension to the domain name mapping".
        2.   Changed use of 2004 return code to 2306 return code when
@@ -2923,6 +3074,14 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
             without the use of an intermediate application, then an
             Application Identifier MAY not be needed to the Application
             Identifier section.
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 55]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
+
        5.   Restructured the Mark Validation Models section to include
             the "<launch:codeMark> element" sub-section, the
             "<mark:mark> element" sub-section, and the Digital Signature
@@ -2961,15 +3120,6 @@ A.12.  Change from 11 to 12
        on a request from Seth Goldman on the provreg list.
    3.  Added clarifying text for clients not passing the launch
        extension on update and delete commands to servers that do not
-
-
-
-
-Gould, et al.             Expires July 25, 2015                [Page 53]
-
-Internet-Draft        Launch Phase Mapping for EPP          January 2015
-
-
        support launch applications based on a request from Sharon
        Wodjenski on the provreg list.
 
@@ -2979,6 +3129,14 @@ A.13.  Change from 12 to WG 00
        launchphase to draft-ietf-eppext-launchphase and by changing
        references of draft-lozano-tmch-smd to draft-ietf-eppext-tmch-
        smd.
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 56]
+
+Internet-Draft        Launch Phase Mapping for EPP          January 2015
+
 
 A.14.  Change WG 00 to WG 01
 
@@ -3004,6 +3162,11 @@ A.16.  Change WG 02 to WG 03
    3.  Updated the text for the Claims Check Form and the Claims Create
        Form to support checking for the need of the claims notice and
        passing the claims notice outside of the "claims" phase.
+   4.  Added the new Trademark Check Form to support determining whether
+       or not a trademark exists that matches the domain name
+       independent of whether a claims notice is required on create.
+       This was based on a request from Trung Tran and a discussion on
+       the eppext mailing list.
 
 Authors' Addresses
 
@@ -3021,7 +3184,12 @@ Authors' Addresses
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 54]
+
+
+
+
+
+Gould, et al.             Expires July 26, 2015                [Page 57]
 
 Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
@@ -3077,4 +3245,4 @@ Internet-Draft        Launch Phase Mapping for EPP          January 2015
 
 
 
-Gould, et al.             Expires July 25, 2015                [Page 55]
+Gould, et al.             Expires July 26, 2015                [Page 58]

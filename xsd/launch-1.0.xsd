@@ -8,17 +8,12 @@
   xmlns="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified">
   
-<!--
-Import common element types.
--->
-  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/> 
-  
-  <import namespace="urn:ietf:params:xml:ns:mark-1.0"
-          schemaLocation="mark-1.0.xsd"/> 
-
-  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"
-          schemaLocation="signedMark-1.0.xsd"/> 
+  <!--
+  Import common element types.
+  -->
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/> 
+  <import namespace="urn:ietf:params:xml:ns:mark-1.0"/> 
+  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/> 
   
   <annotation>
     <documentation> 
@@ -221,7 +216,8 @@ Import common element types.
   -->
   <complexType name="checkType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
+      <element name="phase" type="launch:phaseType"
+        minOccurs="0"/>
     </sequence>
     <attribute name="type" type="launch:checkFormType" 
     default="claims"/>
@@ -236,6 +232,7 @@ Import common element types.
       <restriction base="token">
         <enumeration value="claims"/>
         <enumeration value="avail"/>
+        <enumeration value="trademark"/>
     </restriction>
   </simpleType>
 
@@ -266,7 +263,8 @@ Import common element types.
    -->
   <complexType name="chkDataType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
+      <element name="phase" type="launch:phaseType"
+       minOccurs="0"/>
       <element name="cd" type="launch:cdType"
        maxOccurs="unbounded"/>
     </sequence>

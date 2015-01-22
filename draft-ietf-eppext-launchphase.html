@@ -393,6 +393,7 @@
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 EPP &lt;check&gt; Command"/>
 <link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 Claims Check Form"/>
 <link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Availability Check Form"/>
+<link href="#rfc.section.3.1.3" rel="Chapter" title="3.1.3 Trademark Check Form"/>
 <link href="#rfc.section.3.2" rel="Chapter" title="3.2 EPP &lt;info&gt; Command"/>
 <link href="#rfc.section.3.3" rel="Chapter" title="3.3 EPP &lt;create&gt; Command"/>
 <link href="#rfc.section.3.3.1" rel="Chapter" title="3.3.1 Sunrise Create Form"/>
@@ -441,7 +442,7 @@
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-1-21" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-1-22" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -465,7 +466,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: July 25, 2015</td>
+  <td class="left">Expires: July 26, 2015</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -478,7 +479,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 21, 2015</td>
+  <td class="right">January 22, 2015</td>
 </tr>
 
     	
@@ -498,7 +499,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 25, 2015.</p>
+<p>This Internet-Draft will expire on July 26, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -529,6 +530,7 @@
 <li>3.1.   <a href="#rfc.section.3.1">EPP &lt;check&gt; Command</a></li>
 <li>3.1.1.   <a href="#rfc.section.3.1.1">Claims Check Form</a></li>
 <li>3.1.2.   <a href="#rfc.section.3.1.2">Availability Check Form</a></li>
+<li>3.1.3.   <a href="#rfc.section.3.1.3">Trademark Check Form</a></li>
 <li>3.2.   <a href="#rfc.section.3.2">EPP &lt;info&gt; Command</a></li>
 <li>3.3.   <a href="#rfc.section.3.3">EPP &lt;create&gt; Command</a></li>
 <li>3.3.1.   <a href="#rfc.section.3.3.1">Sunrise Create Form</a></li>
@@ -836,7 +838,7 @@ S:&lt;/epp&gt;</pre>
 <p id="rfc.section.3.p.3">While it is meant to serve several use cases, it does not prescribe any interpretation by the client or server. Such processing is typically highly policy-dependent and therefore specific to implementations.</p>
 <p id="rfc.section.3.p.4">Operations on application objects are done via one or more of the existing EPP verbs defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Registries MAY choose to support a subset of the operations.</p>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#checkCommand" id="checkCommand">EPP &lt;check&gt; Command</a></h1>
-<p id="rfc.section.3.1.p.1">There are two forms of the extension to the EPP &lt;check&gt; command: the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> and the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>.  The &lt;launch:check&gt; element "type" attribute defines the form, with the value of "claims" for the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> and with the value of "avail" for the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>.  The default value of the "type" attribute is "claims".  The forms supported by the server is determined by server policy.  The server MUST return an EPP error result code of 2307 if it receives a check form that is not supported.</p>
+<p id="rfc.section.3.1.p.1">There are three forms of the extension to the EPP &lt;check&gt; command: the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite>, the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>, and the <a href="#trademarkCheckForm">Trademark Check Form</a> <cite title="NONE">[trademarkCheckForm]</cite>.  The &lt;launch:check&gt; element "type" attribute defines the form, with the value of "claims" for the <a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite>, with the value of "avail" for the <a href="#availCheckForm">Availability Check Form</a> <cite title="NONE">[availCheckForm]</cite>, and with the value of "trademark" for the <a href="#trademarkCheckForm">Trademark Check Form</a> <cite title="NONE">[trademarkCheckForm]</cite>.  The default value of the "type" attribute is "claims".  The forms supported by the server is determined by server policy.  The server MUST return an EPP error result code of 2307 if it receives a check form that is not supported.</p>
 <h1 id="rfc.section.3.1.1"><a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#claimsCheckForm" id="claimsCheckForm">Claims Check Form</a></h1>
 <p id="rfc.section.3.1.1.p.1">The Claims Check Form defines a new command called the Claims Check Command that is used to determine whether or not there are any matching trademarks, in the specified launch phase, for each domain name passed in the command, that requires the use of the "Claims Create Form" on a Domain Create Command.  The availability check information defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> MUST NOT be returned for the Claims Check Command.  This form is the default form and MAY be explicitly identified by setting the &lt;launch:check&gt; "type" attribute to "claims".</p>
 <p id="rfc.section.3.1.1.p.2">Instead of returning whether the domain name is available, the Claims Check Command will return whether or not at least one matching trademark exists for the domain name, that requires the use of the "Claims Create Form" on a Domain Create Command.  If there is at least one matching trademark that exists for the domain name, a &lt;launch:claimKey&gt; element is returned.  The client MAY then use the value of the &lt;launch:claimKey&gt; element to obtain information needed to generate the Trademark Claims Notice from Trademark Validator based on the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite>.  The unique notice identifier of the Trademark Claims Notice MUST be passed in the &lt;launch:noticeID&gt; element of the extension to the <a href="#createCommand">Create Command</a> <cite title="NONE">[createCommand]</cite>.</p>
@@ -847,7 +849,7 @@ S:&lt;/epp&gt;</pre>
   <dt>&lt;launch:phase&gt;</dt>
   <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value against the active server launch phase.</dd>
 </dl>
-<p>Example Claims Check command using the &lt;check&gt; domain command and the &lt;launch:check&gt; extension with the "type" explicitly set to "claims", to determine if "example1.tld" and "example2.tld" have any matching trademarks during the "claims" launch phase:</p>
+<p>Example Claims Check command using the &lt;check&gt; domain command and the &lt;launch:check&gt; extension with the "type" explicitly set to "claims", to determine if "example1.tld", "example2.tld", and "example3.tld" require claims notices during the "claims" launch phase:</p>
 <pre>
 C:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 C:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
@@ -857,6 +859,7 @@ C:    &lt;domain:check
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
 C:      &lt;domain:name&gt;example1.tld&lt;/domain:name&gt;
 C:      &lt;domain:name&gt;example2.tld&lt;/domain:name&gt;
+C:      &lt;domain:name&gt;example3.tld&lt;/domain:name&gt;
 C:    &lt;/domain:check&gt;
 C:   &lt;/check&gt;
 C:   &lt;extension&gt;
@@ -887,7 +890,7 @@ C:&lt;/epp&gt;</pre>
     </dl>
   </dd>
 </dl>
-<p>Example Claims Check response when no matching trademarks are found for the domain name example1.tld, matching trademarks are found for the domain name example2.tld in the "tmch", matching trademarks are found for domain name example3.tld in the "tmch" and "custom-tmch", for the "claims" launch phase:</p>
+<p>Example Claims Check response when a claims notice is not required for the domain name example1.tld, a claims notice is required for the domain name example2.tld in the "tmch", and a claims notice is required for the domain name example3.tld in the "tmch" and "custom-tmch", for the "claims" launch phase:</p>
 <pre>
 S:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 S:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
@@ -957,6 +960,84 @@ C:   &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
 C:&lt;/epp&gt;</pre>
 <p id="rfc.section.3.1.2.p.4">The Availability Check Form does not define any extension to the response of an &lt;check&gt; domain command. After processing the command, the server replies with a standard EPP response as defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>.</p>
+<h1 id="rfc.section.3.1.3"><a href="#rfc.section.3.1.3">3.1.3.</a> <a href="#trademarkCheckForm" id="trademarkCheckForm">Trademark Check Form</a></h1>
+<p id="rfc.section.3.1.3.p.1">The Trademark Check Form defines a new command called the Trademark Check Command that is used to determine whether or not there are any matching trademarks for each domain name passed in the command, independent of the active launch phase of the server and whether the "Claims Create Form" is required on a Domain Create Command.  The availability check information defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> MUST NOT be returned for the Claims Check Command.  This form MUST be identified by setting the &lt;launch:check&gt; "type" attribute to "trademark".</p>
+<p id="rfc.section.3.1.3.p.2">Instead of returning whether the domain name is available, the Trademark Check Command will return whether or not at least one matching trademark exists for the domain name.  If there is at least one matching trademark that exists for the domain name, a &lt;launch:claimKey&gt; element is returned.  The client MAY then use the value of the &lt;launch:claimKey&gt; element to obtain Trademark Claims Notice information from Trademark Validator based on the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite>.</p>
+<p id="rfc.section.3.1.3.p.3">The &lt;domain:name&gt; elements in the EPP &lt;check&gt; command of <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> define the domain names to check for matching trademarks.  The &lt;launch:check&gt; element does not contain any child elements with the "Trademark Check Form":</p>
+<p>Example Trademark Check command using the &lt;check&gt; domain command and the &lt;launch:check&gt; extension with the "type" set to "trademark", to determine if "example1.tld", "example2.tld", and "example3.tld" have any matching trademarks:</p>
+<pre>
+C:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+C:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
+C:  &lt;command&gt;
+C:   &lt;check&gt;
+C:    &lt;domain:check
+C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
+C:      &lt;domain:name&gt;example1.tld&lt;/domain:name&gt;
+C:      &lt;domain:name&gt;example2.tld&lt;/domain:name&gt;
+C:      &lt;domain:name&gt;example3.tld&lt;/domain:name&gt;
+C:    &lt;/domain:check&gt;
+C:   &lt;/check&gt;
+C:   &lt;extension&gt;
+C:    &lt;launch:check
+C:     xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
+C:     type="trademark"/&gt;
+C:   &lt;/extension&gt;
+C:   &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
+C:  &lt;/command&gt;
+C:&lt;/epp&gt;</pre>
+<p id="rfc.section.3.1.3.p.4">If the &lt;check&gt; command has been processed successfully, the EPP &lt;response&gt; MUST contain an &lt;extension&gt; &lt;launch:chkData&gt; element that identifies the launch namespace.  The &lt;launch:chkData&gt; element contains the following child elements:</p>
+<p/>
+
+<dl>
+  <dt>&lt;launch:cd&gt;</dt>
+  <dd style="margin-left: 4">One or more &lt;launch:cd&gt; elements that contain the following child elements:</dd>
+  <dt></dt>
+  <dd style="margin-left: 4">
+    <dl>
+      <dt>&lt;launch:name&gt;</dt>
+      <dd style="margin-left: 4">Contains the fully qualified name of the queried domain name.  This element MUST contain an "exists" attribute whose value indicates if a matching trademark exists for the domain name.  A value of "1" (or "true") means that a matching trademark does exist.  A value of "0" (or "false") means that a matching trademark does not exist.</dd>
+      <dt>&lt;launch:claimKey&gt;</dt>
+      <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party trademark validator such as the Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
+    </dl>
+  </dd>
+</dl>
+<p>Example Trademark Check response when no matching trademarks are found for the domain name example1.tld, matching trademarks are found for the domain name example2.tld in the "tmch", matching trademarks are found for domain name example3.tld in the "tmch" and "custom-tmch", for the "claims" launch phase:</p>
+<pre>
+S:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+S:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
+S:  &lt;response&gt;
+S:    &lt;result code="1000"&gt;
+S:     &lt;msg&gt;Command completed successfully&lt;/msg&gt;
+S:    &lt;/result&gt;
+S:	 &lt;extension&gt;
+S:     &lt;launch:chkData
+S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"&gt;
+S:      &lt;launch:cd&gt;
+S:        &lt;launch:name exists="0"&gt;example1.tld&lt;/launch:name&gt;
+S:      &lt;/launch:cd&gt;
+S:      &lt;launch:cd&gt;
+S:        &lt;launch:name exists="1"&gt;example2.tld&lt;/launch:name&gt;
+S:        &lt;launch:claimKey validatorID="tmch"&gt;
+S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+S:        &lt;/launch:claimKey&gt;
+S:      &lt;/launch:cd&gt;
+S:      &lt;launch:cd&gt;
+S:        &lt;launch:name exists="1"&gt;example3.tld&lt;/launch:name&gt;
+S:        &lt;launch:claimKey validatorID="tmch"&gt;
+S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
+S:        &lt;/launch:claimKey&gt;
+S:        &lt;launch:claimKey validatorID="custom-tmch"&gt;
+S:        20140423200/1/2/3/rJ1Nr2vDsAzasdff7EasdfgjX4R000000002
+S:        &lt;/launch:claimKey&gt;
+S:      &lt;/launch:cd&gt;
+S:     &lt;/launch:chkData&gt;
+S:	  &lt;/extension&gt;
+S:    &lt;trID&gt;
+S:     &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
+S:     &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
+S:    &lt;/trID&gt;
+S:  &lt;/response&gt;
+S:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#infoCommand" id="infoCommand">EPP &lt;info&gt; Command</a></h1>
 <p id="rfc.section.3.2.p.1">This extension defines additional elements to extend the EPP &lt;info&gt; command and response to be used in conjunction with the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>.</p>
 <p id="rfc.section.3.2.p.2">The EPP &lt;info&gt; command is used to retrieve information for a launch phase registration or application.  The <a href="#applicationID">Application Identifier</a> <cite title="NONE">[applicationID]</cite> returned in the &lt;launch:creData&gt; element of the <a href="#createCommand">create response</a> <cite title="NONE">[createCommand]</cite> is used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element is sent along with the regular &lt;info&gt; domain command. The &lt;launch:info&gt; element includes an OPTIONAL "includeMark" boolean attribute, with a default value of "false", to indicate whether or not to include the mark in the response.  The &lt;launch:info&gt; element contains the following child elements:</p>
@@ -1560,17 +1641,12 @@ BEGIN
   xmlns="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"&gt;
   
-&lt;!--
-Import common element types.
---&gt;
-  &lt;import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/&gt; 
-  
-  &lt;import namespace="urn:ietf:params:xml:ns:mark-1.0"
-          schemaLocation="mark-1.0.xsd"/&gt; 
-
-  &lt;import namespace="urn:ietf:params:xml:ns:signedMark-1.0"
-          schemaLocation="signedMark-1.0.xsd"/&gt; 
+  &lt;!--
+  Import common element types.
+  --&gt;
+  &lt;import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/&gt; 
+  &lt;import namespace="urn:ietf:params:xml:ns:mark-1.0"/&gt; 
+  &lt;import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/&gt; 
   
   &lt;annotation&gt;
     &lt;documentation&gt; 
@@ -1773,7 +1849,8 @@ Import common element types.
   --&gt;
   &lt;complexType name="checkType"&gt;
     &lt;sequence&gt;
-      &lt;element name="phase" type="launch:phaseType"/&gt;
+      &lt;element name="phase" type="launch:phaseType"
+        minOccurs="0"/&gt;
     &lt;/sequence&gt;
     &lt;attribute name="type" type="launch:checkFormType" 
     default="claims"/&gt;
@@ -1788,6 +1865,7 @@ Import common element types.
       &lt;restriction base="token"&gt;
         &lt;enumeration value="claims"/&gt;
         &lt;enumeration value="avail"/&gt;
+        &lt;enumeration value="trademark"/&gt;
     &lt;/restriction&gt;
   &lt;/simpleType&gt;
 
@@ -1818,7 +1896,8 @@ Import common element types.
    --&gt;
   &lt;complexType name="chkDataType"&gt;
     &lt;sequence&gt;
-      &lt;element name="phase" type="launch:phaseType"/&gt;
+      &lt;element name="phase" type="launch:phaseType"
+       minOccurs="0"/&gt;
       &lt;element name="cd" type="launch:cdType"
        maxOccurs="unbounded"/&gt;
     &lt;/sequence&gt;
@@ -1933,7 +2012,7 @@ END</pre>
 <p id="rfc.section.7.p.3">As information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the efforts of the leading participants of the Community TMCH Model that led to many of the changes to this document, which include Chris Wright, Jeff Neuman, Jeff Eckhaus, and Will Shorter.</p>
-<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
+<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>
@@ -2114,6 +2193,7 @@ END</pre>
   <li>Added the "Implementation Status" section based on an action item from the eppext IETF-91 meeting.</li>
   <li>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</li>
   <li>Updated the text for the Claims Check Form and the Claims Create Form to support checking for the need of the claims notice and passing the claims notice outside of the "claims" phase.</li>
+  <li>Added the new Trademark Check Form to support determining whether or not a trademark exists that matches the domain name independent of whether a claims notice is required on create.  This was based on a request from Trung Tran and a discussion on the eppext mailing list.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
