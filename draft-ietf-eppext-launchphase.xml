@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="22" month="January" year="2015"/>
+    <date day="26" month="January" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -2343,6 +2343,15 @@ END]]></artwork>
         <t>Licensing: Proprietary In-House software</t>
         <t>Contact: epp@centralnic.com</t>
         <t>URL: https://www.centralnic.com</t>
+      </section>
+      <section title="Neustar EPP SDK">
+        <t>Organization: Neustar</t>
+        <t>Name: Neustar EPP SDK</t>
+        <t>Description: The Neustar EPP SDK includes client implementation of draft-ietf-eppext-launchphase in both Java and C++.</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: All aspects of the protocol are implemented.</t>
+        <t>Licensing: GNU Lesser General Public License</t>
+        <t>Contact: trung.tran@neustar.biz</t>
       </section>
     </section>
 
