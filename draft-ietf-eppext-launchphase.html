@@ -408,6 +408,8 @@
 <link href="#rfc.section.4" rel="Chapter" title="4 Formal Syntax"/>
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Launch Schema"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 XML Namespace"/>
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 EPP Extension Registry"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 Implementation Status"/>
 <link href="#rfc.section.6.1" rel="Chapter" title="6.1 Verisign EPP SDK"/>
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Verisign Consolidated Top Level Domain (CTLD) SRS"/>
@@ -435,15 +437,16 @@
 <link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change WG 00 to WG 01"/>
 <link href="#rfc.appendix.A.15" rel="Chapter" title="A.15 Change WG 01 to WG 02"/>
 <link href="#rfc.appendix.A.16" rel="Chapter" title="A.16 Change WG 02 to WG 03"/>
+<link href="#rfc.appendix.A.17" rel="Chapter" title="A.17 Change WG 03 to WG 04"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.4.9dev0 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-1-29" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-eppext-launchphase-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-2-27" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -467,7 +470,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 2, 2015</td>
+  <td class="left">Expires: August 31, 2015</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -480,7 +483,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 29, 2015</td>
+  <td class="right">February 27, 2015</td>
 </tr>
 
     	
@@ -488,7 +491,7 @@
   </table>
 
   <p class="title">Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-eppext-launchphase-03</span></p>
+  <span class="filename">draft-ietf-eppext-launchphase-04</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -500,7 +503,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 2, 2015.</p>
+<p>This Internet-Draft will expire on August 31, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -513,51 +516,53 @@
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
-<li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
-<li>2.1.   <a href="#rfc.section.2.1">Application Identifier</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Application Identifier</a></li>
 <li>2.2.   <a href="#rfc.section.2.2">Validator Identifier</a></li>
 <li>2.3.   <a href="#rfc.section.2.3">Launch Phases</a></li>
 <li>2.4.   <a href="#rfc.section.2.4">Status Values</a></li>
-<li>2.4.1.   <a href="#rfc.section.2.4.1">State Transition</a></li>
-<li>2.5.   <a href="#rfc.section.2.5">Poll Messaging</a></li>
+<ul><li>2.4.1.   <a href="#rfc.section.2.4.1">State Transition</a></li>
+</ul><li>2.5.   <a href="#rfc.section.2.5">Poll Messaging</a></li>
 <li>2.6.   <a href="#rfc.section.2.6">Mark Validation Models</a></li>
-<li>2.6.1.   <a href="#rfc.section.2.6.1">&lt;launch:codeMark&gt; element</a></li>
+<ul><li>2.6.1.   <a href="#rfc.section.2.6.1">&lt;launch:codeMark&gt; element</a></li>
 <li>2.6.2.   <a href="#rfc.section.2.6.2">&lt;mark:mark&gt; element</a></li>
 <li>2.6.3.   <a href="#rfc.section.2.6.3">Digital Signature</a></li>
-<li>2.6.3.1.   <a href="#rfc.section.2.6.3.1">&lt;smd:signedMark&gt; element</a></li>
+<ul><li>2.6.3.1.   <a href="#rfc.section.2.6.3.1">&lt;smd:signedMark&gt; element</a></li>
 <li>2.6.3.2.   <a href="#rfc.section.2.6.3.2">&lt;smd:encodedSignedMark&gt; element</a></li>
-<li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
-<li>3.1.   <a href="#rfc.section.3.1">EPP &lt;check&gt; Command</a></li>
-<li>3.1.1.   <a href="#rfc.section.3.1.1">Claims Check Form</a></li>
+</ul></ul></ul><li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">EPP &lt;check&gt; Command</a></li>
+<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">Claims Check Form</a></li>
 <li>3.1.2.   <a href="#rfc.section.3.1.2">Availability Check Form</a></li>
 <li>3.1.3.   <a href="#rfc.section.3.1.3">Trademark Check Form</a></li>
-<li>3.2.   <a href="#rfc.section.3.2">EPP &lt;info&gt; Command</a></li>
+</ul><li>3.2.   <a href="#rfc.section.3.2">EPP &lt;info&gt; Command</a></li>
 <li>3.3.   <a href="#rfc.section.3.3">EPP &lt;create&gt; Command</a></li>
-<li>3.3.1.   <a href="#rfc.section.3.3.1">Sunrise Create Form</a></li>
+<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">Sunrise Create Form</a></li>
 <li>3.3.2.   <a href="#rfc.section.3.3.2">Claims Create Form</a></li>
 <li>3.3.3.   <a href="#rfc.section.3.3.3">General Create Form</a></li>
 <li>3.3.4.   <a href="#rfc.section.3.3.4">Mixed Create Form</a></li>
 <li>3.3.5.   <a href="#rfc.section.3.3.5">Create Response</a></li>
-<li>3.4.   <a href="#rfc.section.3.4">EPP &lt;update&gt; Command</a></li>
+</ul><li>3.4.   <a href="#rfc.section.3.4">EPP &lt;update&gt; Command</a></li>
 <li>3.5.   <a href="#rfc.section.3.5">EPP &lt;delete&gt; Command</a></li>
 <li>3.6.   <a href="#rfc.section.3.6">EPP &lt;renew&gt; Command</a></li>
 <li>3.7.   <a href="#rfc.section.3.7">EPP &lt;transfer&gt; Command</a></li>
-<li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
-<li>4.1.   <a href="#rfc.section.4.1">Launch Schema</a></li>
-<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
-<li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
-<li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
+</ul><li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Launch Schema</a></li>
+</ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
+<li>5.2.   <a href="#rfc.section.5.2">EPP Extension Registry</a></li>
+</ul><li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
 <li>6.2.   <a href="#rfc.section.6.2">Verisign Consolidated Top Level Domain (CTLD) SRS</a></li>
 <li>6.3.   <a href="#rfc.section.6.3">Verisign .COM / .NET SRS</a></li>
 <li>6.4.   <a href="#rfc.section.6.4">REngin v3.7</a></li>
 <li>6.5.   <a href="#rfc.section.6.5">RegistryEngine EPP Service</a></li>
 <li>6.6.   <a href="#rfc.section.6.6">Neustar EPP SDK</a></li>
-<li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
+</ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
-<li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+<ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
 <li>A.4.   <a href="#rfc.appendix.A.4">Change from 03 to 04</a></li>
@@ -573,7 +578,8 @@
 <li>A.14.   <a href="#rfc.appendix.A.14">Change WG 00 to WG 01</a></li>
 <li>A.15.   <a href="#rfc.appendix.A.15">Change WG 01 to WG 02</a></li>
 <li>A.16.   <a href="#rfc.appendix.A.16">Change WG 02 to WG 03</a></li>
-<li><a href="#rfc.authors">Authors' Addresses</a></li>
+<li>A.17.   <a href="#rfc.appendix.A.17">Change WG 03 to WG 04</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
@@ -1950,17 +1956,21 @@ BEGIN
 &lt;/schema&gt;
 END</pre>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<p id="rfc.section.5.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  One URI assignment has been registered by the IANA.  </p>
-<p id="rfc.section.5.p.2">Registration request for the Launch namespace:</p>
-<p/>
-
-<ul class="empty">
-  <li>URI: urn:ietf:params:xml:ns:launch-1.0</li>
-  <li>Registrant Contact: See the "Author's Address" section of this document.</li>
-  <li>XML: None.  Namespace URIs do not represent an XML specification.</li>
-</ul>
-
-<p> </p>
+<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#IANA-XML-Namespace" id="IANA-XML-Namespace">XML Namespace</a></h1>
+<p id="rfc.section.5.1.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  The following URI assignment is requested of IANA: </p>
+<p id="rfc.section.5.1.p.2">URI: urn:ietf:params:xml:ns:launch-1.0</p>
+<p id="rfc.section.5.1.p.3">Registrant Contact: See the "Author's Address" section of this document.</p>
+<p id="rfc.section.5.1.p.4">XML: See the "Formal Syntax" section of this document.</p>
+<h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#EPP-Extension-Registry" id="EPP-Extension-Registry">EPP Extension Registry</a></h1>
+<p id="rfc.section.5.2.p.1">The EPP extension described in this document should be registered by the IANA in the EPP Extension Registry described in <a href="#RFC7451">[RFC7451]</a>.  The details of the registration are as follows: </p>
+<p id="rfc.section.5.2.p.2">Name of Extension: "Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)" </p>
+<p id="rfc.section.5.2.p.3">Document status: Standards Track </p>
+<p id="rfc.section.5.2.p.4">Reference: (insert reference to RFC version of this document) </p>
+<p id="rfc.section.5.2.p.5">Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt; </p>
+<p id="rfc.section.5.2.p.6">TLDs: Any </p>
+<p id="rfc.section.5.2.p.7">IPR Disclosure: None </p>
+<p id="rfc.section.5.2.p.8">Status: Active </p>
+<p id="rfc.section.5.2.p.9">Notes: None </p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Implementation" id="Implementation">Implementation Status</a></h1>
 <p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite> before publication.</p>
 <p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
@@ -2030,7 +2040,7 @@ END</pre>
       <td class="reference">
         <b id="I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</b>
       </td>
-      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd-00">Mark and Signed Mark Objects Mapping</a>", Internet-Draft draft-ietf-eppext-tmch-smd-00, January 2014.</td>
+      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd-01">Mark and Signed Mark Objects Mapping</a>", Internet-Draft draft-ietf-eppext-tmch-smd-01, February 2015.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -2061,6 +2071,12 @@ END</pre>
         <b id="RFC6982">[RFC6982]</b>
       </td>
       <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, July 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7451">[RFC7451]</b>
+      </td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, February 2015.</td>
     </tr>
   </tbody>
 </table>
@@ -2204,6 +2220,12 @@ END</pre>
   <li>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</li>
   <li>Updated the text for the Claims Check Form and the Claims Create Form to support checking for the need of the claims notice and passing the claims notice outside of the "claims" phase.</li>
   <li>Added the new Trademark Check Form to support determining whether or not a trademark exists that matches the domain name independent of whether a claims notice is required on create.  This was based on a request from Trung Tran and a discussion on the eppext mailing list.</li>
+</ol>
+<h1 id="rfc.appendix.A.17"><a href="#rfc.appendix.A.17">A.17.</a> <a href="#change-wg03-to-wg04" id="change-wg03-to-wg04">Change WG 03 to WG 04</a></h1>
+<p/>
+
+<ol>
+  <li>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

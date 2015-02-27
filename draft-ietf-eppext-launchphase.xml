@@ -8,6 +8,7 @@
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
 <!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
+<!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
    'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
@@ -42,7 +43,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-03" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-04" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -130,7 +131,7 @@
       </address>
     </author>
 
-    <date day="29" month="January" year="2015"/>
+    <date day="27" month="February" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -2251,21 +2252,64 @@ END]]></artwork>
 
 
     <section anchor="IANA" title="IANA Considerations">
+    
+    	<section anchor="IANA-XML-Namespace" title="XML Namespace">
          <t>
              This document uses URNs to describe XML namespaces and XML schemas
              conforming to a registry mechanism described in <xref target="RFC3688"/>.
-             One URI assignment has been registered by the IANA.
+             The following URI assignment is requested of IANA: 
          </t>
+                  
+         <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
+         
+         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
+          
+         <t>XML: See the "Formal Syntax" section of this document.</t>
+         
+       </section>
+       
+       <section anchor="EPP-Extension-Registry" title="EPP Extension Registry">
+       
+       	<t>
+   The EPP extension described in this document should be registered by
+   the IANA in the EPP Extension Registry described in <xref target="RFC7451"/>.  The
+   details of the registration are as follows:
+   </t>
 
-         <t>Registration request for the Launch namespace:</t>
-         <t>
-             <list>
-                 <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
-                 <t>Registrant Contact: See the &quot;Author&apos;s Address&quot; section of this document.</t>
-                 <t>XML: None.  Namespace URIs do not represent an XML specification.</t>
-             </list>
-         </t> 
+   <t>
+   Name of Extension: &quot;Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)&quot;
+   </t>
+   
+   <t>
+   Document status: Standards Track
+   </t>
+   
+   <t>
+   Reference: (insert reference to RFC version of this document)
+   </t>
+
+   <t>
+   Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt;
+   </t>
+  
+   <t>
+   TLDs: Any
+   </t>
  
+   <t>
+   IPR Disclosure: None
+   </t>
+
+   <t>
+   Status: Active
+   </t>
+
+   <t>
+   Notes: None
+   </t>
+       
+       </section>
+     
     </section>
 
     <section anchor="Implementation" title="Implementation Status">
@@ -2412,6 +2456,7 @@ END]]></artwork>
       &RFC5730;
       &RFC5731;
       &RFC6982;
+      &RFC7451;            
       &I-D.ietf-eppext-tmch-smd;
     </references>
     
@@ -2573,6 +2618,11 @@ END]]></artwork>
           need of the claims notice and passing the claims notice outside of the "claims" phase.</t>
           <t>Added the new Trademark Check Form to support determining whether or not a trademark exists that matches the domain name 
           independent of whether a claims notice is required on create.  This was based on a request from Trung Tran and a discussion on the eppext mailing list.</t>
+      </list></t>
+    </section>
+    <section title="Change WG 03 to WG 04" anchor="change-wg03-to-wg04">
+      <t><list style="numbers">
+          <t>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</t>
       </list></t>
     </section>
    </section>
