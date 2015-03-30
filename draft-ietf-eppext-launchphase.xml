@@ -43,7 +43,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-04" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-05" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -131,7 +131,7 @@
       </address>
     </author>
 
-    <date day="27" month="February" year="2015"/>
+    <date day="30" month="March" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -284,7 +284,7 @@
           </list></t>
 
         <t>For extensibility, the &lt;launch:phase&gt; element includes an
-        OPTIONAL "name" attribute that can define a sub-phase or the full name
+        OPTIONAL "name" attribute that can define a sub-phase, or the full name
         of the phase when the &lt;launch:phase&gt; element has the "custom"
         value.  For example, the "claims" launch phase could have two 
         sub-phases that include "landrush" and "open".</t>
@@ -2397,6 +2397,22 @@ END]]></artwork>
         <t>Licensing: GNU Lesser General Public License</t>
         <t>Contact: trung.tran@neustar.biz</t>
       </section>
+      <section title="gTLD Shared Registry System">
+        <t>Organization: Stichting Internet Domeinnaamregistratie Nederland (SIDN)</t>
+        <t>Name: gTLD Shared Registry System</t>
+        <t>Description: The gTLD SRS implements the server side of the draft-ietf-eppext-launchphase.</t>  
+        <t>Level of maturity: (soon) Production</t>
+        <t>Coverage: The following parts of the draft are supported:</t>
+            <t><list>
+              <t>Signed mark validation model using <xref target="digitalsignature">Digital Signature</xref></t>
+              <t><xref target="claimsCheckForm">Claims Check Form</xref></t>
+              <t><xref target="sunriseCreateForm">Sunrise Create Form</xref></t>
+              <t><xref target="claimsCreateForm">Claims Create Form</xref></t>
+            </list></t>  
+        <t>The parts of the document not described here are not implemented.</t>
+        <t>Licensing: Proprietary</t>
+        <t>Contact: rik.ribbers@sidn.nl</t>
+      </section>
     </section>
 
     <section anchor="Security" title="Security Considerations">
@@ -2623,6 +2639,12 @@ END]]></artwork>
     <section title="Change WG 03 to WG 04" anchor="change-wg03-to-wg04">
       <t><list style="numbers">
           <t>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</t>
+      </list></t>
+    </section>
+    <section title="Change WG 04 to WG 05" anchor="change-wg04-to-wg05">
+      <t><list style="numbers">
+          <t>Added a missing comma to the descripton of the &lt;launch:phase&gt; element, based on feedback from Keith Gaughan on the eppext mailing list.</t>
+          <t>Added the SIDN implementation status information.</t>
       </list></t>
     </section>
    </section>
