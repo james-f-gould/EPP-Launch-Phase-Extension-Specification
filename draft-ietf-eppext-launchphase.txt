@@ -966,7 +966,7 @@ Internet-Draft        Launch Phase Mapping for EPP            March 2015
    S:    <result code="1000">
    S:     <msg>Command completed successfully</msg>
    S:    </result>
-   S:   <extension>
+   S:    <extension>
    S:     <launch:chkData
    S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
    S:      <launch:phase>claims</launch:phase>
@@ -1196,7 +1196,7 @@ Internet-Draft        Launch Phase Mapping for EPP            March 2015
    S:    <result code="1000">
    S:     <msg>Command completed successfully</msg>
    S:    </result>
-   S:   <extension>
+   S:    <extension>
    S:     <launch:chkData
    S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
    S:      <launch:cd>
@@ -1548,7 +1548,7 @@ Internet-Draft        Launch Phase Mapping for EPP            March 2015
    C:          <launch:code validatorID="sample2">
    C:            49FD46E6C4B45C55D4AE</launch:code>
    C:        </launch:codeMark>
-   C:     </launch:create>
+   C:      </launch:create>
    C:    </extension>
    C:    <clTRID>ABC-12345</clTRID>
    C:  </command>
@@ -3030,7 +3030,7 @@ Internet-Draft        Launch Phase Mapping for EPP            March 2015
 
    [I-D.ietf-eppext-tmch-smd]
               Lozano, G., "Mark and Signed Mark Objects Mapping", draft-
-              ietf-eppext-tmch-smd-00 (work in progress), January 2014.
+              ietf-eppext-tmch-smd-01 (work in progress), February 2015.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
