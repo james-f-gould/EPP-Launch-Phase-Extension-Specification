@@ -131,7 +131,7 @@
       </address>
     </author>
 
-    <date day="30" month="March" year="2015"/>
+    <date day="31" month="March" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -2645,6 +2645,7 @@ END]]></artwork>
       <t><list style="numbers">
           <t>Added a missing comma to the descripton of the &lt;launch:phase&gt; element, based on feedback from Keith Gaughan on the eppext mailing list.</t>
           <t>Added the SIDN implementation status information.</t>
+          <t>Fixed a few indentation issues in the samples.</t>
       </list></t>
     </section>
    </section>
