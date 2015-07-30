@@ -4,7 +4,7 @@
     <create>
       <domain:create
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-        <domain:name>example.newtld</domain:name>
+        <domain:name>domain.example</domain:name>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
         <domain:contact type="tech">sh8013</domain:contact>
@@ -37,8 +37,8 @@
 				    <mark:jurisdiction>US</mark:jurisdiction>
 				    <mark:class>35</mark:class>
 				    <mark:class>36</mark:class>
-				    <mark:label>example-one</mark:label>
-				    <mark:label>exampleone</mark:label>
+				    <mark:label>domain-one</mark:label>
+				    <mark:label>domain</mark:label>
 				    <mark:goodsAndServices>Dirigendas et eiusmodi
 					   featuring infringo in airfare et cartam servicia.
 				    </mark:goodsAndServices>

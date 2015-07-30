@@ -4,7 +4,7 @@
    <info>
     <domain:info
      xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-      <domain:name>example.tld</domain:name>
+      <domain:name>domain.example</domain:name>
     </domain:info>
    </info>
    <extension>

@@ -12,7 +12,8 @@
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
    'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
-
+<!ENTITY I-D.lozano-tmch-func-spec PUBLIC ''
+   'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.lozano-tmch-func-spec.xml'>
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -43,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-05" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-06" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -131,7 +132,7 @@
       </address>
     </author>
 
-    <date day="31" month="March" year="2015"/>
+    <date day="30" month="July" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -270,8 +271,8 @@
             to address a large volume of initial registrations.</t>
 
             <t hangText="claims">The Trademark Claims phase, as defined in the  
-            <eref
-      target="http://tools.ietf.org/html/draft-lozano-tmch-func-spec">TMCH Functional Specification</eref>, in which a 
+            <xref
+      target="I-D.lozano-tmch-func-spec">TMCH Functional Specification</xref>, in which a 
             Claims Notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.</t>
             
@@ -289,8 +290,8 @@
         value.  For example, the "claims" launch phase could have two 
         sub-phases that include "landrush" and "open".</t>
         
-        <t>Launch phases MAY overlap to support the "claims" launch phase, defined in the <eref
-      target="http://tools.ietf.org/html/draft-lozano-tmch-func-spec">TMCH Functional Specification</eref>, and to support 
+        <t>Launch phases MAY overlap to support the "claims" launch phase, defined in the <xref
+      target="I-D.lozano-tmch-func-spec">TMCH Functional Specification</xref>, and to support 
       a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases 
       SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting 
       "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; 
@@ -431,7 +432,7 @@ S:    </msgQ>
 S:    <resData>
 S:      <domain:infData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name>example.tld</domain:name>
+S:        <domain:name>domain.example</domain:name>
 S:        ...
 S:      </domain:infData>
 S:    </resData>
@@ -469,7 +470,7 @@ S:    </msgQ>
 S:    <resData>
 S:      <domain:panData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name paResult="1">example.tld</domain:name>
+S:        <domain:name paResult="1">domain.example</domain:name>
 S:        <domain:paTRID>
 S:          <clTRID>ABC-12345</clTRID>
 S:          <svTRID>54321-XYZ</svTRID>
@@ -510,7 +511,7 @@ S:    </msgQ>
 S:    <resData>
 S:      <domain:panData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name paResult="1">example.tld</domain:name>
+S:        <domain:name paResult="1">domain.example</domain:name>
 S:        <domain:paTRID>
 S:          <clTRID>ABC-12345</clTRID>
 S:          <svTRID>54321-XYZ</svTRID>
@@ -713,7 +714,7 @@ S:</epp>]]></artwork>
             <preamble>Example Claims Check command using the &lt;check&gt;
             domain command and the &lt;launch:check&gt; extension with 
             the "type" explicitly set to "claims", to  
-            determine if "example1.tld", "example2.tld", and "example3.tld" require 
+            determine if "domain1.example", "domain2.example", and "domain3.example" require 
             claims notices during the "claims" launch phase:</preamble>
 
             <artwork><![CDATA[
@@ -723,9 +724,9 @@ C:  <command>
 C:   <check>
 C:    <domain:check
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example1.tld</domain:name>
-C:      <domain:name>example2.tld</domain:name>
-C:      <domain:name>example3.tld</domain:name>
+C:      <domain:name>domain1.example</domain:name>
+C:      <domain:name>domain2.example</domain:name>
+C:      <domain:name>domain3.example</domain:name>
 C:    </domain:check>
 C:   </check>
 C:   <extension>
@@ -781,10 +782,10 @@ C:</epp>]]></artwork>
 
           <figure>
             <preamble>Example Claims Check response when a claims notice is 
-             not required for the domain name example1.tld, a claims notice 
-             is required for the domain name example2.tld in 
+             not required for the domain name domain1.example, a claims notice 
+             is required for the domain name domain2.example in 
              the "tmch", and a claims notice is required for the domain name 
-             example3.tld in the "tmch" and "custom-tmch", for the 
+             domain3.example in the "tmch" and "custom-tmch", for the 
              "claims" launch phase:</preamble>
 
             <artwork><![CDATA[
@@ -799,16 +800,16 @@ S:     <launch:chkData
 S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:      <launch:phase>claims</launch:phase>
 S:      <launch:cd>
-S:        <launch:name exists="0">example1.tld</launch:name>
+S:        <launch:name exists="0">domain1.example</launch:name>
 S:      </launch:cd>
 S:      <launch:cd>
-S:        <launch:name exists="1">example2.tld</launch:name>
+S:        <launch:name exists="1">domain2.example</launch:name>
 S:        <launch:claimKey validatorID="tmch">
 S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
 S:        </launch:claimKey>
 S:      </launch:cd>
 S:      <launch:cd>
-S:        <launch:name exists="1">example3.tld</launch:name>
+S:        <launch:name exists="1">domain3.example</launch:name>
 S:        <launch:claimKey validatorID="tmch">
 S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
 S:        </launch:claimKey>
@@ -862,8 +863,8 @@ C:  <command>
 C:   <check>
 C:    <domain:check
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example1.tld</domain:name>
-C:      <domain:name>example2.tld</domain:name>
+C:      <domain:name>domain1.example</domain:name>
+C:      <domain:name>domain2.example</domain:name>
 C:    </domain:check>
 C:   </check>
 C:   <extension>
@@ -914,7 +915,7 @@ C:</epp>]]></artwork>
             <preamble>Example Trademark Check command using the &lt;check&gt;
             domain command and the &lt;launch:check&gt; extension with 
             the "type" set to "trademark", to  
-            determine if "example1.tld", "example2.tld", and "example3.tld" have any 
+            determine if "domain1.example", "domain2.example", and "domain3.example" have any 
             matching trademarks:</preamble>
 
             <artwork><![CDATA[
@@ -924,9 +925,9 @@ C:  <command>
 C:   <check>
 C:    <domain:check
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example1.tld</domain:name>
-C:      <domain:name>example2.tld</domain:name>
-C:      <domain:name>example3.tld</domain:name>
+C:      <domain:name>domain1.example</domain:name>
+C:      <domain:name>domain2.example</domain:name>
+C:      <domain:name>domain3.example</domain:name>
 C:    </domain:check>
 C:   </check>
 C:   <extension>
@@ -975,10 +976,10 @@ C:</epp>]]></artwork>
 
           <figure>
             <preamble>Example Trademark Check response when no matching trademarks
-             are found for the domain name example1.tld, matching 
-             trademarks are found for the domain name example2.tld in 
+             are found for the domain name domain1.example, matching 
+             trademarks are found for the domain name domain2.example in 
              the "tmch", matching trademarks are found for domain name 
-             example3.tld in the "tmch" and "custom-tmch", for the 
+             domain3.example in the "tmch" and "custom-tmch", for the 
              "claims" launch phase:</preamble>
 
             <artwork><![CDATA[
@@ -992,16 +993,16 @@ S:    <extension>
 S:     <launch:chkData
 S:      xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:      <launch:cd>
-S:        <launch:name exists="0">example1.tld</launch:name>
+S:        <launch:name exists="0">domain1.example</launch:name>
 S:      </launch:cd>
 S:      <launch:cd>
-S:        <launch:name exists="1">example2.tld</launch:name>
+S:        <launch:name exists="1">domain2.example</launch:name>
 S:        <launch:claimKey validatorID="tmch">
 S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
 S:        </launch:claimKey>
 S:      </launch:cd>
 S:      <launch:cd>
-S:        <launch:name exists="1">example3.tld</launch:name>
+S:        <launch:name exists="1">domain3.example</launch:name>
 S:        <launch:claimKey validatorID="tmch">
 S:        2013041500/2/6/9/rJ1NrDO92vDsAzf7EQzgjX4R0000000001
 S:        </launch:claimKey>
@@ -1054,7 +1055,7 @@ S:</epp>]]></artwork>
           <figure>
             <preamble>Example &lt;info&gt; domain command with the
             &lt;launch:info&gt; extension to retrieve information 
-            for the sunrise application for example.tld and application 
+            for the sunrise application for domain.example and application 
             identifier "abc123":</preamble>
 
             <artwork><![CDATA[
@@ -1064,7 +1065,7 @@ C:  <command>
 C:   <info>
 C:    <domain:info
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example.tld</domain:name>
+C:      <domain:name>domain.example</domain:name>
 C:    </domain:info>
 C:   </info>
 C:   <extension>
@@ -1083,7 +1084,7 @@ C:</epp>]]></artwork>
           <figure>
             <preamble>Example &lt;info&gt; domain command with the
             &lt;launch:info&gt; extension to retrieve information 
-            for the sunrise registration for example.tld:</preamble>
+            for the sunrise registration for domain.example:</preamble>
 
             <artwork><![CDATA[
 C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -1092,7 +1093,7 @@ C:  <command>
 C:   <info>
 C:    <domain:info
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example.tld</domain:name>
+C:      <domain:name>domain.example</domain:name>
 C:    </domain:info>
 C:   </info>
 C:   <extension>
@@ -1144,7 +1145,7 @@ S:    </result>
 S:    <resData>
 S:      <domain:infData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name>example.tld</domain:name>
+S:        <domain:name>domain.example</domain:name>
 S:        <domain:roid>EXAMPLE1-REP</domain:roid>
 S:        <domain:status s="pendingCreate"/>
 S:        <domain:registrant>jd1234</domain:registrant>
@@ -1280,7 +1281,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>example.tld</domain:name>
+C:        <domain:name>domain.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1324,7 +1325,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>exampleone.tld</domain:name>
+C:        <domain:name>domainone.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1364,7 +1365,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>example.tld</domain:name>
+C:        <domain:name>domain.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1405,7 +1406,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>exampleone.tld</domain:name>
+C:        <domain:name>domainone.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1443,7 +1444,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>exampleone.tld</domain:name>
+C:        <domain:name>domainone.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1514,7 +1515,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>example.tld</domain:name>
+C:        <domain:name>domain.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1584,7 +1585,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>example.tld</domain:name>
+C:        <domain:name>domain.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1628,7 +1629,7 @@ C:  <command>
 C:    <create>
 C:      <domain:create
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>exampleone.tld</domain:name>
+C:        <domain:name>domainone.example</domain:name>
 C:        <domain:registrant>jd1234</domain:registrant>
 C:        <domain:contact type="admin">sh8013</domain:contact>
 C:        <domain:contact type="tech">sh8013</domain:contact>
@@ -1699,7 +1700,7 @@ S:    </result>
 S:    <resData>
 S:      <domain:creData
 S:         xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:       <domain:name>example.tld</domain:name>
+S:       <domain:name>domain.example</domain:name>
 S:       <domain:crDate>2010-08-10T15:38:26.623854Z</domain:crDate>
 S:      </domain:creData>
 S:    </resData>
@@ -1765,15 +1766,15 @@ C:  <command>
 C:    <update>
 C:      <domain:update
 C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:        <domain:name>example.tld</domain:name>
+C:        <domain:name>domain.example</domain:name>
 C:        <domain:add>
 C:            <domain:ns>
-C:              <domain:hostObj>ns2.example.tld</domain:hostObj>
+C:              <domain:hostObj>ns2.domain.example</domain:hostObj>
 C:            </domain:ns>
 C:          </domain:add>
 C:          <domain:rem>
 C:            <domain:ns>
-C:              <domain:hostObj>ns1.example.tld</domain:hostObj>
+C:              <domain:hostObj>ns1.domain.example</domain:hostObj>
 C:            </domain:ns>
 C:          </domain:rem>
 C:      </domain:update>
@@ -1837,7 +1838,7 @@ C:  <command>
 C:   <delete>
 C:    <domain:delete
 C:     xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-C:      <domain:name>example.tld</domain:name>
+C:      <domain:name>domain.example</domain:name>
 C:    </domain:delete>
 C:   </delete>
 C:   <extension>
@@ -2257,14 +2258,28 @@ END]]></artwork>
          <t>
              This document uses URNs to describe XML namespaces and XML schemas
              conforming to a registry mechanism described in <xref target="RFC3688"/>.
-             The following URI assignment is requested of IANA: 
          </t>
                   
+         <t>Registration request for the launch namespace:</t>
+         
+         <t><list>
          <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
          
          <t>Registrant Contact: See the "Author's Address" section of this document.</t>
           
+         <t>XML: None. Namespace URIs do not represent an XML specification.</t>
+         </list></t>
+         
+         <t>Registration request for the launch XML schema:</t>
+         
+         <t><list>
+         <t>URI: urn:ietf:params:xml:schema:launch-1.0</t>
+         
+         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
+          
          <t>XML: See the "Formal Syntax" section of this document.</t>
+         
+         </list></t>
          
        </section>
        
@@ -2474,6 +2489,7 @@ END]]></artwork>
       &RFC6982;
       &RFC7451;            
       &I-D.ietf-eppext-tmch-smd;
+      &I-D.lozano-tmch-func-spec;
     </references>
     
    <section title="Change History">
@@ -2646,6 +2662,16 @@ END]]></artwork>
           <t>Added a missing comma to the descripton of the &lt;launch:phase&gt; element, based on feedback from Keith Gaughan on the eppext mailing list.</t>
           <t>Added the SIDN implementation status information.</t>
           <t>Fixed a few indentation issues in the samples.</t>
+      </list></t>
+    </section>
+    <section title="Change WG 05 to WG 06" anchor="change-wg05-to-wg06">
+      <t><list style="numbers">
+          <t>Removed duplicate "TMCH Functional Specification" URIs based on feedback from Scott Hollenbeck on the 
+          eppext mailing list.</t>
+          <t>Changed references of example?.tld to domain?.example to be consistent with RFC 6761 based on feedback from Scott Hollenbeck on the 
+          eppext mailing list.</t>
+          <t>A template was added to section 5 to register the XML schema in addition to the namespace based on feedback from Scott Hollenbeck on the 
+          eppext mailing list.</t>
       </list></t>
     </section>
    </section>

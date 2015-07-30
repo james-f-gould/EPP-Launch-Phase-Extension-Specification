@@ -11,8 +11,8 @@
     <resData>
       <domain:infData
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-        <domain:name>example.tld</domain:name>
-        <domain:roid>EXAMPLE1-REP</domain:roid>
+        <domain:name>domain.example</domain:name>
+        <domain:roid>EXAMPLE-REP</domain:roid>
         <domain:clID>ClientX</domain:clID>
       </domain:infData>
     </resData>

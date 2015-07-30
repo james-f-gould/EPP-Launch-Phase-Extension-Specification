@@ -4,15 +4,15 @@
     <update>
       <domain:update
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-        <domain:name>example.tld</domain:name>
+        <domain:name>domain.example</domain:name>
         <domain:add>
             <domain:ns>
-              <domain:hostObj>ns2.example.tld</domain:hostObj>
+              <domain:hostObj>ns2.domain.example</domain:hostObj>
             </domain:ns>
           </domain:add>
           <domain:rem>
             <domain:ns>
-              <domain:hostObj>ns1.example.tld</domain:hostObj>
+              <domain:hostObj>ns1.domain.example</domain:hostObj>
             </domain:ns>
           </domain:rem>
       </domain:update>

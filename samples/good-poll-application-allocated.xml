@@ -11,7 +11,7 @@
     <resData>
       <domain:panData
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-        <domain:name paResult="1">example.tld</domain:name>
+        <domain:name paResult="1">domain.example</domain:name>
         <domain:paTRID>
           <clTRID>ABC-12345</clTRID>
           <svTRID>54321-XYZ</svTRID>

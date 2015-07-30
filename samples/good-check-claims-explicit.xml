@@ -4,8 +4,8 @@
    <check>
     <domain:check
      xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-      <domain:name>example1.tld</domain:name>
-      <domain:name>example2.tld</domain:name>
+      <domain:name>domain1.example</domain:name>
+      <domain:name>domain2.example</domain:name>
     </domain:check>
    </check>
    <extension>
