@@ -12,8 +12,8 @@
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
    'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
-<!ENTITY I-D.lozano-tmch-func-spec PUBLIC ''
-   'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.lozano-tmch-func-spec.xml'>
+<!ENTITY I-D.ietf-eppext-tmch-func-spec PUBLIC ''
+   'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-func-spec.xml'>
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-06" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-eppext-launchphase-07" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -132,7 +132,7 @@
       </address>
     </author>
 
-    <date day="30" month="July" year="2015"/>
+    <date day="21" month="October" year="2015"/>
 
     <!-- Meta-data Declarations -->
 
@@ -272,7 +272,7 @@
 
             <t hangText="claims">The Trademark Claims phase, as defined in the  
             <xref
-      target="I-D.lozano-tmch-func-spec">TMCH Functional Specification</xref>, in which a 
+      target="I-D.ietf-eppext-tmch-func-spec">TMCH Functional Specification</xref>, in which a 
             Claims Notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.</t>
             
@@ -291,7 +291,7 @@
         sub-phases that include "landrush" and "open".</t>
         
         <t>Launch phases MAY overlap to support the "claims" launch phase, defined in the <xref
-      target="I-D.lozano-tmch-func-spec">TMCH Functional Specification</xref>, and to support 
+      target="I-D.ietf-eppext-tmch-func-spec">TMCH Functional Specification</xref>, and to support 
       a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases 
       SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting 
       "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; 
@@ -2489,7 +2489,7 @@ END]]></artwork>
       &RFC6982;
       &RFC7451;            
       &I-D.ietf-eppext-tmch-smd;
-      &I-D.lozano-tmch-func-spec;
+      &I-D.ietf-eppext-tmch-func-spec;
     </references>
     
    <section title="Change History">
@@ -2672,6 +2672,11 @@ END]]></artwork>
           eppext mailing list.</t>
           <t>A template was added to section 5 to register the XML schema in addition to the namespace based on feedback from Scott Hollenbeck on the 
           eppext mailing list.</t>
+      </list></t>
+    </section>
+    <section title="Change WG 06 to WG 07" anchor="change-wg06-to-wg07">
+      <t><list style="numbers">
+          <t>Changed reference of lozano-tmch-func-spec to ietf-eppext-tmch-func-spec.</t>
       </list></t>
     </section>
    </section>
