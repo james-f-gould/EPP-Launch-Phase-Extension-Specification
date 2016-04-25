@@ -12,8 +12,8 @@
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
    'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
-<!ENTITY I-D.ietf-eppext-tmch-func-spec PUBLIC ''
-   'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-func-spec.xml'>
+<!ENTITY I-D.ietf-regext-tmch-func-spec PUBLIC ''
+   'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-regext-tmch-func-spec.xml'>
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-eppext-launchphase-07" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-launchphase-00" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -132,7 +132,7 @@
       </address>
     </author>
 
-    <date day="2" month="November" year="2015"/>
+    <date day="25" month="April" year="2016"/>
 
     <!-- Meta-data Declarations -->
 
@@ -272,7 +272,7 @@
 
             <t hangText="claims">The Trademark Claims phase, as defined in the  
             <xref
-      target="I-D.ietf-eppext-tmch-func-spec">TMCH Functional Specification</xref>, in which a 
+      target="I-D.ietf-regext-tmch-func-spec">TMCH Functional Specification</xref>, in which a 
             Claims Notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.</t>
             
@@ -291,7 +291,7 @@
         sub-phases that include "landrush" and "open".</t>
         
         <t>Launch phases MAY overlap to support the "claims" launch phase, defined in the <xref
-      target="I-D.ietf-eppext-tmch-func-spec">TMCH Functional Specification</xref>, and to support 
+      target="I-D.ietf-regext-tmch-func-spec">TMCH Functional Specification</xref>, and to support 
       a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases 
       SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting 
       "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; 
@@ -2352,7 +2352,7 @@ END]]></artwork>
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign EPP SDK</t>
         <t>Description: The Verisign EPP SDK includes both a full client implementation 
-        and a full server stub implementation of draft-ietf-eppext-launchphase.</t>  
+        and a full server stub implementation of draft-ietf-regext-launchphase.</t>  
         <t>Level of maturity: Production</t>
         <t>Coverage: All aspects of the protocol are implemented.</t>
         <t>Licensing: GNU Lesser General Public License</t>
@@ -2363,7 +2363,7 @@ END]]></artwork>
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)</t>
         <t>Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS) 
-         implements the server-side of draft-ietf-eppext-launchphase for a variety of Top Level Domains (TLD's).</t>  
+         implements the server-side of draft-ietf-regext-launchphase for a variety of Top Level Domains (TLD's).</t>  
         <t>Level of maturity: Production</t>
         <t>Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, 
         the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations and Launch Applications.
@@ -2376,7 +2376,7 @@ END]]></artwork>
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign .COM / .NET Shared Registry System (SRS)</t>
         <t>Description: The Verisign Shared Registry System (SRS) for .COM, .NET and other IDN TLD's  
-        implements the server-side of draft-ietf-eppext-launchphase.</t>  
+        implements the server-side of draft-ietf-regext-launchphase.</t>  
         <t>Level of maturity: Operational Test Environment (OTE)</t>
         <t>Coverage: The "signed mark" Mark Validation Model, the Claims Check Form for the EPP &lt;check&gt; Command, 
         the Sunrise and Claims Forms for the EPP &lt;create&gt; Command of Launch Registrations.</t>
@@ -2406,7 +2406,7 @@ END]]></artwork>
       <section title="Neustar EPP SDK">
         <t>Organization: Neustar</t>
         <t>Name: Neustar EPP SDK</t>
-        <t>Description: The Neustar EPP SDK includes client implementation of draft-ietf-eppext-launchphase in both Java and C++.</t>  
+        <t>Description: The Neustar EPP SDK includes client implementation of draft-ietf-regext-launchphase in both Java and C++.</t>  
         <t>Level of maturity: Production</t>
         <t>Coverage: All aspects of the protocol are implemented.</t>
         <t>Licensing: GNU Lesser General Public License</t>
@@ -2415,7 +2415,7 @@ END]]></artwork>
       <section title="gTLD Shared Registry System">
         <t>Organization: Stichting Internet Domeinnaamregistratie Nederland (SIDN)</t>
         <t>Name: gTLD Shared Registry System</t>
-        <t>Description: The gTLD SRS implements the server side of the draft-ietf-eppext-launchphase.</t>  
+        <t>Description: The gTLD SRS implements the server side of the draft-ietf-regext-launchphase.</t>  
         <t>Level of maturity: (soon) Production</t>
         <t>Coverage: The following parts of the draft are supported:</t>
             <t><list>
@@ -2489,7 +2489,7 @@ END]]></artwork>
       &RFC6982;
       &RFC7451;            
       &I-D.ietf-eppext-tmch-smd;
-      &I-D.ietf-eppext-tmch-func-spec;
+      &I-D.ietf-regext-tmch-func-spec;
     </references>
     
    <section title="Change History">
@@ -2620,21 +2620,21 @@ END]]></artwork>
           to servers that do not support launch applications based on a request from Sharon Wodjenski on the provreg list.</t>
       </list></t>
     </section>
-    <section title="Change from 12 to WG 00" anchor="change-12-to-wg00">
+    <section title="Change from 12 to EPPEXT 00" anchor="change-12-to-eppext00">
       <t><list style="numbers">
           <t>Changed to eppext working group draft by changing draft-tan-epp-launchphase to 
           draft-ietf-eppext-launchphase and by changing references of draft-lozano-tmch-smd 
           to draft-ietf-eppext-tmch-smd.</t>
       </list></t>
     </section>
-    <section title="Change WG 00 to WG 01" anchor="change-wg00-to-wg01">
+    <section title="Change EPPEXT 00 to EPPEXT 01" anchor="change-eppext00-to-eppext01">
       <t><list style="numbers">
           <t>Removed text associated with support for the combining of status values 
           based on feedback from Patrick Mevzek on the provreg mailing list, discussion on  
           the eppext mailing list, and discussion at the eppext IETF meeting on March 6, 2014.</t>
       </list></t>
     </section>
-    <section title="Change WG 01 to WG 02" anchor="change-wg01-to-wg02">
+    <section title="Change EPPEXT 01 to EPPEXT 02" anchor="change-eppext01-to-eppext02">
       <t><list style="numbers">
           <t>Changed the &lt;launch:claim&gt; element to be zero or more elements and 
           the &lt;launch:notice&gt; element to be one or more elements in 
@@ -2642,7 +2642,7 @@ END]]></artwork>
           more than one concurrent claims services.</t>
       </list></t>
     </section>
-    <section title="Change WG 02 to WG 03" anchor="change-wg02-to-wg03">
+    <section title="Change EPPEXT 02 to EPPEXT 03" anchor="change-eppext02-to-eppext03">
       <t><list style="numbers">
           <t>Added the "Implementation Status" section based on an action item from the eppext IETF-91 meeting.</t>
           <t>Moved Section 7 "IANA Considerations" and Section 9 "Security Considerations" before Section 5 "Acknowledgements".  Moved "Change Log" Section to end.</t>    
@@ -2652,19 +2652,19 @@ END]]></artwork>
           independent of whether a claims notice is required on create.  This was based on a request from Trung Tran and a discussion on the eppext mailing list.</t>
       </list></t>
     </section>
-    <section title="Change WG 03 to WG 04" anchor="change-wg03-to-wg04">
+    <section title="Change EPPEXT 03 to EPPEXT 04" anchor="change-eppext03-to-eppext04">
       <t><list style="numbers">
           <t>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</t>
       </list></t>
     </section>
-    <section title="Change WG 04 to WG 05" anchor="change-wg04-to-wg05">
+    <section title="Change EPPEXT 04 to EPPEXT 05" anchor="change-eppext04-to-eppext05">
       <t><list style="numbers">
           <t>Added a missing comma to the descripton of the &lt;launch:phase&gt; element, based on feedback from Keith Gaughan on the eppext mailing list.</t>
           <t>Added the SIDN implementation status information.</t>
           <t>Fixed a few indentation issues in the samples.</t>
       </list></t>
     </section>
-    <section title="Change WG 05 to WG 06" anchor="change-wg05-to-wg06">
+    <section title="Change EPPEXT 05 to EPPEXT 06" anchor="change-eppext05-to-eppext06">
       <t><list style="numbers">
           <t>Removed duplicate "TMCH Functional Specification" URIs based on feedback from Scott Hollenbeck on the 
           eppext mailing list.</t>
@@ -2674,9 +2674,16 @@ END]]></artwork>
           eppext mailing list.</t>
       </list></t>
     </section>
-    <section title="Change WG 06 to WG 07" anchor="change-wg06-to-wg07">
+    <section title="Change EPPEXT 06 to EPPEXT 07" anchor="change-eppext06-to-eppext07">
       <t><list style="numbers">
           <t>Changed reference of lozano-tmch-func-spec to ietf-eppext-tmch-func-spec.</t>
+      </list></t>
+    </section>
+    <section title="Change from EPPEXT 07 to REGEXT 00" anchor="change-eppext07-to-regext00">
+      <t><list style="numbers">
+          <t>Changed to regext working group draft by changing draft-ietf-eppext-launchphase to 
+          draft-ietf-regext-launchphase and by changing references of draft-ietf-eppext-tmch-func-spec 
+          to draft-ietf-regext-tmch-func-spec.</t>
       </list></t>
     </section>
    </section>
