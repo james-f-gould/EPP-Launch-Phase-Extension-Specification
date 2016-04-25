@@ -121,10 +121,10 @@ Internet-Draft        Launch Phase Mapping for EPP            April 2016
    Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  55
      A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  55
      A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  55
-     A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  55
+     A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  56
      A.4.  Change from 03 to 04  . . . . . . . . . . . . . . . . . .  56
      A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  56
-     A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  56
+     A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  57
      A.7.  Change from 06 to 07  . . . . . . . . . . . . . . . . . .  57
      A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  57
      A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  57
@@ -134,12 +134,12 @@ Internet-Draft        Launch Phase Mapping for EPP            April 2016
      A.13. Change from 12 to EPPEXT 00 . . . . . . . . . . . . . . .  59
      A.14. Change EPPEXT 00 to EPPEXT 01 . . . . . . . . . . . . . .  59
      A.15. Change EPPEXT 01 to EPPEXT 02 . . . . . . . . . . . . . .  59
-     A.16. Change EPPEXT 02 to EPPEXT 03 . . . . . . . . . . . . . .  59
+     A.16. Change EPPEXT 02 to EPPEXT 03 . . . . . . . . . . . . . .  60
      A.17. Change EPPEXT 03 to EPPEXT 04 . . . . . . . . . . . . . .  60
      A.18. Change EPPEXT 04 to EPPEXT 05 . . . . . . . . . . . . . .  60
      A.19. Change EPPEXT 05 to EPPEXT 06 . . . . . . . . . . . . . .  60
      A.20. Change EPPEXT 06 to EPPEXT 07 . . . . . . . . . . . . . .  60
-     A.21. Change from EPPEXT 07 to REGEXT 00  . . . . . . . . . . .  60
+     A.21. Change from EPPEXT 07 to REGEXT 00  . . . . . . . . . . .  61
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  61
 
 1.  Introduction
@@ -3016,7 +3016,7 @@ Internet-Draft        Launch Phase Mapping for EPP            April 2016
 
    [I-D.ietf-eppext-tmch-smd]
               Lozano, G., "Mark and Signed Mark Objects Mapping", draft-
-              ietf-eppext-tmch-smd-00 (work in progress), January 2014.
+              ietf-eppext-tmch-smd-06 (work in progress), March 2016.
 
 
 
@@ -3032,23 +3032,31 @@ Internet-Draft        Launch Phase Mapping for EPP            April 2016
               2016.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, March 1997.
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <http://www.rfc-editor.org/info/rfc2119>.
 
    [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,
-              January 2004.
+              DOI 10.17487/RFC3688, January 2004,
+              <http://www.rfc-editor.org/info/rfc3688>.
 
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
-              STD 69, RFC 5730, August 2009.
+              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
+              <http://www.rfc-editor.org/info/rfc5730>.
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
-              Domain Name Mapping", STD 69, RFC 5731, August 2009.
+              Domain Name Mapping", STD 69, RFC 5731,
+              DOI 10.17487/RFC5731, August 2009,
+              <http://www.rfc-editor.org/info/rfc5731>.
 
    [RFC6982]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
-              Code: The Implementation Status Section", RFC 6982, July
-              2013.
+              Code: The Implementation Status Section", RFC 6982,
+              DOI 10.17487/RFC6982, July 2013,
+              <http://www.rfc-editor.org/info/rfc6982>.
 
    [RFC7451]  Hollenbeck, S., "Extension Registry for the Extensible
-              Provisioning Protocol", RFC 7451, February 2015.
+              Provisioning Protocol", RFC 7451, DOI 10.17487/RFC7451,
+              February 2015, <http://www.rfc-editor.org/info/rfc7451>.
 
 Appendix A.  Change History
 
@@ -3065,14 +3073,6 @@ A.2.  Change from 01 to 02
    2.  Changed the namespace URI and prefix to use "launch" instead of
        "launchphase".
    3.  Added definition of multiple claim validation models.
-   4.  Added the <launch:signedClaim> and <launch:signedNotice>
-       elements.
-   5.  Added support for Claims Info Command
-
-A.3.  Change from 02 to 03
-
-   1.  Removed XSI namespace per Keith Gaughan's suggestion on the
-       provreg list.
 
 
 
@@ -3082,6 +3082,14 @@ Gould, et al.           Expires October 27, 2016               [Page 55]
 Internet-Draft        Launch Phase Mapping for EPP            April 2016
 
 
+   4.  Added the <launch:signedClaim> and <launch:signedNotice>
+       elements.
+   5.  Added support for Claims Info Command
+
+A.3.  Change from 02 to 03
+
+   1.  Removed XSI namespace per Keith Gaughan's suggestion on the
+       provreg list.
    2.  Added extensibility to the launch:status element and added the
        pendingAuction status per Trung Tran's feedback on the provreg
        list.
@@ -3119,6 +3127,17 @@ A.5.  Change from 04 to 05
    5.  Updated note on replication of the EPP contact mapping elements
        in the Mark Contact section.
 
+
+
+
+
+
+
+Gould, et al.           Expires October 27, 2016               [Page 56]
+
+Internet-Draft        Launch Phase Mapping for EPP            April 2016
+
+
 A.6.  Change from 05 to 06
 
    1.  Removed the definition of the mark-1.0 and signedMark-1.0 and
@@ -3129,15 +3148,6 @@ A.6.  Change from 05 to 06
    3.  Added the "includeMark" optional attribute to the <launch:info>
        element to enable the client to request whether or not to include
        the mark in the info response.
-
-
-
-
-Gould, et al.           Expires October 27, 2016               [Page 56]
-
-Internet-Draft        Launch Phase Mapping for EPP            April 2016
-
-
    4.  Fixed state diagram to remove redundant transition from "invalid"
        to "rejected"; thanks Klaus Malorny.
 
@@ -3175,6 +3185,15 @@ A.9.  Change from 08 to 09
        client to explicitly define the desired type of object
        (application or registration) to create to all forms of the
        create extension.
+
+
+
+
+Gould, et al.           Expires October 27, 2016               [Page 57]
+
+Internet-Draft        Launch Phase Mapping for EPP            April 2016
+
+
    3.  Added text that the server SHOULD validate the <launch:phase>
        element in the Launch Phases section.
    4.  Add the "General Create Form" to the create command extension to
@@ -3185,15 +3204,6 @@ A.9.  Change from 08 to 09
        phase based on discussion on the provreg list.
    7.  Added support for a mixed create model (Sunrise Create Model and
        Claims Create Model), where a trademark (encoded signed mark,
-
-
-
-
-Gould, et al.           Expires October 27, 2016               [Page 57]
-
-Internet-Draft        Launch Phase Mapping for EPP            April 2016
-
-
        etc.) and notice can be passed, based on a request from James
        Mitchell.
    8.  Added text for the handling of the overlapping "claims" and
@@ -3232,6 +3242,14 @@ A.10.  Change from 09 to 10
             section.
        9.   Removed "displayed or" from "displayed or accepted" in the
             <launch:acceptedDate> description.
+
+
+
+Gould, et al.           Expires October 27, 2016               [Page 58]
+
+Internet-Draft        Launch Phase Mapping for EPP            April 2016
+
+
        10.  Replaced "given domain name is supported" with "given domain
             name are supported" in the "Create Response" section.
        11.  Changed the reference of 2303 (object does not exist) in the
@@ -3242,13 +3260,6 @@ A.10.  Change from 09 to 10
             in the State Transition Diagram.
    4.  Added the "C:" and "S:" example prefixes and related text in the
        "Conventions Used in This Document" section.
-
-
-
-Gould, et al.           Expires October 27, 2016               [Page 58]
-
-Internet-Draft        Launch Phase Mapping for EPP            April 2016
-
 
 A.11.  Change from 10 to 11
 
@@ -3286,6 +3297,15 @@ A.15.  Change EPPEXT 01 to EPPEXT 02
 
    1.  Changed the <launch:claim> element to be zero or more elements
        and the <launch:notice> element to be one or more elements in the
+
+
+
+
+Gould, et al.           Expires October 27, 2016               [Page 59]
+
+Internet-Draft        Launch Phase Mapping for EPP            April 2016
+
+
        Claims Create Form.  These changes were needed to be able to
        support more than one concurrent claims services.
 
@@ -3296,16 +3316,6 @@ A.16.  Change EPPEXT 02 to EPPEXT 03
    2.  Moved Section 7 "IANA Considerations" and Section 9 "Security
        Considerations" before Section 5 "Acknowledgements".  Moved
        "Change Log" Section to end.
-
-
-
-
-
-Gould, et al.           Expires October 27, 2016               [Page 59]
-
-Internet-Draft        Launch Phase Mapping for EPP            April 2016
-
-
    3.  Updated the text for the Claims Check Form and the Claims Create
        Form to support checking for the need of the claims notice and
        passing the claims notice outside of the "claims" phase.
@@ -3344,16 +3354,6 @@ A.20.  Change EPPEXT 06 to EPPEXT 07
    1.  Changed reference of lozano-tmch-func-spec to ietf-eppext-tmch-
        func-spec.
 
-A.21.  Change from EPPEXT 07 to REGEXT 00
-
-   1.  Changed to regext working group draft by changing draft-ietf-
-       eppext-launchphase to draft-ietf-regext-launchphase and by
-       changing references of draft-ietf-eppext-tmch-func-spec to draft-
-       ietf-regext-tmch-func-spec.
-
-
-
-
 
 
 
@@ -3361,6 +3361,13 @@ Gould, et al.           Expires October 27, 2016               [Page 60]
 
 Internet-Draft        Launch Phase Mapping for EPP            April 2016
 
+
+A.21.  Change from EPPEXT 07 to REGEXT 00
+
+   1.  Changed to regext working group draft by changing draft-ietf-
+       eppext-launchphase to draft-ietf-regext-launchphase and by
+       changing references of draft-ietf-eppext-tmch-func-spec to draft-
+       ietf-regext-tmch-func-spec.
 
 Authors' Addresses
 
@@ -3395,13 +3402,6 @@ Authors' Addresses
    Phone: +44 20 33 88 0600
    Email: gavin.brown@centralnic.com
    URI:   https://www.centralnic.com
-
-
-
-
-
-
-
 
 
 
