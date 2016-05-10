@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-launchphase-00" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-launchphase-01" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -132,7 +132,7 @@
       </address>
     </author>
 
-    <date day="25" month="April" year="2016"/>
+    <date day="10" month="May" year="2016"/>
 
     <!-- Meta-data Declarations -->
 
@@ -894,7 +894,7 @@ C:</epp>]]></artwork>
         trademarks for each domain name passed in the command, independent of the 
         active launch phase of the server and whether the "Claims Create Form" is required on a Domain Create Command.  
         The availability check information defined in the <xref target="RFC5731">EPP domain name
-      mapping</xref> MUST NOT be returned for the Claims Check Command.  This form MUST be 
+      mapping</xref> MUST NOT be returned for the Trademark Check Command.  This form MUST be 
         identified by setting the &lt;launch:check&gt; "type" attribute to "trademark".</t>  
         <t>Instead of 
         returning whether the domain name is available, the Trademark Check Command will return whether 
@@ -2684,6 +2684,11 @@ END]]></artwork>
           <t>Changed to regext working group draft by changing draft-ietf-eppext-launchphase to 
           draft-ietf-regext-launchphase and by changing references of draft-ietf-eppext-tmch-func-spec 
           to draft-ietf-regext-tmch-func-spec.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 00 to REGEXT 01" anchor="change-regext00-to-regext01">
+      <t><list style="numbers">
+          <t>Fixed reference of Claims Check Command to Trademark Check Command in the Trademark Check Form section.</t>
       </list></t>
     </section>
    </section>
