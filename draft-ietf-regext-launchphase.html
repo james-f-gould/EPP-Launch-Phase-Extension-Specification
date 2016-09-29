@@ -599,14 +599,14 @@
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
 <p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This EPP mapping specifies a flexible schema that can be used to implement several common use cases related to the provisioning and management of domain name registrations and applications during the launch of a domain name registry.</p>
 <p id="rfc.section.1.p.2">It is typical for domain registries to operate in special modes during their initial launch to facilitate allocation of domain names, often according to special rules. This document uses the term "launch phase" and the shorter form "launch" to refer to such a period.</p>
-<p id="rfc.section.1.p.3">The <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> is designed for the steady-state operation of a registry. During a launch period, the model in place may be different from what is defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. For example, registries often accept multiple applications for the same domain name during the "Sunrise" launch phase, referred to as a Launch Application.  A Launch Registration refers to a registration made during a launch phase when the server uses a "first-come, first-served" model.  Even in a "first-come, first-served" model, additional steps and information might be required, such as trademark information. In addition, the <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a> defines a registry interface for the Trademark Claims or "claims" launch phase that includes support for presenting a Trademark Claims Notice to the Registrant. This document proposes an extension to the domain name mapping in order to provide a uniform interface for the management of Launch Applications and Launch Registrations in launch phases.</p>
+<p id="rfc.section.1.p.3">The <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> is designed for the steady-state operation of a registry. During a launch period, the model in place may be different from what is defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. For example, registries often accept multiple applications for the same domain name during the "Sunrise" launch phase, referred to as a Launch Application.  A Launch Registration refers to a registration made during a launch phase when the server uses a "first-come, first-served" model.  Even in a "first-come, first-served" model, additional steps and information might be required, such as trademark information. In addition, the <a href="#RFC7848">[RFC7848]</a> defines a registry interface for the Trademark Claims or "claims" launch phase that includes support for presenting a Trademark Claims Notice to the Registrant. This document proposes an extension to the domain name mapping in order to provide a uniform interface for the management of Launch Applications and Launch Registrations in launch phases.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
 <p id="rfc.section.1.1.p.3">In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  Indentation and white space in examples are provided only to illustrate element relationships and are not a REQUIRED feature of this protocol.  </p>
 <p id="rfc.section.1.1.p.4">"launch-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:launch-1.0". The XML namespace prefix "launch" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
-<p id="rfc.section.1.1.p.5">"signedMark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  The XML namespace prefix "smd" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
-<p id="rfc.section.1.1.p.6">"mark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:mark-1.0" that is defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  The XML namespace prefix "mark" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.5">"signedMark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "smd" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.6">"mark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:mark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "mark" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#applicationID" id="applicationID">Application Identifier</a></h1>
@@ -614,7 +614,7 @@
 <p id="rfc.section.2.1.p.2">If the &lt;domain:create&gt; command processes a request synchronously without the use of an intermediate Launch Application, then an application identifier MAY not be needed.</p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#validatorID" id="validatorID">Validator Identifier</a></h1>
 <p id="rfc.section.2.2.p.1">The Validator Identifier is the unique identifier for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
-<p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to issuer identifiers is out of scope for this document.</p>
+<p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#RFC7848">[RFC7848]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to issuer identifiers is out of scope for this document.</p>
 <p id="rfc.section.2.2.p.3">The Validator Identifier MAY define a non-Trademark Validator that supports a form of claims.</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#phases" id="phases">Launch Phases</a></h1>
 <p id="rfc.section.2.3.p.1">The server MAY support multiple launch phases sequentially or simultaneously. The &lt;launch:phase&gt; element MUST be included by the client to define the target launch phase of the command.  The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element against the active phase and OPTIONAL sub-phase of the server on a create command, and return an EPP error result code of 2306 if there is a mismatch.</p>
@@ -845,13 +845,13 @@ S:&lt;/epp&gt;</pre>
   &lt;/mark:mark&gt;
 &lt;/launch:codeMark&gt;</pre>
 <h1 id="rfc.section.2.6.2"><a href="#rfc.section.2.6.2">2.6.2.</a> <a href="#mark" id="mark">&lt;mark:mark&gt; element</a></h1>
-<p id="rfc.section.2.6.2.p.1">A &lt;mark:mark&gt; element describes an applicant's prior right to a given domain name that is used with the "mark", "mark with code", and the "signed mark" validation models.  The &lt;mark:mark&gt; element is defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  A new mark format can be supported by creating a new XML schema for the mark that has an element that substitutes for the &lt;mark:abstractMark&gt; element from <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.</p>
+<p id="rfc.section.2.6.2.p.1">A &lt;mark:mark&gt; element describes an applicant's prior right to a given domain name that is used with the "mark", "mark with code", and the "signed mark" validation models.  The &lt;mark:mark&gt; element is defined in <a href="#RFC7848">[RFC7848]</a>.  A new mark format can be supported by creating a new XML schema for the mark that has an element that substitutes for the &lt;mark:abstractMark&gt; element from <a href="#RFC7848">[RFC7848]</a>.</p>
 <h1 id="rfc.section.2.6.3"><a href="#rfc.section.2.6.3">2.6.3.</a> <a href="#digitalsignature" id="digitalsignature">Digital Signature</a></h1>
 <p id="rfc.section.2.6.3.p.1">Digital signatures MAY be used by the server to validate either the mark information, when using the "signed mark" validation model with the <a href="#signedMark">&lt;smd:signedMark&gt;</a> <cite title="NONE">[signedMark]</cite> element or the <a href="#encodedSignedMark">&lt;smd:encodedSignedMark&gt;</a> <cite title="NONE">[encodedSignedMark]</cite> element.  </p>
 <h1 id="rfc.section.2.6.3.1"><a href="#rfc.section.2.6.3.1">2.6.3.1.</a> <a href="#signedMark" id="signedMark">&lt;smd:signedMark&gt; element</a></h1>
-<p id="rfc.section.2.6.3.1.p.1">The &lt;smd:signedMark&gt; element contains the digitally signed mark information.  The &lt;smd:signedMark&gt; element is defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  A new signed mark format can be supported by creating a new XML schema for the signed mark that has an element that substitutes for the &lt;smd:abstractSignedMark&gt; element from <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  </p>
+<p id="rfc.section.2.6.3.1.p.1">The &lt;smd:signedMark&gt; element contains the digitally signed mark information.  The &lt;smd:signedMark&gt; element is defined in <a href="#RFC7848">[RFC7848]</a>.  A new signed mark format can be supported by creating a new XML schema for the signed mark that has an element that substitutes for the &lt;smd:abstractSignedMark&gt; element from <a href="#RFC7848">[RFC7848]</a>.  </p>
 <h1 id="rfc.section.2.6.3.2"><a href="#rfc.section.2.6.3.2">2.6.3.2.</a> <a href="#encodedSignedMark" id="encodedSignedMark">&lt;smd:encodedSignedMark&gt; element</a></h1>
-<p id="rfc.section.2.6.3.2.p.1">The &lt;smd:encodedSignedMark&gt; element contains an encoded form of the digitally signed <a href="#signedMark">&lt;smd:signedMark&gt;</a> <cite title="NONE">[signedMark]</cite> element.  The &lt;smd:encodedSignedMark&gt; element is defined in <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  A new encoded signed mark format can be supported by creating a new XML schema for the encoded signed mark that has an element that substitutes for the &lt;smd:encodedSignedMark&gt; element from <a href="#I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</a>.  </p>
+<p id="rfc.section.2.6.3.2.p.1">The &lt;smd:encodedSignedMark&gt; element contains an encoded form of the digitally signed <a href="#signedMark">&lt;smd:signedMark&gt;</a> <cite title="NONE">[signedMark]</cite> element.  The &lt;smd:encodedSignedMark&gt; element is defined in <a href="#RFC7848">[RFC7848]</a>.  A new encoded signed mark format can be supported by creating a new XML schema for the encoded signed mark that has an element that substitutes for the &lt;smd:encodedSignedMark&gt; element from <a href="#RFC7848">[RFC7848]</a>.  </p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#commands" id="commands">EPP Command Mapping</a></h1>
 <p id="rfc.section.3.p.1">A detailed description of the EPP syntax and semantics can be found in the EPP core protocol specification <a href="#RFC5730">[RFC5730]</a>. The command mappings described here are specifically for use in the Launch Phase Extension.</p>
 <p id="rfc.section.3.p.2">This mapping is designed to be flexible, requiring only a minimum set of required elements.</p>
@@ -2080,12 +2080,6 @@ END</pre>
   <tbody>
     <tr>
       <td class="reference">
-        <b id="I-D.ietf-eppext-tmch-smd">[I-D.ietf-eppext-tmch-smd]</b>
-      </td>
-      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-eppext-tmch-smd-06">Mark and Signed Mark Objects Mapping</a>", Internet-Draft draft-ietf-eppext-tmch-smd-06, March 2016.</td>
-    </tr>
-    <tr>
-      <td class="reference">
         <b id="I-D.ietf-regext-tmch-func-spec">[I-D.ietf-regext-tmch-func-spec]</b>
       </td>
       <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-regext-tmch-func-spec-01">ICANN TMCH functional specifications</a>", Internet-Draft draft-ietf-regext-tmch-func-spec-01, June 2016.</td>
@@ -2125,6 +2119,12 @@ END</pre>
         <b id="RFC7451">[RFC7451]</b>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7848">[RFC7848]</b>
+      </td>
+      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/rfc7848">Mark and Signed Mark Objects Mapping</a>", RFC 7848, DOI 10.17487/RFC7848, June 2016.</td>
     </tr>
   </tbody>
 </table>
@@ -2308,6 +2308,7 @@ END</pre>
 
 <ol>
   <li>Fixed reference of Claims Check Command to Trademark Check Command in the Trademark Check Form section.</li>
+  <li>Replaced reference of draft-ietf-eppext-tmch-smd to RFC 7848.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

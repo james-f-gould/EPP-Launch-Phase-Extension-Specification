@@ -9,9 +9,8 @@
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
 <!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
+<!ENTITY RFC7848 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7848.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
-<!ENTITY I-D.ietf-eppext-tmch-smd PUBLIC ''
-   'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-eppext-tmch-smd.xml'>
 <!ENTITY I-D.ietf-regext-tmch-func-spec PUBLIC ''
    'http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-regext-tmch-func-spec.xml'>
 ]>
@@ -172,7 +171,7 @@
       Registration refers to a registration made during a launch phase when the
       server uses a "first-come, first-served" model.  Even in a "first-come,
       first-served" model, additional steps and information might be required, such as trademark information. In addition, 
-      the <xref target="I-D.ietf-eppext-tmch-smd"/> 
+      the <xref target="RFC7848"/> 
       defines a registry interface for the Trademark Claims or "claims" launch phase that
       includes support for presenting a Trademark Claims Notice to the
       Registrant. This document proposes an extension to the domain name
@@ -201,13 +200,13 @@
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
         <t>"signedMark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>. 
+        "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <xref target="RFC7848"/>. 
         The XML namespace prefix "smd"
         is used, but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
         <t>"mark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:mark-1.0" that is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>. 
+        "urn:ietf:params:xml:ns:mark-1.0" that is defined in <xref target="RFC7848"/>. 
         The XML namespace prefix "mark"
         is used, but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
@@ -245,7 +244,7 @@
         is not used or multiple Trademark Validators are used, the Validator Identifier MUST be 
         defined using the "validatorID" attribute.</t>
         <t>The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element 
-        and the &lt;smd:id&gt; element defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  Both the Validator Identifier and the 
+        and the &lt;smd:id&gt; element defined in <xref target="RFC7848"/>.  Both the Validator Identifier and the 
         Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to 
         issuer identifiers is out of scope for this document.</t>
         <t>The Validator Identifier MAY define a non-Trademark Validator that supports 
@@ -611,10 +610,10 @@ S:</epp>]]></artwork>
         <t>A &lt;mark:mark&gt; element describes an applicant's prior right
         to a given domain name that is used with the "mark", "mark with code", and 
         the "signed mark" validation models.  The &lt;mark:mark&gt; element is defined 
-        in <xref target="I-D.ietf-eppext-tmch-smd"/>.  
+        in <xref target="RFC7848"/>.  
         A new mark format can be supported by creating a new 
         XML schema for the mark that has an element that substitutes 
-        for the &lt;mark:abstractMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.</t>
+        for the &lt;mark:abstractMark&gt; element from <xref target="RFC7848"/>.</t>
       </section>
             
       <section anchor="digitalsignature" title="Digital Signature">
@@ -624,20 +623,20 @@ S:</epp>]]></artwork>
         </t>
      <section anchor="signedMark" title="&lt;smd:signedMark&gt; element">
         <t>The &lt;smd:signedMark&gt; element contains the digitally signed mark information.  The &lt;smd:signedMark&gt; 
-        element is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  A new 
+        element is defined in <xref target="RFC7848"/>.  A new 
         signed mark format can be supported by creating a new XML schema 
         for the signed mark that has an element that substitutes for 
-        the &lt;smd:abstractSignedMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.  
+        the &lt;smd:abstractSignedMark&gt; element from <xref target="RFC7848"/>.  
         </t>
         </section>
 
      <section anchor="encodedSignedMark" title="&lt;smd:encodedSignedMark&gt; element">
         <t>The &lt;smd:encodedSignedMark&gt; element contains an encoded form of 
         the digitally signed <xref target="signedMark">&lt;smd:signedMark&gt;</xref> element.  The 
-        &lt;smd:encodedSignedMark&gt; element is defined in <xref target="I-D.ietf-eppext-tmch-smd"/>.  
+        &lt;smd:encodedSignedMark&gt; element is defined in <xref target="RFC7848"/>.  
         A new encoded signed mark format can be supported by creating a new XML schema 
         for the encoded signed mark that has an element that substitutes for the 
-        &lt;smd:encodedSignedMark&gt; element from <xref target="I-D.ietf-eppext-tmch-smd"/>.
+        &lt;smd:encodedSignedMark&gt; element from <xref target="RFC7848"/>.
         </t>
         </section>
         
@@ -2488,7 +2487,7 @@ END]]></artwork>
       &RFC5731;
       &RFC6982;
       &RFC7451;            
-      &I-D.ietf-eppext-tmch-smd;
+      &RFC7848;
       &I-D.ietf-regext-tmch-func-spec;
     </references>
     
@@ -2689,6 +2688,7 @@ END]]></artwork>
     <section title="Change from REGEXT 00 to REGEXT 01" anchor="change-regext00-to-regext01">
       <t><list style="numbers">
           <t>Fixed reference of Claims Check Command to Trademark Check Command in the Trademark Check Form section.</t>
+          <t>Replaced reference of draft-ietf-eppext-tmch-smd to RFC 7848.</t> 
       </list></t>
     </section>
    </section>
