@@ -454,7 +454,7 @@
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-10-25" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-10-27" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -478,7 +478,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 28, 2017</td>
+  <td class="left">Expires: April 30, 2017</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -491,7 +491,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 25, 2016</td>
+  <td class="right">October 27, 2016</td>
 </tr>
 
     	
@@ -511,7 +511,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 28, 2017.</p>
+<p>This Internet-Draft will expire on April 30, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -639,14 +639,14 @@
 <p id="rfc.section.2.3.p.3">For extensibility, the &lt;launch:phase&gt; element includes an OPTIONAL "name" attribute that can define a sub-phase, or the full name of the phase when the &lt;launch:phase&gt; element has the "custom" value.  For example, the "claims" launch phase could have two sub-phases that include "landrush" and "open".</p>
 <p id="rfc.section.2.3.p.4">Launch phases MAY overlap to support the "claims" launch phase, defined in the <a href="#claimsPhase">Section 2.3.1</a>, and to support a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; element SHOULD be &lt;launch:phase name="landrush"&gt;claims&lt;/launch:phase&gt;.  </p>
 <h1 id="rfc.section.2.3.1"><a href="#rfc.section.2.3.1">2.3.1.</a> <a href="#claimsPhase" id="claimsPhase">Trademark Claims Phase</a></h1>
-<p id="rfc.section.2.3.1.p.1">The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain name that matches trademarks.  The source of the trademarks is a Trademark Clearinghouse (TMCH) and the source of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly linked to a TMCH.  The client interfaces with the server to determine if a trademark exists for a domain name, interfaces with a CNIS to get the Claims Notice information, and interfaces with the server to pass the Claims Notice acceptance information in a create command.  This document supports the Trademark Claims Phase in two ways including:</p>
+<p id="rfc.section.2.3.1.p.1">The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain name that matches trademarks.  The source of the trademarks is a Trademark Validator and the source of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly linked to a Trademark Validator.  The client interfaces with the server to determine if a trademark exists for a domain name, interfaces with a CNIS to get the Claims Notice information, and interfaces with the server to pass the Claims Notice acceptance information in a create command.  This document supports the Trademark Claims Phase in two ways including:</p>
 <p/>
 
 <dl>
   <dt>Claims Check Form</dt>
-  <dd style="margin-left: 8"><a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> is used to determine whether or not there are any matching trademarks for a domain name.  If there is at least one matching trademark that exists for the domain name, a claims key is returned.  The mapping of domain names and the claims keys is up to the interface between the server and the TMCH.</dd>
+  <dd style="margin-left: 8"><a href="#claimsCheckForm">Claims Check Form</a> <cite title="NONE">[claimsCheckForm]</cite> is used to determine whether or not there are any matching trademarks for a domain name.  If there is at least one matching trademark that exists for the domain name, a claims key is returned.  The mapping of domain names and the claims keys is based on an out-of-band interface between the server and the Trademark Validator.  The CNIS associated with the claims key <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> MUST accept the claims key as the basis for retrieving the claims information.</dd>
   <dt>Claims Create Form</dt>
-  <dd style="margin-left: 8"><a href="#claimsCreateForm">Claims Create Form</a> <cite title="NONE">[claimsCreateForm]</cite> is used to pass the Claims Notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) format, validation rules, and server processing is up to the interface between the server and the TMCH, represented by the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite>.</dd>
+  <dd style="margin-left: 8"><a href="#claimsCreateForm">Claims Create Form</a> <cite title="NONE">[claimsCreateForm]</cite> is used to pass the Claims Notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) format, validation rules, and server processing is up to the interface between the server and the Trademark Validator.  The CNIS associated with the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> MUST generate a notice identifier compliant with the &lt;launch:noticeID&gt; element.</dd>
 </dl>
 <div id="rfc.figure.1"/>
 <div id="claimsRegistrationFlow"/>
@@ -657,22 +657,28 @@
   '------------'     '--------'                   '--------'   '------'
          | Request Domain |                            |          |
          |   Registration |                            |          |
-         |---------------&gt;| Check Domain               |          |
+         |---------------&gt;| Domain Check               |          |
          |                |---------------------------&gt;|          |
          | Domain         | Domain Unavailable   .------------.   |
          |   Unavailable  |&lt;---------------------( Available? )   |
          |&lt;---------------|                  No  '------------'   |
          |                | Domain Available           | Yes      |
          |                |&lt;---------------------------|          |
-         |                | Claims Check Domain        |          |
+         |                | Domain Claims Check        |          |
          |                |---------------------------&gt;|          |
-         |                |.__________.           .---------.     |
-         |                || Continue |          /    Does   \    |
-         |                || Normally |&lt;--------( Domain have )   |
-         |                |'----------'       No \  Claims?  /    |
+         |                |                       .---------.     |
+         |                |                      /    Does   \    |
+         |                |&lt;--------------------( Domain have )   |
+         |                |                   No \  Claims?  /    |
          |                |                       '---------'     |
-         |                | Claims Key                  | Yes     |
-         |                |&lt;----------------------------'         |
+         |                | Domain Create              |  | Yes   |
+         |                |---------------------------&gt;|  |       |
+         | Domain         | Domain Registered          |  |       |
+         |   Registered   |&lt;---------------------------|  |       |
+         |&lt;---------------|                               |       |
+         |                                                |       |
+         |                | Claims Key                    |       |
+         |                |&lt;------------------------------'       |
          |                |                                       |
  .-----. |                | Request Claims Info with Claims Key   |
  |Abort| | Display        |--------------------------------------&gt;|
@@ -680,7 +686,7 @@
   ^      | Notice         |&lt;--------------------------------------|
   | No   |&lt;---------------|                                       |
   |  .------.  Yes        |                                       |
-  '-(  Ack?  )-----------&gt;| Create Domain with Claims  |          |
+  '-(  Ack?  )-----------&gt;| Domain Claims Create Form  |          |
      '------'             |---------------------------&gt;|          |
          | Registration   | Error       .----------------------.  |
          |   Error        |&lt;-----------( Validation Successful? ) |
@@ -963,7 +969,7 @@ C:&lt;/epp&gt;</pre>
       <dt>&lt;launch:name&gt;</dt>
       <dd style="margin-left: 4">Contains the fully qualified name of the queried domain name.  This element MUST contain an "exists" attribute whose value indicates if a matching trademark exists for the domain name that requires the use of the "Claims Create Form" on a Domain Create Command.  A value of "1" (or "true") means that a matching trademark does exist and that the "Claims Create Form" is required on a Domain Create Command.  A value of "0" (or "false") means that a matching trademark does not exist or that the "Claims Create Form" is NOT required on a Domain Create Command.</dd>
       <dt>&lt;launch:claimKey&gt;</dt>
-      <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party trademark validator such as the Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
+      <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
     </dl>
   </dd>
 </dl>
@@ -1074,7 +1080,7 @@ C:&lt;/epp&gt;</pre>
       <dt>&lt;launch:name&gt;</dt>
       <dd style="margin-left: 4">Contains the fully qualified name of the queried domain name.  This element MUST contain an "exists" attribute whose value indicates if a matching trademark exists for the domain name.  A value of "1" (or "true") means that a matching trademark does exist.  A value of "0" (or "false") means that a matching trademark does not exist.</dd>
       <dt>&lt;launch:claimKey&gt;</dt>
-      <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party trademark validator such as the Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
+      <dd style="margin-left: 4">Zero or more OPTIONAL claim keys that MAY be passed to a third-party Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) for querying the information needed to generate a Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used as the key for the query in place of the domain name to securely query the service without using a well-known value like a domain name.  The OPTIONAL "validatorID" attribute is the <a href="#validatorID">Validator Identifier</a> <cite title="NONE">[validatorID]</cite> whose value indicates which Trademark Validator to query for the Claims Notice information, with the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support other forms of claims notices.</dd>
     </dl>
   </dd>
 </dl>

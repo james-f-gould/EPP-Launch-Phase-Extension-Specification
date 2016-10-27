@@ -129,7 +129,7 @@
       </address>
     </author>
 
-    <date day="25" month="October" year="2016"/>
+    <date day="27" month="October" year="2016"/>
 
     <!-- Meta-data Declarations -->
 
@@ -296,9 +296,9 @@
         
         <section anchor="claimsPhase" title="Trademark Claims Phase">
           <t>The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain
-            name that matches trademarks.  The source of the trademarks is a Trademark Clearinghouse (TMCH) and the source 
+            name that matches trademarks.  The source of the trademarks is a Trademark Validator and the source 
             of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly 
-            linked to a TMCH.  The client interfaces with the server to determine if a trademark exists 
+            linked to a Trademark Validator.  The client interfaces with the server to determine if a trademark exists 
             for a domain name, interfaces with a CNIS to get the Claims Notice information, 
             and interfaces with the server to pass the Claims Notice acceptance information in a create command.
             This document supports the Trademark Claims Phase in two ways including:</t>
@@ -306,11 +306,14 @@
           <t hangText="Claims Check Form"><xref target="claimsCheckForm">Claims Check Form</xref> is used to determine 
           whether or not there are any matching trademarks for a domain name.  If there is at least one 
           matching trademark that exists for the domain name, a claims key is returned.  The 
-          mapping of domain names and the claims keys is up to the interface between the server and the TMCH.</t>
+          mapping of domain names and the claims keys is based on an out-of-band interface between the server and the Trademark Validator.  
+          The CNIS associated with the claims key <xref target="validatorID">Validator Identifier</xref> MUST accept the claims key 
+          as the basis for retrieving the claims information.</t>
           <t hangText="Claims Create Form"><xref target="claimsCreateForm">Claims Create Form</xref> is used to 
           pass the Claims Notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) 
-          format, validation rules, and server processing is up to the interface between the server and the TMCH, 
-          represented by the <xref target="validatorID">Validator Identifier</xref>.</t>
+          format, validation rules, and server processing is up to the interface between the server and the Trademark Validator.  
+          The CNIS associated with the <xref target="validatorID">Validator Identifier</xref> 
+          MUST generate a notice identifier compliant with the &lt;launch:noticeID&gt; element.</t>
          </list></t>
          
           <figure align="center" anchor="claimsRegistrationFlow">
@@ -321,22 +324,28 @@
   '------------'     '--------'                   '--------'   '------'
          | Request Domain |                            |          |
          |   Registration |                            |          |
-         |--------------->| Check Domain               |          |
+         |--------------->| Domain Check               |          |
          |                |--------------------------->|          |
          | Domain         | Domain Unavailable   .------------.   |
          |   Unavailable  |<---------------------( Available? )   |
          |<---------------|                  No  '------------'   |
          |                | Domain Available           | Yes      |
          |                |<---------------------------|          |
-         |                | Claims Check Domain        |          |
+         |                | Domain Claims Check        |          |
          |                |--------------------------->|          |
-         |                |.__________.           .---------.     |
-         |                || Continue |          /    Does   \    |
-         |                || Normally |<--------( Domain have )   |
-         |                |'----------'       No \  Claims?  /    |
+         |                |                       .---------.     |
+         |                |                      /    Does   \    |
+         |                |<--------------------( Domain have )   |
+         |                |                   No \  Claims?  /    |
          |                |                       '---------'     |
-         |                | Claims Key                  | Yes     |
-         |                |<----------------------------'         |
+         |                | Domain Create              |  | Yes   |
+         |                |--------------------------->|  |       |
+         | Domain         | Domain Registered          |  |       |
+         |   Registered   |<---------------------------|  |       |
+         |<---------------|                               |       |
+         |                                                |       |
+         |                | Claims Key                    |       |
+         |                |<------------------------------'       |
          |                |                                       |
  .-----. |                | Request Claims Info with Claims Key   |
  |Abort| | Display        |-------------------------------------->|
@@ -344,7 +353,7 @@
   ^      | Notice         |<--------------------------------------|
   | No   |<---------------|                                       |
   |  .------.  Yes        |                                       |
-  '-(  Ack?  )----------->| Create Domain with Claims  |          |
+  '-(  Ack?  )----------->| Domain Claims Create Form  |          |
      '------'             |--------------------------->|          |
          | Registration   | Error       .----------------------.  |
          |   Error        |<-----------( Validation Successful? ) |
@@ -827,7 +836,7 @@ C:</epp>]]></artwork>
             Domain Create Command.</t>
             <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
-            trademark validator such as the Trademark Clearinghouse (TMCH) 
+            Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) 
             for querying the information needed to generate a 
             Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used 
             as the key for the query in place of the domain name 
@@ -1021,7 +1030,7 @@ C:</epp>]]></artwork>
             a matching trademark does not exist.</t>
             <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
-            trademark validator such as the Trademark Clearinghouse (TMCH) 
+            Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) 
             for querying the information needed to generate a 
             Trademark Claims Notice.  The &lt;launch:claimKey&gt; is used 
             as the key for the query in place of the domain name 
