@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-launchphase-02" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-launchphase-04" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -129,7 +129,7 @@
       </address>
     </author>
 
-    <date day="27" month="October" year="2016"/>
+    <date day="27" month="April" year="2017"/>
 
     <!-- Meta-data Declarations -->
 
@@ -169,7 +169,7 @@
       Registration refers to a registration made during a launch phase when the
       server uses a "first-come, first-served" model.  Even in a "first-come,
       first-served" model, additional steps and information might be required, such as trademark information. In addition, 
-      the <xref target="RFC7848"/> 
+      <xref target="RFC7848">RFC 7848</xref> 
       defines a registry interface for the Trademark Claims or "claims" launch phase that
       includes support for presenting a Trademark Claims Notice to the
       Registrant. This document proposes an extension to the domain name
@@ -220,7 +220,7 @@
       <section anchor="applicationID" title="Application Identifier">
         <t>Servers MAY allow multiple applications, referred to as a Launch Application, 
         of the same domain name during its launch phase operations. Upon receiving 
-        a valid request to create a Launch Application, the server MUST create an application
+        a valid &lt;domain:create&gt; command to create a Launch Application, the server MUST create an application
         object corresponding to the request, assign an application identifier
         for the Launch Application, set the <xref target="RFC5731"/> pendingCreate status, 
         and return the application identifier to the client with the
@@ -228,9 +228,6 @@
         correlation, all subsequent launch operations on the Launch Application
         MUST be qualified by the previously assigned application identifier
         using the &lt;launch:applicationID&gt; element.</t>
-        <t>If the &lt;domain:create&gt;
-        command processes a request synchronously without the use of an intermediate 
-        Launch Application, then an application identifier MAY not be needed.</t>
       </section>
       
       <section anchor="validatorID" title="Validator Identifier">
@@ -243,8 +240,9 @@
         defined using the "validatorID" attribute.</t>
         <t>The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element 
         and the &lt;smd:id&gt; element defined in <xref target="RFC7848"/>.  Both the Validator Identifier and the 
-        Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to 
-        issuer identifiers is out of scope for this document.</t>
+        Issuer Identifier used MUST be unique.  If the ICANN TMCH is not used or multiple Trademark Validators are used, 
+        the server MUST define the list of supported validator identifiers and MUST make this information available to 
+        clients using a mutually acceptable, out-of-band mechanism.</t>
         <t>The Validator Identifier MAY define a non-Trademark Validator that supports 
         a form of claims.</t>
       </section>
@@ -471,7 +469,7 @@
       </section>
 
       <section anchor="pollMessaging" title="Poll Messaging">
-        <t>A Launch Application MUST and a Launch Registration MAY be handled as a domain name of <xref target="RFC5731"/> 
+        <t>A Launch Application MUST and a Launch Registration MAY be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref> 
         in "pendingCreate" status, with the launch status values defined in <xref target="statuses"/>.  
         As a Launch Application or Launch Registration transitions between the status values 
         defined in <xref target="statuses"/>, the server SHOULD insert poll messages, per <xref target="RFC5730"/>,
@@ -1963,7 +1961,7 @@ C:</epp>
       beginning and ending of the schema for URI registration purposes.</t>
 
     <section title="Launch Schema">
-      <t>Copyright (c) 2012 IETF Trust and the persons identified as authors
+      <t>Copyright (c) 2017 IETF Trust and the persons identified as authors
       of the code. All rights reserved.</t>
 
       <t>Redistribution and use in source and binary forms, with or without
@@ -2526,7 +2524,7 @@ END]]></artwork>
       changes to this document, which include Chris Wright, Jeff Neuman, 
       Jeff Eckhaus, and Will Shorter.</t>
       <t>Special suggestions that have been incorporated into this document 
-      were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano,
+      were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano,
       Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran,  
       Ulrich Wisser and Sharon Wodjenski.</t>
       <t>Some of the description of the Trademark Claims Phase was based on the work done by 
@@ -2766,6 +2764,24 @@ END]]></artwork>
       <t><list style="numbers">
           <t>Removed the reference to ietf-regext-tmch-func-spec and briefly described the trademark 
           claims phase that is relavent to draft-ietf-regext-launchphase.</t> 
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 02 to REGEXT 03" anchor="version-WG02-to-WG03">
+      <t><list style="numbers">
+        <t>Ping update.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 03 to REGEXT 04" anchor="version-WG03-to-WG04">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Scott Hollenbeck that include:</t>
+        <t><list style="numbers">
+          <t>Nit on reference to RFC 7848 in section 1.</t>
+          <t>Added reference to &lt;domain:create&gt; for the request to create a Launch Application in section 2.1.</t>
+          <t>Removed the second paragraph of section 2.1 describing the option of creating an application identifier for a Launch Registration.</t>  
+          <t>Provided clarification in section 2.2 on the responsibility of the server to ensure that the supported validator identifiers are unique.</t>
+          <t>Updated the text in section 2.5 referencing the domain name object in RFC 5731.</t> 
+          <t>Updated the copyright to 2017 in section 4.1.</t>
+        </list></t>
       </list></t>
     </section>
    </section>

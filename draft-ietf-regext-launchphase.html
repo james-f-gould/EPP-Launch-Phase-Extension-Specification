@@ -446,15 +446,17 @@
 <link href="#rfc.appendix.A.21" rel="Chapter" title="A.21 Change from EPPEXT 07 to REGEXT 00"/>
 <link href="#rfc.appendix.A.22" rel="Chapter" title="A.22 Change from REGEXT 00 to REGEXT 01"/>
 <link href="#rfc.appendix.A.23" rel="Chapter" title="A.23 Change from REGEXT 01 to REGEXT 02"/>
+<link href="#rfc.appendix.A.24" rel="Chapter" title="A.24 Change from REGEXT 02 to REGEXT 03"/>
+<link href="#rfc.appendix.A.25" rel="Chapter" title="A.25 Change from REGEXT 03 to REGEXT 04"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.5.2 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-10-27" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-4-27" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -478,7 +480,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 30, 2017</td>
+  <td class="left">Expires: October 29, 2017</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -491,7 +493,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 27, 2016</td>
+  <td class="right">April 27, 2017</td>
 </tr>
 
     	
@@ -499,7 +501,7 @@
   </table>
 
   <p class="title">Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-launchphase-02</span></p>
+  <span class="filename">draft-ietf-regext-launchphase-04</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -511,11 +513,11 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 30, 2017.</p>
+<p>This Internet-Draft will expire on October 29, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
-<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -524,55 +526,55 @@
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
-<li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
-<li>2.1.   <a href="#rfc.section.2.1">Application Identifier</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Application Identifier</a></li>
 <li>2.2.   <a href="#rfc.section.2.2">Validator Identifier</a></li>
 <li>2.3.   <a href="#rfc.section.2.3">Launch Phases</a></li>
-<li>2.3.1.   <a href="#rfc.section.2.3.1">Trademark Claims Phase</a></li>
-<li>2.4.   <a href="#rfc.section.2.4">Status Values</a></li>
-<li>2.4.1.   <a href="#rfc.section.2.4.1">State Transition</a></li>
-<li>2.5.   <a href="#rfc.section.2.5">Poll Messaging</a></li>
+<ul><li>2.3.1.   <a href="#rfc.section.2.3.1">Trademark Claims Phase</a></li>
+</ul><li>2.4.   <a href="#rfc.section.2.4">Status Values</a></li>
+<ul><li>2.4.1.   <a href="#rfc.section.2.4.1">State Transition</a></li>
+</ul><li>2.5.   <a href="#rfc.section.2.5">Poll Messaging</a></li>
 <li>2.6.   <a href="#rfc.section.2.6">Mark Validation Models</a></li>
-<li>2.6.1.   <a href="#rfc.section.2.6.1">&lt;launch:codeMark&gt; element</a></li>
+<ul><li>2.6.1.   <a href="#rfc.section.2.6.1">&lt;launch:codeMark&gt; element</a></li>
 <li>2.6.2.   <a href="#rfc.section.2.6.2">&lt;mark:mark&gt; element</a></li>
 <li>2.6.3.   <a href="#rfc.section.2.6.3">Digital Signature</a></li>
-<li>2.6.3.1.   <a href="#rfc.section.2.6.3.1">&lt;smd:signedMark&gt; element</a></li>
+<ul><li>2.6.3.1.   <a href="#rfc.section.2.6.3.1">&lt;smd:signedMark&gt; element</a></li>
 <li>2.6.3.2.   <a href="#rfc.section.2.6.3.2">&lt;smd:encodedSignedMark&gt; element</a></li>
-<li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
-<li>3.1.   <a href="#rfc.section.3.1">EPP &lt;check&gt; Command</a></li>
-<li>3.1.1.   <a href="#rfc.section.3.1.1">Claims Check Form</a></li>
+</ul></ul></ul><li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">EPP &lt;check&gt; Command</a></li>
+<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">Claims Check Form</a></li>
 <li>3.1.2.   <a href="#rfc.section.3.1.2">Availability Check Form</a></li>
 <li>3.1.3.   <a href="#rfc.section.3.1.3">Trademark Check Form</a></li>
-<li>3.2.   <a href="#rfc.section.3.2">EPP &lt;info&gt; Command</a></li>
+</ul><li>3.2.   <a href="#rfc.section.3.2">EPP &lt;info&gt; Command</a></li>
 <li>3.3.   <a href="#rfc.section.3.3">EPP &lt;create&gt; Command</a></li>
-<li>3.3.1.   <a href="#rfc.section.3.3.1">Sunrise Create Form</a></li>
+<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">Sunrise Create Form</a></li>
 <li>3.3.2.   <a href="#rfc.section.3.3.2">Claims Create Form</a></li>
 <li>3.3.3.   <a href="#rfc.section.3.3.3">General Create Form</a></li>
 <li>3.3.4.   <a href="#rfc.section.3.3.4">Mixed Create Form</a></li>
 <li>3.3.5.   <a href="#rfc.section.3.3.5">Create Response</a></li>
-<li>3.4.   <a href="#rfc.section.3.4">EPP &lt;update&gt; Command</a></li>
+</ul><li>3.4.   <a href="#rfc.section.3.4">EPP &lt;update&gt; Command</a></li>
 <li>3.5.   <a href="#rfc.section.3.5">EPP &lt;delete&gt; Command</a></li>
 <li>3.6.   <a href="#rfc.section.3.6">EPP &lt;renew&gt; Command</a></li>
 <li>3.7.   <a href="#rfc.section.3.7">EPP &lt;transfer&gt; Command</a></li>
-<li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
-<li>4.1.   <a href="#rfc.section.4.1">Launch Schema</a></li>
-<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
-<li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
+</ul><li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Launch Schema</a></li>
+</ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
 <li>5.2.   <a href="#rfc.section.5.2">EPP Extension Registry</a></li>
-<li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
-<li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
+</ul><li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
 <li>6.2.   <a href="#rfc.section.6.2">Verisign Consolidated Top Level Domain (CTLD) SRS</a></li>
 <li>6.3.   <a href="#rfc.section.6.3">Verisign .COM / .NET SRS</a></li>
 <li>6.4.   <a href="#rfc.section.6.4">REngin v3.7</a></li>
 <li>6.5.   <a href="#rfc.section.6.5">RegistryEngine EPP Service</a></li>
 <li>6.6.   <a href="#rfc.section.6.6">Neustar EPP SDK</a></li>
 <li>6.7.   <a href="#rfc.section.6.7">gTLD Shared Registry System</a></li>
-<li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
+</ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
-<li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+<ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
 <li>A.4.   <a href="#rfc.appendix.A.4">Change from 03 to 04</a></li>
@@ -595,7 +597,9 @@
 <li>A.21.   <a href="#rfc.appendix.A.21">Change from EPPEXT 07 to REGEXT 00</a></li>
 <li>A.22.   <a href="#rfc.appendix.A.22">Change from REGEXT 00 to REGEXT 01</a></li>
 <li>A.23.   <a href="#rfc.appendix.A.23">Change from REGEXT 01 to REGEXT 02</a></li>
-<li><a href="#rfc.authors">Authors' Addresses</a></li>
+<li>A.24.   <a href="#rfc.appendix.A.24">Change from REGEXT 02 to REGEXT 03</a></li>
+<li>A.25.   <a href="#rfc.appendix.A.25">Change from REGEXT 03 to REGEXT 04</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
@@ -603,7 +607,7 @@
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
 <p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This EPP mapping specifies a flexible schema that can be used to implement several common use cases related to the provisioning and management of domain name registrations and applications during the launch of a domain name registry.</p>
 <p id="rfc.section.1.p.2">It is typical for domain registries to operate in special modes during their initial launch to facilitate allocation of domain names, often according to special rules. This document uses the term "launch phase" and the shorter form "launch" to refer to such a period.</p>
-<p id="rfc.section.1.p.3">The <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> is designed for the steady-state operation of a registry. During a launch period, the model in place may be different from what is defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. For example, registries often accept multiple applications for the same domain name during the "Sunrise" launch phase, referred to as a Launch Application.  A Launch Registration refers to a registration made during a launch phase when the server uses a "first-come, first-served" model.  Even in a "first-come, first-served" model, additional steps and information might be required, such as trademark information. In addition, the <a href="#RFC7848">[RFC7848]</a> defines a registry interface for the Trademark Claims or "claims" launch phase that includes support for presenting a Trademark Claims Notice to the Registrant. This document proposes an extension to the domain name mapping in order to provide a uniform interface for the management of Launch Applications and Launch Registrations in launch phases.</p>
+<p id="rfc.section.1.p.3">The <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> is designed for the steady-state operation of a registry. During a launch period, the model in place may be different from what is defined in the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. For example, registries often accept multiple applications for the same domain name during the "Sunrise" launch phase, referred to as a Launch Application.  A Launch Registration refers to a registration made during a launch phase when the server uses a "first-come, first-served" model.  Even in a "first-come, first-served" model, additional steps and information might be required, such as trademark information. In addition, <a href="#RFC7848">RFC 7848</a> <cite title="NONE">[RFC7848]</cite> defines a registry interface for the Trademark Claims or "claims" launch phase that includes support for presenting a Trademark Claims Notice to the Registrant. This document proposes an extension to the domain name mapping in order to provide a uniform interface for the management of Launch Applications and Launch Registrations in launch phases.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
@@ -614,11 +618,10 @@
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#applicationID" id="applicationID">Application Identifier</a></h1>
-<p id="rfc.section.2.1.p.1">Servers MAY allow multiple applications, referred to as a Launch Application, of the same domain name during its launch phase operations. Upon receiving a valid request to create a Launch Application, the server MUST create an application object corresponding to the request, assign an application identifier for the Launch Application, set the <a href="#RFC5731">[RFC5731]</a> pendingCreate status, and return the application identifier to the client with the &lt;launch:applicationID&gt; element. In order to facilitate correlation, all subsequent launch operations on the Launch Application MUST be qualified by the previously assigned application identifier using the &lt;launch:applicationID&gt; element.</p>
-<p id="rfc.section.2.1.p.2">If the &lt;domain:create&gt; command processes a request synchronously without the use of an intermediate Launch Application, then an application identifier MAY not be needed.</p>
+<p id="rfc.section.2.1.p.1">Servers MAY allow multiple applications, referred to as a Launch Application, of the same domain name during its launch phase operations. Upon receiving a valid &lt;domain:create&gt; command to create a Launch Application, the server MUST create an application object corresponding to the request, assign an application identifier for the Launch Application, set the <a href="#RFC5731">[RFC5731]</a> pendingCreate status, and return the application identifier to the client with the &lt;launch:applicationID&gt; element. In order to facilitate correlation, all subsequent launch operations on the Launch Application MUST be qualified by the previously assigned application identifier using the &lt;launch:applicationID&gt; element.</p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#validatorID" id="validatorID">Validator Identifier</a></h1>
 <p id="rfc.section.2.2.p.1">The Validator Identifier is the unique identifier for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
-<p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#RFC7848">[RFC7848]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  The list of validator identifiers and the relationship to issuer identifiers is out of scope for this document.</p>
+<p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#RFC7848">[RFC7848]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  If the ICANN TMCH is not used or multiple Trademark Validators are used, the server MUST define the list of supported validator identifiers and MUST make this information available to clients using a mutually acceptable, out-of-band mechanism.</p>
 <p id="rfc.section.2.2.p.3">The Validator Identifier MAY define a non-Trademark Validator that supports a form of claims.</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#phases" id="phases">Launch Phases</a></h1>
 <p id="rfc.section.2.3.p.1">The server MAY support multiple launch phases sequentially or simultaneously. The &lt;launch:phase&gt; element MUST be included by the client to define the target launch phase of the command.  The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element against the active phase and OPTIONAL sub-phase of the server on a create command, and return an EPP error result code of 2306 if there is a mismatch.</p>
@@ -766,7 +769,7 @@
             </pre>
 <p class="figure">Figure 2</p>
 <h1 id="rfc.section.2.5"><a href="#rfc.section.2.5">2.5.</a> <a href="#pollMessaging" id="pollMessaging">Poll Messaging</a></h1>
-<p id="rfc.section.2.5.p.1">A Launch Application MUST and a Launch Registration MAY be handled as a domain name of <a href="#RFC5731">[RFC5731]</a> in "pendingCreate" status, with the launch status values defined in <a href="#statuses">Section 2.4</a>.  As a Launch Application or Launch Registration transitions between the status values defined in <a href="#statuses">Section 2.4</a>, the server SHOULD insert poll messages, per <a href="#RFC5730">[RFC5730]</a>, for the applicable intermediate statuses, including the "pendingValidation", "validated", "pendingAllocation, and "invalid" statuses, using the &lt;domain:infData&gt; element with the &lt;launch:infData&gt; extension.  The &lt;domain:infData&gt; element MAY contain non-mandatory information, like contact and name server information.  Also, further extensions that would normally be included in the response of a &lt;domain:info&gt; command, per <a href="#RFC5731">[RFC5731]</a>, MAY be included.  For the final statuses, including the "allocated" and "rejected" statuses, the server MUST insert a &lt;domain:panData&gt; poll message, per <a href="#RFC5731">[RFC5731]</a>, with the &lt;launch:infData&gt; extension.</p>
+<p id="rfc.section.2.5.p.1">A Launch Application MUST and a Launch Registration MAY be handled as an EPP domain name object as specified in <a href="#RFC5731">RFC 5731</a> <cite title="NONE">[RFC5731]</cite> in "pendingCreate" status, with the launch status values defined in <a href="#statuses">Section 2.4</a>.  As a Launch Application or Launch Registration transitions between the status values defined in <a href="#statuses">Section 2.4</a>, the server SHOULD insert poll messages, per <a href="#RFC5730">[RFC5730]</a>, for the applicable intermediate statuses, including the "pendingValidation", "validated", "pendingAllocation, and "invalid" statuses, using the &lt;domain:infData&gt; element with the &lt;launch:infData&gt; extension.  The &lt;domain:infData&gt; element MAY contain non-mandatory information, like contact and name server information.  Also, further extensions that would normally be included in the response of a &lt;domain:info&gt; command, per <a href="#RFC5731">[RFC5731]</a>, MAY be included.  For the final statuses, including the "allocated" and "rejected" statuses, the server MUST insert a &lt;domain:panData&gt; poll message, per <a href="#RFC5731">[RFC5731]</a>, with the &lt;launch:infData&gt; extension.</p>
 <p>The following is an example poll message for a Launch Application that has transitioned to the "pendingAllocation" state.</p>
 <pre>
 S:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
@@ -1702,7 +1705,7 @@ C:&lt;/epp&gt;
 <p id="rfc.section.4.p.1">One schema is presented here that is the EPP Launch Phase Mapping schema.</p>
 <p id="rfc.section.4.p.2">The formal syntax presented here is a complete schema representation of the object mapping suitable for automated validation of EPP XML instances. The BEGIN and END tags are not part of the schema; they are used to note the beginning and ending of the schema for URI registration purposes.</p>
 <h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> Launch Schema</h1>
-<p id="rfc.section.4.1.p.1">Copyright (c) 2012 IETF Trust and the persons identified as authors of the code. All rights reserved.</p>
+<p id="rfc.section.4.1.p.1">Copyright (c) 2017 IETF Trust and the persons identified as authors of the code. All rights reserved.</p>
 <p id="rfc.section.4.1.p.2">Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p/>
 
@@ -2137,7 +2140,7 @@ END</pre>
 <p id="rfc.section.7.p.3">As information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the efforts of the leading participants of the Community TMCH Model that led to many of the changes to this document, which include Chris Wright, Jeff Neuman, Jeff Eckhaus, and Will Shorter.</p>
-<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
+<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
 <p id="rfc.section.8.p.3">Some of the description of the Trademark Claims Phase was based on the work done by Gustavo Lozano in the ICANN TMCH functional specifications.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
@@ -2146,37 +2149,37 @@ END</pre>
       <td class="reference">
         <b id="RFC2119">[RFC2119]</b>
       </td>
-      <td class="top"><a href="mailto:sob@harvard.edu" title="Harvard University">Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, March 1997.</td>
+      <td class="top"><a>Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC3688">[RFC3688]</b>
       </td>
-      <td class="top"><a>Mealling, M.</a>, "<a href="http://tools.ietf.org/html/rfc3688">The IETF XML Registry</a>", BCP 81, RFC 3688, January 2004.</td>
+      <td class="top"><a>Mealling, M.</a>, "<a href="http://tools.ietf.org/html/rfc3688">The IETF XML Registry</a>", BCP 81, RFC 3688, DOI 10.17487/RFC3688, January 2004.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC5730">[RFC5730]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5730">Extensible Provisioning Protocol (EPP)</a>", STD 69, RFC 5730, August 2009.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5730">Extensible Provisioning Protocol (EPP)</a>", STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC5731">[RFC5731]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, August 2009.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, DOI 10.17487/RFC5731, August 2009.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC6982">[RFC6982]</b>
       </td>
-      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, July 2013.</td>
+      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, DOI 10.17487/RFC6982, July 2013.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC7451">[RFC7451]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, February 2015.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -2373,6 +2376,28 @@ END</pre>
 
 <ol>
   <li>Removed the reference to ietf-regext-tmch-func-spec and briefly described the trademark claims phase that is relavent to draft-ietf-regext-launchphase.</li>
+</ol>
+<h1 id="rfc.appendix.A.24"><a href="#rfc.appendix.A.24">A.24.</a> <a href="#version-WG02-to-WG03" id="version-WG02-to-WG03">Change from REGEXT 02 to REGEXT 03</a></h1>
+<p/>
+
+<ol>
+  <li>Ping update.</li>
+</ol>
+<h1 id="rfc.appendix.A.25"><a href="#rfc.appendix.A.25">A.25.</a> <a href="#version-WG03-to-WG04" id="version-WG03-to-WG04">Change from REGEXT 03 to REGEXT 04</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on feedback from Scott Hollenbeck that include:</li>
+  <li>
+    <ol>
+      <li>Nit on reference to RFC 7848 in section 1.</li>
+      <li>Added reference to &lt;domain:create&gt; for the request to create a Launch Application in section 2.1.</li>
+      <li>Removed the second paragraph of section 2.1 describing the option of creating an application identifier for a Launch Registration.</li>
+      <li>Provided clarification in section 2.2 on the responsibility of the server to ensure that the supported validator identifiers are unique.</li>
+      <li>Updated the text in section 2.5 referencing the domain name object in RFC 5731.</li>
+      <li>Updated the copyright to 2017 in section 4.1.</li>
+    </ol>
+  </li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
