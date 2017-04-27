@@ -3500,7 +3500,6 @@ A.24.  Change from REGEXT 02 to REGEXT 03
 A.25.  Change from REGEXT 03 to REGEXT 04
 
    1.  Updates based on feedback from Scott Hollenbeck that include:
-   2.
 
        1.  Nit on reference to RFC 7848 in section 1.
        2.  Added reference to <domain:create> for the request to create
@@ -3516,6 +3515,7 @@ A.25.  Change from REGEXT 03 to REGEXT 04
        6.  Updated the copyright to 2017 in section 4.1.
 
 Authors' Addresses
+
 
 
 

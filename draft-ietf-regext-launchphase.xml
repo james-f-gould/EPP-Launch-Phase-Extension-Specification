@@ -2773,8 +2773,8 @@ END]]></artwork>
     </section>
     <section title="Change from REGEXT 03 to REGEXT 04" anchor="version-WG03-to-WG04">
       <t><list style="numbers">
-        <t>Updates based on feedback from Scott Hollenbeck that include:</t>
-        <t><list style="numbers">
+        <t>Updates based on feedback from Scott Hollenbeck that include:
+        <list style="numbers">
           <t>Nit on reference to RFC 7848 in section 1.</t>
           <t>Added reference to &lt;domain:create&gt; for the request to create a Launch Application in section 2.1.</t>
           <t>Removed the second paragraph of section 2.1 describing the option of creating an application identifier for a Launch Registration.</t>  
