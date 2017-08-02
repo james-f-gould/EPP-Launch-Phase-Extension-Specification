@@ -421,7 +421,9 @@
 <link href="#rfc.section.6.7" rel="Chapter" title="6.7 gTLD Shared Registry System"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
-<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
+<link href="#rfc.references" rel="Chapter" title="9 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="9.2 Informative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Change History"/>
 <link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
 <link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02"/>
@@ -448,6 +450,8 @@
 <link href="#rfc.appendix.A.23" rel="Chapter" title="A.23 Change from REGEXT 01 to REGEXT 02"/>
 <link href="#rfc.appendix.A.24" rel="Chapter" title="A.24 Change from REGEXT 02 to REGEXT 03"/>
 <link href="#rfc.appendix.A.25" rel="Chapter" title="A.25 Change from REGEXT 03 to REGEXT 04"/>
+<link href="#rfc.appendix.A.26" rel="Chapter" title="A.26 Change from REGEXT 04 to REGEXT 05"/>
+<link href="#rfc.appendix.A.27" rel="Chapter" title="A.27 Change from REGEXT 05 to REGEXT 06"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -455,8 +459,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-04" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-4-27" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-06" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-8-2" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -480,7 +484,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 29, 2017</td>
+  <td class="left">Expires: February 3, 2018</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -493,7 +497,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 27, 2017</td>
+  <td class="right">August 2, 2017</td>
 </tr>
 
     	
@@ -501,7 +505,7 @@
   </table>
 
   <p class="title">Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-launchphase-04</span></p>
+  <span class="filename">draft-ietf-regext-launchphase-06</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -513,7 +517,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 29, 2017.</p>
+<p>This Internet-Draft will expire on February 3, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -572,8 +576,10 @@
 <li>6.7.   <a href="#rfc.section.6.7">gTLD Shared Registry System</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
-<li>9.   <a href="#rfc.references">Normative References</a></li>
-<li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
+<li>9.   <a href="#rfc.references">References</a></li>
+<ul><li>9.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>9.2.   <a href="#rfc.references.2">Informative References</a></li>
+</ul><li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
 <ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
@@ -599,6 +605,8 @@
 <li>A.23.   <a href="#rfc.appendix.A.23">Change from REGEXT 01 to REGEXT 02</a></li>
 <li>A.24.   <a href="#rfc.appendix.A.24">Change from REGEXT 02 to REGEXT 03</a></li>
 <li>A.25.   <a href="#rfc.appendix.A.25">Change from REGEXT 03 to REGEXT 04</a></li>
+<li>A.26.   <a href="#rfc.appendix.A.26">Change from REGEXT 04 to REGEXT 05</a></li>
+<li>A.27.   <a href="#rfc.appendix.A.27">Change from REGEXT 05 to REGEXT 06</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -612,19 +620,21 @@
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
 <p id="rfc.section.1.1.p.3">In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  Indentation and white space in examples are provided only to illustrate element relationships and are not a REQUIRED feature of this protocol.  </p>
-<p id="rfc.section.1.1.p.4">"launch-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:launch-1.0". The XML namespace prefix "launch" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
-<p id="rfc.section.1.1.p.5">"signedMark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "smd" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
-<p id="rfc.section.1.1.p.6">"mark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:mark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "mark" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.4">A Launch Registration is a domain name registration during a launch phase when the server uses a "first-come, first-served" model.  Only a single registration for a domain name can exist in the server at a time.</p>
+<p id="rfc.section.1.1.p.5">A Launch Application represents the intent to register a domain name during a launch phase when the server accepts multiple applications for a domain name and the server later selects one of the applications to allocate as a registration.  Many Launch Applications for a domain name can exist in the server at a time.</p>
+<p id="rfc.section.1.1.p.6">"launch-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:launch-1.0". The XML namespace prefix "launch" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.7">"signedMark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "smd" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.8">"mark-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:mark-1.0" that is defined in <a href="#RFC7848">[RFC7848]</a>.  The XML namespace prefix "mark" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#applicationID" id="applicationID">Application Identifier</a></h1>
 <p id="rfc.section.2.1.p.1">Servers MAY allow multiple applications, referred to as a Launch Application, of the same domain name during its launch phase operations. Upon receiving a valid &lt;domain:create&gt; command to create a Launch Application, the server MUST create an application object corresponding to the request, assign an application identifier for the Launch Application, set the <a href="#RFC5731">[RFC5731]</a> pendingCreate status, and return the application identifier to the client with the &lt;launch:applicationID&gt; element. In order to facilitate correlation, all subsequent launch operations on the Launch Application MUST be qualified by the previously assigned application identifier using the &lt;launch:applicationID&gt; element.</p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#validatorID" id="validatorID">Validator Identifier</a></h1>
-<p id="rfc.section.2.2.p.1">The Validator Identifier is the unique identifier for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
+<p id="rfc.section.2.2.p.1">The Validator Identifier is the identifier, that is unique to the server, for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The unique set of Validator Identifier values supported the server is up to server policy.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
 <p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#RFC7848">[RFC7848]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  If the ICANN TMCH is not used or multiple Trademark Validators are used, the server MUST define the list of supported validator identifiers and MUST make this information available to clients using a mutually acceptable, out-of-band mechanism.</p>
 <p id="rfc.section.2.2.p.3">The Validator Identifier MAY define a non-Trademark Validator that supports a form of claims.</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#phases" id="phases">Launch Phases</a></h1>
-<p id="rfc.section.2.3.p.1">The server MAY support multiple launch phases sequentially or simultaneously. The &lt;launch:phase&gt; element MUST be included by the client to define the target launch phase of the command.  The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element against the active phase and OPTIONAL sub-phase of the server on a create command, and return an EPP error result code of 2306 if there is a mismatch.</p>
+<p id="rfc.section.2.3.p.1">The server MAY support multiple launch phases sequentially or simultaneously. The &lt;launch:phase&gt; element MUST be included by the client to define the target launch phase of the command.  The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element against the active phase and OPTIONAL sub-phase of the server, and return an EPP error result code of 2306 if there is a mismatch.</p>
 <p id="rfc.section.2.3.p.2">The following launch phase values are defined: </p>
 
 <dl>
@@ -655,50 +665,50 @@
 <div id="claimsRegistrationFlow"/>
 <p>The following shows the Trademark Claims Phase registration flow:</p>
 <pre>
-  .------------.     .--------.                   .--------.   .------.
-  | Registrant |     | Client |                   | Server |   | CNIS |
-  '------------'     '--------'                   '--------'   '------'
-         | Request Domain |                            |          |
-         |   Registration |                            |          |
-         |---------------&gt;| Domain Check               |          |
-         |                |---------------------------&gt;|          |
-         | Domain         | Domain Unavailable   .------------.   |
-         |   Unavailable  |&lt;---------------------( Available? )   |
-         |&lt;---------------|                  No  '------------'   |
-         |                | Domain Available           | Yes      |
-         |                |&lt;---------------------------|          |
-         |                | Domain Claims Check        |          |
-         |                |---------------------------&gt;|          |
-         |                |                       .---------.     |
-         |                |                      /    Does   \    |
-         |                |&lt;--------------------( Domain have )   |
-         |                |                   No \  Claims?  /    |
-         |                |                       '---------'     |
-         |                | Domain Create              |  | Yes   |
-         |                |---------------------------&gt;|  |       |
-         | Domain         | Domain Registered          |  |       |
-         |   Registered   |&lt;---------------------------|  |       |
-         |&lt;---------------|                               |       |
-         |                                                |       |
-         |                | Claims Key                    |       |
-         |                |&lt;------------------------------'       |
-         |                |                                       |
- .-----. |                | Request Claims Info with Claims Key   |
- |Abort| | Display        |--------------------------------------&gt;|
- '-----' | Claims         | Return Claims Info                    |
-  ^      | Notice         |&lt;--------------------------------------|
-  | No   |&lt;---------------|                                       |
-  |  .------.  Yes        |                                       |
-  '-(  Ack?  )-----------&gt;| Domain Claims Create Form  |          |
-     '------'             |---------------------------&gt;|          |
-         | Registration   | Error       .----------------------.  |
-         |   Error        |&lt;-----------( Validation Successful? ) |
-         |&lt;---------------|          No '----------------------'  |
-         |                |                            | Yes      |
-         | Domain         | Domain Registered          |          |
-         |   Registered   |&lt;---------------------------|          |
-         |&lt;---------------|                            |          |
-            </pre>
+ .------------.     .--------.                   .--------.  .------.
+ | Registrant |     | Client |                   | Server |  | CNIS |
+ '------------'     '--------'                   '--------'  '------'
+        | Request Domain |                            |          |
+        |   Registration |                            |          |
+        |---------------&gt;| Domain Check               |          |
+        |                |---------------------------&gt;|          |
+        | Domain         | Domain Unavailable   .------------.   |
+        |   Unavailable  |&lt;---------------------( Available? )   |
+        |&lt;---------------|                  No  '------------'   |
+        |                | Domain Available           | Yes      |
+        |                |&lt;---------------------------|          |
+        |                | Domain Claims Check        |          |
+        |                |---------------------------&gt;|          |
+        |                |                       .---------.     |
+        |                | Claims Don't Exist   /    Does   \    |
+        |                |&lt;--------------------( Domain have )   |
+        |                |                   No \  Claims?  /    |
+        |                |                       '---------'     |
+        |                | Domain Create              |  | Yes   |
+        |                |---------------------------&gt;|  |       |
+        | Domain         | Domain Registered          |  |       |
+        |   Registered   |&lt;---------------------------|  |       |
+        |&lt;---------------|                               |       |
+        |                                                |       |
+        |                | Claims Exist with Claims Keys |       |
+        |                |&lt;------------------------------'       |
+        |                |                                       |
+.-----. |                | Request Claims Info with Claims Key   |
+|Abort| | Display        |--------------------------------------&gt;|
+'-----' | Claims         | Return Claims Info                    |
+ ^      | Notice         |&lt;--------------------------------------|
+ | No   |&lt;---------------|                                       |
+ |  .------.  Yes        |                                       |
+ '-(  Ack?  )-----------&gt;| Domain Claims Create Form  |          |
+    '------'             |---------------------------&gt;|          |
+        | Registration   | Error       .----------------------.  |
+        |   Error        |&lt;-----------( Validation Successful? ) |
+        |&lt;---------------|          No '----------------------'  |
+        |                |                            | Yes      |
+        | Domain         | Domain Registered          |          |
+        |   Registered   |&lt;---------------------------|          |
+        |&lt;---------------|                            |          |
+</pre>
 <p class="figure">Figure 1</p>
 <h1 id="rfc.section.2.4"><a href="#rfc.section.2.4">2.4.</a> <a href="#statuses" id="statuses">Status Values</a></h1>
 <p id="rfc.section.2.4.p.1">A Launch Application or Launch Registration object MAY have a launch status value. The &lt;launch:status&gt; element is used to convey the launch status pertaining to the object, beyond what is specified in the object mapping.  A Launch Application or Launch Registration MUST set the <a href="#RFC5731">[RFC5731]</a> "pendingCreate" status if a launch status is supported and the launch status is not one of the final statuses, including the "allocated" and "rejected" statuses.</p>
@@ -793,8 +803,8 @@ S:    &lt;extension&gt;
 S:      &lt;launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"&gt;
 S:        &lt;launch:phase&gt;sunrise&lt;/launch:phase&gt;
-S:          &lt;launch:applicationID&gt;abc123&lt;/launch:applicationID&gt;
-S:          &lt;launch:status s="pendingAllocation"/&gt;
+S:        &lt;launch:applicationID&gt;abc123&lt;/launch:applicationID&gt;
+S:        &lt;launch:status s="pendingAllocation"/&gt;
 S:      &lt;/launch:infData&gt;
 S:    &lt;/extension&gt;
 S:    &lt;trID&gt;
@@ -830,8 +840,8 @@ S:    &lt;extension&gt;
 S:      &lt;launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"&gt;
 S:        &lt;launch:phase&gt;sunrise&lt;/launch:phase&gt;
-S:          &lt;launch:applicationID&gt;abc123&lt;/launch:applicationID&gt;
-S:          &lt;launch:status s="allocated"/&gt;
+S:        &lt;launch:applicationID&gt;abc123&lt;/launch:applicationID&gt;
+S:        &lt;launch:status s="allocated"/&gt;
 S:      &lt;/launch:infData&gt;
 S:    &lt;/extension&gt;
 S:    &lt;trID&gt;
@@ -867,7 +877,7 @@ S:    &lt;extension&gt;
 S:      &lt;launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"&gt;
 S:        &lt;launch:phase&gt;sunrise&lt;/launch:phase&gt;
-S:          &lt;launch:status s="allocated"/&gt;
+S:        &lt;launch:status s="allocated"/&gt;
 S:      &lt;/launch:infData&gt;
 S:    &lt;/extension&gt;
 S:    &lt;trID&gt;
@@ -933,7 +943,7 @@ S:&lt;/epp&gt;</pre>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value against the active server launch phase.</dd>
+  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value according to <a href="#phases">Section 2.3</a>.</dd>
 </dl>
 <p>Example Claims Check command using the &lt;check&gt; domain command and the &lt;launch:check&gt; extension with the "type" explicitly set to "claims", to determine if "domain1.example", "domain2.example", and "domain3.example" require claims notices during the "claims" launch phase:</p>
 <pre>
@@ -1021,7 +1031,7 @@ S:&lt;/epp&gt;</pre>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">The launch phase to which domain name availability should be determined.</dd>
+  <dd style="margin-left: 4">The launch phase to which domain name availability should be determined.  The server SHOULD validate the value and return an EPP error result code of 2306 if it is invalid.</dd>
 </dl>
 <p>Example Availability Check Form command using the &lt;check&gt; domain command and the &lt;launch:check&gt; extension with the "type" set to "avail", to determine the availability of two domain names in the "idn-release" custom launch phase:</p>
 <pre>
@@ -1126,12 +1136,12 @@ S:  &lt;/response&gt;
 S:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#infoCommand" id="infoCommand">EPP &lt;info&gt; Command</a></h1>
 <p id="rfc.section.3.2.p.1">This extension defines additional elements to extend the EPP &lt;info&gt; command and response to be used in conjunction with the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>.</p>
-<p id="rfc.section.3.2.p.2">The EPP &lt;info&gt; command is used to retrieve information for a launch phase registration or application.  The <a href="#applicationID">Application Identifier</a> <cite title="NONE">[applicationID]</cite> returned in the &lt;launch:creData&gt; element of the <a href="#createCommand">create response</a> <cite title="NONE">[createCommand]</cite> is used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element is sent along with the regular &lt;info&gt; domain command. The &lt;launch:info&gt; element includes an OPTIONAL "includeMark" boolean attribute, with a default value of "false", to indicate whether or not to include the mark in the response.  The &lt;launch:info&gt; element contains the following child elements:</p>
+<p id="rfc.section.3.2.p.2">The EPP &lt;info&gt; command is used to retrieve information for a launch phase registration or application.  The <a href="#applicationID">Application Identifier</a> <cite title="NONE">[applicationID]</cite> returned in the &lt;launch:creData&gt; element of the <a href="#createCommand">create response</a> <cite title="NONE">[createCommand]</cite> can be used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element is sent along with the regular &lt;info&gt; domain command. The &lt;launch:info&gt; element includes an OPTIONAL "includeMark" boolean attribute, with a default value of "false", to indicate whether or not to include the mark in the response.  The &lt;launch:info&gt; element contains the following child elements:</p>
 <p/>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">The phase during which the application or registration was submitted or is associated with.  Server policy defines the phases that are supported.</dd>
+  <dd style="margin-left: 4">The phase during which the application or registration was submitted or is associated with.  Server policy defines the phases that are supported.  The server SHOULD validate the value and return an EPP error result code of 2306 if it is invalid.</dd>
   <dt>&lt;launch:applicationID&gt;</dt>
   <dd style="margin-left: 4">OPTIONAL application identifier of the Launch Application.</dd>
 </dl>
@@ -1188,7 +1198,7 @@ C:&lt;/epp&gt;</pre>
   <dt>&lt;launch:status&gt;</dt>
   <dd style="margin-left: 4">OPTIONAL status of the Launch Application using one of the supported <a href="#statuses">status values</a> <cite title="NONE">[statuses]</cite>.</dd>
   <dt>&lt;mark:mark&gt;</dt>
-  <dd style="margin-left: 4">Zero or more <a href="#mark">&lt;mark:mark&gt;</a> <cite title="NONE">[mark]</cite> elements.  </dd>
+  <dd style="margin-left: 4">Zero or more <a href="#mark">&lt;mark:mark&gt;</a> <cite title="NONE">[mark]</cite> elements only if the "includeMark" attribute is "true" in the command.  </dd>
 </dl>
 <p>Example &lt;info&gt; domain response using the &lt;launch:infData&gt; extension with the mark information:</p>
 <pre>
@@ -1251,12 +1261,12 @@ S:&lt;/epp&gt;</pre>
 </dl>
 <h1 id="rfc.section.3.3.1"><a href="#rfc.section.3.3.1">3.3.1.</a> <a href="#sunriseCreateForm" id="sunriseCreateForm">Sunrise Create Form</a></h1>
 <p id="rfc.section.3.3.1.p.1">The Sunrise Create Form of the extension to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> includes the verifiable trademark information that the server uses to match against the domain name to authorize the domain create. A server MUST support one of four models in <a href="#validationModels">Claim Validation Models</a> <cite title="NONE">[validationModels]</cite> to verify the trademark information passed by the client.</p>
-<p id="rfc.section.3.3.1.p.2">A &lt;launch:create&gt; element is sent along with the regular &lt;create&gt; domain command.  The &lt;launch:create&gt; element has an OPTIONAL "type" attribute that defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created.  The &lt;launch:create&gt; element contains the following child elements:</p>
+<p id="rfc.section.3.3.1.p.2">A &lt;launch:create&gt; element is sent along with the regular &lt;create&gt; domain command.  The &lt;launch:create&gt; element has an OPTIONAL "type" attribute that defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created, and return an EPP error result code of 2306 if the type is incorrect.  The &lt;launch:create&gt; element contains the following child elements:</p>
 <p/>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">The identifier for the launch phase.</dd>
+  <dd style="margin-left: 4">The identifier for the launch phase.  The server SHOULD validate the value according to <a href="#phases">Section 2.3</a>.</dd>
   <dt>&lt;launch:codeMark&gt; or &lt;smd:signedMark&gt; or &lt;smd:encodedSignedMark&gt;</dt>
   <dd style="margin-left: 4">
     <dl>
@@ -1435,12 +1445,12 @@ C:  &lt;/command&gt;
 C:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.3.2"><a href="#rfc.section.3.3.2">3.3.2.</a> <a href="#claimsCreateForm" id="claimsCreateForm">Claims Create Form</a></h1>
 <p id="rfc.section.3.3.2.p.1">The Claims Create Form of the extension to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> includes the information related to the registrant's acceptance of the Claims Notice.</p>
-<p id="rfc.section.3.3.2.p.2">A &lt;launch:create&gt; element is sent along with the regular &lt;create&gt; domain command.  The &lt;launch:create&gt; element has an OPTIONAL "type" attribute that defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created.  The &lt;launch:create&gt; element contains the following child elements:</p>
+<p id="rfc.section.3.3.2.p.2">A &lt;launch:create&gt; element is sent along with the regular &lt;create&gt; domain command.  The &lt;launch:create&gt; element has an OPTIONAL "type" attribute that defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created, and return an EPP error result code of 2306 if the type is incorrect.  The &lt;launch:create&gt; element contains the following child elements:</p>
 <p/>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value against the active server launch phase.</dd>
+  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value according to <a href="#phases">Section 2.3</a>.</dd>
   <dt>&lt;launch:notice&gt;</dt>
   <dd style="margin-left: 4">One or more &lt;launch:notice&gt; elements that contain the following child elements:</dd>
   <dt></dt>
@@ -1498,13 +1508,13 @@ C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
 C:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.3.3"><a href="#rfc.section.3.3.3">3.3.3.</a> <a href="#generalCreateForm" id="generalCreateForm">General Create Form</a></h1>
-<p id="rfc.section.3.3.3.p.1">The General Create Form of the extension to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> includes the launch phase and optionally the object type to create.  The OPTIONAL "type" attribute defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created.</p>
+<p id="rfc.section.3.3.3.p.1">The General Create Form of the extension to the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite> includes the launch phase and optionally the object type to create.  The OPTIONAL "type" attribute defines the expected type of object ("application" or "registration") to create.  The server SHOULD validate the "type" attribute, when passed, against the type of object that will be created, and return an EPP error result code of 2306 if the type is incorrect.</p>
 <p id="rfc.section.3.3.3.p.2">A &lt;launch:create&gt; element is sent along with the regular &lt;create&gt; domain command. The &lt;launch:create&gt; element contains the following child elements:</p>
 <p/>
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value against the active server launch phase.</dd>
+  <dd style="margin-left: 4">Contains the value of the active launch phase of the server.  The server SHOULD validate the value according to <a href="#phases">Section 2.3</a>.</dd>
 </dl>
 <p>The following is an example &lt;create&gt; domain command using the &lt;launch:create&gt; extension for a "landrush" launch phase application:</p>
 <pre>
@@ -1578,7 +1588,7 @@ C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
 C:&lt;/epp&gt;</pre>
 <h1 id="rfc.section.3.3.5"><a href="#rfc.section.3.3.5">3.3.5.</a> <a href="#createResponse" id="createResponse">Create Response</a></h1>
-<p id="rfc.section.3.3.5.p.1">If the create was successful, the server MAY reply with the &lt;launch:creData&gt; element along with the regular EPP &lt;resData&gt; to indicate the server generated <a href="#applicationID">Application Identifier</a> <cite title="NONE">[applicationID]</cite>, when multiple applications of a given domain name are supported; otherwise no extension is included with the regular EPP &lt;resData&gt;. The &lt;launch:creData&gt; element contains the following child elements:</p>
+<p id="rfc.section.3.3.5.p.1">If the create was successful, the server MAY add a &lt;launch:creData&gt; element along to the regular EPP &lt;resData&gt; to indicate the server generated <a href="#applicationID">Application Identifier</a> <cite title="NONE">[applicationID]</cite>, when multiple applications of a given domain name are supported; otherwise no extension is included with the regular EPP &lt;resData&gt;. The &lt;launch:creData&gt; element contains the following child elements:</p>
 <p/>
 
 <dl>
@@ -1625,7 +1635,7 @@ S:&lt;/epp&gt;
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">The phase during which the application was submitted or is associated with.</dd>
+  <dd style="margin-left: 4">The phase during which the application was submitted or is associated with.  The server SHOULD validate the value and return an EPP error result code of 2306 if it is invalid.</dd>
   <dt>&lt;launch:applicationID&gt;</dt>
   <dd style="margin-left: 4">The application identifier for which the client wishes to update.</dd>
 </dl>
@@ -1670,7 +1680,7 @@ C:&lt;/epp&gt;
 
 <dl>
   <dt>&lt;launch:phase&gt;</dt>
-  <dd style="margin-left: 4">The phase during which the application was submitted or is associated with.</dd>
+  <dd style="margin-left: 4">The phase during which the application was submitted or is associated with.  The server SHOULD validate the value and return an EPP error result code of 2306 if it is invalid.</dd>
   <dt>&lt;launch:applicationID&gt;</dt>
   <dd style="margin-left: 4">The application identifier for which the client wishes to delete.</dd>
 </dl>
@@ -1773,7 +1783,7 @@ BEGIN
   &lt;!-- 
   Definition for launch phase.  Name is an optional attribute
   used to extend the phase type.  For example, when 
-  using the phase type value of &amp;qt;custom&amp;gt;, the name 
+  using the phase type value of "custom", the name 
   can be used to specify the custom phase.  
   --&gt;
   &lt;complexType name="phaseType"&gt;
@@ -2041,7 +2051,7 @@ END</pre>
 
 <ul class="empty">
   <li>URI: urn:ietf:params:xml:ns:launch-1.0</li>
-  <li>Registrant Contact: See the "Author's Address" section of this document.</li>
+  <li>Registrant Contact: IESG</li>
   <li>XML: None. Namespace URIs do not represent an XML specification.</li>
 </ul>
 <p id="rfc.section.5.1.p.4">Registration request for the launch XML schema:</p>
@@ -2049,7 +2059,7 @@ END</pre>
 
 <ul class="empty">
   <li>URI: urn:ietf:params:xml:schema:launch-1.0</li>
-  <li>Registrant Contact: See the "Author's Address" section of this document.</li>
+  <li>Registrant Contact: IESG</li>
   <li>XML: See the "Formal Syntax" section of this document.</li>
 </ul>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#EPP-Extension-Registry" id="EPP-Extension-Registry">EPP Extension Registry</a></h1>
@@ -2063,9 +2073,9 @@ END</pre>
 <p id="rfc.section.5.2.p.8">Status: Active </p>
 <p id="rfc.section.5.2.p.9">Notes: None </p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Implementation" id="Implementation">Implementation Status</a></h1>
-<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite> before publication.</p>
-<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
-<p id="rfc.section.6.p.3">According to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
+<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite> before publication.</p>
+<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
+<p id="rfc.section.6.p.3">According to <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
 <h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> Verisign EPP SDK</h1>
 <p id="rfc.section.6.1.p.1">Organization: Verisign Inc.</p>
 <p id="rfc.section.6.1.p.2">Name: Verisign EPP SDK</p>
@@ -2137,12 +2147,13 @@ END</pre>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite>, the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <p id="rfc.section.7.p.2">Updates to, and deletion of an application object must be restricted to clients authorized to perform the said operation on the object.</p>
-<p id="rfc.section.7.p.3">As information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
+<p id="rfc.section.7.p.3">Information contained within an application, or even the mere fact that an application exists may be confidential. Any attempt to operate on an application object by an unauthorized client MUST be rejected with an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered output by clients other than the sponsoring client, in which case the &lt;domain:infData&gt; and &lt;launch:infData&gt; response SHOULD be filtered to include only fields that are publicly accessible.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the efforts of the leading participants of the Community TMCH Model that led to many of the changes to this document, which include Chris Wright, Jeff Neuman, Jeff Eckhaus, and Will Shorter.</p>
 <p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.</p>
 <p id="rfc.section.8.p.3">Some of the description of the Trademark Claims Phase was based on the work done by Gustavo Lozano in the ICANN TMCH functional specifications.</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -2171,21 +2182,26 @@ END</pre>
     </tr>
     <tr>
       <td class="reference">
-        <b id="RFC6982">[RFC6982]</b>
+        <b id="RFC7848">[RFC7848]</b>
       </td>
-      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, DOI 10.17487/RFC6982, July 2013.</td>
+      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/rfc7848">Mark and Signed Mark Objects Mapping</a>", RFC 7848, DOI 10.17487/RFC7848, June 2016.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7942">[RFC7942]</b>
+      </td>
+      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc7942">Improving Awareness of Running Code: The Implementation Status Section</a>", BCP 205, RFC 7942, DOI 10.17487/RFC7942, July 2016.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">9.2.</a> Informative References</h1>
+<table>
+  <tbody>
     <tr>
       <td class="reference">
         <b id="RFC7451">[RFC7451]</b>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="RFC7848">[RFC7848]</b>
-      </td>
-      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/rfc7848">Mark and Signed Mark Objects Mapping</a>", RFC 7848, DOI 10.17487/RFC7848, June 2016.</td>
     </tr>
   </tbody>
 </table>
@@ -2388,6 +2404,18 @@ END</pre>
 
 <ol>
   <li>Updates based on feedback from Scott Hollenbeck that include: <ol><li>Nit on reference to RFC 7848 in section 1.</li><li>Added reference to &lt;domain:create&gt; for the request to create a Launch Application in section 2.1.</li><li>Removed the second paragraph of section 2.1 describing the option of creating an application identifier for a Launch Registration.</li><li>Provided clarification in section 2.2 on the responsibility of the server to ensure that the supported validator identifiers are unique.</li><li>Updated the text in section 2.5 referencing the domain name object in RFC 5731.</li><li>Updated the copyright to 2017 in section 4.1.</li></ol></li>
+</ol>
+<h1 id="rfc.appendix.A.26"><a href="#rfc.appendix.A.26">A.26.</a> <a href="#version-WG04-to-WG05" id="version-WG04-to-WG05">Change from REGEXT 04 to REGEXT 05</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on feedback from Ulrich Wisser that include: <ol><li>Updated reference to obsoleted RFC 6982 with RFC 7942.</li><li>Moved RFC 7451 reference from normative to informative.</li></ol></li>
+</ol>
+<h1 id="rfc.appendix.A.27"><a href="#rfc.appendix.A.27">A.27.</a> <a href="#version-WG05-to-WG06" id="version-WG05-to-WG06">Change from REGEXT 05 to REGEXT 06</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on feedback from Adam Roach that include: <ol><li>Add formal definition of a Launch Registration and Launch Application to section 1.1.</li><li>Updated the description of the Validator Identifier to indicate that the uniqueness is based on server policy.</li><li>Update "Does Domain have Claims?" "No" and "Yes" branch labels in Figure 1.</li><li>Updated the description of the &lt;launch:phase&gt; element in the commands to explicitly specify the return of a 2306 EPP error result when invalid or referring to section 2.3 for validation.</li><li>Fixed indentation of the &lt;launch:applicationID&gt; and &lt;launch:status&gt; elements in the section 2.5 examples.</li><li>Updated the description of the &lt;mark:mark&gt; element in the info response.</li><li>Added returning an EPP error result code of 2306 if the "type" attribute is incorrect in section 3.3.1, 3.3.2, and 3.3.3.</li><li>Small change in the description of the Create Response in section 3.3.5.</li><li>Updated the Registrant Contact in section 7 to the IESG.</li></ol></li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

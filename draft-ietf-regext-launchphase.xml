@@ -7,7 +7,7 @@
 <!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
-<!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
+<!ENTITY RFC7942 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7942.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY RFC7848 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7848.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-launchphase-04" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-launchphase-06" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -129,7 +129,7 @@
       </address>
     </author>
 
-    <date day="27" month="April" year="2017"/>
+    <date day="2" month="August" year="2017"/>
 
     <!-- Meta-data Declarations -->
 
@@ -191,6 +191,13 @@
         Indentation and white space in examples are provided only to illustrate element relationships 
         and are not a REQUIRED feature of this protocol.        
         </t>
+        
+        <t>A Launch Registration is a domain name registration during a launch phase when the server uses a "first-come, first-served" model.  
+        Only a single registration for a domain name can exist in the server at a time.</t>
+        
+        <t>A Launch Application represents the intent to register a domain name during a launch phase 
+        when the server accepts multiple applications for a domain name and the server later selects one of the applications to allocate 
+        as a registration.  Many Launch Applications for a domain name can exist in the server at a time.</t>
 
         <t>"launch-1.0" is used as an abbreviation for
         "urn:ietf:params:xml:ns:launch-1.0". The XML namespace prefix "launch"
@@ -231,9 +238,10 @@
       </section>
       
       <section anchor="validatorID" title="Validator Identifier">
-        <t>The Validator Identifier is the unique identifier for a Trademark Validator that validates marks and has a repository of validated marks.  
-        The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  
-        Registries MAY support more than one Third Party Trademark Validator.  The
+        <t>The Validator Identifier is the identifier, that is unique to the server, for a Trademark Validator that validates marks 
+        and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  
+        Registries MAY support more than one Third Party Trademark Validator.  The unique set of 
+        Validator Identifier values supported the server is up to server policy.  The
         Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) 
         is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH 
         is not used or multiple Trademark Validators are used, the Validator Identifier MUST be 
@@ -252,7 +260,7 @@
         simultaneously. The &lt;launch:phase&gt; element MUST be included by
         the client to define the target launch phase of the command.  
         The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element 
-        against the active phase and OPTIONAL sub-phase of the server on a create command, 
+        against the active phase and OPTIONAL sub-phase of the server, 
         and return an EPP error result code of 2306 if there is a mismatch.</t>
 
         <t>The following launch phase values are defined: <list
@@ -317,50 +325,50 @@
           <figure align="center" anchor="claimsRegistrationFlow">
             <preamble>The following shows the Trademark Claims Phase registration flow:</preamble>
             <artwork align="left"><![CDATA[
-  .------------.     .--------.                   .--------.   .------.
-  | Registrant |     | Client |                   | Server |   | CNIS |
-  '------------'     '--------'                   '--------'   '------'
-         | Request Domain |                            |          |
-         |   Registration |                            |          |
-         |--------------->| Domain Check               |          |
-         |                |--------------------------->|          |
-         | Domain         | Domain Unavailable   .------------.   |
-         |   Unavailable  |<---------------------( Available? )   |
-         |<---------------|                  No  '------------'   |
-         |                | Domain Available           | Yes      |
-         |                |<---------------------------|          |
-         |                | Domain Claims Check        |          |
-         |                |--------------------------->|          |
-         |                |                       .---------.     |
-         |                |                      /    Does   \    |
-         |                |<--------------------( Domain have )   |
-         |                |                   No \  Claims?  /    |
-         |                |                       '---------'     |
-         |                | Domain Create              |  | Yes   |
-         |                |--------------------------->|  |       |
-         | Domain         | Domain Registered          |  |       |
-         |   Registered   |<---------------------------|  |       |
-         |<---------------|                               |       |
-         |                                                |       |
-         |                | Claims Key                    |       |
-         |                |<------------------------------'       |
-         |                |                                       |
- .-----. |                | Request Claims Info with Claims Key   |
- |Abort| | Display        |-------------------------------------->|
- '-----' | Claims         | Return Claims Info                    |
-  ^      | Notice         |<--------------------------------------|
-  | No   |<---------------|                                       |
-  |  .------.  Yes        |                                       |
-  '-(  Ack?  )----------->| Domain Claims Create Form  |          |
-     '------'             |--------------------------->|          |
-         | Registration   | Error       .----------------------.  |
-         |   Error        |<-----------( Validation Successful? ) |
-         |<---------------|          No '----------------------'  |
-         |                |                            | Yes      |
-         | Domain         | Domain Registered          |          |
-         |   Registered   |<---------------------------|          |
-         |<---------------|                            |          |
-            ]]></artwork>
+ .------------.     .--------.                   .--------.  .------.
+ | Registrant |     | Client |                   | Server |  | CNIS |
+ '------------'     '--------'                   '--------'  '------'
+        | Request Domain |                            |          |
+        |   Registration |                            |          |
+        |--------------->| Domain Check               |          |
+        |                |--------------------------->|          |
+        | Domain         | Domain Unavailable   .------------.   |
+        |   Unavailable  |<---------------------( Available? )   |
+        |<---------------|                  No  '------------'   |
+        |                | Domain Available           | Yes      |
+        |                |<---------------------------|          |
+        |                | Domain Claims Check        |          |
+        |                |--------------------------->|          |
+        |                |                       .---------.     |
+        |                | Claims Don't Exist   /    Does   \    |
+        |                |<--------------------( Domain have )   |
+        |                |                   No \  Claims?  /    |
+        |                |                       '---------'     |
+        |                | Domain Create              |  | Yes   |
+        |                |--------------------------->|  |       |
+        | Domain         | Domain Registered          |  |       |
+        |   Registered   |<---------------------------|  |       |
+        |<---------------|                               |       |
+        |                                                |       |
+        |                | Claims Exist with Claims Keys |       |
+        |                |<------------------------------'       |
+        |                |                                       |
+.-----. |                | Request Claims Info with Claims Key   |
+|Abort| | Display        |-------------------------------------->|
+'-----' | Claims         | Return Claims Info                    |
+ ^      | Notice         |<--------------------------------------|
+ | No   |<---------------|                                       |
+ |  .------.  Yes        |                                       |
+ '-(  Ack?  )----------->| Domain Claims Create Form  |          |
+    '------'             |--------------------------->|          |
+        | Registration   | Error       .----------------------.  |
+        |   Error        |<-----------( Validation Successful? ) |
+        |<---------------|          No '----------------------'  |
+        |                |                            | Yes      |
+        | Domain         | Domain Registered          |          |
+        |   Registered   |<---------------------------|          |
+        |<---------------|                            |          |
+]]></artwork>
           </figure>
          
         </section>
@@ -507,8 +515,8 @@ S:    <extension>
 S:      <launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:        <launch:phase>sunrise</launch:phase>
-S:          <launch:applicationID>abc123</launch:applicationID>
-S:          <launch:status s="pendingAllocation"/>
+S:        <launch:applicationID>abc123</launch:applicationID>
+S:        <launch:status s="pendingAllocation"/>
 S:      </launch:infData>
 S:    </extension>
 S:    <trID>
@@ -549,8 +557,8 @@ S:    <extension>
 S:      <launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:        <launch:phase>sunrise</launch:phase>
-S:          <launch:applicationID>abc123</launch:applicationID>
-S:          <launch:status s="allocated"/>
+S:        <launch:applicationID>abc123</launch:applicationID>
+S:        <launch:status s="allocated"/>
 S:      </launch:infData>
 S:    </extension>
 S:    <trID>
@@ -590,7 +598,7 @@ S:    <extension>
 S:      <launch:infData
 S:       xmlns:launch="urn:ietf:params:xml:ns:launch-1.0">
 S:        <launch:phase>sunrise</launch:phase>
-S:          <launch:status s="allocated"/>
+S:        <launch:status s="allocated"/>
 S:      </launch:infData>
 S:    </extension>
 S:    <trID>
@@ -774,8 +782,7 @@ S:</epp>]]></artwork>
 
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
-              launch phase of the server.  The server SHOULD validate the value against the 
-              active server launch phase.</t>
+              launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>  
             </list></t>
           <figure>
             <preamble>Example Claims Check command using the &lt;check&gt;
@@ -914,7 +921,8 @@ S:</epp>]]></artwork>
         
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">The launch phase to which 
-              domain name availability should be determined.</t>
+              domain name availability should be determined.  The server SHOULD validate 
+              the value and return an EPP error result code of 2306 if it is invalid.</t>
             </list></t>
           <figure>
             <preamble>Example Availability Check Form command using the &lt;check&gt;
@@ -1103,7 +1111,7 @@ S:</epp>]]></artwork>
         <t>The EPP &lt;info&gt; command is used to retrieve information 
         for a launch phase registration or application.  The <xref target="applicationID">Application Identifier</xref> 
         returned in the &lt;launch:creData&gt; element of the <xref target="createCommand">create response</xref> 
-        is used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element
+        can be used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element
         is sent along with the regular &lt;info&gt; domain command. The &lt;launch:info&gt; element includes 
         an OPTIONAL "includeMark" boolean attribute, with a default value of "false", to indicate whether 
         or not to include the mark in the response.  The
@@ -1113,7 +1121,8 @@ S:</epp>]]></artwork>
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">The phase during which the
               application or registration was submitted or is associated with. 
-              Server policy defines the phases that are supported.</t>
+              Server policy defines the phases that are supported.  The server SHOULD validate 
+              the value and return an EPP error result code of 2306 if it is invalid.</t>
 
               <t hangText="&lt;launch:applicationID&gt;">OPTIONAL application
               identifier of the Launch Application.</t>
@@ -1192,7 +1201,8 @@ C:</epp>]]></artwork>
               values</xref>.</t>
 
               <t hangText="&lt;mark:mark&gt;">Zero or more
-              <xref target="mark">&lt;mark:mark&gt;</xref> elements.
+              <xref target="mark">&lt;mark:mark&gt;</xref> elements only if the 
+              "includeMark" attribute is "true" in the command.
               </t>
               
             </list></t>
@@ -1303,12 +1313,14 @@ S:</epp>]]></artwork>
           &lt;create&gt; domain command.  The &lt;launch:create&gt; element 
         has an OPTIONAL "type" attribute that defines the expected type of object 
         ("application" or "registration") to create.  The server SHOULD validate the 
-        "type" attribute, when passed, against the type of object that will be created.  
+        "type" attribute, when passed, against the type of object that will be created, 
+        and return an EPP error result code of 2306 if the type is incorrect.  
           The &lt;launch:create&gt; element
           contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The identifier for the launch phase.</t>
+              <t hangText="&lt;launch:phase&gt;">The identifier for the launch phase. 
+              The server SHOULD validate the value according to <xref target="phases"/>.</t>
 
               <t
               hangText="&lt;launch:codeMark&gt; or &lt;smd:signedMark&gt; or &lt;smd:encodedSignedMark&gt;">
@@ -1547,13 +1559,13 @@ C:</epp>]]></artwork>
           &lt;create&gt; domain command.  The &lt;launch:create&gt; element 
         has an OPTIONAL "type" attribute that defines the expected type of object 
         ("application" or "registration") to create.  The server SHOULD validate the 
-        "type" attribute, when passed, against the type of object that will be created. 
+        "type" attribute, when passed, against the type of object that will be created, 
+        and return an EPP error result code of 2306 if the type is incorrect. 
         The &lt;launch:create&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
-              launch phase of the server.  The server SHOULD validate the value against the 
-              active server launch phase.</t>
+              launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>
               <t hangText="&lt;launch:notice&gt;">One or more &lt;launch:notice&gt; elements
               that contain the following child elements:</t>
               <t><list hangIndent="4" style="hanging">
@@ -1628,7 +1640,8 @@ C:</epp>]]></artwork>
           type to create.  The OPTIONAL "type" attribute defines the 
           expected type of object ("application" or "registration") to create.  
           The server SHOULD validate the "type" attribute, when passed, against 
-          the type of object that will be created.</t>
+          the type of object that will be created, and return an EPP error result code of 
+          2306 if the type is incorrect.</t>
 
           <t>A &lt;launch:create&gt; element is sent along with the regular
           &lt;create&gt; domain command. The &lt;launch:create&gt; element
@@ -1636,8 +1649,7 @@ C:</epp>]]></artwork>
 
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
-              launch phase of the server.  The server SHOULD validate the value against the 
-              active server launch phase.</t>
+              launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>
             </list></t>
 
           <figure>
@@ -1736,8 +1748,8 @@ C:</epp>]]></artwork>
         
         <section anchor="createResponse" title="Create Response">
         
-          <t>If the create was successful, the server MAY reply with the
-          &lt;launch:creData&gt; element along with the regular EPP
+          <t>If the create was successful, the server MAY add a 
+          &lt;launch:creData&gt; element along to the regular EPP
           &lt;resData&gt; to indicate the server generated <xref
           target="applicationID">Application Identifier</xref>, when multiple
           applications of a given domain name are supported; otherwise no
@@ -1814,7 +1826,8 @@ S:</epp>
         child elements:</t>
         <t><list hangIndent="4" style="hanging">
             <t hangText="&lt;launch:phase&gt;">The phase during which the
-            application was submitted or is associated with.</t>
+            application was submitted or is associated with.  The server SHOULD validate 
+              the value and return an EPP error result code of 2306 if it is invalid.</t>
 
             <t hangText="&lt;launch:applicationID&gt;">The application
             identifier for which the client wishes to update.</t>
@@ -1888,7 +1901,8 @@ C:</epp>
         child elements:</t>
         <t><list hangIndent="4" style="hanging">
             <t hangText="&lt;launch:phase&gt;">The phase during which the
-            application was submitted or is associated with.</t>
+            application was submitted or is associated with.  The server SHOULD validate 
+              the value and return an EPP error result code of 2306 if it is invalid.</t>
 
             <t hangText="&lt;launch:applicationID&gt;">The application
             identifier for which the client wishes to delete.</t>
@@ -2054,7 +2068,7 @@ BEGIN
   <!-- 
   Definition for launch phase.  Name is an optional attribute
   used to extend the phase type.  For example, when 
-  using the phase type value of &qt;custom&gt;, the name 
+  using the phase type value of "custom", the name 
   can be used to specify the custom phase.  
   -->
   <complexType name="phaseType">
@@ -2332,7 +2346,7 @@ END]]></artwork>
          <t><list>
          <t>URI: urn:ietf:params:xml:ns:launch-1.0</t>
          
-         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
+         <t>Registrant Contact: IESG</t>
           
          <t>XML: None. Namespace URIs do not represent an XML specification.</t>
          </list></t>
@@ -2342,7 +2356,7 @@ END]]></artwork>
          <t><list>
          <t>URI: urn:ietf:params:xml:schema:launch-1.0</t>
          
-         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
+         <t>Registrant Contact: IESG</t>
           
          <t>XML: See the "Formal Syntax" section of this document.</t>
          
@@ -2396,11 +2410,11 @@ END]]></artwork>
 
     <section anchor="Implementation" title="Implementation Status">
       <t>Note to RFC Editor: Please remove this section and the reference to
-         <xref target="RFC6982">RFC 6982</xref> before publication.</t>
+         <xref target="RFC7942">RFC 7942</xref> before publication.</t>
       <t>This section records the status of known implementations of the
       protocol defined by this specification at the time of posting of
-      this Internet-Draft, and is based on a proposal described in <xref target="RFC6982">RFC
-      6982</xref>.  The description of implementations in this section is
+      this Internet-Draft, and is based on a proposal described in <xref target="RFC7942">RFC
+      7942</xref>.  The description of implementations in this section is
       intended to assist the IETF in its decision processes in
       progressing drafts to RFCs.  Please note that the listing of any
       individual implementation here does not imply endorsement by the
@@ -2409,7 +2423,7 @@ END]]></artwork>
       This is not intended as, and must not be construed to be, a
       catalog of available implementations or their features.  Readers
       are advised to note that other implementations may exist.</t>
-      <t>According to <xref target="RFC6982">RFC 6982</xref>, "this will allow reviewers and working
+      <t>According to <xref target="RFC7942">RFC 7942</xref>, "this will allow reviewers and working
       groups to assign due consideration to documents that have the
       benefit of running code, which may serve as evidence of valuable
       experimentation and feedback that have made the implemented
@@ -2508,7 +2522,7 @@ END]]></artwork>
       <t>Updates to, and deletion of an application object must be restricted
       to clients authorized to perform the said operation on the object.</t>
 
-      <t>As information contained within an application, or even the mere fact
+      <t>Information contained within an application, or even the mere fact
       that an application exists may be confidential. Any attempt to operate
       on an application object by an unauthorized client MUST be rejected with
       an EPP 2201 (authorization error) return code. Server policy may allow &lt;info&gt; operation with filtered
@@ -2549,16 +2563,19 @@ END]]></artwork>
      with a value containing a set of directories to search.  These can be either in the local
      filing system or remote ones accessed by http (http://domain/dir/... ).-->
 
-    <references title="Normative References">  
-      
+    <references title="Normative References">       
       &RFC2119;
       &RFC3688;
       &RFC5730;
       &RFC5731;
-      &RFC6982;
-      &RFC7451;            
+      &RFC7942;
       &RFC7848;
     </references>
+    
+    <references title="Informative References">  
+      &RFC7451;            
+    </references>
+    
     
    <section title="Change History">
     <section title="Change from 00 to 01" anchor="change-00-to-01">
@@ -2784,6 +2801,32 @@ END]]></artwork>
         </list></t>
       </list></t>
     </section>
+    <section title="Change from REGEXT 04 to REGEXT 05" anchor="version-WG04-to-WG05">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Ulrich Wisser that include:
+        <list style="numbers">
+          <t>Updated reference to obsoleted RFC 6982 with RFC 7942.</t>
+          <t>Moved RFC 7451 reference from normative to informative.</t>
+        </list></t>
+      </list></t>
+    </section>    
+    <section title="Change from REGEXT 05 to REGEXT 06" anchor="version-WG05-to-WG06">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Adam Roach that include:
+        <list style="numbers">
+          <t>Add formal definition of a Launch Registration and Launch Application to section 1.1.</t>
+          <t>Updated the description of the Validator Identifier to indicate that the uniqueness is based on server policy.</t>
+          <t>Update "Does Domain have Claims?" "No" and "Yes" branch labels in Figure 1.</t>
+          <t>Updated the description of the &lt;launch:phase&gt; element in the commands to explicitly specify the 
+          return of a 2306 EPP error result when invalid or referring to section 2.3 for validation.</t>
+          <t>Fixed indentation of the &lt;launch:applicationID&gt; and &lt;launch:status&gt; elements in the section 2.5 examples.</t>
+          <t>Updated the description of the &lt;mark:mark&gt; element in the info response.</t>
+          <t>Added returning an EPP error result code of 2306 if the "type" attribute is incorrect in section 3.3.1, 3.3.2, and 3.3.3.</t>
+          <t>Small change in the description of the Create Response in section 3.3.5.</t>
+          <t>Updated the Registrant Contact in section 7 to the IESG.</t>
+        </list></t>
+      </list></t>
+    </section>    
    </section>
     
   </back>
