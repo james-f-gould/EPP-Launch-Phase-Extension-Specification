@@ -5,10 +5,10 @@
 Internet Engineering Task Force                                 J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                  W. Tan
-Expires: February 3, 2018                                 Cloud Registry
+Expires: February 22, 2018                                Cloud Registry
                                                                 G. Brown
                                                           CentralNic Ltd
-                                                          August 2, 2017
+                                                         August 21, 2017
 
 
   Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 3, 2018.
+   This Internet-Draft will expire on February 22, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 1]
+Gould, et al.           Expires February 22, 2018               [Page 1]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 2]
+Gould, et al.           Expires February 22, 2018               [Page 2]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -122,20 +122,20 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  58
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  58
    Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  58
-     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  58
+     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  59
      A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  59
      A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  59
      A.4.  Change from 03 to 04  . . . . . . . . . . . . . . . . . .  59
-     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  59
+     A.5.  Change from 04 to 05  . . . . . . . . . . . . . . . . . .  60
      A.6.  Change from 05 to 06  . . . . . . . . . . . . . . . . . .  60
      A.7.  Change from 06 to 07  . . . . . . . . . . . . . . . . . .  60
      A.8.  Change from 07 to 08  . . . . . . . . . . . . . . . . . .  60
-     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  60
+     A.9.  Change from 08 to 09  . . . . . . . . . . . . . . . . . .  61
      A.10. Change from 09 to 10  . . . . . . . . . . . . . . . . . .  61
      A.11. Change from 10 to 11  . . . . . . . . . . . . . . . . . .  62
      A.12. Change from 11 to 12  . . . . . . . . . . . . . . . . . .  62
      A.13. Change from 12 to EPPEXT 00 . . . . . . . . . . . . . . .  62
-     A.14. Change EPPEXT 00 to EPPEXT 01 . . . . . . . . . . . . . .  62
+     A.14. Change EPPEXT 00 to EPPEXT 01 . . . . . . . . . . . . . .  63
      A.15. Change EPPEXT 01 to EPPEXT 02 . . . . . . . . . . . . . .  63
      A.16. Change EPPEXT 02 to EPPEXT 03 . . . . . . . . . . . . . .  63
      A.17. Change EPPEXT 03 to EPPEXT 04 . . . . . . . . . . . . . .  63
@@ -165,7 +165,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 3]
+Gould, et al.           Expires February 22, 2018               [Page 3]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -221,7 +221,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 4]
+Gould, et al.           Expires February 22, 2018               [Page 4]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -271,13 +271,13 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
    is used to define the Validator Identifier of the Trademark
    Validator.  Registries MAY support more than one Third Party
    Trademark Validator.  The unique set of Validator Identifier values
-   supported the server is up to server policy.  The Internet
+   supported by the server is up to server policy.  The Internet
    Corporation for Assigned Names and Numbers (ICANN) Trademark
    Clearinghouse (TMCH) is the default Trademark Validator and is
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 5]
+Gould, et al.           Expires February 22, 2018               [Page 5]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -333,7 +333,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 6]
+Gould, et al.           Expires February 22, 2018               [Page 6]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -350,14 +350,16 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
    The Trademark Claims Phase is when a Claims Notice MUST be displayed
    to a prospective registrant of a domain name that matches trademarks.
-   The source of the trademarks is a Trademark Validator and the source
-   of the Claims Notice information is a Claim Notice Information
-   Service (CNIS), which MAY be directly linked to a Trademark
-   Validator.  The client interfaces with the server to determine if a
-   trademark exists for a domain name, interfaces with a CNIS to get the
-   Claims Notice information, and interfaces with the server to pass the
-   Claims Notice acceptance information in a create command.  This
-   document supports the Trademark Claims Phase in two ways including:
+   See [I-D.ietf-regext-tmch-func-spec] for additional details of
+   trademark claims handling.  The source of the trademarks is a
+   Trademark Validator and the source of the Claims Notice information
+   is a Claim Notice Information Service (CNIS), which MAY be directly
+   linked to a Trademark Validator.  The client interfaces with the
+   server to determine if a trademark exists for a domain name,
+   interfaces with a CNIS to get the Claims Notice information, and
+   interfaces with the server to pass the Claims Notice acceptance
+   information in a create command.  This document supports the
+   Trademark Claims Phase in two ways including:
 
    Claims Check Form  Claims Check Form (Section 3.1.1) is used to
       determine whether or not there are any matching trademarks for a
@@ -387,9 +389,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-
-
-Gould, et al.           Expires February 3, 2018                [Page 7]
+Gould, et al.           Expires February 22, 2018               [Page 7]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -445,7 +445,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 8]
+Gould, et al.           Expires February 22, 2018               [Page 8]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -501,7 +501,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018                [Page 9]
+Gould, et al.           Expires February 22, 2018               [Page 9]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -557,7 +557,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 10]
+Gould, et al.           Expires February 22, 2018              [Page 10]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -613,7 +613,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 11]
+Gould, et al.           Expires February 22, 2018              [Page 11]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -669,7 +669,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 12]
+Gould, et al.           Expires February 22, 2018              [Page 12]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -725,7 +725,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 13]
+Gould, et al.           Expires February 22, 2018              [Page 13]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -781,7 +781,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 14]
+Gould, et al.           Expires February 22, 2018              [Page 14]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -837,7 +837,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 15]
+Gould, et al.           Expires February 22, 2018              [Page 15]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -893,7 +893,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 16]
+Gould, et al.           Expires February 22, 2018              [Page 16]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -949,7 +949,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 17]
+Gould, et al.           Expires February 22, 2018              [Page 17]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 18]
+Gould, et al.           Expires February 22, 2018              [Page 18]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 19]
+Gould, et al.           Expires February 22, 2018              [Page 19]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 20]
+Gould, et al.           Expires February 22, 2018              [Page 20]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 21]
+Gould, et al.           Expires February 22, 2018              [Page 21]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 22]
+Gould, et al.           Expires February 22, 2018              [Page 22]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 23]
+Gould, et al.           Expires February 22, 2018              [Page 23]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 24]
+Gould, et al.           Expires February 22, 2018              [Page 24]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 25]
+Gould, et al.           Expires February 22, 2018              [Page 25]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 26]
+Gould, et al.           Expires February 22, 2018              [Page 26]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 27]
+Gould, et al.           Expires February 22, 2018              [Page 27]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 28]
+Gould, et al.           Expires February 22, 2018              [Page 28]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 29]
+Gould, et al.           Expires February 22, 2018              [Page 29]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 30]
+Gould, et al.           Expires February 22, 2018              [Page 30]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1733,7 +1733,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 31]
+Gould, et al.           Expires February 22, 2018              [Page 31]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1789,7 +1789,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 32]
+Gould, et al.           Expires February 22, 2018              [Page 32]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1845,7 +1845,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 33]
+Gould, et al.           Expires February 22, 2018              [Page 33]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1901,7 +1901,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 34]
+Gould, et al.           Expires February 22, 2018              [Page 34]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -1957,7 +1957,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 35]
+Gould, et al.           Expires February 22, 2018              [Page 35]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2013,7 +2013,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 36]
+Gould, et al.           Expires February 22, 2018              [Page 36]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2069,7 +2069,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 37]
+Gould, et al.           Expires February 22, 2018              [Page 37]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2125,7 +2125,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 38]
+Gould, et al.           Expires February 22, 2018              [Page 38]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2181,7 +2181,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 39]
+Gould, et al.           Expires February 22, 2018              [Page 39]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2237,7 +2237,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 40]
+Gould, et al.           Expires February 22, 2018              [Page 40]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2293,7 +2293,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 41]
+Gould, et al.           Expires February 22, 2018              [Page 41]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2349,7 +2349,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 42]
+Gould, et al.           Expires February 22, 2018              [Page 42]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2405,7 +2405,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 43]
+Gould, et al.           Expires February 22, 2018              [Page 43]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2461,7 +2461,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 44]
+Gould, et al.           Expires February 22, 2018              [Page 44]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2517,7 +2517,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 45]
+Gould, et al.           Expires February 22, 2018              [Page 45]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2573,7 +2573,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 46]
+Gould, et al.           Expires February 22, 2018              [Page 46]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2629,7 +2629,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 47]
+Gould, et al.           Expires February 22, 2018              [Page 47]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2685,7 +2685,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 48]
+Gould, et al.           Expires February 22, 2018              [Page 48]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2741,7 +2741,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 49]
+Gould, et al.           Expires February 22, 2018              [Page 49]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2797,7 +2797,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 50]
+Gould, et al.           Expires February 22, 2018              [Page 50]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2853,7 +2853,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 51]
+Gould, et al.           Expires February 22, 2018              [Page 51]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2909,7 +2909,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 52]
+Gould, et al.           Expires February 22, 2018              [Page 52]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -2965,7 +2965,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 53]
+Gould, et al.           Expires February 22, 2018              [Page 53]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3021,7 +3021,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 54]
+Gould, et al.           Expires February 22, 2018              [Page 54]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3077,7 +3077,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 55]
+Gould, et al.           Expires February 22, 2018              [Page 55]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3133,7 +3133,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 56]
+Gould, et al.           Expires February 22, 2018              [Page 56]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3189,7 +3189,7 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 57]
+Gould, et al.           Expires February 22, 2018              [Page 57]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3200,38 +3200,55 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
+              editor.org/info/rfc2119>.
 
    [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,
-              DOI 10.17487/RFC3688, January 2004,
-              <http://www.rfc-editor.org/info/rfc3688>.
+              DOI 10.17487/RFC3688, January 2004, <https://www.rfc-
+              editor.org/info/rfc3688>.
 
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
-              <http://www.rfc-editor.org/info/rfc5730>.
+              <https://www.rfc-editor.org/info/rfc5730>.
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
-              DOI 10.17487/RFC5731, August 2009,
-              <http://www.rfc-editor.org/info/rfc5731>.
+              DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
+              editor.org/info/rfc5731>.
 
    [RFC7848]  Lozano, G., "Mark and Signed Mark Objects Mapping",
               RFC 7848, DOI 10.17487/RFC7848, June 2016,
-              <http://www.rfc-editor.org/info/rfc7848>.
+              <https://www.rfc-editor.org/info/rfc7848>.
 
    [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", BCP 205,
               RFC 7942, DOI 10.17487/RFC7942, July 2016,
-              <http://www.rfc-editor.org/info/rfc7942>.
+              <https://www.rfc-editor.org/info/rfc7942>.
 
 9.2.  Informative References
 
+   [I-D.ietf-regext-tmch-func-spec]
+              Lozano, G., "ICANN TMCH functional specifications", draft-
+              ietf-regext-tmch-func-spec-03 (work in progress), July
+              2017.
+
    [RFC7451]  Hollenbeck, S., "Extension Registry for the Extensible
               Provisioning Protocol", RFC 7451, DOI 10.17487/RFC7451,
-              February 2015, <http://www.rfc-editor.org/info/rfc7451>.
+              February 2015, <https://www.rfc-editor.org/info/rfc7451>.
 
 Appendix A.  Change History
+
+
+
+
+
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 58]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
 
 A.1.  Change from 00 to 01
 
@@ -3239,16 +3256,6 @@ A.1.  Change from 00 to 01
    2.  Replaced "cancelled" status to "rejected" status.
    3.  Added the child elements of the <claim> element.
    4.  Removed the XML schema and replaced with "[TBD]".
-
-
-
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 58]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
 
 A.2.  Change from 01 to 02
 
@@ -3289,6 +3296,16 @@ A.4.  Change from 03 to 04
        noticeID, timestamp, and the source elements.
    9.  Added the class and effectiveDate elements to mark.
 
+
+
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 59]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
+
 A.5.  Change from 04 to 05
 
    1.  Removed reference to <smd:zone> in the <smd:signedMark> example.
@@ -3298,14 +3315,6 @@ A.5.  Change from 04 to 05
        the idContainerType of the Launch Schema.
    4.  Added missing description of the <mark:pc> element in the
        <mark:addr> element.
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 59]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
-
    5.  Updated note on replication of the EPP contact mapping elements
        in the Mark Contact section.
 
@@ -3344,6 +3353,15 @@ A.8.  Change from 07 to 08
 
        1.  Removed the unused <launch:generatedDate> element.
        2.  Removed the <launch:source> element.
+
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 60]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
+
        3.  Added the <launch:notAfter> element based on the required
            <tmNotice:notAfter> element.
 
@@ -3354,14 +3372,6 @@ A.9.  Change from 08 to 09
        from Ben Levac.
    2.  Added optional "type" attribute in <launch:create> to enable the
        client to explicitly define the desired type of object
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 60]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
-
        (application or registration) to create to all forms of the
        create extension.
    3.  Added text that the server SHOULD validate the <launch:phase>
@@ -3400,6 +3410,14 @@ A.10.  Change from 09 to 10
             without the use of an intermediate application, then an
             Application Identifier MAY not be needed to the Application
             Identifier section.
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 61]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
+
        5.   Restructured the Mark Validation Models section to include
             the "<launch:codeMark> element" sub-section, the
             "<mark:mark> element" sub-section, and the Digital Signature
@@ -3410,14 +3428,6 @@ A.10.  Change from 09 to 10
        8.   Broke the mix of create forms in the "EPP <create> Command"
             section to a fourth "Mixed Create Form" with its own sub-
             section.
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 61]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
-
        9.   Removed "displayed or" from "displayed or accepted" in the
             <launch:acceptedDate> description.
        10.  Replaced "given domain name is supported" with "given domain
@@ -3456,23 +3466,20 @@ A.13.  Change from 12 to EPPEXT 00
        references of draft-lozano-tmch-smd to draft-ietf-eppext-tmch-
        smd.
 
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 62]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
+
 A.14.  Change EPPEXT 00 to EPPEXT 01
 
    1.  Removed text associated with support for the combining of status
        values based on feedback from Patrick Mevzek on the provreg
        mailing list, discussion on the eppext mailing list, and
        discussion at the eppext IETF meeting on March 6, 2014.
-
-
-
-
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 62]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
 
 A.15.  Change EPPEXT 01 to EPPEXT 02
 
@@ -3514,21 +3521,21 @@ A.19.  Change EPPEXT 05 to EPPEXT 06
 
    1.  Removed duplicate "TMCH Functional Specification" URIs based on
        feedback from Scott Hollenbeck on the eppext mailing list.
+
+
+
+
+Gould, et al.           Expires February 22, 2018              [Page 63]
+
+Internet-Draft        Launch Phase Mapping for EPP           August 2017
+
+
    2.  Changed references of example?.tld to domain?.example to be
        consistent with RFC 6761 based on feedback from Scott Hollenbeck
        on the eppext mailing list.
    3.  A template was added to section 5 to register the XML schema in
        addition to the namespace based on feedback from Scott Hollenbeck
        on the eppext mailing list.
-
-
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 63]
-
-Internet-Draft        Launch Phase Mapping for EPP           August 2017
-
 
 A.20.  Change EPPEXT 06 to EPPEXT 07
 
@@ -3571,20 +3578,17 @@ A.25.  Change from REGEXT 03 to REGEXT 04
        4.  Provided clarification in section 2.2 on the responsibility
            of the server to ensure that the supported validator
            identifiers are unique.
-       5.  Updated the text in section 2.5 referencing the domain name
-           object in RFC 5731.
-       6.  Updated the copyright to 2017 in section 4.1.
 
 
 
-
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 64]
+Gould, et al.           Expires February 22, 2018              [Page 64]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
+
+       5.  Updated the text in section 2.5 referencing the domain name
+           object in RFC 5731.
+       6.  Updated the copyright to 2017 in section 4.1.
 
 A.26.  Change from REGEXT 04 to REGEXT 05
 
@@ -3597,26 +3601,28 @@ A.27.  Change from REGEXT 05 to REGEXT 06
 
    1.  Updates based on feedback from Adam Roach that include:
 
-       1.  Add formal definition of a Launch Registration and Launch
-           Application to section 1.1.
-       2.  Updated the description of the Validator Identifier to
-           indicate that the uniqueness is based on server policy.
-       3.  Update "Does Domain have Claims?"  "No" and "Yes" branch
-           labels in Figure 1.
-       4.  Updated the description of the <launch:phase> element in the
-           commands to explicitly specify the return of a 2306 EPP error
-           result when invalid or referring to section 2.3 for
-           validation.
-       5.  Fixed indentation of the <launch:applicationID> and
-           <launch:status> elements in the section 2.5 examples.
-       6.  Updated the description of the <mark:mark> element in the
-           info response.
-       7.  Added returning an EPP error result code of 2306 if the
-           "type" attribute is incorrect in section 3.3.1, 3.3.2, and
-           3.3.3.
-       8.  Small change in the description of the Create Response in
-           section 3.3.5.
-       9.  Updated the Registrant Contact in section 7 to the IESG.
+       1.   Added an informative reference to draft-ietf-regext-tmch-
+            func-spec in section 2.3.1 "Trademark Claims Phase".
+       2.   Added formal definition of a Launch Registration and Launch
+            Application to section 1.1.
+       3.   Updated the description of the Validator Identifier to
+            indicate that the uniqueness is based on server policy.
+       4.   Updated "Does Domain have Claims?"  "No" and "Yes" branch
+            labels in Figure 1.
+       5.   Updated the description of the <launch:phase> element in the
+            commands to explicitly specify the return of a 2306 EPP
+            error result when invalid or referring to section 2.3 for
+            validation.
+       6.   Fixed indentation of the <launch:applicationID> and
+            <launch:status> elements in the section 2.5 examples.
+       7.   Updated the description of the <mark:mark> element in the
+            info response.
+       8.   Added returning an EPP error result code of 2306 if the
+            "type" attribute is incorrect in section 3.3.1, 3.3.2, and
+            3.3.3.
+       9.   Made small change in the description of the Create Response
+            in section 3.3.5.
+       10.  Updated the Registrant Contact in section 7 to the IESG.
 
 Authors' Addresses
 
@@ -3631,13 +3637,7 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-Gould, et al.           Expires February 3, 2018               [Page 65]
+Gould, et al.           Expires February 22, 2018              [Page 65]
 
 Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
@@ -3693,4 +3693,4 @@ Internet-Draft        Launch Phase Mapping for EPP           August 2017
 
 
 
-Gould, et al.           Expires February 3, 2018               [Page 66]
+Gould, et al.           Expires February 22, 2018              [Page 66]

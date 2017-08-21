@@ -460,7 +460,7 @@
 
   <meta name="dct.creator" content="Gould, J., Tan, W., and G. Brown" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-launchphase-06" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-8-2" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-8-21" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of domain name registrations and applications during the launch of a domain name registry." />
 
@@ -484,7 +484,7 @@
   <td class="right">W. Tan</td>
 </tr>
 <tr>
-  <td class="left">Expires: February 3, 2018</td>
+  <td class="left">Expires: February 22, 2018</td>
   <td class="right">Cloud Registry</td>
 </tr>
 <tr>
@@ -497,7 +497,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">August 2, 2017</td>
+  <td class="right">August 21, 2017</td>
 </tr>
 
     	
@@ -517,7 +517,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on February 3, 2018.</p>
+<p>This Internet-Draft will expire on February 22, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -630,7 +630,7 @@
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#applicationID" id="applicationID">Application Identifier</a></h1>
 <p id="rfc.section.2.1.p.1">Servers MAY allow multiple applications, referred to as a Launch Application, of the same domain name during its launch phase operations. Upon receiving a valid &lt;domain:create&gt; command to create a Launch Application, the server MUST create an application object corresponding to the request, assign an application identifier for the Launch Application, set the <a href="#RFC5731">[RFC5731]</a> pendingCreate status, and return the application identifier to the client with the &lt;launch:applicationID&gt; element. In order to facilitate correlation, all subsequent launch operations on the Launch Application MUST be qualified by the previously assigned application identifier using the &lt;launch:applicationID&gt; element.</p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#validatorID" id="validatorID">Validator Identifier</a></h1>
-<p id="rfc.section.2.2.p.1">The Validator Identifier is the identifier, that is unique to the server, for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The unique set of Validator Identifier values supported the server is up to server policy.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
+<p id="rfc.section.2.2.p.1">The Validator Identifier is the identifier, that is unique to the server, for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  Registries MAY support more than one Third Party Trademark Validator.  The unique set of Validator Identifier values supported by the server is up to server policy.  The Internet Corporation for Assigned Names and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default Trademark Validator and is reserved the Validator Identifier of "tmch".  If the ICANN TMCH is not used or multiple Trademark Validators are used, the Validator Identifier MUST be defined using the "validatorID" attribute.</p>
 <p id="rfc.section.2.2.p.2">The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element and the &lt;smd:id&gt; element defined in <a href="#RFC7848">[RFC7848]</a>.  Both the Validator Identifier and the Issuer Identifier used MUST be unique.  If the ICANN TMCH is not used or multiple Trademark Validators are used, the server MUST define the list of supported validator identifiers and MUST make this information available to clients using a mutually acceptable, out-of-band mechanism.</p>
 <p id="rfc.section.2.2.p.3">The Validator Identifier MAY define a non-Trademark Validator that supports a form of claims.</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#phases" id="phases">Launch Phases</a></h1>
@@ -652,7 +652,7 @@
 <p id="rfc.section.2.3.p.3">For extensibility, the &lt;launch:phase&gt; element includes an OPTIONAL "name" attribute that can define a sub-phase, or the full name of the phase when the &lt;launch:phase&gt; element has the "custom" value.  For example, the "claims" launch phase could have two sub-phases that include "landrush" and "open".</p>
 <p id="rfc.section.2.3.p.4">Launch phases MAY overlap to support the "claims" launch phase, defined in the <a href="#claimsPhase">Section 2.3.1</a>, and to support a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; element SHOULD be &lt;launch:phase name="landrush"&gt;claims&lt;/launch:phase&gt;.  </p>
 <h1 id="rfc.section.2.3.1"><a href="#rfc.section.2.3.1">2.3.1.</a> <a href="#claimsPhase" id="claimsPhase">Trademark Claims Phase</a></h1>
-<p id="rfc.section.2.3.1.p.1">The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain name that matches trademarks.  The source of the trademarks is a Trademark Validator and the source of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly linked to a Trademark Validator.  The client interfaces with the server to determine if a trademark exists for a domain name, interfaces with a CNIS to get the Claims Notice information, and interfaces with the server to pass the Claims Notice acceptance information in a create command.  This document supports the Trademark Claims Phase in two ways including:</p>
+<p id="rfc.section.2.3.1.p.1">The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain name that matches trademarks.  See <a href="#I-D.ietf-regext-tmch-func-spec">[I-D.ietf-regext-tmch-func-spec]</a> for additional details of trademark claims handling.  The source of the trademarks is a Trademark Validator and the source of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly linked to a Trademark Validator.  The client interfaces with the server to determine if a trademark exists for a domain name, interfaces with a CNIS to get the Claims Notice information, and interfaces with the server to pass the Claims Notice acceptance information in a create command.  This document supports the Trademark Claims Phase in two ways including:</p>
 <p/>
 
 <dl>
@@ -2199,6 +2199,12 @@ END</pre>
   <tbody>
     <tr>
       <td class="reference">
+        <b id="I-D.ietf-regext-tmch-func-spec">[I-D.ietf-regext-tmch-func-spec]</b>
+      </td>
+      <td class="top"><a>Lozano, G.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-regext-tmch-func-spec-03">ICANN TMCH functional specifications</a>", Internet-Draft draft-ietf-regext-tmch-func-spec-03, July 2017.</td>
+    </tr>
+    <tr>
+      <td class="reference">
         <b id="RFC7451">[RFC7451]</b>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
@@ -2415,7 +2421,7 @@ END</pre>
 <p/>
 
 <ol>
-  <li>Updates based on feedback from Adam Roach that include: <ol><li>Add formal definition of a Launch Registration and Launch Application to section 1.1.</li><li>Updated the description of the Validator Identifier to indicate that the uniqueness is based on server policy.</li><li>Update "Does Domain have Claims?" "No" and "Yes" branch labels in Figure 1.</li><li>Updated the description of the &lt;launch:phase&gt; element in the commands to explicitly specify the return of a 2306 EPP error result when invalid or referring to section 2.3 for validation.</li><li>Fixed indentation of the &lt;launch:applicationID&gt; and &lt;launch:status&gt; elements in the section 2.5 examples.</li><li>Updated the description of the &lt;mark:mark&gt; element in the info response.</li><li>Added returning an EPP error result code of 2306 if the "type" attribute is incorrect in section 3.3.1, 3.3.2, and 3.3.3.</li><li>Small change in the description of the Create Response in section 3.3.5.</li><li>Updated the Registrant Contact in section 7 to the IESG.</li></ol></li>
+  <li>Updates based on feedback from Adam Roach that include: <ol><li>Added an informative reference to draft-ietf-regext-tmch-func-spec in section 2.3.1 "Trademark Claims Phase".</li><li>Added formal definition of a Launch Registration and Launch Application to section 1.1.</li><li>Updated the description of the Validator Identifier to indicate that the uniqueness is based on server policy.</li><li>Updated "Does Domain have Claims?" "No" and "Yes" branch labels in Figure 1.</li><li>Updated the description of the &lt;launch:phase&gt; element in the commands to explicitly specify the return of a 2306 EPP error result when invalid or referring to section 2.3 for validation.</li><li>Fixed indentation of the &lt;launch:applicationID&gt; and &lt;launch:status&gt; elements in the section 2.5 examples.</li><li>Updated the description of the &lt;mark:mark&gt; element in the info response.</li><li>Added returning an EPP error result code of 2306 if the "type" attribute is incorrect in section 3.3.1, 3.3.2, and 3.3.3.</li><li>Made small change in the description of the Create Response in section 3.3.5.</li><li>Updated the Registrant Contact in section 7 to the IESG.</li></ol></li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
