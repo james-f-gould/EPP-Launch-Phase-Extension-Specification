@@ -5,6 +5,7 @@
      An alternate method (rfc include) is described in the references. -->
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
+<!ENTITY RFC5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
 <!ENTITY RFC7942 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7942.xml">
@@ -41,7 +42,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-launchphase-06" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-launchphase-07" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -129,7 +130,7 @@
       </address>
     </author>
 
-    <date day="21" month="August" year="2017"/>
+    <date day="11" month="December" year="2017"/>
 
     <!-- Meta-data Declarations -->
 
@@ -155,8 +156,8 @@
       implement several common use cases related to the provisioning and
       management of domain name registrations and applications during the launch of a domain name registry.</t>
 
-      <t>It is typical for domain registries to operate in special modes during
-      their initial launch to facilitate allocation of domain names, often according
+      <t>It is typical for domain registries to operate in special modes as they begin operation 
+      to facilitate allocation of domain names, often according
       to special rules. This document uses the term "launch phase" and the shorter form
       "launch" to refer to such a period.</t>
 
@@ -189,8 +190,7 @@
         
         <t>In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  
         Indentation and white space in examples are provided only to illustrate element relationships 
-        and are not a REQUIRED feature of this protocol.        
-        </t>
+        and are not a REQUIRED feature of this protocol.  The use of "..." is used as shorthand for elements defined outside this document.</t>
         
         <t>A Launch Registration is a domain name registration during a launch phase when the server uses a "first-come, first-served" model.  
         Only a single registration for a domain name can exist in the server at a time.</t>
@@ -199,21 +199,18 @@
         when the server accepts multiple applications for a domain name and the server later selects one of the applications to allocate 
         as a registration.  Many Launch Applications for a domain name can exist in the server at a time.</t>
 
-        <t>"launch-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:launch-1.0". The XML namespace prefix "launch"
-        is used, but implementations MUST NOT depend on it and instead employ
+        <t>The XML namespace prefix "launch"
+        is used for the namespace "urn:ietf:params:xml:ns:launch-1.0", 
+        but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
-        <t>"signedMark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:signedMark-1.0" that is defined in <xref target="RFC7848"/>. 
-        The XML namespace prefix "smd"
-        is used, but implementations MUST NOT depend on it and instead employ
+        <t>The XML namespace prefix "smd" is used for the <xref target="RFC7848"/> namespace "urn:ietf:params:xml:ns:signedMark-1.0", 
+        but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
-        <t>"mark-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:mark-1.0" that is defined in <xref target="RFC7848"/>. 
-        The XML namespace prefix "mark"
-        is used, but implementations MUST NOT depend on it and instead employ
+        <t>The XML namespace prefix "mark"
+        is used for the <xref target="RFC7848"/> namespace "urn:ietf:params:xml:ns:mark-1.0", 
+        but implementations MUST NOT depend on it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
       </section>
@@ -238,7 +235,7 @@
       </section>
       
       <section anchor="validatorID" title="Validator Identifier">
-        <t>The Validator Identifier is the identifier, that is unique to the server, for a Trademark Validator that validates marks 
+        <t>The Validator Identifier is the identifier unique to the server, for a Trademark Validator that validates marks 
         and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  
         Registries MAY support more than one Third Party Trademark Validator.  The unique set of 
         Validator Identifier values supported by the server is up to server policy.  The
@@ -247,12 +244,13 @@
         is not used or multiple Trademark Validators are used, the Validator Identifier MUST be 
         defined using the "validatorID" attribute.</t>
         <t>The Validator Identifier MAY be related to one or more issuer identifiers of the &lt;mark:id&gt; element 
-        and the &lt;smd:id&gt; element defined in <xref target="RFC7848"/>.  Both the Validator Identifier and the 
-        Issuer Identifier used MUST be unique.  If the ICANN TMCH is not used or multiple Trademark Validators are used, 
+        and the &lt;smd:id&gt; element defined in <xref target="RFC7848"/>.  
+        Both the Validator Identifier and the Issuer Identifier used MUST be unique in the server.  
+        If the ICANN TMCH is not used or multiple Trademark Validators are used, 
         the server MUST define the list of supported validator identifiers and MUST make this information available to 
         clients using a mutually acceptable, out-of-band mechanism.</t>
-        <t>The Validator Identifier MAY define a non-Trademark Validator that supports 
-        a form of claims.</t>
+        <t>The Validator Identifier may define a non-Trademark Validator that supports a form of claims, 
+        where claims and a Validator Identifier can be used for purposes beyond trademarks.</t>
       </section>
       
       <section anchor="phases" title="Launch Phases">
@@ -265,24 +263,24 @@
 
         <t>The following launch phase values are defined: <list
             style="hanging">
-            <t hangText="sunrise">The phase during which trademark holders can submit
+            <t hangText="sunrise:">The phase during which trademark holders can submit
             registrations or applications with trademark information that can be
             validated by the server.</t>
 
-            <t hangText="landrush">A post-Sunrise phase when non-trademark
+            <t hangText="landrush:">A post-Sunrise phase when non-trademark
             holders are allowed to register domain names with steps taken 
             to address a large volume of initial registrations.</t>
 
-            <t hangText="claims">The phase, as defined in the  
+            <t hangText="claims:">The phase, as defined in the  
             <xref target="claimsPhase"/>, in which a 
-            Claims Notice MUST be displayed to a prospective registrant of a domain
+            Claims Notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.</t>
             
-            <t hangText="open">A post-launch phase that is also referred to as
-            "steady state". Servers MAY require additional trademark
+            <t hangText="open:">A phase that is also referred to as
+            "steady state". Servers may require additional trademark
             protection during this phase.</t>
 
-            <t hangText="custom">A custom server launch phase that is defined
+            <t hangText="custom:">A custom server launch phase that is defined
             using the "name" attribute.</t>
           </list></t>
 
@@ -297,26 +295,26 @@
       a traditional "landrush" launch phase.  The overlap of the "claims" and "landrush" launch phases 
       SHOULD be handled by setting "claims" as the &lt;launch:phase&gt; value and setting 
       "landrush" as the sub-phase with the "name" attribute.  For example, the &lt;launch:phase&gt; 
-      element SHOULD be &lt;launch:phase name="landrush"&gt;claims&lt;/launch:phase&gt;.
+      element should be &lt;launch:phase name="landrush"&gt;claims&lt;/launch:phase&gt;.
         </t>
         
         <section anchor="claimsPhase" title="Trademark Claims Phase">
-          <t>The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain
+          <t>The Trademark Claims Phase is when a Claims Notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.  See <xref target="I-D.ietf-regext-tmch-func-spec"/> for additional details of trademark claims handling.  
             The source of the trademarks is a Trademark Validator and the source 
-            of the Claims Notice information is a Claim Notice Information Service (CNIS), which MAY be directly 
+            of the Claims Notice information is a Claim Notice Information Service (CNIS), which may be directly 
             linked to a Trademark Validator.  The client interfaces with the server to determine if a trademark exists 
             for a domain name, interfaces with a CNIS to get the Claims Notice information, 
             and interfaces with the server to pass the Claims Notice acceptance information in a create command.
             This document supports the Trademark Claims Phase in two ways including:</t>
          <t><list style="hanging">
-          <t hangText="Claims Check Form"><xref target="claimsCheckForm">Claims Check Form</xref> is used to determine 
+          <t hangText="Claims Check Form:">Is defined in <xref target="claimsCheckForm"/> and is used to determine 
           whether or not there are any matching trademarks for a domain name.  If there is at least one 
           matching trademark that exists for the domain name, a claims key is returned.  The 
           mapping of domain names and the claims keys is based on an out-of-band interface between the server and the Trademark Validator.  
           The CNIS associated with the claims key <xref target="validatorID">Validator Identifier</xref> MUST accept the claims key 
           as the basis for retrieving the claims information.</t>
-          <t hangText="Claims Create Form"><xref target="claimsCreateForm">Claims Create Form</xref> is used to 
+          <t hangText="Claims Create Form:">Is defined in <xref target="claimsCreateForm"/> and is used to 
           pass the Claims Notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) 
           format, validation rules, and server processing is up to the interface between the server and the Trademark Validator.  
           The CNIS associated with the <xref target="validatorID">Validator Identifier</xref> 
@@ -379,7 +377,7 @@
         <t>A Launch Application or Launch Registration object MAY have a launch status value. The
         &lt;launch:status&gt; element is used to convey the launch status pertaining to
         the object, beyond what is specified in the object mapping.  A Launch Application or Launch Registration MUST set the <xref target="RFC5731"/> "pendingCreate" status if 
-        a launch status is supported and the launch status is not one of the final statuses, including the "allocated" and "rejected" statuses.</t>  
+        a launch status is supported and the launch status is not one of the final statuses ("allocated" and "rejected").</t>  
 
         <t>The following status values are defined using the 
         required "s" attribute: <list style="hanging">
@@ -401,11 +399,11 @@
             an auction).</t>
 
             <t hangText="allocated:">The object corresponding to the application or registration 
-            has been provisioned.  Is a possible end state of an
+            has been provisioned.  This is a possible end state of an
             application or registration object.</t>
 
             <t hangText="rejected:">The application or registration object
-            was not provisioned.  Is a possible end state of an
+            was not provisioned.  This is a possible end state of an
             application or registration object.</t>
 
             <t hangText="custom:">A custom status that is defined using the 
@@ -414,14 +412,13 @@
 
        <t>Each status value MAY be accompanied by a string of human-readable 
         text that describes the rationale for the status applied to the object.
-        The OPTIONAL "lang" attribute MAY be present to identify the language 
+        The OPTIONAL "lang" attribute, as defined in <xref target="RFC5646"/>, MAY be present to identify the language 
         if the negotiated value is something other than the default value of 
         "en" (English).</t>
         
         <t>For extensibility the &lt;launch:status&gt; element includes an
         OPTIONAL "name" attribute that can define a sub-status or the full name
-        of the status when the status value is "custom".  The server SHOULD 
-        NOT use the "custom" status value.</t>
+        of the status when the status value is "custom".  The server SHOULD use one of the non-"custom" status values.</t>
 
         <t>Status values MAY be
         skipped. For example, an application or registration MAY immediately start at the
@@ -432,6 +429,8 @@
 
         <section title="State Transition">
           <figure align="center" anchor="fsm">
+            <preamble>The transitions between the states is a matter of server policy.  
+            This diagram defines one possible set of permitted transitions.</preamble>          
             <artwork align="left"><![CDATA[
 
                    | request                               
@@ -478,8 +477,10 @@
       </section>
 
       <section anchor="pollMessaging" title="Poll Messaging">
-        <t>A Launch Application MUST and a Launch Registration MAY be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref> 
-        in "pendingCreate" status, with the launch status values defined in <xref target="statuses"/>.  
+        <t>A Launch Application MUST be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref>, with the 
+        "pendingCreate" status and with the launch status values defined in <xref target="statuses"/>.  
+        A Launch Registration MUST be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref>, with the 
+        "pendingCreate" status and with the launch status values defined in <xref target="statuses"/>  
         As a Launch Application or Launch Registration transitions between the status values 
         defined in <xref target="statuses"/>, the server SHOULD insert poll messages, per <xref target="RFC5730"/>,
         for the applicable intermediate statuses, including the 
@@ -619,12 +620,12 @@ S:</epp>]]></artwork>
 
         <t><list style="hanging">
 
-            <t hangText="code">Use of a mark code by itself to validate 
+            <t hangText="code:">Use of a mark code by itself to validate 
             that the mark matches the domain name.  This model is supported 
             using the &lt;launch:codeMark&gt; element with just the 
             &lt;launch:code&gt; element.</t>
 
-            <t hangText="mark">The mark information is passed without any
+            <t hangText="mark:">The mark information is passed without any
             other validation element. The server will use some custom form of
             validation to validate that the mark information is authentic. This
             model is supported using the &lt;launch:codeMark&gt; element with 
@@ -653,7 +654,7 @@ S:</epp>]]></artwork>
         number of marks per domain name is up to server policy.</t>
         
         <section anchor="codeMark" title="&lt;launch:codeMark&gt; element">
-           <t>The &lt;launch:codeMark&gt; element that is used by the "code", "mark", 
+           <t>The &lt;launch:codeMark&gt; element is used by the "code", "mark", 
            and "code with mark" validation models, has the following child 
            elements:</t>
            <t><list style="hanging">
@@ -694,9 +695,10 @@ S:</epp>]]></artwork>
       </section>
             
       <section anchor="digitalsignature" title="Digital Signature">
-        <t>Digital signatures MAY be used by the server to validate either 
+        <t>Digital signatures MAY be used by the server to validate  
         the mark information, when using the "signed mark" validation model with the 
-        <xref target="signedMark">&lt;smd:signedMark&gt;</xref> element or the <xref target="encodedSignedMark">&lt;smd:encodedSignedMark&gt;</xref> element.  
+        <xref target="signedMark">&lt;smd:signedMark&gt;</xref> element and the <xref target="encodedSignedMark">&lt;smd:encodedSignedMark&gt;</xref> element.
+        When using digital signatures the server MUST validate the digital signature.
         </t>
      <section anchor="signedMark" title="&lt;smd:signedMark&gt; element">
         <t>The &lt;smd:signedMark&gt; element contains the digitally signed mark information.  The &lt;smd:signedMark&gt; 
@@ -782,7 +784,7 @@ S:</epp>]]></artwork>
         The &lt;launch:check&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
+              <t hangText="&lt;launch:phase&gt;:">Contains the value of the active 
               launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>  
             </list></t>
           <figure>
@@ -822,15 +824,15 @@ C:</epp>]]></artwork>
           contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The phase 
+              <t hangText="&lt;launch:phase&gt;:">The phase 
               that mirrors the &lt;launch:phase&gt; element included in the
               &lt;launch:check&gt;.</t>
 
-              <t hangText="&lt;launch:cd&gt;">One or more &lt;launch:cd&gt; 
+              <t hangText="&lt;launch:cd&gt;:">One or more &lt;launch:cd&gt; 
               elements that contain the following child elements:</t>
               
               <t><list hangIndent="4" style="hanging">
-            <t hangText="&lt;launch:name&gt;">Contains the fully 
+            <t hangText="&lt;launch:name&gt;:">Contains the fully 
             qualified name of the queried domain name.  This element 
             MUST contain an "exists" attribute whose value 
             indicates if a matching trademark exists for the domain 
@@ -840,7 +842,7 @@ C:</epp>]]></artwork>
             Domain Create Command.  A value of "0" (or "false") means that 
             a matching trademark does not exist or that the "Claims Create Form" is NOT required on a 
             Domain Create Command.</t>
-            <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
+            <t hangText="&lt;launch:claimKey&gt;:">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
             Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) 
             for querying the information needed to generate a 
@@ -849,7 +851,7 @@ C:</epp>]]></artwork>
             to securely query the service without using a well-known 
             value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
             whose value indicates which Trademark Validator to query for the Claims Notice information, with 
-            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support 
+            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifier to support 
             other forms of claims notices.</t>  
               </list></t>
 
@@ -921,7 +923,7 @@ S:</epp>]]></artwork>
         the &lt;launch:check&gt; element that contains the following child elements:</t>
         
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The launch phase to which 
+              <t hangText="&lt;launch:phase&gt;:">The launch phase to which 
               domain name availability should be determined.  The server SHOULD validate 
               the value and return an EPP error result code of 2306 if it is invalid.</t>
             </list></t>
@@ -1023,11 +1025,11 @@ C:</epp>]]></artwork>
 
           <t><list hangIndent="4" style="hanging">
 
-              <t hangText="&lt;launch:cd&gt;">One or more &lt;launch:cd&gt; 
+              <t hangText="&lt;launch:cd&gt;:">One or more &lt;launch:cd&gt; 
               elements that contain the following child elements:</t>
               
               <t><list hangIndent="4" style="hanging">
-            <t hangText="&lt;launch:name&gt;">Contains the fully 
+            <t hangText="&lt;launch:name&gt;:">Contains the fully 
             qualified name of the queried domain name.  This element 
             MUST contain an "exists" attribute whose value 
             indicates if a matching trademark exists for the domain 
@@ -1035,7 +1037,7 @@ C:</epp>]]></artwork>
             A value of "1" (or "true") means that a matching 
             trademark does exist.  A value of "0" (or "false") means that 
             a matching trademark does not exist.</t>
-            <t hangText="&lt;launch:claimKey&gt;">Zero or more OPTIONAL claim keys 
+            <t hangText="&lt;launch:claimKey&gt;:">Zero or more OPTIONAL claim keys 
             that MAY be passed to a third-party 
             Trademark Validator such as the ICANN Trademark Clearinghouse (TMCH) 
             for querying the information needed to generate a 
@@ -1044,7 +1046,7 @@ C:</epp>]]></artwork>
             to securely query the service without using a well-known 
             value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
             whose value indicates which Trademark Validator to query for the Claims Notice information, with 
-            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifer to support 
+            the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifier to support 
             other forms of claims notices.</t>  
               </list></t>
 
@@ -1120,12 +1122,12 @@ S:</epp>]]></artwork>
         elements:</t>
         
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The phase during which the
+              <t hangText="&lt;launch:phase&gt;:">The phase during which the
               application or registration was submitted or is associated with. 
               Server policy defines the phases that are supported.  The server SHOULD validate 
               the value and return an EPP error result code of 2306 if it is invalid.</t>
 
-              <t hangText="&lt;launch:applicationID&gt;">OPTIONAL application
+              <t hangText="&lt;launch:applicationID&gt;:">OPTIONAL application
               identifier of the Launch Application.</t>
             </list></t>
 
@@ -1190,18 +1192,18 @@ C:</epp>]]></artwork>
           &lt;resData&gt;. The &lt;launch:infData&gt; contains the following
           child elements:</t>
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The phase during which the
+              <t hangText="&lt;launch:phase&gt;:">The phase during which the
               application was submitted, or is associated with, that matches the associated 
               &lt;info&gt; command &lt;launch:phase&gt;.</t>
 
-              <t hangText="&lt;launch:applicationID&gt;">OPTIONAL Application
+              <t hangText="&lt;launch:applicationID&gt;:">OPTIONAL Application
               Identifier of the Launch Application.</t>
 
-              <t hangText="&lt;launch:status&gt;">OPTIONAL status of the Launch Application
+              <t hangText="&lt;launch:status&gt;:">OPTIONAL status of the Launch Application
               using one of the supported <xref target="statuses">status
               values</xref>.</t>
 
-              <t hangText="&lt;mark:mark&gt;">Zero or more
+              <t hangText="&lt;mark:mark&gt;:">Zero or more
               <xref target="mark">&lt;mark:mark&gt;</xref> elements only if the 
               "includeMark" attribute is "true" in the command.
               </t>
@@ -1271,18 +1273,18 @@ S:</epp>]]></artwork>
         </t>
 
         <t><list style="hanging">
-            <t hangText="sunrise">The EPP &lt;create&gt; command with the
+            <t hangText="sunrise:">The EPP &lt;create&gt; command with the
             "sunrise" launch phase is used to submit a registration with trademark
             information that can be verified by the server with the
             &lt;domain:name&gt; value. The <xref target="sunriseCreateForm">
             Sunrise Create Form</xref> is used for the "sunrise" launch phase.</t>
 
-            <t hangText="landrush">The EPP &lt;create&gt; command with the
+            <t hangText="landrush:">The EPP &lt;create&gt; command with the
             "landrush" launch phase MAY use the <xref target="generalCreateForm">
             General Create Form</xref> to explicitly specify the phase and 
             optionally define the expected type of object to create.</t>
 
-            <t hangText="claims">The EPP &lt;create&gt; command with the
+            <t hangText="claims:">The EPP &lt;create&gt; command with the
             "claims" launch phase is used to pass the information associated 
             with the presentation and acceptance of the Claims Notice.  The 
             <xref target="claimsCreateForm">Claims Create Form</xref> is used 
@@ -1290,13 +1292,13 @@ S:</epp>]]></artwork>
             General Create Form</xref> MAY be used
             for the "claims" launch phase.</t>
 
-            <t hangText="open">The EPP &lt;create&gt; command with the
+            <t hangText="open:">The EPP &lt;create&gt; command with the
             "open" launch phase is undefined but the form supported is up to server
             policy.  Use of the <xref target="claimsCreateForm">Claims Create Form</xref> MAY 
             be used to pass the information associated with the presentation 
             and acceptance of the Claims Notice if required for the domain name.</t>
 
-            <t hangText="custom">The EPP &lt;create&gt; command with the
+            <t hangText="custom:">The EPP &lt;create&gt; command with the
             "custom" launch phase is undefined but the form supported is up to server
             policy.</t>
           </list></t>
@@ -1320,26 +1322,26 @@ S:</epp>]]></artwork>
           contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The identifier for the launch phase. 
+              <t hangText="&lt;launch:phase&gt;:">The identifier for the launch phase. 
               The server SHOULD validate the value according to <xref target="phases"/>.</t>
 
               <t
-              hangText="&lt;launch:codeMark&gt; or &lt;smd:signedMark&gt; or &lt;smd:encodedSignedMark&gt;">
+              hangText="&lt;launch:codeMark&gt; or &lt;smd:signedMark&gt; or &lt;smd:encodedSignedMark&gt;:">
                   <list hangIndent="4" style="hanging">
 
-              <t hangText="&lt;launch:codeMark&gt;">Zero or more
+              <t hangText="&lt;launch:codeMark&gt;:">Zero or more
               &lt;launch:codeMark&gt; elements.  The &lt;launch:codeMark&gt;
               child elements are defined in the 
               <xref target="codeMark">&lt;launch:codeMark&gt; element</xref> 
               section.</t>
 
-              <t hangText="&lt;smd:signedMark&gt;">Zero or more
+              <t hangText="&lt;smd:signedMark&gt;:">Zero or more
               &lt;smd:signedMark&gt; elements.  The &lt;smd:signedMark&gt; 
               child elements are defined in 
               the <xref target="signedMark">&lt;smd:signedMark&gt; element</xref> 
               section.</t>
 
-             <t hangText="&lt;smd:encodedSignedMark&gt;">Zero or more
+             <t hangText="&lt;smd:encodedSignedMark&gt;:">Zero or more
               &lt;smd:encodedSignedMark&gt; elements.  The &lt;smd:encodedSignedMark&gt; 
               child elements are defined in 
               the <xref target="encodedSignedMark">&lt;smd:encodedSignedMark&gt; element</xref> 
@@ -1565,18 +1567,18 @@ C:</epp>]]></artwork>
         The &lt;launch:create&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
+              <t hangText="&lt;launch:phase&gt;:">Contains the value of the active 
               launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>
-              <t hangText="&lt;launch:notice&gt;">One or more &lt;launch:notice&gt; elements
+              <t hangText="&lt;launch:notice&gt;:">One or more &lt;launch:notice&gt; elements
               that contain the following child elements:</t>
               <t><list hangIndent="4" style="hanging">
-            <t hangText="&lt;launch:noticeID&gt;">Unique notice identifier 
+            <t hangText="&lt;launch:noticeID&gt;:">Unique notice identifier 
           for the Claims Notice. The &lt;launch:noticeID&gt; 
           element has an OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> whose value indicates 
           which Trademark 
           Validator is the source of the claims notice, with the default being the ICANN TMCH.</t>
-                <t hangText="&lt;launch:notAfter&gt;">Expiry of the claims notice.</t>
-                <t hangText="&lt;launch:acceptedDate&gt;">Contains the
+                <t hangText="&lt;launch:notAfter&gt;:">Expiry of the claims notice.</t>
+                <t hangText="&lt;launch:acceptedDate&gt;:">Contains the
               date and time that the claims notice was accepted.</t>
               </list></t>
             </list></t>
@@ -1649,7 +1651,7 @@ C:</epp>]]></artwork>
           contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">Contains the value of the active 
+              <t hangText="&lt;launch:phase&gt;:">Contains the value of the active 
               launch phase of the server.  The server SHOULD validate the value according to <xref target="phases"/>.</t>
             </list></t>
 
@@ -1758,11 +1760,11 @@ C:</epp>]]></artwork>
           &lt;launch:creData&gt; element contains the following child
           elements:</t>
           <t><list hangIndent="4" style="hanging">
-              <t hangText="&lt;launch:phase&gt;">The phase of the application
+              <t hangText="&lt;launch:phase&gt;:">The phase of the application
               that mirrors the &lt;launch:phase&gt; element included in the
               &lt;launch:create&gt;.</t>
 
-              <t hangText="&lt;launch:applicationID&gt;">The application
+              <t hangText="&lt;launch:applicationID&gt;:">The application
               identifier of the application.</t>
             </list></t>
 
@@ -1813,9 +1815,8 @@ S:</epp>
         &lt;update&gt; command to be used in conjunction with the domain name
         mapping.</t>
 
-        <t>A client MUST NOT pass the extension on 
-        an EPP &lt;update&gt; command to a server that does not support launch 
-        applications.  A server that does not support launch applications during 
+        <t>An EPP &lt;update&gt; command with the extension sent to a server that does not support launch applications will fail.  
+        A server that does not support launch applications during 
         its launch phase MUST return an
         EPP error result code of 2102 when receiving an EPP &lt;update&gt; 
         command with the extension.</t>
@@ -1826,11 +1827,11 @@ S:</epp>
         updated. The &lt;launch:update&gt; element contains the following
         child elements:</t>
         <t><list hangIndent="4" style="hanging">
-            <t hangText="&lt;launch:phase&gt;">The phase during which the
+            <t hangText="&lt;launch:phase&gt;:">The phase during which the
             application was submitted or is associated with.  The server SHOULD validate 
               the value and return an EPP error result code of 2306 if it is invalid.</t>
 
-            <t hangText="&lt;launch:applicationID&gt;">The application
+            <t hangText="&lt;launch:applicationID&gt;:">The application
             identifier for which the client wishes to update.</t>
           </list></t>
 
@@ -1901,11 +1902,11 @@ C:</epp>
         deleted. The &lt;launch:delete&gt; element contains the following
         child elements:</t>
         <t><list hangIndent="4" style="hanging">
-            <t hangText="&lt;launch:phase&gt;">The phase during which the
+            <t hangText="&lt;launch:phase&gt;:">The phase during which the
             application was submitted or is associated with.  The server SHOULD validate 
               the value and return an EPP error result code of 2306 if it is invalid.</t>
 
-            <t hangText="&lt;launch:applicationID&gt;">The application
+            <t hangText="&lt;launch:applicationID&gt;:">The application
             identifier for which the client wishes to delete.</t>
           </list></t>
 
@@ -2014,319 +2015,357 @@ C:</epp>
         <artwork><![CDATA[
 BEGIN
 <?xml version="1.0" encoding="UTF-8"?>
-<schema 
-  targetNamespace="urn:ietf:params:xml:ns:launch-1.0" 
-  xmlns:launch="urn:ietf:params:xml:ns:launch-1.0" 
+<schema
+  targetNamespace="urn:ietf:params:xml:ns:launch-1.0"
+  xmlns:launch="urn:ietf:params:xml:ns:launch-1.0"
   xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
   xmlns:mark="urn:ietf:params:xml:ns:mark-1.0"
   xmlns:smd="urn:ietf:params:xml:ns:signedMark-1.0"
-  xmlns="http://www.w3.org/2001/XMLSchema" 
-  elementFormDefault="qualified">
-  
-  <!--
-  Import common element types.
-  -->
-  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/> 
-  <import namespace="urn:ietf:params:xml:ns:mark-1.0"/> 
-  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/> 
-  
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+>
+
+  <!-- Import common element types. -->
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/>
+  <import namespace="urn:ietf:params:xml:ns:mark-1.0"/>
+  <import namespace="urn:ietf:params:xml:ns:signedMark-1.0"/>
+
   <annotation>
-    <documentation> 
-      Extensible Provisioning Protocol v1.0 
-      domain name extension schema 
-      for the launch phase processing.  
+    <documentation>
+      Extensible Provisioning Protocol v1.0
+      domain name
+      extension schema
+      for the launch phase processing.
     </documentation>
   </annotation>
-  
-  <!-- 
-  Child elements found in EPP commands.  
-  -->
-  <element name="check" type="launch:checkType"/>
-  <element name="info" type="launch:infoType"/>
-  <element name="create" type="launch:createType"/>
-  <element name="update" type="launch:idContainerType"/>
-  <element name="delete" type="launch:idContainerType"/>
-  
-  <!-- 
-  Common container of id (identifier) element
-  -->
+
+  <!-- Child elements found in EPP commands -->
+  <element
+    name="check"
+    type="launch:checkType"/>
+  <element
+    name="info"
+    type="launch:infoType"/>
+  <element
+    name="create"
+    type="launch:createType"/>
+  <element
+    name="update"
+    type="launch:idContainerType"/>
+  <element
+    name="delete"
+    type="launch:idContainerType"/>
+
+  <!-- Common container of id (identifier) element -->
   <complexType name="idContainerType">
     <sequence>
-      <element name="phase" 
-      type="launch:phaseType"/>
-      <element name="applicationID" 
-      type="launch:applicationIDType"/>
+      <element
+        name="phase"
+        type="launch:phaseType"/>
+      <element
+        name="applicationID"
+        type="launch:applicationIDType"/>
     </sequence>
   </complexType>
-  
-  <!-- 
-  Definition for application identifier
-  -->
+
+  <!-- Definition for application identifier -->
   <simpleType name="applicationIDType">
     <restriction base="token"/>
   </simpleType>
-  
-  <!-- 
-  Definition for launch phase.  Name is an optional attribute
-  used to extend the phase type.  For example, when 
-  using the phase type value of "custom", the name 
-  can be used to specify the custom phase.  
-  -->
+
+  <!-- Definition for launch phase. Name is an
+       optional attribute used to extend the phase type.
+       For example, when using the phase type value
+       of "custom", the name can be used to specify the
+       custom phase. -->
   <complexType name="phaseType">
     <simpleContent>
       <extension base="launch:phaseTypeValue">
-        <attribute name="name" type="token"/>
+        <attribute
+          name="name"
+          type="token"/>
       </extension>
     </simpleContent>
   </complexType>
-  
-  <!-- 
-  Enumeration of for launch phase values.  
-  -->
+
+  <!-- Enumeration of launch phase values -->
   <simpleType name="phaseTypeValue">
-      <restriction base="token">
-        <enumeration value="sunrise"/>
-        <enumeration value="landrush"/>
-        <enumeration value="claims"/>
-        <enumeration value="open"/>
-        <enumeration value="custom"/>
+    <restriction base="token">
+      <enumeration value="sunrise"/>
+      <enumeration value="landrush"/>
+      <enumeration value="claims"/>
+      <enumeration value="open"/>
+      <enumeration value="custom"/>
     </restriction>
   </simpleType>
-  
-  
-  <!-- 
-  Definition for the sunrise code   
-  -->
+
+
+  <!-- Definition for the sunrise code -->
   <simpleType name="codeValue">
     <restriction base="token">
       <minLength value="1"/>
     </restriction>
   </simpleType>
-  
+
   <complexType name="codeType">
     <simpleContent>
       <extension base="launch:codeValue">
-        <attribute name="validatorID" 
-        type="launch:validatorIDType" use="optional"/>
+        <attribute
+          name="validatorID"
+          type="launch:validatorIDType"
+          use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
-  
-  <!-- 
-  Definition for the notice identifier   
-  -->
+
+  <!-- Definition for the notice identifier -->
   <simpleType name="noticeIDValue">
     <restriction base="token">
       <minLength value="1"/>
     </restriction>
   </simpleType>
-  
+
   <complexType name="noticeIDType">
     <simpleContent>
       <extension base="launch:noticeIDValue">
-        <attribute name="validatorID" 
-        type="launch:validatorIDType" use="optional"/>
+        <attribute
+          name="validatorID"
+          type="launch:validatorIDType"
+          use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
-  
-  <!-- 
-  Definition for the validator identifier   
-  -->
+
+  <!-- Definition for the validator identifier -->
   <simpleType name="validatorIDType">
     <restriction base="token">
       <minLength value="1"/>
     </restriction>
   </simpleType>
-      
-  <!-- 
-  Possible status values for sunrise application 
-  -->
-    <simpleType name="statusValueType">
+
+  <!-- Possible status values for sunrise application -->
+  <simpleType name="statusValueType">
     <restriction base="token">
-        <enumeration value="pendingValidation"/>
-        <enumeration value="validated"/>
-        <enumeration value="invalid"/>
-        <enumeration value="pendingAllocation"/>
-        <enumeration value="allocated"/>
-        <enumeration value="rejected"/>
-        <enumeration value="custom"/>
-      </restriction>
-    </simpleType>
-  
-  <!-- 
-  Status type definition
-  -->
+      <enumeration value="pendingValidation"/>
+      <enumeration value="validated"/>
+      <enumeration value="invalid"/>
+      <enumeration value="pendingAllocation"/>
+      <enumeration value="allocated"/>
+      <enumeration value="rejected"/>
+      <enumeration value="custom"/>
+    </restriction>
+  </simpleType>
+
+  <!-- Status type definition -->
   <complexType name="statusType">
     <simpleContent>
       <extension base="normalizedString">
-        <attribute name="s" type="launch:statusValueType" 
+        <attribute
+          name="s"
+          type="launch:statusValueType"
           use="required"/>
-        <attribute name="lang" type="language" 
+        <attribute
+          name="lang"
+          type="language"
           default="en"/>
-        <attribute name="name" type="token"/>
+        <attribute
+          name="name"
+          type="token"/>
       </extension>
     </simpleContent>
   </complexType>
-  
-  <!--
-  codeMark Type that contains an optional code 
-  with mark information.
-  -->
+
+  <!-- codeMark Type that contains an optional 
+       code with mark information -->
   <complexType name="codeMarkType">
     <sequence>
-    <element name="code" type="launch:codeType"
-      minOccurs="0"/>
-    <element ref="mark:abstractMark"
-      minOccurs="0"/>
-  </sequence>
+      <element
+        name="code"
+        type="launch:codeType"
+        minOccurs="0"/>
+      <element
+        ref="mark:abstractMark"
+        minOccurs="0"/>
+    </sequence>
   </complexType>
-  
-  <!-- 
-  Child elements for the create command
-  -->
+
+  <!-- Child elements for the create command -->
   <complexType name="createType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
+      <element
+        name="phase"
+        type="launch:phaseType"/>
       <choice minOccurs="0">
-        <element name="codeMark" type="launch:codeMarkType"
+        <element
+          name="codeMark"
+          type="launch:codeMarkType"
           maxOccurs="unbounded"/>
-        <element ref="smd:abstractSignedMark" 
-         maxOccurs="unbounded"/>
-        <element ref="smd:encodedSignedMark" 
-         maxOccurs="unbounded"/>
+        <element
+          ref="smd:abstractSignedMark"
+          maxOccurs="unbounded"/>
+        <element
+          ref="smd:encodedSignedMark"
+          maxOccurs="unbounded"/>
       </choice>
-      <element name="notice" 
-       type="launch:createNoticeType"
-       minOccurs="0" maxOccurs="unbounded"/> 
+      <element
+        name="notice"
+        type="launch:createNoticeType"
+        minOccurs="0"
+        maxOccurs="unbounded"/>
     </sequence>
-    <attribute name="type" type="launch:objectType"/>
+    <attribute
+      name="type"
+      type="launch:objectType"/>
   </complexType>
 
-  <!--
-  Type of launch object
-  -->
+  <!-- Type of launch object -->
   <simpleType name="objectType">
-      <restriction base="token">
-        <enumeration value="application"/>
-        <enumeration value="registration"/>
+    <restriction base="token">
+      <enumeration value="application"/>
+      <enumeration value="registration"/>
     </restriction>
   </simpleType>
-  
-  
-  <!-- 
-  Child elements of the create notice element. 
-  -->
+
+
+  <!-- Child elements of the create notice element -->
   <complexType name="createNoticeType">
     <sequence>
-      <element name="noticeID" type="launch:noticeIDType"/>
-      <element name="notAfter" type="dateTime"/>
-      <element name="acceptedDate" type="dateTime"/>
+      <element
+        name="noticeID"
+        type="launch:noticeIDType"/>
+      <element
+        name="notAfter"
+        type="dateTime"/>
+      <element
+        name="acceptedDate"
+        type="dateTime"/>
     </sequence>
   </complexType>
 
 
-  <!-- 
-  Child elements of check (Claims Check Command).  
-  -->
+  <!-- Child elements of check (Claims Check Command) -->
   <complexType name="checkType">
     <sequence>
-      <element name="phase" type="launch:phaseType"
+      <element
+        name="phase"
+        type="launch:phaseType"
         minOccurs="0"/>
     </sequence>
-    <attribute name="type" type="launch:checkFormType" 
-    default="claims"/>
+    <attribute
+      name="type"
+      type="launch:checkFormType"
+      default="claims"/>
   </complexType>
 
 
-  <!--
-  Type of check form 
-  (claims check or availability check)
-  -->
+  <!-- Type of check form (Claims Check or Availability Check) -->
   <simpleType name="checkFormType">
-      <restriction base="token">
-        <enumeration value="claims"/>
-        <enumeration value="avail"/>
-        <enumeration value="trademark"/>
+    <restriction base="token">
+      <enumeration value="claims"/>
+      <enumeration value="avail"/>
+      <enumeration value="trademark"/>
     </restriction>
   </simpleType>
 
 
-  <!-- 
-  Child elements of info command.  
-  -->
+  <!-- Child elements of info command -->
   <complexType name="infoType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
-      <element name="applicationID" 
-        type="launch:applicationIDType" 
+      <element
+        name="phase"
+        type="launch:phaseType"/>
+      <element
+        name="applicationID"
+        type="launch:applicationIDType"
         minOccurs="0"/>
     </sequence>
-    <attribute name="includeMark" type="boolean" 
+    <attribute
+      name="includeMark"
+      type="boolean"
       default="false"/>
   </complexType>
 
-  <!-- 
-  Child response elements.  
-  -->
-  <element name="chkData" type="launch:chkDataType"/>    
-  <element name="creData" type="launch:idContainerType"/>
-  <element name="infData" type="launch:infDataType"/>
-  
-  <!--
-   <check> response elements.
-   -->
+  <!-- Child response elements. -->
+  <element
+    name="chkData"
+    type="launch:chkDataType"/>
+  <element
+    name="creData"
+    type="launch:idContainerType"/>
+  <element
+    name="infData"
+    type="launch:infDataType"/>
+
+  <!-- <check> response elements. -->
   <complexType name="chkDataType">
     <sequence>
-      <element name="phase" type="launch:phaseType"
-       minOccurs="0"/>
-      <element name="cd" type="launch:cdType"
-       maxOccurs="unbounded"/>
+      <element
+        name="phase"
+        type="launch:phaseType"
+        minOccurs="0"/>
+      <element
+        name="cd"
+        type="launch:cdType"
+        maxOccurs="unbounded"/>
     </sequence>
   </complexType>
 
   <complexType name="cdType">
     <sequence>
-      <element name="name" type="launch:cdNameType"/>
-      <element name="claimKey" type="launch:claimKeyType"
-       minOccurs="0" maxOccurs="unbounded"/>
+      <element
+        name="name"
+        type="launch:cdNameType"/>
+      <element
+        name="claimKey"
+        type="launch:claimKeyType"
+        minOccurs="0"
+        maxOccurs="unbounded"/>
     </sequence>
   </complexType>
 
   <complexType name="cdNameType">
     <simpleContent>
       <extension base="eppcom:labelType">
-        <attribute name="exists" type="boolean"
-         use="required"/>
+        <attribute
+          name="exists"
+          type="boolean"
+          use="required"/>
       </extension>
     </simpleContent>
   </complexType>
-  
+
   <complexType name="claimKeyType">
     <simpleContent>
       <extension base="token">
-        <attribute name="validatorID" 
-        type="launch:validatorIDType" use="optional"/>
+        <attribute
+          name="validatorID"
+          type="launch:validatorIDType"
+          use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
-  
-  <!--
-  <info> response elements
-  -->
+
+  <!-- <info> response elements -->
   <complexType name="infDataType">
     <sequence>
-      <element name="phase" type="launch:phaseType"/>
-     <element name="applicationID" 
-      type="launch:applicationIDType" 
-      minOccurs="0"/>
-     <element name="status" type="launch:statusType" 
-      minOccurs="0"/>
-      <element ref="mark:abstractMark"
-      minOccurs="0" maxOccurs="unbounded"/>
+      <element
+        name="phase"
+        type="launch:phaseType"/>
+      <element
+        name="applicationID"
+        type="launch:applicationIDType"
+        minOccurs="0"/>
+      <element
+        name="status"
+        type="launch:statusType"
+        minOccurs="0"/>
+      <element
+        ref="mark:abstractMark"
+        minOccurs="0"
+        maxOccurs="unbounded"/>
     </sequence>
   </complexType>
-    
+
 </schema>
 END]]></artwork>
       </figure>
@@ -2520,7 +2559,7 @@ END]]></artwork>
       considerations described in these other specifications apply to this
       specification as well.</t>
 
-      <t>Updates to, and deletion of an application object must be restricted
+      <t>Updates to, and deletion of an application object MUST be restricted
       to clients authorized to perform the said operation on the object.</t>
 
       <t>Information contained within an application, or even the mere fact
@@ -2567,6 +2606,7 @@ END]]></artwork>
     <references title="Normative References">       
       &RFC2119;
       &RFC3688;
+      &RFC5646;
       &RFC5730;
       &RFC5731;
       &RFC7942;
@@ -2828,6 +2868,65 @@ END]]></artwork>
           <t>Made small change in the description of the Create Response in section 3.3.5.</t>
           <t>Updated the Registrant Contact in section 7 to the IESG.</t>
         </list></t>
+      </list></t>
+    </section>    
+    <section title="Change from REGEXT 06 to REGEXT 07" anchor="version-WG06-to-WG07">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Mirja Kuhlewind that include:
+        <list style="numbers">
+          <t>In the Security Considerations section, change must to MUST in 
+          "Updates to, and deletion of an application object MUST be restricted to clients authorized to perform the said operation on the object".</t>
+        </list></t>
+        <t>Updates based on feedback from Warren Kumari that include:
+        <list style="numbers">
+          <t>Removed the comma from "The Validator Identifier is the identifier, that is unique..." not needed due to change from Harald Alvestrand's feedback.</t>
+        </list></t>
+        <t>Updates based on feedback from Alexey Melnikov that include:
+        <list style="numbers">
+          <t>Added a Normative Reference to RFC 5646 for the "language" attribute.</t>
+          <t>Replace identifer with identifier".</t>
+          <t>Remove "for" in "Enumeration of for launch phase values"</t>
+        </list></t>
+        <t>Updates based on feedback from Harald Alvestrand that include:
+        <list style="numbers">
+          <t>Removed the references to the unused "launch-1.0", "signedMark-1.0", and "mark-1.0" abbreviations and revised the 
+          XML namespace prefix definitions for "launch", "smd", and "mark".</t>
+          <t>Replace "that is unique to the server" to "unique to the server" in the Validator Identifier section.</t>
+          <t>Replaced ", including the "allocated" and "rejected" statuses" with "("allocated" and "rejected")" in the Status Values section.</t>
+          <t>Replaced "Is a possible end state" with "This is a possible end state" in the definition of the "allocated" and "rejected" statuses in the Status Values section.</t>
+          <t>Add the preamble "The transitions between the states is a matter of server policy.  This diagram defines one possible set of permitted transitions." to the State Transition diagram.</t>
+          <t>Split the first sentence of the Poll Messaging section into two sentences, one for the Launch Application and one for the Launch Registration.</t>
+          <t>Remove "either" and replace "or" with an "and" in the first sentence of the Digital Signature section for clarity and to be more consistent with the description of the "signed mark" validation model.</t>
+        </list></t>
+        <t>Updates based on feedback from Ben Campbell that include:
+        <list style="numbers">
+          <t>Replacement of "that" with "which" in the first sentence of the Validator Identifier section not needed due change from Harald Alvestrand's feedback.</t>
+          <t>Avoid using RFC 2119 in the Launch Phases definitions, which resulted in change MAY to may in the definition of the "open" phase and MUST to must in the definition of the "claims" phase.</t>
+          <t>Change "SHOULD" to "should" in the sentence "For example, the &lt;launch:phase&gt; element SHOULD be &lt;launch:phase name="landrush"&gt;claims&lt;/launch:phase&gt;".</t>  
+          <t>Change "MUST" to "must" in the sentence "The Trademark Claims Phase is when a Claims Notice MUST be displayed to a prospective registrant of a domain name that matches trademarks".</t>
+          <t>Change "MAY" to "may" in the sentence "Claim Notice Information Service (CNIS), which MAY be directly linked to a Trademark Validator.", where MAY can be lowercase may".</t>
+          <t>Remove "that" from the sentence "The &lt;launch:codeMark&gt; element that is used by the "code", "mark", and "code with mark" validation models, has the following child elements".</t>
+          <t>Added the consistent use of colons ":" at the end of the hangText labels to address adding whitespace between handing indent list entries.</t>
+          <t>Revised the first sentence, of the second paragraph, of the "EPP &lt;update&gt; Command" section, to read "An EPP &lt;update&gt; command with the extension sent to a server that does not support launch applications will fail.".</t>
+          <t>Revised the "The server SHOULD NOT use the "custom" status value" to "The server SHOULD use one of the non-"custom" status values" in the Status Values section.</t>  
+          <t>Revised "Both the Validator Identifier and the Issuer Identifier used MUST be unique" to "Both the Validator Identifier and the Issuer Identifier used MUST be unique in the server" in the Validator Identifier section.</t>
+          <t>Revised "The Validator Identifier MAY define a non-Trademark Validator that supports a form of claims" to "The Validator Identifier may define a non-Trademark Validator that supports a form of claims, where claims and a Validator Identifier can be used for purposes beyond trademarks" in the Validator Identifier section.</t>
+        </list></t>
+        <t>Updates based on feedback from Eric Rescoria that include:
+        <list style="numbers">
+          <t>Replaced the duplicate Claims Check Form and Claims Create Form in the list of the two ways the document supports the Trademark Claims Phase, to refer to the section by number instead of by name.</t>
+          <t>Added "The use of "..." is used as shorthand for elements defined outside this document" added to the "In examples,..." paragraph of the Conventions Used in This Document section.</t>
+          <t>Added "When using digital signatures the server MUST validate the digital signature" to the Digital Signature section.</t>
+          <t>Removed "post-launch" to the description of the "open" phase in the Launch Phases section.</t>
+        </list></t>  
+        <t>Updates based on feedback from Spencer Dawkins that include:
+        <list style="numbers">
+          <t>Replace "during their initial launch" with "as they begin operation" in the Introduction section.</t>
+        </list></t>        
+        <t>Updates based on feedback from Sabrina Tanamal that include:
+        <list style="numbers">
+          <t>Pretty print the XML schema to address inconsistent indenting.</t>
+        </list></t>        
       </list></t>
     </section>    
    </section>
