@@ -5,10 +5,10 @@
 Internet Engineering Task Force                                 J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                  W. Tan
-Expires: June 14, 2018                                    Cloud Registry
+Expires: June 15, 2018                                    Cloud Registry
                                                                 G. Brown
                                                           CentralNic Ltd
-                                                       December 11, 2017
+                                                       December 12, 2017
 
 
   Launch Phase Mapping for the Extensible Provisioning Protocol (EPP)
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 14, 2018.
+   This Internet-Draft will expire on June 15, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould, et al.             Expires June 14, 2018                 [Page 1]
+Gould, et al.             Expires June 15, 2018                 [Page 1]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Gould, et al.             Expires June 14, 2018                 [Page 2]
+Gould, et al.             Expires June 15, 2018                 [Page 2]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -150,7 +150,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
      A.26. Change from REGEXT 04 to REGEXT 05  . . . . . . . . . . .  66
      A.27. Change from REGEXT 05 to REGEXT 06  . . . . . . . . . . .  67
      A.28. Change from REGEXT 06 to REGEXT 07  . . . . . . . . . . .  67
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  69
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  70
 
 1.  Introduction
 
@@ -165,7 +165,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                 [Page 3]
+Gould, et al.             Expires June 15, 2018                 [Page 3]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -174,6 +174,11 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
    they begin operation to facilitate allocation of domain names, often
    according to special rules.  This document uses the term "launch
    phase" and the shorter form "launch" to refer to such a period.
+   Multiple launch phases and multiple models are supported to enable
+   the launch of a domain name registry.  What is supported and what is
+   validated is up to server policy.  Communication of the server policy
+   is typically performed using an out-of-band mechanism that is not
+   specified in this document.
 
    The EPP domain name mapping [RFC5731] is designed for the steady-
    state operation of a registry.  During a launch period, the model in
@@ -212,20 +217,21 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
    A Launch Registration is a domain name registration during a launch
    phase when the server uses a "first-come, first-served" model.  Only
+
+
+
+
+Gould, et al.             Expires June 15, 2018                 [Page 4]
+
+Internet-Draft        Launch Phase Mapping for EPP         December 2017
+
+
    a single registration for a domain name can exist in the server at a
    time.
 
    A Launch Application represents the intent to register a domain name
    during a launch phase when the server accepts multiple applications
    for a domain name and the server later selects one of the
-
-
-
-Gould, et al.             Expires June 14, 2018                 [Page 4]
-
-Internet-Draft        Launch Phase Mapping for EPP         December 2017
-
-
    applications to allocate as a registration.  Many Launch Applications
    for a domain name can exist in the server at a time.
 
@@ -268,20 +274,20 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
    The Validator Identifier is the identifier unique to the server, for
    a Trademark Validator that validates marks and has a repository of
    validated marks.  The OPTIONAL "validatorID" attribute is used to
+
+
+
+Gould, et al.             Expires June 15, 2018                 [Page 5]
+
+Internet-Draft        Launch Phase Mapping for EPP         December 2017
+
+
    define the Validator Identifier of the Trademark Validator.
    Registries MAY support more than one Third Party Trademark Validator.
    The unique set of Validator Identifier values supported by the server
    is up to server policy.  The Internet Corporation for Assigned Names
    and Numbers (ICANN) Trademark Clearinghouse (TMCH) is the default
    Trademark Validator and is reserved the Validator Identifier of
-
-
-
-Gould, et al.             Expires June 14, 2018                 [Page 5]
-
-Internet-Draft        Launch Phase Mapping for EPP         December 2017
-
-
    "tmch".  If the ICANN TMCH is not used or multiple Trademark
    Validators are used, the Validator Identifier MUST be defined using
    the "validatorID" attribute.
@@ -325,18 +331,18 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
    custom:  A custom server launch phase that is defined using the
       "name" attribute.
 
+
+
+Gould, et al.             Expires June 15, 2018                 [Page 6]
+
+Internet-Draft        Launch Phase Mapping for EPP         December 2017
+
+
    For extensibility, the <launch:phase> element includes an OPTIONAL
    "name" attribute that can define a sub-phase, or the full name of the
    phase when the <launch:phase> element has the "custom" value.  For
    example, the "claims" launch phase could have two sub-phases that
    include "landrush" and "open".
-
-
-
-Gould, et al.             Expires June 14, 2018                 [Page 6]
-
-Internet-Draft        Launch Phase Mapping for EPP         December 2017
-
 
    Launch phases MAY overlap to support the "claims" launch phase,
    defined in the Section 2.3.1, and to support a traditional "landrush"
@@ -383,13 +389,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-
-
-
-
-
-
-Gould, et al.             Expires June 14, 2018                 [Page 7]
+Gould, et al.             Expires June 15, 2018                 [Page 7]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                 [Page 8]
+Gould, et al.             Expires June 15, 2018                 [Page 8]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                 [Page 9]
+Gould, et al.             Expires June 15, 2018                 [Page 9]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 10]
+Gould, et al.             Expires June 15, 2018                [Page 10]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 11]
+Gould, et al.             Expires June 15, 2018                [Page 11]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -669,7 +669,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 12]
+Gould, et al.             Expires June 15, 2018                [Page 12]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -725,7 +725,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 13]
+Gould, et al.             Expires June 15, 2018                [Page 13]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -781,7 +781,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 14]
+Gould, et al.             Expires June 15, 2018                [Page 14]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -837,7 +837,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 15]
+Gould, et al.             Expires June 15, 2018                [Page 15]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -893,7 +893,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 16]
+Gould, et al.             Expires June 15, 2018                [Page 16]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -949,7 +949,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 17]
+Gould, et al.             Expires June 15, 2018                [Page 17]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 18]
+Gould, et al.             Expires June 15, 2018                [Page 18]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 19]
+Gould, et al.             Expires June 15, 2018                [Page 19]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 20]
+Gould, et al.             Expires June 15, 2018                [Page 20]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 21]
+Gould, et al.             Expires June 15, 2018                [Page 21]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 22]
+Gould, et al.             Expires June 15, 2018                [Page 22]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 23]
+Gould, et al.             Expires June 15, 2018                [Page 23]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 24]
+Gould, et al.             Expires June 15, 2018                [Page 24]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 25]
+Gould, et al.             Expires June 15, 2018                [Page 25]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 26]
+Gould, et al.             Expires June 15, 2018                [Page 26]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 27]
+Gould, et al.             Expires June 15, 2018                [Page 27]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 28]
+Gould, et al.             Expires June 15, 2018                [Page 28]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 29]
+Gould, et al.             Expires June 15, 2018                [Page 29]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 30]
+Gould, et al.             Expires June 15, 2018                [Page 30]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1733,7 +1733,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 31]
+Gould, et al.             Expires June 15, 2018                [Page 31]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1789,7 +1789,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 32]
+Gould, et al.             Expires June 15, 2018                [Page 32]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1845,7 +1845,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 33]
+Gould, et al.             Expires June 15, 2018                [Page 33]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1901,7 +1901,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 34]
+Gould, et al.             Expires June 15, 2018                [Page 34]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -1957,7 +1957,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 35]
+Gould, et al.             Expires June 15, 2018                [Page 35]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2013,7 +2013,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 36]
+Gould, et al.             Expires June 15, 2018                [Page 36]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2069,7 +2069,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 37]
+Gould, et al.             Expires June 15, 2018                [Page 37]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2125,7 +2125,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 38]
+Gould, et al.             Expires June 15, 2018                [Page 38]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2181,7 +2181,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 39]
+Gould, et al.             Expires June 15, 2018                [Page 39]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2237,7 +2237,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 40]
+Gould, et al.             Expires June 15, 2018                [Page 40]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2293,7 +2293,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 41]
+Gould, et al.             Expires June 15, 2018                [Page 41]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2349,7 +2349,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 42]
+Gould, et al.             Expires June 15, 2018                [Page 42]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2405,7 +2405,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 43]
+Gould, et al.             Expires June 15, 2018                [Page 43]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2461,7 +2461,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 44]
+Gould, et al.             Expires June 15, 2018                [Page 44]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2517,7 +2517,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 45]
+Gould, et al.             Expires June 15, 2018                [Page 45]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2573,7 +2573,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 46]
+Gould, et al.             Expires June 15, 2018                [Page 46]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2629,7 +2629,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 47]
+Gould, et al.             Expires June 15, 2018                [Page 47]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2685,7 +2685,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 48]
+Gould, et al.             Expires June 15, 2018                [Page 48]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2741,7 +2741,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 49]
+Gould, et al.             Expires June 15, 2018                [Page 49]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2797,7 +2797,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 50]
+Gould, et al.             Expires June 15, 2018                [Page 50]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2853,7 +2853,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 51]
+Gould, et al.             Expires June 15, 2018                [Page 51]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2909,7 +2909,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 52]
+Gould, et al.             Expires June 15, 2018                [Page 52]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -2965,7 +2965,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 53]
+Gould, et al.             Expires June 15, 2018                [Page 53]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3021,7 +3021,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 54]
+Gould, et al.             Expires June 15, 2018                [Page 54]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3077,7 +3077,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 55]
+Gould, et al.             Expires June 15, 2018                [Page 55]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3133,7 +3133,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 56]
+Gould, et al.             Expires June 15, 2018                [Page 56]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3189,7 +3189,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 57]
+Gould, et al.             Expires June 15, 2018                [Page 57]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3245,7 +3245,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 58]
+Gould, et al.             Expires June 15, 2018                [Page 58]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3273,11 +3273,13 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
    Jeff Eckhaus, and Will Shorter.
 
    Special suggestions that have been incorporated into this document
-   were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Scott
-   Hollenbeck, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac,
-   Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek,
-   James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-
-   Fischer, Trung Tran, Ulrich Wisser and Sharon Wodjenski.
+   were provided by Harald Alvestrand, Ben Campbell, Spencer Dawkins,
+   Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, Michael
+   Holloway, Jan Jansen, Rubens Kuhl, Mirja Kuhlewind, Warren Kumari,
+   Ben Levac, Gustavo Lozano, Klaus Malorny, Alexander Mayrhofer, Alexey
+   Melnikov, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike
+   O'Connell, Eric Rescoria, Bernhard Reutner-Fischer, Sabrina Tanamal,
+   Trung Tran, Ulrich Wisser and Sharon Wodjenski.
 
    Some of the description of the Trademark Claims Phase was based on
    the work done by Gustavo Lozano in the ICANN TMCH functional
@@ -3299,9 +3301,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-
-
-Gould, et al.             Expires June 14, 2018                [Page 59]
+Gould, et al.             Expires June 15, 2018                [Page 59]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3357,7 +3357,7 @@ A.2.  Change from 01 to 02
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 60]
+Gould, et al.             Expires June 15, 2018                [Page 60]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3413,7 +3413,7 @@ A.5.  Change from 04 to 05
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 61]
+Gould, et al.             Expires June 15, 2018                [Page 61]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3469,7 +3469,7 @@ A.9.  Change from 08 to 09
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 62]
+Gould, et al.             Expires June 15, 2018                [Page 62]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3525,7 +3525,7 @@ A.10.  Change from 09 to 10
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 63]
+Gould, et al.             Expires June 15, 2018                [Page 63]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3581,7 +3581,7 @@ A.15.  Change EPPEXT 01 to EPPEXT 02
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 64]
+Gould, et al.             Expires June 15, 2018                [Page 64]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3637,7 +3637,7 @@ A.20.  Change EPPEXT 06 to EPPEXT 07
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 65]
+Gould, et al.             Expires June 15, 2018                [Page 65]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3693,7 +3693,7 @@ A.26.  Change from REGEXT 04 to REGEXT 05
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 66]
+Gould, et al.             Expires June 15, 2018                [Page 66]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3749,7 +3749,7 @@ A.28.  Change from REGEXT 06 to REGEXT 07
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 67]
+Gould, et al.             Expires June 15, 2018                [Page 67]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3805,7 +3805,7 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-Gould, et al.             Expires June 14, 2018                [Page 68]
+Gould, et al.             Expires June 15, 2018                [Page 68]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
@@ -3840,6 +3840,13 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
            the digital signature" to the Digital Signature section.
        4.  Removed "post-launch" to the description of the "open" phase
            in the Launch Phases section.
+       5.  Add the sentences "Multiple launch phases and multiple models
+           are supported to enable the launch of a domain name registry.
+           What is supported and what is validated is up to server
+           policy.  Communication of the server policy is typically
+           performed using an out-of-band mechanism that is not
+           specified in this document." to the second paragraph of the
+           Introduction section.
    7.  Updates based on feedback from Spencer Dawkins that include:
 
        1.  Replace "during their initial launch" with "as they begin
@@ -3849,22 +3856,17 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
        1.  Pretty print the XML schema to address inconsistent
            indenting.
 
-Authors' Addresses
 
 
 
 
 
-
-
-
-
-
-
-Gould, et al.             Expires June 14, 2018                [Page 69]
+Gould, et al.             Expires June 15, 2018                [Page 69]
 
 Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
+
+Authors' Addresses
 
    James Gould
    VeriSign, Inc.
@@ -3915,6 +3917,4 @@ Internet-Draft        Launch Phase Mapping for EPP         December 2017
 
 
 
-
-
-Gould, et al.             Expires June 14, 2018                [Page 70]
+Gould, et al.             Expires June 15, 2018                [Page 70]

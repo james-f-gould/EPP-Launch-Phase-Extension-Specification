@@ -130,7 +130,7 @@
       </address>
     </author>
 
-    <date day="11" month="December" year="2017"/>
+    <date day="12" month="December" year="2017"/>
 
     <!-- Meta-data Declarations -->
 
@@ -159,7 +159,9 @@
       <t>It is typical for domain registries to operate in special modes as they begin operation 
       to facilitate allocation of domain names, often according
       to special rules. This document uses the term "launch phase" and the shorter form
-      "launch" to refer to such a period.</t>
+      "launch" to refer to such a period.  Multiple launch phases and multiple models are supported to enable the launch of a domain name registry.  
+      What is supported and what is validated is up to server policy. 
+      Communication of the server policy is typically performed using an out-of-band mechanism that is not specified in this document.</t>
 
       <t>The <xref target="RFC5731">EPP domain name mapping</xref> is designed
       for the steady-state operation of a registry. During a launch period, the
@@ -2578,8 +2580,10 @@ END]]></artwork>
       changes to this document, which include Chris Wright, Jeff Neuman, 
       Jeff Eckhaus, and Will Shorter.</t>
       <t>Special suggestions that have been incorporated into this document 
-      were provided by Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, Michael Holloway, Jan Jansen, Rubens Kuhl, Ben Levac, Gustavo Lozano,
-      Klaus Malorny, Alexander Mayrhofer, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, Bernhard Reutner-Fischer, Trung Tran,  
+      were provided by Harald Alvestrand, Ben Campbell, Spencer Dawkins, Jothan Frakes, Keith Gaughan, Seth Goldman, Scott Hollenbeck, 
+      Michael Holloway, Jan Jansen, Rubens Kuhl, Mirja Kuhlewind, Warren Kumari, Ben Levac, Gustavo Lozano,
+      Klaus Malorny, Alexander Mayrhofer, Alexey Melnikov, Patrick Mevzek, James Mitchell, Francisco Obispo, Mike O'Connell, 
+      Eric Rescoria, Bernhard Reutner-Fischer, Sabrina Tanamal, Trung Tran,  
       Ulrich Wisser and Sharon Wodjenski.</t>
       <t>Some of the description of the Trademark Claims Phase was based on the work done by 
       Gustavo Lozano in the ICANN TMCH functional specifications.</t>
@@ -2918,6 +2922,7 @@ END]]></artwork>
           <t>Added "The use of "..." is used as shorthand for elements defined outside this document" added to the "In examples,..." paragraph of the Conventions Used in This Document section.</t>
           <t>Added "When using digital signatures the server MUST validate the digital signature" to the Digital Signature section.</t>
           <t>Removed "post-launch" to the description of the "open" phase in the Launch Phases section.</t>
+          <t>Add the sentences "Multiple launch phases and multiple models are supported to enable the launch of a domain name registry. What is supported and what is validated is up to server policy. Communication of the server policy is typically performed using an out-of-band mechanism that is not specified in this document." to the second paragraph of the Introduction section.</t>
         </list></t>  
         <t>Updates based on feedback from Spencer Dawkins that include:
         <list style="numbers">
