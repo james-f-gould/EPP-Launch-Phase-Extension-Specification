@@ -140,6 +140,8 @@ Original:
 
 Perhaps:
    Server policy determines what is supported and validated. 
+   
+JG - This is fine.
 -->
 
 
@@ -151,7 +153,7 @@ Perhaps:
       model in place may be different from what is defined in
       the <xref target="RFC5731">EPP domain name mapping</xref>. For example,
       registries often accept multiple applications for the same domain name during
-      the "Sunrise" launch phase, referred to as a Launch Application.  A Launch
+      the "sunrise" launch phase, referred to as a Launch Application.  A Launch
       Registration refers to a registration made during a launch phase when the
       server uses a "first-come, first-served" model.  Even in a "first-come,
       first-served" model, additional steps and information might be required, such as trademark information. In addition, 
@@ -234,6 +236,9 @@ Original:
 
    This extension adds additional elements to the EPP domain name
    mapping [RFC5731].  Only those new elements are described here.
+   
+JG - This is standard language used for the Object Attributes section 
+of RFC 3915 and RFC 5910, so I would leave it as is.
 -->
 
       <t>This extension adds additional elements to the <xref
@@ -268,6 +273,8 @@ Perhaps:
 The Validator Identifier is unique to the server and is the
 identifier for a Trademark Validator, which validates marks and has
 a repository of validated marks.
+
+JG - This is fine.
 -->
 
         <t>The Validator Identifier is the identifier unique to the server, for a Trademark Validator that validates marks and has a repository of validated marks.  The OPTIONAL "validatorID" attribute is used to define the Validator Identifier of the Trademark Validator.  
@@ -318,6 +325,8 @@ These are the definitions per RFC 5730:
 
 c) no changes are needed
 
+JG - I added <xref target="RFC5730"/> after each result code in the document
+to address this.
 -->
 
         <t>The server MAY support multiple launch phases sequentially or
@@ -325,7 +334,7 @@ c) no changes are needed
         the client to define the target launch phase of the command.  
         The server SHOULD validate the phase and MAY validate the sub-phase of the &lt;launch:phase&gt; element 
         against the active phase and OPTIONAL sub-phase of the server, 
-        and return an EPP error result code of 2306 if there is a mismatch.</t>
+        and return an EPP error result code of 2306 <xref target="RFC5730"/> if there is a mismatch.</t>
 
         <t>The following launch phase values are defined: <list
             style="hanging">
@@ -333,13 +342,13 @@ c) no changes are needed
             registrations or applications with trademark information that can be
             validated by the server.</t>
 
-            <t hangText="landrush:">A post-Sunrise phase when non-trademark
+            <t hangText="landrush:">A post-"sunrise" launch phase when non-trademark
             holders are allowed to register domain names with steps taken 
             to address a large volume of initial registrations.</t>
 
             <t hangText="claims:">The phase, as defined in  
             <xref target="claimsPhase"/>, in which a 
-            Claims Notice must be displayed to a prospective registrant of a domain
+            claims notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.</t>
             
             <t hangText="open:">A phase that is also referred to as
@@ -365,13 +374,13 @@ c) no changes are needed
         </t>
         
         <section anchor="claimsPhase" title="Trademark Claims Phase">
-          <t>The Trademark Claims Phase is when a Claims Notice must be displayed to a prospective registrant of a domain
+          <t>The Trademark Claims Phase is when a claims notice must be displayed to a prospective registrant of a domain
             name that matches trademarks.  See <xref target="ICANN-TMCH"/> for additional details of trademark claims handling.  
             The source of the trademarks is a Trademark Validator, and the source 
-            of the Claims Notice information is a Claim Notice Information Service (CNIS), which may be directly 
+            of the claims notice information is a Claims Notice Information Service (CNIS), which may be directly 
             linked to a Trademark Validator.  The client interfaces with 1) the server to determine if a trademark exists 
-            for a domain name, 2) a CNIS to get the Claims Notice information, 
-            and 3) the server to pass the Claims Notice acceptance information in a create command.
+            for a domain name, 2) a CNIS to get the claims notice information, 
+            and 3) the server to pass the claims notice acceptance information in a create command.
             This document supports the Trademark Claims Phase in two ways, including:</t>
 
          <t><list style="hanging">
@@ -383,7 +392,7 @@ c) no changes are needed
           as the basis for retrieving the claims information.</t>
 
           <t hangText="Claims Create Form:">Is defined in <xref target="claimsCreateForm"/> and is used to 
-          pass the Claims Notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) 
+          pass the claims notice acceptance information in a create command.  The notice identifier (&lt;launch:noticeID&gt;) 
           format, validation rules, and server processing is up to the interface between the server and the Trademark Validator.  
           The CNIS associated with the <xref target="validatorID">Validator Identifier</xref> 
           MUST generate a notice identifier compliant with the &lt;launch:noticeID&gt; element.</t>
@@ -564,11 +573,16 @@ Both a Launch Application and a Launch Registration MUST be handled
 as an EPP domain name object as specified in RFC 5731 [RFC5731], 
 with the "pendingCreate" status and the launch status values 
 defined in Section 2.4. 
+
+
+JG - I changed the second sentence to use a MAY instead of a MUST.  Since this 
+is a normative change, the working group needs to approve of it.  The sentences 
+should stay separate.  I've made the normative change in this version.
 -->
 
         <t>A Launch Application MUST be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref>, with the 
         "pendingCreate" status and launch status values defined in <xref target="statuses"/>.  
-        A Launch Registration MUST be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref>, with the 
+        A Launch Registration MAY be handled as an EPP domain name object as specified in <xref target="RFC5731">RFC 5731</xref>, with the 
         "pendingCreate" status and launch status values defined in <xref target="statuses"/>.   
         As a Launch Application or Launch Registration transitions between the status values 
         defined in <xref target="statuses"/>, the server SHOULD insert poll messages, per <xref target="RFC5730"/>,
@@ -836,9 +850,12 @@ descriptive word perhaps work better, such as EPP 'commands', 'elements', or
 Original:
 Operations on application objects are done via one or more of the
 existing EPP verbs defined in the EPP domain name mapping [RFC5731].
+
+JG - Yes 'verbs' can be changed to 'commands'.  I went ahead and made the 
+change in this document.
 -->
       <t>Operations on application objects are done via one or more of the
-      existing EPP verbs defined in the <xref target="RFC5731">EPP domain name
+      existing EPP commands defined in the <xref target="RFC5731">EPP domain name
       mapping</xref>. Registries MAY choose to support a subset of the
       operations.</t>
 
@@ -852,7 +869,7 @@ existing EPP verbs defined in the EPP domain name mapping [RFC5731].
        "avail" for the <xref target="availCheckForm">Availability Check Form</xref>, 
        and "trademark" for the <xref target="trademarkCheckForm">Trademark Check Form</xref>.  
        The default value of the "type" attribute is "claims".  The forms supported by the server is determined by server policy.  
-       The server MUST return an EPP error result code of 2307 
+       The server MUST return an EPP error result code of 2307 <xref target="RFC5730"/>
        if it receives a check form that is not supported.</t>  
        
        <section anchor="claimsCheckForm" title="Claims Check Form">
@@ -952,7 +969,7 @@ C:</epp>]]></artwork>
             as the key for the query in place of the domain name 
             to securely query the service without using a well-known 
             value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
-            whose value indicates which Trademark Validator to query for the Claims Notice information, with 
+            whose value indicates which Trademark Validator to query for the claims notice information, with 
             the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifier to support 
             other forms of claims notices.</t>  
               </list></t>
@@ -976,6 +993,7 @@ Perhaps:
    "tmch", and is required for the domain name domain3.example in the "tmch"
    and "custom-tmch":
 
+JG - That is fine.
 -->
             <preamble>The following is an example Claims Check response when a
 	    claims notice is not required for the domain name domain1.example, 
@@ -1044,7 +1062,7 @@ S:</epp>]]></artwork>
           <t><list hangIndent="4" style="hanging">
               <t hangText="&lt;launch:phase&gt;:">The launch phase to which 
               domain name availability should be determined.  The server SHOULD validate 
-              the value and return an EPP error result code of 2306 if it is invalid.</t>
+              the value and return an EPP error result code of 2306 <xref target="RFC5730"/> if it is invalid.</t>
             </list></t>
           <figure>
             <preamble>The following is an example Availability Check Form Command using the &lt;check&gt;
@@ -1165,7 +1183,7 @@ C:</epp>]]></artwork>
             as the key for the query in place of the domain name 
             to securely query the service without using a well-known 
             value like a domain name.  The OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> 
-            whose value indicates which Trademark Validator to query for the Claims Notice information, with 
+            whose value indicates which Trademark Validator to query for the claims notice information, with 
             the default being the ICANN TMCH.  The "validatorID" attribute MAY reference a non-trademark claims clearinghouse identifier to support 
             other forms of claims notices.</t>  
               </list></t>
@@ -1189,6 +1207,8 @@ Perhaps:
    domain1.example, matching trademarks are found for the domain name
    domain2.example in the "tmch", and matching trademarks are found for domain 
    name domain3.example in the "tmch" and "custom-tmch":
+   
+JG - That is fine.   
 -->
 
 
@@ -1249,7 +1269,7 @@ S:</epp>]]></artwork>
         <xref target="RFC5731">EPP domain name mapping</xref>.</t>
         
         <t>The EPP &lt;info&gt; command is used to retrieve information 
-        for a launch phase registration or application.  The <xref target="applicationID">Application Identifier</xref> 
+        for a Launch Registration or Launch Application.  The <xref target="applicationID">Application Identifier</xref> 
         returned in the &lt;launch:creData&gt; element of the <xref target="createCommand">create response</xref> 
         can be used for retrieving information for a Launch Application.  A &lt;launch:info&gt; element
         is sent along with the regular &lt;info&gt; domain command. The &lt;launch:info&gt; element includes 
@@ -1262,7 +1282,7 @@ S:</epp>]]></artwork>
               <t hangText="&lt;launch:phase&gt;:">The phase during which the
               application or registration was submitted or is associated with. 
               Server policy defines the phases that are supported.  The server SHOULD validate 
-              the value and return an EPP error result code of 2306 if it is invalid.</t>
+              the value and return an EPP error result code of 2306 <xref target="RFC5730"/> if it is invalid.</t>
 
               <t hangText="&lt;launch:applicationID&gt;:">OPTIONAL application
               identifier of the Launch Application.</t>
@@ -1422,7 +1442,7 @@ S:</epp>]]></artwork>
 
             <t hangText="claims:">The EPP &lt;create&gt; command with the
             "claims" launch phase is used to pass the information associated 
-            with the presentation and acceptance of the Claims Notice.  The 
+            with the presentation and acceptance of the claims notice.  The 
             <xref target="claimsCreateForm">Claims Create Form</xref> is used, 
             and the <xref target="generalCreateForm">
             General Create Form</xref> MAY be used
@@ -1432,7 +1452,7 @@ S:</epp>]]></artwork>
             "open" launch phase is undefined, but the form supported is up to server
             policy.  The <xref target="claimsCreateForm">Claims Create Form</xref> MAY 
             be used to pass the information associated with the presentation 
-            and acceptance of the Claims Notice if required for the domain name.</t>
+            and acceptance of the claims notice if required for the domain name.</t>
 
             <t hangText="custom:">The EPP &lt;create&gt; command with the
             "custom" launch phase is undefined, but the form supported is up to server
@@ -1461,13 +1481,16 @@ the server uses to match against the domain name to authorize the
 Domain Create Command. A server MUST support one of four models in
 "Mark Validation Models" (Section 2.6) to verify the trademark 
 information passed by the client.
+
+JG - Yes, it should be "Mark Validation Models" instead of "Claim Validation Models". 
+I went ahead and made the change.  
 -->
           <t>The Sunrise Create Form of the extension to the <xref
           target="RFC5731">EPP domain name mapping</xref> includes the
           verifiable trademark information that the server uses to match
           against the domain name to authorize the domain create. A server
           MUST support one of four models in <xref
-          target="validationModels">Claim Validation Models</xref> to 
+          target="validationModels">Mark Validation Models</xref> to 
           verify the trademark information passed by the client.</t>
 
           <t>A &lt;launch:create&gt; element is sent along with the regular
@@ -1475,7 +1498,7 @@ information passed by the client.
         has an OPTIONAL "type" attribute that defines the expected type of object 
         ("application" or "registration") to create.  The server SHOULD validate the 
         "type" attribute, when passed, against the type of object that will be created, 
-        and return an EPP error result code of 2306 if the type is incorrect.  
+        and return an EPP error result code of 2306 <xref target="RFC5730"/> if the type is incorrect.  
           The &lt;launch:create&gt; element
           contains the following child elements:</t>
 
@@ -1711,14 +1734,14 @@ C:</epp>]]></artwork>
         <section anchor="claimsCreateForm" title="Claims Create Form">
           <t>The Claims Create Form of the extension to the <xref
           target="RFC5731">EPP domain name mapping</xref> includes the
-          information related to the registrant's acceptance of the Claims Notice.</t>
+          information related to the registrant's acceptance of the claims notice.</t>
 
           <t>A &lt;launch:create&gt; element is sent along with the regular
           &lt;create&gt; domain command.  The &lt;launch:create&gt; element 
         has an OPTIONAL "type" attribute that defines the expected type of object 
         ("application" or "registration") to create.  The server SHOULD validate the 
         "type" attribute, when passed, against the type of object that will be created, 
-        and return an EPP error result code of 2306 if the type is incorrect. 
+        and return an EPP error result code of 2306 <xref target="RFC5730"/> if the type is incorrect. 
         The &lt;launch:create&gt; element contains the following child elements:</t>
 
           <t><list hangIndent="4" style="hanging">
@@ -1748,6 +1771,8 @@ indicates which Trademark Validator is the source
 of the claims notice, with the default being
 the ICANN TMCH.
 
+JG - Yes, there are words missing here.  I like your proposal.  I went ahead 
+an incorporated your proposed change.
 -->
               <t><list hangIndent="4" style="hanging">
 <!-- [rfced] Should "attribute is the" be "attribute as the"?
@@ -1758,10 +1783,12 @@ Original:
    (Section 2.2) whose value indicates which Trademark Validator
    is the source of the claims notice, with the default being
    the ICANN TMCH.
+
+JG - I believe this is captured in item #11.   
 -->
             <t hangText="&lt;launch:noticeID&gt;:">Unique notice identifier 
-          for the Claims Notice. The &lt;launch:noticeID&gt; 
-          element has an OPTIONAL "validatorID" attribute is the <xref target="validatorID">Validator Identifier</xref> whose value indicates 
+          for the claims notice. The &lt;launch:noticeID&gt; 
+          element has an OPTIONAL "validatorID" attribute that is used to define the <xref target="validatorID">Validator Identifier</xref>; it's value indicates 
           which Trademark 
           Validator is the source of the claims notice, with the default being the ICANN TMCH.</t>
                 <t hangText="&lt;launch:notAfter&gt;:">Expiry of the claims notice.</t>
@@ -1831,7 +1858,7 @@ C:</epp>]]></artwork>
           expected type of object ("application" or "registration") to create.  
           The server SHOULD validate the "type" attribute, when passed, against 
           the type of object that will be created, and return an EPP error result code of 
-          2306 if the type is incorrect.</t>
+          2306 <xref target="RFC5730"/> if the type is incorrect.</t>
 
           <t>A &lt;launch:create&gt; element is sent along with the regular
           &lt;create&gt; domain command. The &lt;launch:create&gt; element
@@ -1881,7 +1908,7 @@ C:</epp>]]></artwork>
         <t>The Mixed Create Form supports a mix of the create forms where, for example, the 
         <xref target="sunriseCreateForm">Sunrise Create Form</xref> and the <xref target="claimsCreateForm">Claims Create Form</xref> MAY be supported in a single 
         command by including both the verified trademark information and the
-        information related to the registrant's acceptance of the Claims Notice. The server MAY support the Mixed Create Form. 
+        information related to the registrant's acceptance of the claims notice. The server MAY support the Mixed Create Form. 
         The "custom" launch phase SHOULD be used when using the Mixed Create Form.
         </t>
         <figure>
@@ -2001,10 +2028,10 @@ S:</epp>
         &lt;update&gt; command to be used in conjunction with the domain name
         mapping.</t>
 
-        <t>When an EPP &lt;update&gt; command with the extension is sent to a server that does not support launch applications, it will fail.  
-        A server that does not support launch applications during 
+        <t>When an EPP &lt;update&gt; command with the extension is sent to a server that does not support Launch Applications, it will fail.  
+        A server that does not support Launch Applications during 
         its launch phase MUST return an
-        EPP error result code of 2102 when receiving an EPP &lt;update&gt; 
+        EPP error result code of 2102 <xref target="RFC5730"/> when receiving an EPP &lt;update&gt; 
         command with the extension.</t>
 
         <t>Registry policies permitting, clients may update an application
@@ -2015,7 +2042,7 @@ S:</epp>
         <t><list hangIndent="4" style="hanging">
             <t hangText="&lt;launch:phase&gt;:">The phase during which the
             application was submitted or is associated with.  The server SHOULD validate 
-              the value and return an EPP error result code of 2306 if it is invalid.</t>
+              the value and return an EPP error result code of 2306 <xref target="RFC5730"/> if it is invalid.</t>
 
             <t hangText="&lt;launch:applicationID&gt;:">The application
             identifier for which the client wishes to update.</t>
@@ -2076,10 +2103,10 @@ C:</epp>
         mapping.</t>
 
         <t>A client MUST NOT pass the extension on 
-        an EPP &lt;delete&gt; command to a server that does not support launch 
-        applications.  A server that does not support launch applications during 
+        an EPP &lt;delete&gt; command to a server that does not support Launch 
+        Applications.  A server that does not support Launch Applications during 
         its launch phase MUST return an
-        EPP error result code of 2102 when receiving an EPP &lt;delete&gt; 
+        EPP error result code of 2102 <xref target="RFC5730"/> when receiving an EPP &lt;delete&gt; 
         command with the extension.</t>
 
         <t>Registry policies permitting, clients MAY withdraw an application
@@ -2090,7 +2117,7 @@ C:</epp>
         <t><list hangIndent="4" style="hanging">
             <t hangText="&lt;launch:phase&gt;:">The phase during which the
             application was submitted or is associated with.  The server SHOULD validate 
-              the value and return an EPP error result code of 2306 if it is invalid.</t>
+              the value and return an EPP error result code of 2306 <xref target="RFC5730"/> if it is invalid.</t>
 
             <t hangText="&lt;launch:applicationID&gt;:">The application
             identifier for which the client wishes to delete.</t>
@@ -2169,6 +2196,10 @@ including some introductory text, for example:
    following license text.
 
 See RFC 8166 as an example.
+
+JG - There is no requirement to include this copyright notice directly in 
+the source code.  Inclusion of the copyright for the XML schemas is consistent
+with other EPP RFCs like RFC 5930 - 5933. I recommend that we leave it as is. 
 -->
 
       <t>Copyright (c) 2018 IETF Trust and the persons identified as authors
@@ -2234,6 +2265,8 @@ BEGIN
   xmlns:smd="urn:ietf:params:xml:ns:signedMark-1.0"
   xmlns="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified">
+
+JG - That is fine.  I re-verified the examples against the reformatted XML schema to double check the change.
 -->
 
 <!--[rfced] We notice that all attribute names appear in quote marks,
@@ -2247,6 +2280,9 @@ attribute used to extend the phase type.
 Perhaps:
 Definition for launch phase. The "name" attribute is 
 optional and is used to extend the phase type.
+
+JG - That is fine.  I went ahead and made that change and tested the examples 
+against the revised XML schema to double check the change.
 -->
 
       <figure>
@@ -2313,7 +2349,7 @@ BEGIN
   <!-- Definition for launch phase. Name is an
        optional attribute used to extend the phase type.
        For example, when using the phase type value
-       of "custom", the name can be used to specify the
+       of "custom", the "name" can be used to specify the
        custom phase. -->
   <complexType name="phaseType">
     <simpleContent>
@@ -2739,7 +2775,7 @@ Current:
    [W3C.REC-xml11-20060816]
            Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E.,
            Yergeau, F., and J. Cowan, "Extensible Markup Language
-           (XML) 1.1 (Second Edition)", World Wide Web Consortium
+           (XML) 1.1 (Second Edition)", World Wide Web Consortium 
 	      Recommendation REC-xml11-20060816, August 2006,
            <http://www.w3.org/TR/2006/REC-xml11-20060816>.
 -->
@@ -2830,8 +2866,13 @@ consistent.
 
 Claims Notice vs. claims notice
 
+JG - I believe that Claims Notice should only be capitalized when it defining a term or used to emphasize the use of a term.  I believe that 
+Claims Notice should be capitalized when used in Trademark Claims Notice or the Claims Notice Information Service (CNIS).  Other references to Claims Notice can be lowercase.  I took a shot 
+at correcting the Claims Notice / claims notice case in the document.  
+
 "Sunrise" launch phase vs. "sunrise" launch phase vs. Sunrise phase
 
+JG - Since the quoted lower case name followed by launch phase is used elsewhere, it's best to go with "sunrise" launch phase.  I went ahead and made the change.
 -->
 
   </back>

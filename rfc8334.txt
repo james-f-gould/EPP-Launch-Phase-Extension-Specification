@@ -92,7 +92,7 @@ Table of Contents
        3.3.5.  Create Response . . . . . . . . . . . . . . . . . . .  42
      3.4.  EPP <update> Command  . . . . . . . . . . . . . . . . . .  43
      3.5.  EPP <delete> Command  . . . . . . . . . . . . . . . . . .  44
-     3.6.  EPP <renew> Command . . . . . . . . . . . . . . . . . . .  45
+     3.6.  EPP <renew> Command . . . . . . . . . . . . . . . . . . .  46
      3.7.  EPP <transfer> Command  . . . . . . . . . . . . . . . . .  46
    4.  Formal Syntax . . . . . . . . . . . . . . . . . . . . . . . .  46
      4.1.  Launch Schema . . . . . . . . . . . . . . . . . . . . . .  46
@@ -139,7 +139,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    state operation of a registry.  During a launch period, the model in
    place may be different from what is defined in the EPP domain name
    mapping [RFC5731].  For example, registries often accept multiple
-   applications for the same domain name during the "Sunrise" launch
+   applications for the same domain name during the "sunrise" launch
    phase, referred to as a Launch Application.  A Launch Registration
    refers to a registration made during a launch phase when the server
    uses a "first-come, first-served" model.  Even in a "first-come,
@@ -268,8 +268,8 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    client to define the target launch phase of the command.  The server
    SHOULD validate the phase and MAY validate the sub-phase of the
    <launch:phase> element against the active phase and OPTIONAL sub-
-   phase of the server, and return an EPP error result code of 2306 if
-   there is a mismatch.
+   phase of the server, and return an EPP error result code of 2306
+   [RFC5730] if there is a mismatch.
 
    The following launch phase values are defined:
 
@@ -284,12 +284,12 @@ Gould, et al.                Standards Track                    [Page 5]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
-   landrush:  A post-Sunrise phase when non-trademark holders are
-      allowed to register domain names with steps taken to address a
+   landrush:  A post-"sunrise" launch phase when non-trademark holders
+      are allowed to register domain names with steps taken to address a
       large volume of initial registrations.
 
-   claims:  The phase, as defined in Section 2.3.1, in which a Claims
-      Notice must be displayed to a prospective registrant of a domain
+   claims:  The phase, as defined in Section 2.3.1, in which a claims
+      notice must be displayed to a prospective registrant of a domain
       name that matches trademarks.
 
    open:  A phase that is also referred to as "steady state".  Servers
@@ -314,15 +314,15 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 2.3.1.  Trademark Claims Phase
 
-   The Trademark Claims Phase is when a Claims Notice must be displayed
+   The Trademark Claims Phase is when a claims notice must be displayed
    to a prospective registrant of a domain name that matches trademarks.
    See [ICANN-TMCH] for additional details of trademark claims handling.
    The source of the trademarks is a Trademark Validator, and the source
-   of the Claims Notice information is a Claim Notice Information
+   of the claims notice information is a Claims Notice Information
    Service (CNIS), which may be directly linked to a Trademark
    Validator.  The client interfaces with 1) the server to determine if
-   a trademark exists for a domain name, 2) a CNIS to get the Claims
-   Notice information, and 3) the server to pass the Claims Notice
+   a trademark exists for a domain name, 2) a CNIS to get the claims
+   notice information, and 3) the server to pass the claims notice
    acceptance information in a create command.  This document supports
    the Trademark Claims Phase in two ways, including:
 
@@ -345,7 +345,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
       retrieving the claims information.
 
    Claims Create Form:  Is defined in Section 3.3.2 and is used to pass
-      the Claims Notice acceptance information in a create command.  The
+      the claims notice acceptance information in a create command.  The
       notice identifier (<launch:noticeID>) format, validation rules,
       and server processing is up to the interface between the server
       and the Trademark Validator.  The CNIS associated with the
@@ -625,7 +625,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    A Launch Application MUST be handled as an EPP domain name object as
    specified in RFC 5731 [RFC5731], with the "pendingCreate" status and
    launch status values defined in Section 2.4.  A Launch Registration
-   MUST be handled as an EPP domain name object as specified in RFC 5731
+   MAY be handled as an EPP domain name object as specified in RFC 5731
    [RFC5731], with the "pendingCreate" status and launch status values
    defined in Section 2.4.  As a Launch Application or Launch
    Registration transitions between the status values defined in
@@ -972,8 +972,9 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    implementations.
 
    Operations on application objects are done via one or more of the
-   existing EPP verbs defined in the EPP domain name mapping [RFC5731].
-   Registries MAY choose to support a subset of the operations.
+   existing EPP commands defined in the EPP domain name mapping
+   [RFC5731].  Registries MAY choose to support a subset of the
+   operations.
 
 3.1.  EPP <check> Command
 
@@ -986,7 +987,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    the Trademark Check Form (Section 3.1.3).  The default value of the
    "type" attribute is "claims".  The forms supported by the server is
    determined by server policy.  The server MUST return an EPP error
-   result code of 2307 if it receives a check form that is not
+   result code of 2307 [RFC5730] if it receives a check form that is not
    supported.
 
 3.1.1.  Claims Check Form
@@ -1003,7 +1004,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    Instead of returning whether the domain name is available, the Claims
    Check Command will return whether or not at least one matching
-   trademark exists for the domain name, which requires the use of the
 
 
 
@@ -1012,6 +1012,7 @@ Gould, et al.                Standards Track                   [Page 18]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+   trademark exists for the domain name, which requires the use of the
    "Claims Create Form" on a Domain Create Command.  If there is at
    least one matching trademark that exists for the domain name, a
    <launch:claimKey> element is returned.  The client MAY then use the
@@ -1062,7 +1063,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
 
-
 Gould, et al.                Standards Track                   [Page 19]
 
 RFC 8334              Launch Phase Mapping for EPP         February 2018
@@ -1100,7 +1100,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
            query the service without using a well-known value like a
            domain name.  The OPTIONAL "validatorID" attribute is the
            Validator Identifier (Section 2.2) whose value indicates
-           which Trademark Validator to query for the Claims Notice
+           which Trademark Validator to query for the claims notice
            information, with the default being the ICANN TMCH.  The
            "validatorID" attribute MAY reference a non-trademark claims
            clearinghouse identifier to support other forms of claims
@@ -1192,7 +1192,8 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    <launch:phase>:  The launch phase to which domain name availability
        should be determined.  The server SHOULD validate the value and
-       return an EPP error result code of 2306 if it is invalid.
+       return an EPP error result code of 2306 [RFC5730] if it is
+       invalid.
 
    The following is an example Availability Check Form Command using the
    <check> domain command and the <launch:check> extension with the
@@ -1224,7 +1225,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    response of a <check> domain command.  After processing the command,
    the server replies with a standard EPP response as defined in the EPP
    domain name mapping [RFC5731].
-
 
 
 
@@ -1350,7 +1350,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
            domain name.  The OPTIONAL "validatorID" attribute is the
            Validator Identifier (Section 2.2) whose value indicates
-           which Trademark Validator to query for the Claims Notice
+           which Trademark Validator to query for the claims notice
            information, with the default being the ICANN TMCH.  The
            "validatorID" attribute MAY reference a non-trademark claims
            clearinghouse identifier to support other forms of claims
@@ -1460,8 +1460,8 @@ Gould, et al.                Standards Track                   [Page 26]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
-   The EPP <info> command is used to retrieve information for a launch
-   phase registration or application.  The Application Identifier
+   The EPP <info> command is used to retrieve information for a Launch
+   Registration or Launch Application.  The Application Identifier
    (Section 2.1) returned in the <launch:creData> element of the create
    response (Section 3.3) can be used for retrieving information for a
    Launch Application.  A <launch:info> element is sent along with the
@@ -1474,8 +1474,8 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    <launch:phase>:  The phase during which the application or
        registration was submitted or is associated with.  Server policy
        defines the phases that are supported.  The server SHOULD
-       validate the value and return an EPP error result code of 2306 if
-       it is invalid.
+       validate the value and return an EPP error result code of 2306
+       [RFC5730] if it is invalid.
 
    <launch:applicationID>:  OPTIONAL application identifier of the
        Launch Application.
@@ -1650,7 +1650,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    claims:  The EPP <create> command with the "claims" launch phase is
       used to pass the information associated with the presentation and
-      acceptance of the Claims Notice.  The Claims Create Form
+      acceptance of the claims notice.  The Claims Create Form
       (Section 3.3.2) is used, and the General Create Form
       (Section 3.3.3) MAY be used for the "claims" launch phase.
 
@@ -1658,7 +1658,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
       undefined, but the form supported is up to server policy.  The
       Claims Create Form (Section 3.3.2) MAY be used to pass the
       information associated with the presentation and acceptance of the
-      Claims Notice if required for the domain name.
+      claims notice if required for the domain name.
 
    custom:  The EPP <create> command with the "custom" launch phase is
       undefined, but the form supported is up to server policy.
@@ -1668,7 +1668,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    The Sunrise Create Form of the extension to the EPP domain name
    mapping [RFC5731] includes the verifiable trademark information that
    the server uses to match against the domain name to authorize the
-   domain create.  A server MUST support one of four models in Claim
+   domain create.  A server MUST support one of four models in Mark
    Validation Models (Section 2.6) to verify the trademark information
    passed by the client.
 
@@ -1685,9 +1685,9 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
    attribute, when passed, against the type of object that will be
-   created, and return an EPP error result code of 2306 if the type is
-   incorrect.  The <launch:create> element contains the following child
-   elements:
+   created, and return an EPP error result code of 2306 [RFC5730] if the
+   type is incorrect.  The <launch:create> element contains the
+   following child elements:
 
    <launch:phase>:  The identifier for the launch phase.  The server
        SHOULD validate the value according to Section 2.3.
@@ -2001,16 +2001,16 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    The Claims Create Form of the extension to the EPP domain name
    mapping [RFC5731] includes the information related to the
-   registrant's acceptance of the Claims Notice.
+   registrant's acceptance of the claims notice.
 
    A <launch:create> element is sent along with the regular <create>
    domain command.  The <launch:create> element has an OPTIONAL "type"
    attribute that defines the expected type of object ("application" or
    "registration") to create.  The server SHOULD validate the "type"
    attribute, when passed, against the type of object that will be
-   created, and return an EPP error result code of 2306 if the type is
-   incorrect.  The <launch:create> element contains the following child
-   elements:
+   created, and return an EPP error result code of 2306 [RFC5730] if the
+   type is incorrect.  The <launch:create> element contains the
+   following child elements:
 
 
 
@@ -2029,12 +2029,12 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
 
-       <launch:noticeID>:  Unique notice identifier for the Claims
-           Notice.  The <launch:noticeID> element has an OPTIONAL
-           "validatorID" attribute is the Validator Identifier
-           (Section 2.2) whose value indicates which Trademark Validator
-           is the source of the claims notice, with the default being
-           the ICANN TMCH.
+       <launch:noticeID>:  Unique notice identifier for the claims
+           notice.  The <launch:noticeID> element has an OPTIONAL
+           "validatorID" attribute that is used to define the Validator
+           Identifier (Section 2.2); it's value indicates which
+           Trademark Validator is the source of the claims notice, with
+           the default being the ICANN TMCH.
 
        <launch:notAfter>:  Expiry of the claims notice.
 
@@ -2140,7 +2140,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    type of object ("application" or "registration") to create.  The
    server SHOULD validate the "type" attribute, when passed, against the
    type of object that will be created, and return an EPP error result
-   code of 2306 if the type is incorrect.
+   code of 2306 [RFC5730] if the type is incorrect.
 
    A <launch:create> element is sent along with the regular <create>
    domain command.  The <launch:create> element contains the following
@@ -2194,7 +2194,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    example, the Sunrise Create Form (Section 3.3.1) and the Claims
    Create Form (Section 3.3.2) MAY be supported in a single command by
    including both the verified trademark information and the information
-   related to the registrant's acceptance of the Claims Notice.  The
+   related to the registrant's acceptance of the claims notice.  The
    server MAY support the Mixed Create Form.  The "custom" launch phase
    SHOULD be used when using the Mixed Create Form.
 
@@ -2362,10 +2362,10 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    command to be used in conjunction with the domain name mapping.
 
    When an EPP <update> command with the extension is sent to a server
-   that does not support launch applications, it will fail.  A server
-   that does not support launch applications during its launch phase
-   MUST return an EPP error result code of 2102 when receiving an EPP
-   <update> command with the extension.
+   that does not support Launch Applications, it will fail.  A server
+   that does not support Launch Applications during its launch phase
+   MUST return an EPP error result code of 2102 [RFC5730] when receiving
+   an EPP <update> command with the extension.
 
    Registry policies permitting, clients may update an application
    object by submitting an EPP <update> command along with a
@@ -2375,11 +2375,11 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    <launch:phase>:  The phase during which the application was submitted
        or is associated with.  The server SHOULD validate the value and
-       return an EPP error result code of 2306 if it is invalid.
+       return an EPP error result code of 2306 [RFC5730] if it is
+       invalid.
 
    <launch:applicationID>:  The application identifier for which the
        client wishes to update.
-
 
 
 
@@ -2457,8 +2457,8 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    command to be used in conjunction with the domain name mapping.
 
    A client MUST NOT pass the extension on an EPP <delete> command to a
-   server that does not support launch applications.  A server that does
-   not support launch applications during its launch phase MUST return
+   server that does not support Launch Applications.  A server that does
+   not support Launch Applications during its launch phase MUST return
 
 
 
@@ -2468,8 +2468,8 @@ Gould, et al.                Standards Track                   [Page 44]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
-   an EPP error result code of 2102 when receiving an EPP <delete>
-   command with the extension.
+   an EPP error result code of 2102 [RFC5730] when receiving an EPP
+   <delete> command with the extension.
 
    Registry policies permitting, clients MAY withdraw an application by
    submitting an EPP <delete> command along with a <launch:delete>
@@ -2478,7 +2478,8 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
    <launch:phase>:  The phase during which the application was submitted
        or is associated with.  The server SHOULD validate the value and
-       return an EPP error result code of 2306 if it is invalid.
+       return an EPP error result code of 2306 [RFC5730] if it is
+       invalid.
 
    <launch:applicationID>:  The application identifier for which the
        client wishes to delete.
@@ -2511,11 +2512,10 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    replies with a standard EPP response as defined in the EPP domain
    name mapping [RFC5731].
 
-3.6.  EPP <renew> Command
 
-   This extension does not define any extension to the EPP <renew>
-   command or response described in the EPP domain name mapping
-   [RFC5731].
+
+
+
 
 
 
@@ -2523,6 +2523,12 @@ Gould, et al.                Standards Track                   [Page 45]
 
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
+
+3.6.  EPP <renew> Command
+
+   This extension does not define any extension to the EPP <renew>
+   command or response described in the EPP domain name mapping
+   [RFC5731].
 
 3.7.  EPP <transfer> Command
 
@@ -2566,12 +2572,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
    LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
    A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
-   OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-   DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-
 
 
 
@@ -2580,6 +2580,11 @@ Gould, et al.                Standards Track                   [Page 46]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+   OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+   DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
@@ -2623,11 +2628,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
        type="launch:idContainerType"/>
      <element
        name="delete"
-       type="launch:idContainerType"/>
-
-     <!-- Common container of id (identifier) element -->
-     <complexType name="idContainerType">
-       <sequence>
 
 
 
@@ -2636,6 +2636,11 @@ Gould, et al.                Standards Track                   [Page 47]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+       type="launch:idContainerType"/>
+
+     <!-- Common container of id (identifier) element -->
+     <complexType name="idContainerType">
+       <sequence>
          <element
            name="phase"
            type="launch:phaseType"/>
@@ -2653,7 +2658,7 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
      <!-- Definition for launch phase. Name is an
           optional attribute used to extend the phase type.
           For example, when using the phase type value
-          of "custom", the name can be used to specify the
+          of "custom", the "name" can be used to specify the
           custom phase. -->
      <complexType name="phaseType">
        <simpleContent>
@@ -2679,11 +2684,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
      <!-- Definition for the sunrise code -->
      <simpleType name="codeValue">
-       <restriction base="token">
-         <minLength value="1"/>
-       </restriction>
-     </simpleType>
-
 
 
 
@@ -2691,6 +2691,11 @@ Gould, et al.                Standards Track                   [Page 48]
 
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
+
+       <restriction base="token">
+         <minLength value="1"/>
+       </restriction>
+     </simpleType>
 
      <complexType name="codeType">
        <simpleContent>
@@ -2735,11 +2740,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
          <enumeration value="validated"/>
          <enumeration value="invalid"/>
          <enumeration value="pendingAllocation"/>
-         <enumeration value="allocated"/>
-         <enumeration value="rejected"/>
-         <enumeration value="custom"/>
-       </restriction>
-     </simpleType>
 
 
 
@@ -2747,6 +2747,12 @@ Gould, et al.                Standards Track                   [Page 49]
 
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
+
+         <enumeration value="allocated"/>
+         <enumeration value="rejected"/>
+         <enumeration value="custom"/>
+       </restriction>
+     </simpleType>
 
      <!-- Status type definition -->
      <complexType name="statusType">
@@ -2790,12 +2796,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
          <choice minOccurs="0">
            <element
              name="codeMark"
-             type="launch:codeMarkType"
-             maxOccurs="unbounded"/>
-           <element
-             ref="smd:abstractSignedMark"
-             maxOccurs="unbounded"/>
-           <element
 
 
 
@@ -2804,6 +2804,12 @@ Gould, et al.                Standards Track                   [Page 50]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+             type="launch:codeMarkType"
+             maxOccurs="unbounded"/>
+           <element
+             ref="smd:abstractSignedMark"
+             maxOccurs="unbounded"/>
+           <element
              ref="smd:encodedSignedMark"
              maxOccurs="unbounded"/>
          </choice>
@@ -2846,12 +2852,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
      <!-- Child elements of check (Claims Check Command) -->
      <complexType name="checkType">
        <sequence>
-         <element
-           name="phase"
-           type="launch:phaseType"
-           minOccurs="0"/>
-       </sequence>
-       <attribute
 
 
 
@@ -2860,6 +2860,12 @@ Gould, et al.                Standards Track                   [Page 51]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+         <element
+           name="phase"
+           type="launch:phaseType"
+           minOccurs="0"/>
+       </sequence>
+       <attribute
          name="type"
          type="launch:checkFormType"
          default="claims"/>
@@ -2902,12 +2908,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
        type="launch:idContainerType"/>
      <element
        name="infData"
-       type="launch:infDataType"/>
-
-     <!-- <check> response elements -->
-     <complexType name="chkDataType">
-       <sequence>
-         <element
 
 
 
@@ -2916,6 +2916,12 @@ Gould, et al.                Standards Track                   [Page 52]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+       type="launch:infDataType"/>
+
+     <!-- <check> response elements -->
+     <complexType name="chkDataType">
+       <sequence>
+         <element
            name="phase"
            type="launch:phaseType"
            minOccurs="0"/>
@@ -2958,12 +2964,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
              type="launch:validatorIDType"
              use="optional"/>
          </extension>
-       </simpleContent>
-     </complexType>
-
-     <!-- <info> response elements -->
-     <complexType name="infDataType">
-       <sequence>
 
 
 
@@ -2972,6 +2972,12 @@ Gould, et al.                Standards Track                   [Page 53]
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
 
+       </simpleContent>
+     </complexType>
+
+     <!-- <info> response elements -->
+     <complexType name="infDataType">
+       <sequence>
          <element
            name="phase"
            type="launch:phaseType"/>
@@ -3014,12 +3020,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
 
       Registrant Contact: IESG
 
-      XML: See the "Formal Syntax" section of this document.
-
-
-
-
-
 
 
 
@@ -3027,6 +3027,8 @@ Gould, et al.                Standards Track                   [Page 54]
 
 RFC 8334              Launch Phase Mapping for EPP         February 2018
 
+
+      XML: See the "Formal Syntax" section of this document.
 
 5.2.  EPP Extension Registry
 
@@ -3071,8 +3073,6 @@ RFC 8334              Launch Phase Mapping for EPP         February 2018
    other than the sponsoring client, in which case the <domain:infData>
    and <launch:infData> responses SHOULD be filtered to include only
    fields that are publicly accessible.
-
-
 
 
 
